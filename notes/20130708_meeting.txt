@@ -1,0 +1,14 @@
+Original plan:
+- port demo application to tablet -> already partially working
+- extend demo application
+- partially ready for 'CWI in bedrijf' (November) and 'Open dag' (October)
+
+New plan: "Interaction Design for Partial Molecular Charge Assignment"
+- Unique use case
+- Domain analysis
+- Different viewpoints
+- Prototypes
+
+Planning:
+- Project plan: September (3 days / week)
+- Internship: October (3 days / week), Nov - Jan (5 days / week)
