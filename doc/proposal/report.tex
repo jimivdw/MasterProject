@@ -1,0 +1,113 @@
+\documentclass[twoside,a4paper]{uva-bachelor-thesis}
+% Add openright for final thesis
+
+% Define this when starting to use the template:
+\def\course{Masterproject Software Engineering}
+\def\course_short{Masterproject SE}
+\def\assignment{Thesis Proposal}
+\def\name{Interaction Design for Fragment-based Molecule Parameterisation}
+\def\auth{Jimi M. van der Woning}
+\def\duedate{\today}
+\def\org{CWI: Life Sciences and SWAT groups}
+\def\supervis{Mohammed El-Kebir, Gunnar W. Klau, Tijs van der Storm}
+% The document is now set correctly
+
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{url}
+\usepackage{listings}
+\usepackage{verbatim}
+\usepackage{lipsum}
+
+\usepackage{fancyhdr}
+\usepackage[colorlinks, linkcolor=black, urlcolor=black, citecolor=black]{hyperref}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15pt}
+
+% Chapter and page storage
+\def \CurrChapter {}
+\def \LastSection {}
+\def \CurrSection {}
+\newcounter{CurrPage}
+\setcounter{CurrPage}{0}
+
+\pagestyle{fancy} 
+\renewcommand{\markboth}[2]{\def \CurrChapter {#1}} % For use with \tableofcontents
+\renewcommand{\chaptermark}[1]{\def \CurrChapter {#1} \def \CurrSection {}}
+\renewcommand{\sectionmark}[1]{ %
+  \ifthenelse{ %
+    \equal{\thepage}{\value{CurrPage}} %
+  } %
+  {\def \CurrSection {: #1}} %
+  {\let \LastSection \CurrSection \def \CurrSection {: #1} \setcounter{CurrPage}{\value{page}}} %
+}
+
+% Headers and footers
+\renewcommand{\footrulewidth}{0.5pt}
+
+\fancyhf{}
+\fancyfoot[LE,RO]{\textit{\thepage}}
+\fancyfoot[RE,LO]{\textit{\auth}}
+\fancyhead[RE,LO]{\textit{\course_short: \assignment}}
+\fancyhead[LE,RO]{ %
+  \ifthenelse{ %
+    \equal{\thepage}{\value{CurrPage}} %
+  } %
+  {\textit{\nouppercase{\CurrChapter\LastSection}}} %
+  {\let \LastSection \CurrSection \textit{\nouppercase{\CurrChapter\LastSection}}} %
+}
+
+\fancypagestyle{plain}{ %
+\fancyhf{} %
+\fancyfoot[LE,RO]{\textit{\thepage}} %
+\fancyfoot[RE,LO]{\textit{\auth}} %
+\renewcommand{\headrulewidth}{0pt} % remove lines as well
+}
+
+\setlength{\parskip}{.5em}
+
+\title{\course}
+\subtitle{\assignment}
+\subsubtitle{\name}
+\author{Jimi M. van der Woning\\
+        Fibigerstraat 2$^{\textrm{\small{HS}}}$\\
+        1097 KA Amsterdam\\
+        The Netherlands\\
+        tel. +31 (0)6-34440999\\
+        \\
+        \url{Jimi.vanderWoning@student.uva.nl}\\
+        Student ID 6061400
+        }
+\organization{\org}
+\supervisors{\supervis}
+
+\begin{document}
+\maketitle
+
+% More vertical spacing in tables
+\renewcommand*\arraystretch{1.5}
+
+\setlength{\parskip}{0px}
+\tableofcontents
+\setlength{\parskip}{.5em}
+
+\include{summary}
+\include{problems}
+\include{methods}
+\include{expectations}
+\include{requirements}
+\include{risks}
+\include{literature}
+
+\bibliographystyle{abbrv}
+\bibliography{references}
+\chaptermark{Bibliography}
+
+\appendix
+
+%\include{something}
+
+\end{document}
