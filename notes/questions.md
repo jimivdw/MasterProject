@@ -1,10 +1,8 @@
 ## Questions:
-- What dataset to use?
-- How to find comparable sections?
-    - Looking for comparable charge groups?
-    - Looking for comparable sections in molecules to assist with charge groups?
-- Schematical or 3D?
-- How big will the molecules be?
-    - 10s of atoms?
-    - 100s of atoms?
+- What happens when the user is done?
+- How many related sections will be returned?
+- How will the related sections be returned?
+    - Ordered by decreasing match?
+    - Grouped per section of original molecule?
+    - Only the best match for each molecule?
 
