@@ -50,15 +50,13 @@
 	\end{textblock*}
 	\begin{textblock*}{12cm}(5cm,17cm)
 		\noindent
-		\sffamily\Large \@author\\[3pc]
+		\sffamily\Large \@author\\[5pc]
 		\@date
 	\end{textblock*}
-	\begin{textblock*}{12cm}(5cm,24.5cm)
+	\begin{textblock*}{12cm}(5cm,23.5cm)
 		\noindent\sffamily
-		\begin{description}
-		\item[\sffamily Organization:] \@organization
-		\item[\sffamily Supervisors:] \@supervisors
-		\end{description}
+		\sffamily{\large\textbf{Supervisors:}} \\
+		\@supervisors
 	\end{textblock*}
 	\textblockcolor{LightGray}
 	\begin{textblock*}{2cm}(2cm,0cm)
