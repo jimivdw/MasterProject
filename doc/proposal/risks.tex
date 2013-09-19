@@ -1,12 +1,18 @@
 \chapter{Risks}
+\chlab{risks}
 
-Give an assessment of the risks for this project and present counter measures. These may include:
-\begin{itemize}
-\item Project goals are too ambitious.
-\item Project goals are too vague.
-\item The information about the project is unavailable/incomplete/too difficult.
-\item The gap between your expertise and the required expertise is too large
-\item Etc., etc.
-\end{itemize}
+Just like every other research project, this project does not come without risks. In this chapter, the risks that come with this project will be discussed, along with possible counter measures.
 
-\lipsum[18]
+\begin{description}
+\item[Little knowledge about chemistry]~~\\
+It does not seem that thorough understanding of chemistry is really needed for this project. If, however, it turns out that at some point more in-depth chemistry knowledge is needed, the supervisors of this project can always help to solve the chemistry related problems.
+
+\item[Molecule section matching algorithm is still being developed]~~\\
+Besides repeatedly asking people to finish something, there is not much you can do to make sure something that others are developing will be done in time. A workaround for this problem would be to temporarily use a static set of related sections. This way, the application can almost be fully developed without being dependent on the work of others.
+
+\item[Existing tools may not be easily extendable]~~\\
+If the existing molecule drawing applications turn out to be unextendable, the visualization of the molecules will have to be implemented from scratch. Luckily, there are some open source graph drawing libraries for JavaScript, e.g. \verb|D3.js|~\cite{x}, \verb|Raphael.js|~\cite{x} and \verb|JavaScript Graph Library|~\cite{x}. These libraries reduce the complexity from having to implement a whole drawing system to restricting an existing drawing system such that it will correctly draw molecules. 
+
+\item[No real comparable tools exist]~~\\
+As there are no existing tools for fragment-based molecule parameterization, it is unknown what will be a good way of doing this. To mitigate this risk, frequent meetings with the project supervisers will be organised to ensure flaws are discovered in an early phase.
+\end{description}
