@@ -13,7 +13,7 @@
     \begin{tabular}{lll}
     Mohammed El-Kebir & Gunnar W. Klau & Tijs van der Storm \\
     CWI: Life Sciences & CWI: Life Sciences & CWI: SWAT \\
-    \url{M.El-Kebir@cwi.nl} & \url{Gunnar.Klau@cwi.nl} & \url{T.van.der.Storm@cwi.nl} \\
+    \url{M.El-Kebir@cwi.nl} & \url{G.W.Klau@cwi.nl} & \url{T.van.der.Storm@cwi.nl} \\
     Room M278 & Room M276 & Room L225
     \end{tabular}}
 % The document is now set correctly
@@ -32,6 +32,18 @@
 \usepackage[colorlinks, linkcolor=black, urlcolor=black, citecolor=black]{hyperref}
 \usepackage{fancyhdr}
 \setlength{\headheight}{15pt}
+
+% Nicer labels and references for chapters, sections and figures
+\newcommand{\archref}[2]{\hyperref[#2]{#1}}
+\newcommand{\chlab}[1]{\label{chapter:#1}}
+\newcommand{\chref}[1]{\archref{chapter \ref{chapter:#1}}{chapter:#1}}
+\newcommand{\Chref}[1]{\archref{Chapter \ref{chapter:#1}}{chapter:#1}}
+\newcommand{\seclab}[1]{\label{section:#1}}
+\newcommand{\secref}[1]{\archref{section \ref{section:#1}}{section:#1}}
+\newcommand{\Secref}[1]{\archref{Section \ref{section:#1}}{section:#1}}
+\newcommand{\figlab}[1]{\label{figure:#1}}
+\newcommand{\figref}[1]{\archref{figure \ref{figure:#1}}{figure:#1}}
+\newcommand{\Figref}[1]{\archref{Figure \ref{figure:#1}}{figure:#1}}
 
 % Chapter and page storage
 \def \CurrChapter {}
