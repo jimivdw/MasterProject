@@ -62,13 +62,24 @@ A more extensive list is provided by Blair-Early and Zender~\cite{blair2008user}
 \section{Molecule software}
 \seclab{software}
 
-Papers ~\cite{ertl2010molecular}, ~\cite{hanson2013jsmol}, ~\cite{bienfait2013jsme}, ~\cite{ekins2013tb}, ~\cite{fjeld2007tangible}, ~\cite{ertl2012molecule}
+There is a lot of available software for displaying, drawing and editing molecules. These programs form an indispensable part of every molecular processing system~\cite{ertl2010molecular}. Throughout the years, these programs have evolved from basic text files, through clickable image maps, to full-on molecular structure sketching software. In the last few years, a new trend becomes visible. More and more cheminformatics applications are being brought to the web, allowing for whole new ways of interaction. Furthermore, these new applications are being open sourced, allowing for new innovative variations or combinations of the old tools.
+
+An example of a previously offline, closed source tool is JSmol, previously known as just Jmol~\cite{hanson2013jsmol}. This tool has been seamlessly transformed from a Java applet to JavaScript, without any visual difference. Furthermore, performance wise, there is only a minor difference between the two implementations. Another example is JSME~\cite{bienfait2013jsme}. This tool has even been cross-compiled from its original Java code to JavaScript using the Google Web Toolkit compiler. This transformation has resulted in the addition of several features, suggested by users from the new, bigger audience. What can be concluded from these two cases is that bringing molecule software to the web opens up a world of new possibilities, without having to give up on performance.
+
+With the ongoing migration of molecule software to the web, new devices, such as smartphones and tablets, will be able to run the tools. As these devices promote different ways of user interaction and often have smaller screens, designs of the molecule software need to be reconsidered. TB Mobile is a mobile app for identification of potential anti-tuberculosis molecules~\cite{ekins2013tb}. The app is structured in such way that there is always a small control bar at the top, and a large area for showing the content. Interaction with the app is handled by a small number of large buttons, allowing for easy touch controls. In order to work for different screen sizes, everything in the content area is scalable, and, in case not everything fits on the screen, scrollable. Usage of the app in practice has shown that it helps to improve the work flow of tuberculosis researchers, by lowering the barriers for accessing the information it provides.
+
+The issue of showing a lot of data on a limited-size screen is also addressed by Ertl and Rohde~\cite{ertl2012molecule}. They took the concept of a word cloud, and transformed that to a molecule cloud, where the highest rated molecules are the biggest and the lowest are the smallest. None of the molecules overlap, and the sizes are divided such that the whole available screen space is filled. User studies have shown that these molecule clouds provide an easy way of finding the most relevant molecules. In this research project, this may be useful for showing the set of related sections of other molecules, depending on the size of that set.
 
 
 \section{Molecule data formats}
 \seclab{data_formats}
 
-Papers ~\cite{daylight1992daylight}, ~\cite{heller2013inchi}
+For importing, storing, and exchanging molecule structure data, various formats exist. One of these formats is SMILES, a very minimal line notation~\cite{daylight1992daylight}. Back in 1988, when SMILES was first introduced, it was quite common to store molecular structures as connection tables. These tables took a lot of storage space and were not easily exchangeable, so something new needed to be developed. The SMILES representation of a molecule is just a simple linguistic construct that uses a simple vocabulary for atom an bond symbols. It has remained popular since then, and is still used in many molecule editors today.
+
+
+
+
+Papers , ~\cite{heller2013inchi}
 
 
 
