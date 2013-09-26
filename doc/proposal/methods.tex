@@ -3,7 +3,7 @@
 
 The main question that this research project will try to answer is the following:
 \begin{quote}
-How can chemists interact with a tool for fragment-based molecule parameterisation, such that this yields results of comparable quality to conventional methods while being done faster?
+How can chemists interact with a tool for fragment-based molecule parameterisation, such that this yields results of comparable quality to conventional methods, while being done faster?
 \end{quote}
 The research project aims to answer this question by designing such tool and implementing a prototype of it. This prototype will be subjected to a number of user studies to evaluate its design and results.
 
@@ -11,17 +11,17 @@ The research project aims to answer this question by designing such tool and imp
 \section{The tool}
 \seclab{tool}
 
-The requirements of the molecule parameterisation tool have been specified in \chref{problems}. The decision has been made to implement it in HTML5 and JavaScript, which allows for great portability and availability across different operating systems and platforms. It also makes the tool future-proof, by following the current trend of bringing everything to the web.
+The requirements of the molecule parameterisation tool have been specified in \chref{problems}. The decision has been made to implement it in \verb|HTML5| and \verb|JavaScript|, which allows for great portability and availability across different operating systems and platforms. It also makes the tool future-proof, by following the current trend of bringing everything to the web.
 
-Not surprisingly, no tools exist for fragment-based molecule parameterisation, as this is a new concept. Furthermore, no tools exist for comparing molecules - or sections of them - either. What does exist is a wide range of tools and programs for showing and editing molecules. This includes stand-alone molecule drawing software such as \verb|Accelerys Draw|~\cite{accelrys2012accelrys} and \verb|Avogadro|~\cite{hanwell2012avogadro}, two-dimensional web-based molecule editors like \verb|ChemDoodle 2D Sketcher|~\cite{ichemlabs2013chemdoodle}, \verb|Molsoft HTML5 Molecule Editor|~\cite{molsoft2012molsoft} and \verb|Marvin for JavaScript|~\cite{chemxon2013marvin}, and online three-dimensional visualization tools \verb|JSMol|~\cite{hanson2013jsmol} and \verb|CanvasMol|~\cite{altered2013canvasmol}.
+Not surprisingly, there are no existing tools for fragment-based molecule parameterisation, as this is a new concept. Furthermore, no tools exist for comparing molecules - or sections of them - either. What does exist is a wide range of tools and programs for showing and editing molecules. This includes stand-alone molecule drawing software such as \verb|Accelerys Draw|~\cite{accelrys2012accelrys} and \verb|Avogadro|~\cite{hanwell2012avogadro}, two-dimensional web-based molecule editors like \verb|ChemDoodle 2D Sketcher|~\cite{ichemlabs2013chemdoodle}, \verb|Molsoft HTML5 Molecule Editor|~\cite{molsoft2012molsoft} and \verb|Marvin for JavaScript|~\cite{chemxon2013marvin}, and online three-dimensional visualisation tools \verb|JSMol|~\cite{hanson2013jsmol} and \verb|CanvasMol|~\cite{altered2013canvasmol}.
 
-These existing tools will serve as an initial guideline for the tool to be developed. Furthermore, parts of the implementations of the web-based editors may be reused. The rest of the tool, however, will need to be designed and developed from scratch. The design will follow the basic interaction design principles as posed by Norman and others~\cite{norman2002design, norman1990interfaces, norman2002emotion, norman2005human, norman2010gestural, thimbleby2007press, blair2008user, badre2002shaping}, and keep in mind the insights gained by the developers of other molecule software~\cite{ertl2010molecular, hanson2013jsmol, bienfait2013jsme, ekins2013tb}.
+These existing tools will serve as an initial guideline for the tool to be developed, and parts of their implementations may be reused. The rest of the tool, however, will need to be designed and developed from scratch. The design will follow the basic interaction design principles as posed by Norman and others~(see \secref{design}), and keep in mind the insights gained by the developers of other molecule software~(see \secref{software}).
 
 
 \section{Evaluation}
 \seclab{evaluation}
 
-To evaluate the project, the developed tool will be subjected to a number of user studies. In these studies, first of all, the time to complete certain tasks will be measured. Second, the performance of the test subject will be scored. A precise scoring algorithm is yet to be developed, but it will include a comparison of the charges a user assigns to an already parameterised molecule with the calculated values. Lastly, the users will be asked to answer a number of questions about the tool. This will help to determine whether they would really use the tool and how much they like it.
+To evaluate the project, the developed tool will be subjected to a number of user studies. In these studies, first of all, the time to complete certain tasks will be measured. Second, the performance of the test subject will be scored. A precise scoring algorithm is yet to be developed, but it will include an evaluation of the charges a user assigns to an already parameterised molecule. The lower the difference between the two, the higher the user's score will be. Lastly, the users will be asked to answer a number of questions about the tool. This will help to determine whether they would really use the tool and how much they like it.
 
 
 \section{Time line}
@@ -29,15 +29,15 @@ To evaluate the project, the developed tool will be subjected to a number of use
 
 There is a period of five months available for this project. These five months will be divided as follows:
 
-\begin{tabular}{l|l}
+\noindent
+\begin{tabular}{r|l}
 \textbf{Sep} & Project plan and literature study\\
-\textbf{Oct} & Application design and implementation\\
-\textbf{Nov} & Implementation\\
-\textbf{Dec} & Implementation and user studies\\
-\textbf{Jan} & User studies, final improvements and thesis
+\textbf{Oct-Dec} & Iteratively design, implement and validate the tool\\
+\textbf{Jan} & Thesis\\
+\textbf{Feb} & Thesis defence
 \end{tabular}
 
 \noindent
 Note that in September and October, the project will only be worked on three days per week. From November to January, the project will be worked on full time.
 
-There will be frequent progress meetings, to make sure flaws are discovered at an early stage and can be quickly solved. This takes away the need for a testing, fixing and improving phase at the end of the project.
+User studies with real potential application users will be held in the first half of December. This allows for an additional period in the implementation phase in which any flaws discovered by the user studies can be fixed. It also means there should be a working version of the tool by then. In the period of the implementation phase up to December, frequent progress meetings with the project supervisors will be organised, to make sure flaws are discovered at an early stage and can be quickly solved. This takes away the need for a testing, fixing and improving phase at the end of the project.
