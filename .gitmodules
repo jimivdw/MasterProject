@@ -1,0 +1,3 @@
+[submodule "OFraMP"]
+	path = OFraMP
+	url = git@github.com:jimivdw/OFraMP.git
