@@ -1,5 +1,8 @@
 doc/proposal/report.pdf
 
+# Harddisk caching files (or something like that)
+.fuse_hidden*
+
 # LaTeX tempfiles
 *.acn
 *.acr
