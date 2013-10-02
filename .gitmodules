@@ -1,3 +1,6 @@
 [submodule "OFraMP"]
 	path = OFraMP
 	url = git@github.com:jimivdw/OFraMP.git
+[submodule "OAPoC"]
+	path = OAPoC
+	url = git@github.com:jimivdw/OAPoC.git
