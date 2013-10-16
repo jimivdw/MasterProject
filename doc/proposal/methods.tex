@@ -5,10 +5,7 @@ The main question that this research project will try to answer is the following
 \begin{quote}
 How can chemists interact with a tool for fragment-based molecule parameterisation, such that this yields results of comparable quality to conventional methods, while being done faster?
 \end{quote}
-% TODO: elaborate on 'conventional methods', add reference to ch2
-Some other words than what's below...
-
-The research project aims to answer this question by designing such tool and implementing a prototype of it. This prototype will be subjected to a number of user studies to evaluate its design and results.
+In order to answer this question, such tool will be designed and a prototype of it will be implemented. User studies will be conducted to evaluate the tool's design and results. In those studies, the results obtained by using the tool will be compared to those obtained using conventional methods, i.e. complex quantum mechanical calculations~(see~\chref{problems}).
 
 
 \section{The tool}
@@ -27,10 +24,18 @@ Insert more concrete plan of approach w.r.t. interaction design here...
 \section{Evaluation}
 \seclab{evaluation}
 
-% TODO: expand A LOT
+% TODO: check on TODOs
 More on user studies subjects and where to find them, tasks they will perform, measures on that tasks, baseline... Also have the questionnaire part in a separate paragraph..
 
-To evaluate the project, the developed tool will be subjected to a number of user studies. In these studies, first of all, the time to complete certain tasks, e.g. completing the topology of a molecule, will be measured. Second, the performance of the test subject will be scored. A precise scoring algorithm is yet to be developed, but it will include an evaluation of the charges a user assigns to an already parameterised molecule. The lower the difference between the two, the higher the user's score will be. Lastly, the users will be asked to answer a number of questions about the tool. This will help to determine whether they would really use the tool and how much they like it.
+To evaluate the project, the developed tool will be subjected to a number of user studies. Currently, however, the presumed user base is limited to a small number of researchers. Furthermore, half of these researchers is located in Australia, which makes it infeasible to include them in user studies. Luckily, project supervisors Klau and El-Kebir keep a close connection with most other target researchers at VU University Amsterdam. They will presumably be willing to participate in the user studies and can hopefully help to find some other test subjects$^{[TODO!!!]}$.
+
+In the user studies, the test subjects will be asked to parameterise a few molecules of increasing size and complexity. The first one will be quite easy to parameterise, but the last one should be of such complexity that the conventional quantum mechanical calculations start struggling and really taking up time. It is in these last situations that the tool should show its true value.
+
+During the tasks, the time required to complete the parameterisation will be measured. There are no existing comparable tools, so the timing results cannot be compared to some baseline, but completing the parameterisation should definitely not require more than XX minutes$^{[TODO!!!]}$. Furthermore, users should never be annoyed or willing to stop parameterising.
+
+Besides time, the user will also be scored on his performance. In order to do this, the molecules that the user will be asked to parameterise should already have been parameterised using the conventional quantum mechanical method. This way, the parameterisation of the user and the calculations can be compared. The smaller the difference, the better the performance of the user will be scored. Of course, there will always be a small difference between the manual and automatic ways, as the manual assignment cannot be as precise as the automatic one is, but as long as the difference is small, the developed tool can be really useful to speed up atomic charge assignment.
+
+After completing their tasks, the users will be asked to answer a number of questions about the tool. These will mainly be about how they like the design and if they can see themselves using it, but will also ask them for suggestions on things that can be improved or added. This way, their experiences can be used to further improve the tool, and to make it a tool they really like using.
 
 
 \section{Time line}
