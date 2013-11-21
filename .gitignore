@@ -1,5 +1,8 @@
 doc/proposal/report.pdf
 
+# Regular tempfiles
+*~*
+
 # Harddisk caching files (or something like that)
 .fuse_hidden*
 

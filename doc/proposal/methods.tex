@@ -20,6 +20,56 @@ These existing tools will serve as an initial guideline for the tool to be devel
 % TODO: expand + add reference back to ID challenges in chapter 2
 Insert more concrete plan of approach w.r.t. interaction design here...
 
+There will be two different methods. 
+
+\subsection{Naive manual method}
+The naive, manual method consists of the following steps:
+\begin{enumerate}[itemsep=.1em, parsep=.2em, topsep=0em]
+\item The user enters a molecule data string (in SMILES, InChI, or other format);
+\item The user selects a single atom or a set of \emph{connected} atoms;
+\item The user clicks the "Find matches" button;
+\item A list of matching fragments will be shown, ordered such that the highest rated match comes first and the lowest last. The user can browse through them, preview the impact of selecting that match and, once he has found what he sees as the best match, select this match, after which the charges from that match will be applied to the molecule;
+\item
+\begin{itemize}[leftmargin=0cm, itemsep=.1em, parsep=.1em]
+\item[] {\bf Molecule fully parameterised}:\\Continue to step 6;
+\item[]{\bf Unparameterised atoms remain}:\\The user selects another atom / list of connected atoms. Back to step 3;
+\end{itemize}
+\item The user \emph{can} fine-tune the atom charges by selecting an atom and modifying the charge. In order to assist him in this process, the fragments that were matched to this atom \emph{and} have been selected will be shown;
+\item The user is done.
+\end{enumerate}
+
+\noindent
+In the matching process, it is possible that an already charged atom is present in another chosen fragment. In the case where these charges differ, the user will be asked to choose what should happen, which can be one of:
+\begin{enumerate}[itemsep=.1em, parsep=.2em, topsep=0em]
+\item Take the average of the two charges;
+\item Keep the current value;
+\item Take the new value;
+\item Manually input a value.
+\end{enumerate}
+
+\subsection{Smart semi-automatic method}
+The smart, semi-automatic method consists of the following steps:
+\begin{enumerate}[itemsep=.1em, parsep=.2em, topsep=0em]
+\item The user enters a molecule data string (in SMILES, InChI, or other format);
+\item The user clicks the "Find matches" button. One of the atoms will now be automatically selected and matching fragments will be retrieved;
+\item The highest rated match is previewed on the molecule. The user can either accept or reject this proposed match;
+\item
+\begin{itemize}[leftmargin=0cm, itemsep=.1em, parsep=.1em]
+\item[] {\bf Accepted}:\\Apply the charges of the fragment to the molecule. Continue to step 5;
+\item[]{\bf Rejected}:\\Remove this match from the list of matching fragments (the user \emph{can} go back to this one if he changes his mind). Back to step 3;
+\end{itemize}
+\item
+\begin{itemize}[leftmargin=0cm, itemsep=.1em, parsep=.1em]
+\item[] {\bf Molecule fully parameterised}:\\Continue to step 6;
+\item[]{\bf Unparameterised atoms remain}:\\Another unparameterised atom is automatically selected and similar fragments are retrieved. Back to step 3;
+\end{itemize}
+\item The user \emph{can} fine-tune the charges by selecting an atom and modifying the charge. In order to assist him in this process, suggestions will be given on what atoms to fine-tune and to what value they should be adjusted;
+\item The user is done.
+\end{enumerate}
+
+\noindent
+In the matching process, it is possible that an already charged atom is present in another chosen fragment. In the case where these charges differ, the atom's charge will be automatically calculated from the two charges. Experimentation has yet to show the best way to do this, but, presumably, taking the average of the two will be a good way of doing this.
+
 
 \section{Evaluation}
 \seclab{evaluation}
