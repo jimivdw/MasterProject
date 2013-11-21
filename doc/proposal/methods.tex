@@ -18,9 +18,10 @@ Not surprisingly, there are no existing tools for fragment-based molecule parame
 These existing tools will serve as an initial guideline for the tool to be developed, and parts of their implementations may be reused. The rest of the tool, however, will need to be designed and developed from scratch. The design will follow the basic interaction design principles as posed by Norman and others~(see \secref{design}), and keep in mind the insights gained by the developers of other molecule software~(see \secref{software}).
 
 % TODO: expand + add reference back to ID challenges in chapter 2
-Insert more concrete plan of approach w.r.t. interaction design here...
+% Insert more concrete plan of approach w.r.t. interaction design here...
 
-There will be two different methods. 
+As there is no existing software for fragment-based molecule parameterisation, there is also no baseline to which the developed tool can be compared. In order to still be able to say something about the quality of the tool, two different implementations of it will be made. There are a few axles along which this difference can be made. It could, for instance, be possible to compare the results obtained by two implementations that have a different way of visualising molecules. Visualising molecules, however, is a well-exhausted field of research, leaving very little room for new ideas.
+
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[t]{0.47\textwidth}
@@ -37,7 +38,10 @@ There will be two different methods.
 \figlab{semiauto_id}
 \end{subfigure}
 \caption{The two different interaction designs.}
+\figlab{id_flows}
 \end{figure}
+
+Another possible variable in the tool is the way its users will interact with it. The tool can require a lot of interaction, but also do many things automatically. In~\figref{id_flows}, the flowcharts are shown for a semi-automatic and a more manual way of interaction with the tool. The following sections will discuss these two interaction designs and their workings.
 
 \subsection{Naive manual method}
 The naive, manual method consists of the following steps:
@@ -102,6 +106,7 @@ Besides time, the user will also be scored on his performance. In order to do th
 After completing their tasks, the users will be asked to answer a number of questions about the tool. These will mainly be about how they like the design and if they can see themselves using it, but will also ask them for suggestions on things that can be improved or added. This way, their experiences can be used to further improve the tool, and to make it a tool they really like using.
 
 
+% TODO: reconsider
 \section{Time line}
 \seclab{timeline}
 
