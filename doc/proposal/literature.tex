@@ -62,7 +62,7 @@ A more extensive list is provided by Blair-Early and Zender~\cite{blair2008user}
 \section{Molecule software}
 \seclab{software}
 
-There is a lot of available software for displaying, drawing and editing molecules. These programs form an indispensable part of every molecular processing system~\cite{ertl2010molecular}. Throughout the years, these programs have evolved from basic text editors, through clickable image maps, to full-on molecular structure sketching software. In the last few years, a new trend becomes visible. More and more cheminformatics applications are being brought to the web, allowing for a lot of new ways of interaction. Furthermore, these new applications are being open sourced, allowing for new innovative variations or combinations of the old tools.
+There is a lot of software available for displaying, drawing and editing molecules. These programs form an indispensable part of every molecular processing system~\cite{ertl2010molecular}. Throughout the years, these programs have evolved from basic text editors, through clickable image maps, to full-on molecular structure sketching software. In the last few years, a new trend becomes visible. More and more cheminformatics applications are being brought to the web, allowing for a lot of new ways of interaction. Furthermore, these new applications are being open sourced, allowing for new innovative variations or combinations of the old tools.
 
 An example of a previously offline, closed source tool is \verb|JSmol|, previously known as just \verb|Jmol|~\cite{hanson2013jsmol}. This tool has been seamlessly transformed from a \verb|Java| applet to \verb|JavaScript|, without any visible visual difference. Furthermore, performance wise, there is only a minor difference between the two implementations. Another example is \verb|JSME|~\cite{bienfait2013jsme}. This tool has even been cross-compiled from its original \verb|Java| code to \verb|JavaScript| using the \verb|Google Web Toolkit| compiler. The transition to the web has resulted in the addition of several features, suggested by users from the new, bigger audience. What can be concluded from these two cases is that bringing molecule software to the web opens up a whole world of new possibilities, without having to give up on performance.
 
@@ -71,23 +71,27 @@ With the ongoing migration of molecule software to the web, new devices, such as
 The issue of showing a lot of data on a limited-size screen is also addressed by Ertl and Rohde~\cite{ertl2012molecule}. They took the concept of a word cloud, and transformed that to a molecule cloud, where the highest scored molecules are the biggest and the lowest are the smallest. None of the molecules overlap, and the sizes are divided such that the whole available screen space is filled. User studies have shown that these molecule clouds provide an easy way of finding the most relevant molecules. In the proposed research project, this may be useful for showing the set of related fragments of other molecules, depending on the size of that set.
 
 
+\section{User studies}
+\seclab{user_studies}
+
+In Software Engineering, an often used method to evaluate a project is performing a user study. In general, user studies can be assigned to one of the following categories: experiments, case studies, surveys, and post-mortem analyses~\cite{wohlin2003empirical}. In all of these types of studies, it is important to representative group of test subjects. These should preferably be picked at random from the population of application users.
+
+This project, first of all, will subject a number of users to an experiment. In an experiment, two (or more) different configurations of the examined tool are compared by examining the effects the configuration has on the tool's output~\cite{wohlin2003empirical}. It is important to define exactly what one wants to validate~\cite{stein2009assessing}. This should preferably be something that can easily be observed (e.g. time required or number of clicks, but not comprehensibility). Furthermore, it is important that all different configurations are semantically equivalent (i.e. doing the same thing), have an equal degree of compression (i.e. contain the same information) and formatted into their cleanest and clearest extent.
+
+Before starting an experiment, it is very important to make sure your subjects are committed to the tasks they need to perform. Otherwise, the experiment will not properly reflect the production environment. Furthermore, the experiment should be well-prepared, as start-up problems might negatively impact the subject's opinion otherwise.
+
+Besides the experiment, this project will also contain a survey. In a survey, it is easy to test a large number of variables, but one should be careful not to test too many, as this will make the analysis infeasible~\cite{wohlin2003empirical}. In order to collect questionnaire information in a structured way, its questions should follow some natural flow that embodies all aspects of a user's experience~\cite{tuch2013analyzing}. This encourages them to report their detailed experiences, as this is less demanding than answering one big open question. Furthermore, it also reduces the chances of subjects failing to report certain things, simply because they forgot about them.
+
+A few predefined surveys are available for usability testing, including the System Usability Scale~(SUS) and the Usability Metric for User Experience~(UMUX)~\cite{lewis2013umux}. The SUS consists of ten items, each of which should be graded on a scale of 1 (strongly disagree) to 7 (strongly agree). It has been extensively tested and turns out to have a reliability score of 0.96. UMUX is a shorter questionnaire, consisting of four questions, but its even shorter brother, UMUX-LITE, consisting of only two questions, has been shown to provide results of the same reliability as UMUX. When a system is subjected to both SUS and UMUX-LITE, one can get very reliable results on the usability of that system.
+
+On a final note about surveys, the fact that they are often straight-forward makes them perfectly suitable for being held over the internet. It has been shown that the results of online surveys do not significantly differ from their offline counterparts~\cite{komarov2013crowdsourcing}. However, face-to-face surveys are still the only way that allows both the interviewer and the test subject to immediately ask and answer questions~\cite{wohlin2003empirical}. Even if this does not lead to a significant difference in the outcome of the survey, it can definitely lead to new insights.
+
+Before analysing the data obtained by a user study, it is important to validate it~\cite{wohlin2003empirical}. All the obtained results should be complete and correctly documented. Furthermore, extreme outliers should be identified dealt with. What should happen exactly depends on the situation, but in most cases it is best to leave out the extreme results~\cite{komarov2013crowdsourcing}. Finally, it is very important to provide a grade of validity along with the conclusions of the user studies. This grade depends on, for instance, the number of test subjects, their representativeness or the distribution of the results.
+
+
 \section{Molecule data formats}
 \seclab{data_formats}
 
 For importing, storing, and exchanging molecule structure data, various formats exist. One of these formats is \verb|SMILES|, a very minimal line notation for molecule structure data~\cite{daylight1992daylight}. Back in 1988, when \verb|SMILES| was first introduced, it was quite common to store molecular structures as connection tables. These tables took a lot of storage space and were not easily exchangeable, so something new needed to be developed. The \verb|SMILES| representation of a molecule is just a simple linguistic construct that uses a simple vocabulary for atom an bond symbols. It has remained popular since then, and is still used in many molecule editors today.
 
 Nevertheless, attempts have been made to replace the \verb|SMILES| format, as it is a closed standard with only limited possibilities. In 2005, a new format called \verb|IUPAC InChI| was introduced~\cite{heller2013inchi}. \verb|InChI| is an open format that aims to combine chemical, biological and other related information in a single representation. Still being a linguistic representation like \verb|SMILES|, it is easily exchangeable and allows for simple machine processing. In the past few years, \verb|InChI| has become the international, worldwide standard for defined chemical structures. As \verb|SMILES| is also still widely used, the tool that will be developed in the proposed research project will support both the \verb|SMILES| and \verb|InChI| formats for entering molecules into the system.
-
-
-\section{User studies}
-\seclab{user_studies}
-
-Blah~\cite{stein2009assessing}\ldots
-
-Blah~\cite{lewis2013umux}\ldots
-
-Blah~\cite{komarov2013crowdsourcing}\ldots
-
-Blah~\cite{tuch2013analyzing}\ldots
-
-Blah~\cite{wohlin2003empirical}\ldots
