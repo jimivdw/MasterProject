@@ -43,8 +43,8 @@ As there is no existing software for fragment-based molecule parameterisation, t
 
 Another possible variable in the tool is the way its users will interact with it. The tool can require a lot of interaction, but also do many things automatically. In~\figref{id_flows}, the flowcharts are shown for a semi-automatic and a more manual way of interaction with the tool. The following sections will discuss these two interaction designs and their workings.
 
-\subsection{Naive manual method}
-The naive, manual method consists of the following steps:
+\subsection{Manual `naive' version}
+The naive, manual version consists of the following steps:
 \begin{enumerate}[itemsep=.1em, parsep=.2em, topsep=0em]
 \item The user enters a molecule data string (in SMILES, InChI, or other format);
 \item The user selects a single atom or a set of \emph{connected} atoms;
@@ -68,8 +68,8 @@ In the matching process, it is possible that an already charged atom is present 
 \item Manually input a value.
 \end{enumerate}
 
-\subsection{Smart semi-automatic method}
-The smart, semi-automatic method consists of the following steps:
+\subsection{Semi-automatic `smart' version}
+The smart, semi-automatic version consists of the following steps:
 \begin{enumerate}[itemsep=.1em, parsep=.2em, topsep=0em]
 \item The user enters a molecule data string (in SMILES, InChI, or other format);
 \item The user clicks the "Find matches" button. One of the atoms will now be automatically selected and matching fragments will be retrieved;
@@ -90,6 +90,12 @@ The smart, semi-automatic method consists of the following steps:
 
 \noindent
 In the matching process, it is possible that an already charged atom is present in another chosen fragment. In the case where these charges differ, the atom's charge will be automatically calculated from the two charges. Experimentation has yet to show the best way to do this, but, presumably, taking the average of the two will be a good way of doing this.
+
+
+\subsection{Pros and cons}
+Both of the previously discussed methods have their benefits and disadvantages. Because of the limited level of user interaction in the `smart' version, parameterising a molecule can presumably be done much faster than in the `naive'  version. It is however questionable how good the parameterisation will be, as the user is not really encouraged to explore many fragments. Even though he will always be presented the highest rated match first, this highest rated match will not always be the right one. If, however, the user does want to explore some other fragments, this might take more time than in the naive version, as only one fragment can be shown at a time.
+
+The naive version may take up more time than the smart version, but it does allow for a much higher level of control. The user can easily decide what atoms should be parameterised at which time and has a clear overview of the matching fragments. Furthermore, he can manually decide what should happen with overlapping fragments and can modify atom charges at any point in the process. If, however, the user lacks the experience of how to parameterise a molecule, or does not know what he is doing, he may not be able to make the right decisions, or even get lost in the large set of options. As the tool is aimed to be used by experienced scientists only, this should not be a problem, but experimentation will need to confirm that.
 
 
 \section{Evaluation}
