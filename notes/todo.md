@@ -1,16 +1,23 @@
 ## TODO list
 - Implementation:
   - Bugs:
-    - Best fit does not work properly with hidden H atoms;
-    - Settings thingy is not hidden, can be opened when dragging from the edge of the screen;
-    - Right click being recognized by onClick;
-    - Aromic cycles still not always correct (see Mohammed's example).
+    - Resizing / closing console does not draw bonds properly;
+    - It's just not working in IE <= 8, but also not properly in IE <= 10;
+    - Canvas drawing is extremely slow on Firefox.
   - Design:
     - Header;
     - Sidebars;
     - Molecule colors (maybe less extreme, e.g. #333 instead of #000).
+  - Implement:
+    - Configurable deoverlap limit;
+    - Touch events (?).
   - Other:
-    - MoleculeViewer should only contain interaction / UX stuff.
+    - Remove 'interactive' from settings;
+    - Hide certain settings;
+    - Let MoleculeViewer create its own canvas, rather than passing one;
+    - MoleculeViewer should only contain interaction / UX stuff;
+    - Do something else with settings (probably copy reference) to prevent things like this.list.molecule.mv.oframp.settings.popup.bg_colors['1'];
+    - Refactor getters / setters function names, and maybe some others as well.
 - Proposal:
   - Wait for approval.
 
