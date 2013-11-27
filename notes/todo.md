@@ -1,9 +1,7 @@
 ## TODO list
 - Implementation:
   - Bugs:
-    - Resizing / closing console does not draw bonds properly;
-    - It's just not working in IE <= 8, but also not properly in IE <= 10;
-    - Canvas drawing is extremely slow on Firefox.
+    - None? =)
   - Design:
     - Header;
     - Sidebars;
@@ -17,7 +15,8 @@
     - Let MoleculeViewer create its own canvas, rather than passing one;
     - MoleculeViewer should only contain interaction / UX stuff;
     - Do something else with settings (probably copy reference) to prevent things like this.list.molecule.mv.oframp.settings.popup.bg_colors['1'];
-    - Refactor getters / setters function names, and maybe some others as well.
+    - Refactor getters / setters function names, and maybe some others as well;
+    - Canvas drawing is slow on Firefox.
 - Proposal:
   - Wait for approval.
 
