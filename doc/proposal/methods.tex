@@ -3,7 +3,7 @@
 
 The main question that this research project will try to answer is the following:
 \begin{quote}
-How can chemists interact with a tool for fragment-based molecule parameterisation, such that this yields results of comparable quality to conventional methods, while being done faster?
+How can chemists best interact with a tool for fragment-based molecule parameterisation, such that this yields results of comparable quality to conventional methods, while being done faster?
 \end{quote}
 In order to answer this question, such tool will be designed and a prototype of it will be implemented. User studies will be conducted to evaluate the tool's design and results. In those studies, the results obtained by using the tool will be compared to those obtained using conventional methods, i.e. complex quantum mechanical calculations~(see~\chref{problems}).
 
@@ -23,23 +23,35 @@ These existing tools will serve as an initial guideline for the tool to be devel
 As there is no existing software for fragment-based molecule parameterisation, there is also no baseline to which the developed tool can be compared. In order to still be able to say something about the quality of the tool, two different implementations of it will be made. There are a few axles along which this difference can be made. It could, for instance, be possible to compare the results obtained by two implementations that have a different way of visualising molecules. Visualising molecules, however, is a well-exhausted field of research, leaving very little room for new ideas.
 
 \begin{figure}[h!]
-\centering
-\begin{subfigure}[t]{0.47\textwidth}
-\centering
-\includegraphics[width=100px]{img/manual_id.pdf}
-\caption{The manual `naive' version.}
-\figlab{manual_id}
-\end{subfigure}%
-\qquad
-\begin{subfigure}[t]{0.47\textwidth}
-\centering
-\includegraphics[width=120px]{img/semiauto_id.pdf}
-\caption{The semi-automatic `smart' version.}
-\figlab{semiauto_id}
-\end{subfigure}
+\begin{center}
+\includegraphics[width=.9\textwidth]{img/complete_id.pdf}
 \caption{The two different interaction designs.}
 \figlab{id_flows}
+\end{center}
 \end{figure}
+
+%\begin{figure}[h!]
+%\begin{subfigure}[t]{0.35\textwidth}
+%\centering
+%\includegraphics[width=100px]{img/partial_charges.pdf}
+%\caption{The manual `naive' version.}
+%\figlab{manual_id}
+%\end{subfigure}\\
+%\begin{subfigure}[t]{0.35\textwidth}
+%\centering
+%\includegraphics[width=123px]{img/manual_id.pdf}
+%\caption{The manual `naive' version.}
+%\figlab{manual_id}
+%\end{subfigure}
+%\begin{subfigure}[t]{0.65\textwidth}
+%\centering
+%\includegraphics[width=220px]{img/semiauto_id.pdf}
+%\caption{The semi-automatic `smart' version.}
+%\figlab{semiauto_id}
+%\end{subfigure}
+%\caption{The two different interaction designs.}
+%\figlab{id_flows}
+%\end{figure}
 
 Another possible variable in the tool is the way its users will interact with it. It is possible to design a tool that requires a lot of interaction, but also one that does many things automatically. In~\figref{id_flows}, the flowcharts are shown for a semi-automatic and a more manual way of interaction with the tool. The following sections will discuss these two interaction designs and their workings.
 
