@@ -23,10 +23,24 @@ An often occurring problem with interfaces is that they get in the way of the ta
 
 When doing interaction design, one has to keep in mind that the appearance of a tool can have a great impact on how well the user of that tool can carry out the tasks the tool is intended for~\cite{norman2002emotion}. Tools that look unattractive tend to focus the mind, which leads to better concentration. For tasks where something needs to be done quickly, this is good, but in cases where creative thinking is required, this will not provide a satisfying result. In that case, the thought processes should be broadened by having something that looks really good. This can easily get the user distracted, which allows for creative thinking.
 
-In an attempt to overcome the poor design of many software products, an approach called human-centred design (HCD) has been developed~\cite{norman2005human}. However, even though the needs of the user play a central role here, many companies following the HCD principles still develop complex and confusing products. The systems are often superb at the level of the static, individual display, but fail to support the sequential requirements of the underlying tasks and activities. Therefore, a new approach is needed that does not put the user in a central role, but rather does so with the activity that needs to be performed. In this activity-centred design method, it is sometimes necessary to ignore a user's requests as they might compromise the task that has to be carried out.
+Not only the appearance of software tools is important, also the form in which the information it comprises is presented can make a big difference. For certain types of data, it is highly beneficial to be represented in a visual form. This allows the viewers to perceive patterns and relationships that might be missed in tables and numbers~\cite{gallopoulos1994computer}. Providing users with the ability to modify view parameters at runtime can increase the benefits even further, as they then have the freedom to explore every aspect of the data. However, these options should not be initially visible, as they are not application specific. As discussed before, these options can cause the application user to get lost in the list of options, no longer being able to execute the task he wants to perform. Therefore, the options should be located in some initially closed menu.
+
+Despite the fact that the importance of design has been long known, many software products are still poorly designed. In an attempt to overcome this, an approach called human-centred design (HCD) has been developed~\cite{norman2005human}. However, even though the needs of the user play a central role here, many companies following the HCD principles still develop complex and confusing products. The systems are often superb at the level of the static, individual display, but fail to support the sequential requirements of the underlying tasks and activities. Therefore, a new approach is needed that does not put the user in a central role, but rather does so with the activity that needs to be performed. In this activity-centred design method, it is sometimes necessary to ignore a user's requests as they might compromise the task that has to be carried out.
 
 This, however, does not mean that the application user's needs should be completely ignored. On the contrary, it is really important that the user's characteristics are understood and used in the design of an application~\cite{badre2002shaping}. Also, a good analysis of the context is needed to make the right design decisions. If one ignores the user characteristics and context of an application, the application is  likely to fail, as the context in which the application is developed will almost always differ from the context in which it will be used.
 
+\subsection{Learning}
+% TODO
+Before we can determine what makes a good interaction design, we need to know something about how people learn new things and how our problem solving system works. There are two main learning mechanisms: schema acquisition, where knowledge of subject matter is organized in schemas that determine how new information is dealt with, and the transfer of learned procedures from controlled to automatic processing~\cite{sweller1994cognitive}. Well learned material can be processed automatically, without much effort, while new or less familiar information needs to be processed in a controlled fashion. This means that, when learning something new, one can only use that knowledge by devoting considerable cognitive effort to it. After getting more familiar with the task, the skill may become automatic. Only then can intellectual performance attain its full potential.
+
+In order to facilitate learning, the process of schema acquisition needs to be triggered and supported. Trying to teach by only providing examples will eventually even have the opposite effect. The learner will then be able to execute the task under the conditions that are equal to those in which he learned the skills, but will fail to do so in other cases. In order to overcome this, teaching should be done using goal-free problems. These problems focus on achieving various problem states and the steps on how to get there, which is exactly how schema acquisition works.
+
+How easy it is to learn something new is highly dependent on the level of interactivity between the different elements of a task. If there is no interaction between two elements, they can be learned in isolation, requiring less cognitive load then when they have to be learned simultaneously. However, making something easy to learn is not as simple as reducing the element interactivity, as it is dependent on the knowledge of the individual what constitutes an element. For the more experienced, this may be a whole chunk of the information, while for the rest an element may be an atomic part of the information. Luckily, it is only hard to learn something new when both the intrinsic and extraneous cognitive loads are high. When there is only one high load, the lack of the other compensates for this.
+
+~\cite{jonassen2000toward}
+
+\subsection[Principles]{Interaction design principles}
+% TODO: connect to other subsections
 Following the previously discussed and other research, a number of principles of interaction design can be identified. However, different authors have different opinions on what those principles are. Norman and Nielsen identify the following principles of interaction design that are completely independent of technology~\cite{norman2010gestural}:
 \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
 \item Visibility (also called perceived affordances or signifiers);
@@ -58,16 +72,17 @@ A more extensive list is provided by Blair-Early and Zender~\cite{blair2008user}
 \item Interface is content: design interface elements that minimise interface and maximise content.
 \end{itemize}
 
-
+\subsection{Automation}
 % TODO
-Blahblahblah~\cite{brehmer2013multi}
+Blah blah
+~\cite{horvitz1999principles}
+~\cite{marcus1987taking}
 ~\cite{payne2000varying}
 ~\cite{norman1990problem}
-~\cite{sweller1994cognitive}
-~\cite{gallopoulos1994computer}
-~\cite{marcus1987taking}
-~\cite{horvitz1999principles}
-~\cite{jonassen2000toward}
+
+\subsection{Abstraction}
+% TODO
+Blahblahblah~\cite{brehmer2013multi}
 
 
 \section{Molecule software}
