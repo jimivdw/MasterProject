@@ -11,14 +11,12 @@ In order to answer this question, such tool will be designed and a prototype of 
 \section{The tool}
 \seclab{tool}
 
+% TODO: why web?!
 The requirements of the molecule parameterisation tool have been specified in \chref{problems}. It has been decided to implement the tool in \verb|HTML5| and \verb|JavaScript|, which allows for great portability and availability across different operating systems and platforms. It also makes the tool future-proof, by following the current trend of bringing everything to the web.
 
 Not surprisingly, there are no existing tools for fragment-based molecule parameterisation, as this is a new concept. Furthermore, no tools exist for comparing molecules - or fragments of them - either. What does exist is a wide range of tools and programs for showing and editing molecules. This includes stand-alone molecule drawing software such as \verb|Accelerys Draw|~\cite{accelrys2012accelrys} and \verb|Avogadro|~\cite{hanwell2012avogadro}, two-dimensional web-based molecule editors like \verb|ChemDoodle 2D Sketcher|~\cite{ichemlabs2013chemdoodle}, \verb|Molsoft HTML5 Molecule Editor|~\cite{molsoft2012molsoft} and \verb|Marvin for JavaScript|~\cite{chemxon2013marvin}, and online three-dimensional visualisation tools \verb|JSMol|~\cite{hanson2013jsmol} and \verb|CanvasMol|~\cite{altered2013canvasmol}.
 
-These existing tools will serve as an initial guideline for the tool to be developed, and parts of their implementations may be reused. The rest of the tool, however, will need to be designed and developed from scratch. The design will follow the basic interaction design principles as posed by Norman and others~(see \secref{design}), and keep in mind the insights gained by the developers of other molecule software~(see \secref{software}).
-
-% TODO: expand + add reference back to ID challenges in chapter 2
-% Insert more concrete plan of approach w.r.t. interaction design here...
+These existing tools will serve as an initial guideline for the tool to be developed, and parts of their implementations may be reused. The rest of the tool, however, will need to be designed and developed from scratch. The design will follow the basic interaction design principles as posed by Norman and others~(see \secref{id_principles}), the knowledge about learing~(see \secref{id_learning}), and keep in mind the insights gained by the developers of other molecule software~(see \secref{software}).
 
 As there is no existing software for fragment-based molecule parameterisation, there is also no baseline to which the developed tool can be compared. In order to still be able to say something about the quality of the tool, two different implementations of it will be made. There are a few axles along which this difference can be made. It could, for instance, be possible to compare the results obtained by two implementations that have a different way of visualising molecules. Visualising molecules, however, is a well-exhausted field of research, leaving very little room for new ideas.
 
@@ -53,12 +51,16 @@ As there is no existing software for fragment-based molecule parameterisation, t
 %\figlab{id_flows}
 %\end{figure}
 
-Another possible variable in the tool is the way its users will interact with it. It is possible to design a tool that requires a lot of interaction, but also one that does many things automatically. In~\figref{id_flows}, the flowcharts are shown for a semi-automatic and a more manual way of interaction with the tool. The following sections will discuss these two interaction designs and their workings.
+Another possible variable in the tool is the way its users will interact with it and especially its degree of automation. Varying this degree has been the subject of several studies~(e.g.~\cite{payne2000varying, horvitz1999principles, marcus1987taking, norman1990problem}, see also \secref{id_automation}), all of which concluded the degree to which automation can be applied is highly dependent on the context of the system and sometimes even to the situation in which the system is used.
+
+When implementing multiple versions of a tool with different levels of interaction, it is often decided to make three versions: a `naive' version without much automation, a `cooperative' version in which the user is given advise, and an `autonomous' version that only requires some parameterisation~(see~\cite{payne2000varying} and \secref{id_automation}). As it is considered hard to parameterise a molecule based on fragments of other molecules and little is known on what is the best way of doing this, an autonomous version of a tool that does this cannot yet be developed. The other two versions, however, seem to be perfectly implementable and both can be considered useful.
+
+\Figref{id_flows} shows a naive and a cooperative interaction design for the tool that will be developed. Here, the cooperative design has been called the `smart' version to accentuate its differences with the naive version. The following sections will discuss these two interaction designs, the motivation behind them, their workings, and the hypotheses about them.
 
 \subsection{Manual `naive' version}
 In the naive version of the tool, the following steps should be followed to fully parameterise a molecule:
 \begin{enumerate}[itemsep=.1em, parsep=.2em, topsep=0em]
-\item The user enters a molecule data string (in SMILES, InChI, or other format);
+\item The user enters a molecule data string (in \verb|SMILES|, \verb|InChI|, or other format);
 \item The user selects a single atom or a set of \emph{connected} atoms;
 \item The user clicks the ``Find matches'' button;
 \item A list of matching fragments will be shown, ordered such that the highest rated match comes first and the lowest last. The user can browse through them, preview the result of selecting that match and, once he has found what he sees as the best match, select this match. Hereafter, the charges from that match will be assigned to the molecule;
