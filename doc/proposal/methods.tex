@@ -58,10 +58,13 @@ When implementing multiple versions of a tool with different levels of interacti
 \Figref{id_flows} shows a naive and a cooperative interaction design for the tool that will be developed. Here, the cooperative design has been called the `smart' version to accentuate its differences with the naive version. The following sections will discuss these two interaction designs, the motivation behind them, their workings, and the hypotheses about them.
 
 \subsection{Manual `naive' version}
-In the naive version of the tool, the following steps should be followed to fully parameterise a molecule:
+Just like the naive RPA implementation from~\cite{payne2000varying}, the naive version of the molecule parameterisation tool will only automatically perform user input validation. Besides ordering the matching fragments based on their probability of being a good match, the tool will not give any advise, nor will it automatically infer any values.
+
+\subsubsection{Workings}
+The complete set op steps required to fully parameterise a molecule is as follows:
 \begin{enumerate}[itemsep=.1em, parsep=.2em, topsep=0em]
-\item The user enters a molecule data string (in \verb|SMILES|, \verb|InChI|, or other format);
-\item The user selects a single atom or a set of \emph{connected} atoms;
+\item The user enters a molecule data string (in \verb|SMILES|, \verb|InChI|, or other format). The molecule will be displayed to the user;
+\item The user selects a single atom or a group of \emph{connected} atoms;
 \item The user clicks the ``Find matches'' button;
 \item A list of matching fragments will be shown, ordered such that the highest rated match comes first and the lowest last. The user can browse through them, preview the result of selecting that match and, once he has found what he sees as the best match, select this match. Hereafter, the charges from that match will be assigned to the molecule;
 \item
@@ -74,7 +77,7 @@ In the naive version of the tool, the following steps should be followed to full
 \end{enumerate}
 
 \noindent
-In the matching process, it is possible that an already charged atom is present in another chosen fragment. In the case where these charges differ, the user will be asked to choose what should happen, which can be one of:
+In the matching process, it is possible that an already charged atom is present in another chosen fragment. In the case where these charges differ, the user will be asked to decide what should happen, which can be one of:
 \begin{enumerate}[itemsep=.1em, parsep=.2em, topsep=0em]
 \item Take the average of the two charges;
 \item Keep the current value;
@@ -82,10 +85,21 @@ In the matching process, it is possible that an already charged atom is present 
 \item Manually enter a value.
 \end{enumerate}
 
+\subsubsection{Motivation}
+As pointed out earlier, it is important to have a non-automatic baseline to see if automation can work for a certain tool. In this project, the naive version will serve as that baseline. However, it is more than just a baseline; it could also quite possibly work better than any automated version.
+
+First, this might be the result of the higher number of ways of interaction that is provided in the naive version. This allows the user to fully control what is happening and when. He can manually decide what atoms need to be parameterised and has a clear overview of all matching fragments. Furthermore, he can manually decide what should happen with overlapping fragments and can modify atom charges at any point in the process.
+
+Another reason why this naive version might work better than an automated one is the fact that this one encourages exploring different options. By providing a list of fragments, rather than proposing a single one, the fragments can easily be compared such that the chances for the best match being selected increase. Furthermore, as the user is free to determine what atoms should be parameterised at which point in time and also to select groups of atoms, he can experiment with the selection size and order, which may lead to better results.
+
+
 \subsection{Semi-automatic `smart' version}
+\lipsum[5]
+
+\subsubsection{Workings}
 Using the semi-automatic version of the tool, the user should follow the following steps on order to fully parameterise a molecule:
 \begin{enumerate}[itemsep=.1em, parsep=.2em, topsep=0em]
-\item The user enters a molecule data string (in SMILES, InChI, or other format);
+\item The user enters a molecule data string (in SMILES, InChI, or other format). The molecule will be displayed to the user;
 \item The user clicks the ``Find matches'' button. One of the atoms will now be automatically selected and matching fragments will be retrieved;
 \item The highest rated match is previewed on the molecule. The user can either accept or reject this proposed match;
 \item
@@ -104,6 +118,9 @@ Using the semi-automatic version of the tool, the user should follow the followi
 
 \noindent
 In the matching process, it is possible that an already charged atom is present in another chosen fragment. In the case where these charges differ, the atom's charge will be automatically calculated from the two charges. Experimentation has yet to show the best way to do this, but, presumably, taking the average of the two will be a good solution.
+
+\subsubsection{Motivation}
+\lipsum[2]
 
 
 \subsection{Pros and cons}
