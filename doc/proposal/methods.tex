@@ -128,7 +128,7 @@ One of the most important reasons for developing a tool for fragment-based molec
 
 By automating certain parts of the parameterisation process, the tool should also be easier to use. One basically only needs to say `yes' or `no' a few times and will therefore be easy to learn. This increases the potential for new people to start using the tool, thereby enhancing its value. Furthermore, it makes sure users do not get lost in a long list of features. Otherwise, users might make the wrong decisions or even stop parameterising completely~\cite{norman2002design}~(see also \secref{design}).
 
-In order to mediate the often occurring problems with automation, the fine-tuning step at the end has been added, based on a study by Norman~\cite{norman1990problem}. As there will always be errors in the automatic charge corrections, this provides the user with a way to identify and improve incorrectly assigned atom charges. The warnings that some atoms may be charged incorrectly will be non-intrusive, and the user will be able to see how every charge came to be in order to determine how to improve it.
+In order to mediate the often occurring problems with automation, the fine-tuning step at the end has been added, based on studies by Norman~\cite{norman1990problem} and Horvitz~\cite{horvitz1999principles}. As there will always be errors in the automatic charge corrections, this provides the user with a way to identify and improve incorrectly assigned atom charges. The warnings that some atoms may be charged incorrectly will be non-intrusive, and the user will be able to see how every charge came to be in order to determine how to improve it.
 
 
 \vspace{-.2cm}
@@ -151,13 +151,22 @@ What is also clear in the typologies is the difference in the number of differen
 
 According to Jonassen's dichotomy of problems~\cite{jonassen2000toward}~(see also \secref{id_learning}), fragment-based molecule parameterisation is an ill-structured problem. This means that the problem is quite complex and is therefore hard to solve. Due to this, users need to be ensured that there is a way to find a solution, otherwise they will just give up. This is better facilitated by the smart version than the naive version of the tool, as one can fully parameterise a molecule just by clicking `yes' a number of times in that version. The solution will probably not be too good, but it is definitely a solution and users will continuously see there is a way to get there. This is something that is less clear in the naive version of the tool, where more user action is needed to get to the solution.
 
-Blah blah these differences, blah blah one is better, blah blah because I say so\ldots
+When the previously discussed differences are combined with the motivations behind the two interaction designs, one can conclude that the smart version has great benefits in time consumption and user guidance, where the naive version excels in user freedom. In the earlier mentioned study of Payne, Sycara, and Lewis~\cite{payne2000varying}, this was the same. They concluded that many users found that using the naive version was a tedious process, hence the following hypothesis for this research project:
+\begin{quote}
+The `smart' interaction design is the best design for fragment-based molecule parameterisation.
+\end{quote}
+
+The second, for this project essential hypothesis, is as follows:
+\begin{quote}
+It is possible to parameterise a molecule based on fragments of other molecules in a reasonable amount of time.
+\end{quote}
+This hypothesis should hold for both implementations of the tool, as both have been designed to converge to a solution and to provide their information to its clearest and cleanest extent.
 
 
 \section{Evaluation}
 \seclab{evaluation}
 
-To evaluate the project, both versions of the developed tool will be subjected to a number of user studies. Currently, however, the presumed user base is limited to only a small number of researchers. Luckily, project supervisors Klau and El-Kebir keep a close connection with most of those researchers, who work at VU University Amsterdam. They have shown some interest in the tool and are willing to participate in the user studies. Furthermore, as some of the researchers are also teaching, they can ask some of their students to evaluate the tool as well. This way, it is still possible to find enough test subjects, despite the fact that, initially, there are only a few targeted users.
+To evaluate this project's hypotheses~(see \secref{hypotheses}), both versions of the developed tool will be subjected to a number of user studies. Currently, however, the presumed user base is limited to only a small number of researchers. Luckily, project supervisors Klau and El-Kebir keep a close connection with most of those researchers, who work at VU University Amsterdam. They have shown some interest in the tool and are willing to participate in the user studies. Furthermore, as some of the researchers are also teaching, they can ask some of their students to evaluate the tool as well. This way, it is still possible to find enough test subjects, despite the fact that, initially, there are only a few targeted users.
 
 In the user studies, the test subjects will be split up in two groups, where each subject is randomly assigned to a group and both groups are of equal size. One group will evaluate the naive version of the tool, the other will do the same for the smart version. Each group member will be asked to parameterise a few molecules of increasing size and complexity. The first one will be quite easy to complete, but the last one should be of such complexity that, theoretically, using the tool is beneficial over using conventional quantum mechanical calculations. It is in these last situations that the tool should show its true value.
 
