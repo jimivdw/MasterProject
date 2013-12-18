@@ -1,22 +1,17 @@
 ## TODO list
 - Implementation:
   - Bugs:
-    - None? =)
+    - Find 'em..
   - Design:
     - Header;
-    - Sidebars;
-    - Molecule colors (maybe less extreme, e.g. #333 instead of #000).
+    - Sidebars.
   - Implement:
-    - Configurable deoverlap limit;
     - Touch events (?).
   - Other:
-    - Remove 'interactive' from settings;
-    - Hide certain settings;
-    - Let MoleculeViewer create its own canvas, rather than passing one;
     - MoleculeViewer should only contain interaction / UX stuff;
-    - Do something else with settings (probably copy reference) to prevent things like this.list.molecule.mv.oframp.settings.popup.bg_colors['1'];
     - Refactor getters / setters function names, and maybe some others as well;
     - Canvas drawing is slow on Firefox.
 - Proposal:
-  - Wait for approval.
-
+  - Done! =)
+- Thesis:
+  - Haha, right...
