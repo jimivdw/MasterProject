@@ -8,8 +8,6 @@
   - Implement:
     - Touch events (?).
   - Other:
-    - MoleculeViewer should only contain interaction / UX stuff;
-    - Refactor getters / setters function names, and maybe some others as well;
     - Canvas drawing is slow on Firefox.
 - Proposal:
   - Done! =)
