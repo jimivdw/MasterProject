@@ -4,3 +4,6 @@
 [submodule "OAPoC"]
 	path = OAPoC
 	url = git@github.com:jimivdw/OAPoC.git
+[submodule "OMFraF"]
+	path = OMFraF
+	url = git@github.com:jimivdw/OMFraF.git
