@@ -1,15 +1,25 @@
 ## TODO list
 - Implementation:
   - Bugs:
-    - Find 'em..
-  - Design:
-    - Header;
-    - Sidebars.
+    - To be found..
   - Implement:
-    - Touch events (?).
-  - Other:
-    - Canvas drawing is slow on Firefox.
-- Proposal:
-  - Done! =)
+    - Get rid of atom label colours;
+    - Add indication for parameterised atoms;
+    - Show used fragments for multiple-atom selection atoms;
+    - Cancel button for found fragments;
+    - Tutorial/demo mode;
+    - The end;
+    - Update logging branch;
+    - Delete old fragments or something;
+    - Block IE <= 6, FF <= 4;
+    - Warn users of IE, relatively old FF / Chrome / Safari and any other browser.
+  - Test:
+    - Firefox;
+    - Safari;
+    - Behavior of OAPoC and OMFraF upon simultaneous requests;
+    - Tablet (?).
+- User studies:
+  - Make a TODO list ;-)
 - Thesis:
   - Haha, right...
+
