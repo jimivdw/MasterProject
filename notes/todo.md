@@ -1,13 +1,16 @@
 ## TODO list
 - Implementation:
   - Bugs:
-    - To be found..
+    - Some..
   - Implement:
-    - Show used fragments for multiple-atom selection atoms;
-    - Tutorial/demo mode;
-    - The end;
-    - Update logging branch;
-    - Delete old fragments or something;
+    - Help;
+    - Tutorial/demo mode for smart version;
+    - The beginning;
+    - Update logging branch:
+      - Include browser name & version;
+      - Include new buttons;
+      - Include focus loss (if possible);
+      - Check old buttons.
     - Block IE <= 6, FF <= 4;
     - Warn users of IE, relatively old FF / Chrome / Safari and any other browser.
   - Test:
