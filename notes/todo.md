@@ -4,7 +4,6 @@
     - Some..
   - Implement:
     - Help;
-    - Tutorial/demo mode for smart version;
     - The beginning;
     - Update logging branch:
       - Include browser name & version;
