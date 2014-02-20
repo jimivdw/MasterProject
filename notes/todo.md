@@ -1,21 +1,22 @@
 ## TODO list
 - Implementation:
   - Bugs:
-    - Some..
+    - OMFraF missing not generated for 16978;
+    - OMFraF persistent storage ignores shell size;
+    - IACM 'undefined' in selection details;
+    - Found fragments does not always close upon apply charges (something with onMouseClick);
+    - SelectionChange -> disconnected should hide related fragments;
+    - Selecting not disabled in 'Make larger selection' demo step;
+    - Used fragments can be bigger;
+    - Ordering of overlapping fragments.
   - Implement:
-    - Help;
-    - The beginning;
-    - Update logging branch:
-      - Include browser name & version;
-      - Include new buttons;
-      - Include focus loss (if possible);
-      - Check old buttons.
-    - Block IE <= 6, FF <= 4;
-    - Warn users of IE, relatively old FF / Chrome / Safari and any other browser.
+    - Update mop at OFraMP/update/;
+    - Repo selection;
+    - Try visualizing shell;
+    - Close found fragments on selection change;
+    - Move 'Find fragments' button to selection details;
+    - Help.
   - Test:
-    - Firefox;
-    - Safari;
-    - Behavior of OAPoC and OMFraF upon simultaneous requests;
     - Tablet (?).
 - User studies:
   - Make a TODO list ;-)
