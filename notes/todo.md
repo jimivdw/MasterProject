@@ -1,23 +1,15 @@
 ## TODO list
 - Implementation:
   - Bugs:
-    - OMFraF missing not generated for 16978;
-    - OMFraF persistent storage ignores shell size;
-    - IACM 'undefined' in selection details;
-    - Found fragments does not always close upon apply charges (something with onMouseClick);
-    - SelectionChange -> disconnected should hide related fragments;
     - Selecting not disabled in 'Make larger selection' demo step;
-    - Used fragments can be bigger;
-    - Ordering of overlapping fragments.
+    ? IACM 'undefined' in selection details;
+    ? Found fragments does not always close upon apply charges (something with onMouseClick).
   - Implement:
-    - Update mop at OFraMP/update/;
-    - Repo selection;
-    - Try visualizing shell;
-    - Close found fragments on selection change;
     - Move 'Find fragments' button to selection details;
     - Help.
   - Test:
-    - Tablet (?).
+    - Update mop at OFraMP/update/;
+    ? Tablet.
 - User studies:
   - Make a TODO list ;-)
 - Thesis:
