@@ -1,14 +1,16 @@
 ## TODO list
 - Implementation:
   - Bugs:
-    - Selecting not disabled in 'Make larger selection' demo step;
-    ? IACM 'undefined' in selection details;
-    ? Found fragments does not always close upon apply charges (something with onMouseClick).
+    - Still weird ordering of overlapping fragments;
+    - FFB is hidden too early;
   - Implement:
-    - Move 'Find fragments' button to selection details;
-    - Help.
+    - Shell atoms colour should be not pink;
+    - Maybe not conflict if charges are equal;
+    ? Configurable shell size in UI;
+    - Help;
+    - User studies results store.
   - Test:
-    - Update mop at OFraMP/update/;
+    - Update mop at OMFraF/update_mop/;
     ? Tablet.
 - User studies:
   - Make a TODO list ;-)
