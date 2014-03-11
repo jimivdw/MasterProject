@@ -1,0 +1,163 @@
+\documentclass[twoside,openright,a4paper]{uva-bachelor-thesis}
+
+% Define this when starting to use the template:
+\def\course{Interaction Design for Fragment-Based Molecule Parameterisation}
+\def\courseshort{ID for Molecule Parameterisation}
+\def\assignment{}
+\def\name{}
+\def\auth{Jimi M. van der Woning}
+\def\duedate{\today}
+%\def\org{CWI: Life Sciences and SWAT groups}
+\def\supervis{
+    \begin{tabular}{p{.3\textwidth}p{.3\textwidth}p{.4\textwidth}}
+    Mohammed El-Kebir & Gunnar W. Klau & Tijs van der Storm \\
+    CWI: Life Sciences & CWI: Life Sciences & CWI: SWAT \\
+    \url{M.El-Kebir@cwi.nl} & \url{G.W.Klau@cwi.nl} & \url{T.van.der.Storm@cwi.nl} \\
+    Room M278 & Room M276 & Room L225
+    \end{tabular}}
+% The document is now set correctly
+
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{url}
+\usepackage{listings}
+\usepackage{verbatim}
+\usepackage{lipsum}
+\usepackage{enumitem}
+\usepackage{rotating}
+
+% Beramono for code highlighting? If needed...
+
+\usepackage{fancyhdr}
+\usepackage[colorlinks, linkcolor=black, urlcolor=black, citecolor=black]{hyperref}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15pt}
+
+% Improve the lipsum package by automatically showing the next lipsum
+\newcounter{LipsumCounter}
+\setcounter{LipsumCounter}{1}
+\newcommand{\nlipsum}{\lipsum[\value{LipsumCounter}] \addtocounter{LipsumCounter}{1}}
+
+% Nicer labels and references for chapters, sections and figures
+\newcommand{\archref}[2]{\hyperref[#2]{#1}}
+\newcommand{\chlab}[1]{\label{chapter:#1}}
+\newcommand{\chref}[1]{\archref{chapter~\ref{chapter:#1}}{chapter:#1}}
+\newcommand{\Chref}[1]{\archref{Chapter~\ref{chapter:#1}}{chapter:#1}}
+\newcommand{\seclab}[1]{\label{section:#1}}
+\newcommand{\secref}[1]{\archref{section~\ref{section:#1}}{section:#1}}
+\newcommand{\Secref}[1]{\archref{Section~\ref{section:#1}}{section:#1}}
+\newcommand{\figlab}[1]{\label{figure:#1}}
+\newcommand{\figref}[1]{\archref{figure~\ref{figure:#1}}{figure:#1}}
+\newcommand{\Figref}[1]{\archref{Figure~\ref{figure:#1}}{figure:#1}}
+
+% Chapter and page storage
+\def \CurrChapter {}
+\def \LastSection {}
+\def \CurrSection {}
+\newcounter{CurrPage}
+\setcounter{CurrPage}{0}
+
+\pagestyle{fancy} 
+\renewcommand{\markboth}[2]{\def \CurrChapter {#1}} % For use with \tableofcontents
+\renewcommand{\chaptermark}[1]{\def \CurrChapter {#1} \def \CurrSection {}}
+\renewcommand{\sectionmark}[1]{ %
+  \ifthenelse{ %
+    \equal{\thepage}{\value{CurrPage}} %
+  } %
+  {\def \CurrSection {: #1}} %
+  {\let \LastSection \CurrSection \def \CurrSection {: #1} \setcounter{CurrPage}{\value{page}}} %
+}
+
+% Headers and footers
+\renewcommand{\footrulewidth}{0.5pt}
+
+\fancyhf{}
+\fancyfoot[LE,RO]{\textit{\thepage}}
+\fancyfoot[RE,LO]{\textit{\auth}}
+\fancyhead[RE,LO]{\textit{\courseshort}}
+\fancyhead[LE,RO]{ %
+  \ifthenelse{ %
+    \equal{\thepage}{\value{CurrPage}} %
+  } %
+  {\textit{\nouppercase{\CurrChapter\LastSection}}} %
+  {\let \LastSection \CurrSection \textit{\nouppercase{\CurrChapter\LastSection}}} %
+}
+
+\fancypagestyle{plain}{ %
+\fancyhf{} %
+\fancyfoot[LE,RO]{\textit{\thepage}} %
+\fancyfoot[RE,LO]{\textit{\auth}} %
+\renewcommand{\headrulewidth}{0pt} % remove lines as well
+}
+
+\renewcommand{\abstract}[1]{
+\vspace*{\fill}
+\begin{center}
+{\bf Abstract}
+\\[5px]
+\parbox{.8\textwidth}{#1}
+\end{center}
+\vspace*{\fill}
+}
+
+\newcommand{\acknowledgements}[1]{
+\vspace*{\fill}
+\begin{center}
+{\bf Acknowledgements}
+\\[5px]
+\parbox{.8\textwidth}{#1}
+\end{center}
+\vspace*{\fill}
+}
+
+\setlength{\parskip}{.5em}
+
+\title{\course}
+\subtitle{\assignment}
+\subsubtitle{\name}
+\author{Jimi M. van der Woning\\
+        \url{Jimi.vanderWoning@student.uva.nl}\\
+        Student ID 6061400
+        }
+%\organization{\org}
+\supervisors{\supervis}
+
+\begin{document}
+\maketitle
+
+% More vertical spacing in tables
+\renewcommand*\arraystretch{1.5}
+
+\include{abstract}
+\include{acknowledgements}
+
+\setlength{\parskip}{0px}
+\tableofcontents
+\setlength{\parskip}{.5em}
+
+\include{introduction}
+\include{analysis}
+\include{relwork}
+\include{design}
+\include{implementation}
+\include{evaluation}
+\include{results}
+\include{discussion} % With future work section
+\include{conclusion}
+
+% TODO : remove!
+\nocite{canzar2012charge}
+\bibliographystyle{abbrv-rt}
+\bibliography{references}
+\chaptermark{Bibliography}
+
+\appendix
+\include{setup}
+\include{questionnaires}
+
+\cleardoublepage
+
+\end{document}

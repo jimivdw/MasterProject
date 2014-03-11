@@ -1,0 +1,41 @@
+\chapter{Problem analysis}
+\chlab{analysis}
+
+Problem description and analysis. May be merged with introduction later on...
+
+\nlipsum
+
+\begin{comment}
+Biomolecular simulations are becoming increasingly important for drug development. In these simulations, force field models are required to describe the interatomic relations of the drug molecules. In order to run a simulation, these force fields require a certain topology, which should include the atom types, bonds, angles, atomic charges and charge group assignments.
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=.4\textwidth]{img/partial_charges.pdf}
+\caption{Schematic view of nitroethane ($C_{2}H_{5}NO_{2}$), including topology data on atom types, atomic charges and charge groups.}
+\figlab{partial_charges}
+\end{center}
+\end{figure}
+
+\Figref{partial_charges} shows the schematic view of a nitroethane molecule. Here, every oval symbolises an atom. The atom type is the letter on the top rule of the oval, i.e. \verb|H| is the atom type of the sphere \verb|H5 (6)|. The first number indicates the index in the list of atoms of that type (\verb|5| in the example), the second the overall atom index in the molecule (\verb|6| in the example). The bonds between atoms are shown as lines between the ovals and the atomic charges are given by the number at the bottom row of the oval (\verb|0.071| for \verb|H5 (6)|). Finally, the colouring of the atoms and the boxes around them denote a molecular charge group. This is a group of connected atoms, for which the total charge is ideally equal to that of the whole molecule.
+
+In a recent study, El-Kebir, Klau et al. have developed an algorithm that allows for fast and reasonable assignment of charge groups~\cite{canzar2012charge}. As this is now optimised, they currently focus on a different step in the parameterisation: that of calculating the atomic partial charges. Currently, these charges are retrieved using some complex quantum-mechanical calculations. However, as molecules grow bigger, these calculations can take hours or even days to complete. As it is not believed that these calculations can be speeded up, a different approach is needed for finding the partial atomic charges.
+% 'Speeded up' is the correct past tense of 'speed up', rather than 'sped up'
+
+One possible way of doing this is by exploiting the similarity of molecules. As similar fragments in molecules often have roughly the same atomic charges, it is possible to retrieve the partial charges of an unparameterised molecule from similar fragments in other molecules for which the charges \emph{are} known. An algorithm for finding these similar fragments is currently being developed at the CWI. However, finding the \emph{best} matches is currently something only experienced chemists can do. A tool is needed that provides them with a view of the unparameterised molecule and helps them find the best matching fragments. After constructing the charges out of similar fragments, the users should be allowed to manually adjust some values if they feel that this is needed.
+
+Challenges arise here for the interaction design of the tool. It should be possible to easily compare the related fragments, both with each other and with the unparameterised molecule. How to properly do this is still an open question. As there is currently no software that does this, a proper way of comparing molecule fragments needs to be designed from scratch. This allows for really creating something new, but also creates the challenge of doing it right without having any clear starting point.
+
+Next, the tool should encourage its user to compare enough related fragments so that he finds the best match. If, however, there are a lot of related fragments to choose from, the user should be able to easily spot the best ones. Otherwise, it might require too much time to fully parameterise a molecule. This creates another challenge, that of showing a set of related fragments in a clear and intuitive way.
+
+Furthermore, as the molecules that will be analysed vary in size from a few atoms to a few hundred, visualisations of the molecules should be given some thought to make sure both large and small molecules look good. This creates yet another challenge, as it is not trivial to show large atoms on a small screen. A good algorithm should be developed, following which both small and large molecules will be nicely displayed.
+
+Overall, the biggest challenge is to make the tool work intuitively and to implement it such that it makes chemists' work easier. Parameterising a large molecule should therefore not require hours to complete. If it would, using the conventional quantum mechanical calculations would still be preferred, since one can at least do other things while waiting for his results. When one has to manually parameterise a molecule, this is not possible.
+
+
+% Moved from a different origin, check merge
+The main question that this research project will try to answer is the following:
+\begin{quote}
+How can chemists best interact with a tool for fragment-based molecule parameterisation, such that this yields results of comparable quality to conventional methods, while being done faster?
+\end{quote}
+In order to answer this question, such tool will be designed and a prototype of it will be implemented. User studies will be conducted to evaluate the tool's design and results. In those studies, the results obtained by using the tool will be compared to those obtained using conventional methods, i.e. complex quantum mechanical calculations~(see~\chref{problems}).
+\end{comment}
