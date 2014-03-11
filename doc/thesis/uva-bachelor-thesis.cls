@@ -78,25 +78,29 @@
                   \sffamily\Huge \@title
             \end{textblock*}
 	      \textblockcolor{White}
-            \begin{textblock*}{17cm}(2cm, 8cm)
+            \begin{textblock*}{17cm}(2cm, 7.4cm)
                   \noindent\Large
                   \textbf{Master's Thesis}\\[.4em]
                   written by\\[.4em]
                   \textbf{\auth}\\[.4em]
-                  under the supervision of\\
-                  \textbf{dr.~Tijs~van~der~Storm}, \textbf{prof.~dr.~Gunnar~W.~Klau}, and \textbf{ir.~Mohammed~El-Kebir}\\
+                  under the supervision of\\[.4em]
+                  \textbf{ir.~Mohammed~El-Kebir}, \textbf{prof.~dr.~Gunnar~W.~Klau}, and \textbf{dr.~Tijs~van~der~Storm}\\[.4em]
+                  hosted by the\\[.4em]
+                  \textbf{Centrum Wiskunde \& Informatica}\\
+                  \textit{Life Sciences and Software Analysis \& Transformation groups}\\[.4em]
                   and submitted in partial fulfilment of the requirements for the degree of\\[.4em]
                   \textbf{M.Sc. in Software Engineering}\\[.4em]
-                  at the \textit{University of Amsterdam}
+                  at the\\[.4em]
+                  \textbf{University of Amsterdam}
             \end{textblock*}
 	      \textblockcolor{White}
-            \begin{textblock*}{17cm}(2cm, 17cm)
+            \begin{textblock*}{17cm}(2cm, 19cm)
                   \noindent\Large
                   \textbf{Date of public defence:}\\
                   TBD
             \end{textblock*}
 	      \textblockcolor{White}
-            \begin{textblock*}{17cm}(2cm, 19cm)
+            \begin{textblock*}{17cm}(2cm, 21cm)
                   \noindent\Large
                   \textbf{Members of the Thesis Committee:}\\
                   \textit{TBD}\\
