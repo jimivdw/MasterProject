@@ -1,24 +1,28 @@
 \chapter{Introduction}
 \chlab{introduction}
 
-Blah blah intro
+In the world of biomolecular science, molecular simulations are becoming increasingly important. For these calculations, many different parameters are needed, including detailed information about the molecules that will be examined in the simulation. One important parameter here is the list of atomic partial charges of the molecule~(see \chref{analysis}). Calculating these charges, however, can take a lot of time, even on advanced computation clusters.
 
-\nlipsum
+Various attempts have been made to speed up this process, but all without success. It is therefore believed that, using the current approach, the calculation process can only be speeded up with advances in computer hardware development. In order to speed up the process of finding atomic partial charges, a different approach needs to be developed.
+
+It is known that similar parts of different molecules often have roughly the same atomic charges. Therefore, it should be possible to assign the charges of a molecule based on the known charges of parts of other molecules. It is expected that humans (read: experienced scientists) will be able to find the best matching molecule fragment out of a set of possible ones. Therefore, a system needs to be designed that allows for parameterisation of a molecule, based on a set of fragments of other molecules.
+
+For this thesis project, a system for fragment-based molecule parameterisation has been designed. In an attempt to find the best interaction design for such system, two slightly different versions of it have been implemented. These two versions have been compared using a user study, where participants were asked to parameterise a few molecules using the system. Using the outcomes of the user study, it is possible to determine which of the interaction designs is the best fit for the task of fragment-based molecule parameterisation. Furthermore, it will show if manual parameterisation of molecules is possible at all, and whether it has ant advantages over the current method using complex calculations.
+
+% TODO : maybe reconsider?
+Given the short problem description above, a main research question for this project can be formulated:
+\begin{quote}
+What is the best way for chemists to interact with a tool for fragment-based molecule parameterisation, such that this tool yields results of comparable quality to conventional methods, while being done faster?
+\end{quote}
+\clearpage
+
+This question can be split up into the following sub-questions:
+\begin{enumerate}
+\item What is the best way for chemists to interact with a system for finding atomic charges using similar fragments of other molecules?
+\item Compared to the computed charges, how good are the charges obtained using manual charge assignment?
+\item Is it feasible to do manual partial charge assignment in a reasonable amount of time?
+\end{enumerate}
+Using the outcomes of the user studies, it should be possible to answer all of these questions. Furthermore, feedback gathered in the user studies can be used to finalise the design and deliver a great system for fragment-based molecule parameterisation.
 
 \section{Outline}
-Outline of the document
-
-\nlipsum
-
-\begin{comment}
-In the world of biomolecular science, molecular simulations are gaining in importance. In order to run these simulations, a set of parameters is needed, including the atomic partial charges of a molecule. Calculating these charges, however, can take a lot of time, even on advanced computation clusters.
-
-As it is seemingly impossible to speed up the partial charge calculations, an alternative way to retrieve them should be developed. It is known that similar fragments in two different molecules often have roughly the same atomic charges. Therefore, it should be possible to assign the charges of a molecule based on the known charges of fragments of other molecules. It is expected that humans (read: experienced scientists) will be able to find the best matches out of a set of possible ones. Therefore, a tool needs to be designed that allows them to parameterise a molecule based on a set of related fragments of other molecules.
-
-In this research project, such tool will be designed. Two slightly different prototypes of the tool will be implemented and compared to see which of these has the best interaction design for the task at hand. Furthermore, it will be evaluated whether such tool can truly improve the parameterisation process of molecules. Overall, the project aims to answer the following research questions:
-\begin{itemize}
-\item What is the best way for chemists to interact with a tool for assigning atomic charges based on those of similar fragments in other molecules?
-\item Is it feasible to do manual partial charge assignment in a reasonable amount of time?
-\item Compared to computed partial charges, how well can manual atomic charge assignment be done?
-\end{itemize}
-\end{comment}
+The remainder of this document will discuss the designed system and obtained results in detail. First of all, in \chref{analysis}, a more detailed analysis of the problems this project tries to solve is provided. Related work will be discussed in \chref{relwork}. The two interaction designs can be found in \chref{design}, followed by implementation details for the whole system in \chref{implementation}. The evaluation methods for the project are discussed in \chref{evaluation}, followed by their results in \chref{results}. \Chref{discussion} provides a discussion of the results, along with threats to validity and future work. Finally, the conclusion for the project is provided in \chref{conclusion}.
