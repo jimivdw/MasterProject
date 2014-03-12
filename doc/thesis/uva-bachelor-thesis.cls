@@ -91,7 +91,7 @@
                   and submitted in partial fulfilment of the requirements for the degree of\\[.4em]
                   \textbf{M.Sc. in Software Engineering}\\[.4em]
                   at the\\[.4em]
-                  \textbf{University of Amsterdam}
+                  \textbf{University of Amsterdam}.
             \end{textblock*}
 	      \textblockcolor{White}
             \begin{textblock*}{17cm}(2cm, 19cm)
