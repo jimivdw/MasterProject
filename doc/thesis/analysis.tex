@@ -53,25 +53,17 @@ As discussed before, a possible approach is to exploit the similarity of molecul
 \figlab{matching}
 \end{figure}
 
-For an atom or a set of atoms, usually many matching fragments will be found. Which one of those fragments is the best match depends on many factors, including the fragment size and type of molecule they originate from. Due to this, it is currently not possible to fully automate fragment-based paremeterisation. Instead, it needs to be done by experienced chemists who have the knowledge about which fragments match and which do not. A system needs to be developed that assists them in this process, and allows them to easily compare fragments and molecules.
+For an atom or a set of atoms, usually many matching fragments will be found. Which one of those fragments is the best match depends on many factors, including the fragment size and type of molecule they originate from. Due to this, it is currently not possible to fully automate fragment-based paremeterisation. Instead, it needs to be done by experienced chemists who have the knowledge about which fragments match and which do not. A system is needed that assists them in this process, and allows them to easily compare fragments and molecules.
 
 
 \section{Interaction Design challenges}
 \seclab{id_challenges}
-\nlipsum
+A system for fragment-based molecule parameterisation is not readily available. Therefore, a new system needs to be designed from the ground up. This allows for really creating something new, but also creates the challenge of doing it right without having any clear starting point. Therefore, two different versions of the system will be implemented, in order to find the best way of interacting with such system.
 
+Both implementations need to meet the same set of requirements. First of all, the system needs to provide its users with a view of the unparameterised atom, and help them to find the best matching fragments. As the selected fragments may not always be perfect, it should also be possible for the user to manually adjust the charges for each atom, if he feels that this is needed.
 
+In order to find the best matching fragment, the user should be able to easily compare the found matching fragments, both with each other and with the unparameterised molecule. He should be encouraged to compare as many fragments as possible, such that he does not miss the best match. However, when many fragments are found, the best match should be easily recognisable. Otherwise, fully parameterising the molecule may take up too much time, or the best fragment may not be found at all. This requires the found fragments to be presented to the user in a clear and intuitive way.
 
-\begin{comment}
- A tool is needed that provides them with a view of the unparameterised molecule and helps them find the best matching fragments. After constructing the charges out of similar fragments, the users should be allowed to manually adjust some values if they feel that this is needed.
+Another important requirement for the system is that is should support parameterisation of both small molecules, consisting of just a few atoms, and large molecules, being a few hundred atoms in size. This means that visualisation of the molecules should be given some thought, in order to make sure both large and small atoms are displayed correctly. It is particularly challenging to find a way to properly visualise large molecules on a screen with a limited size, so an algorithm should be developed that allows for this. %TODO : maybe reconsider...
 
-
-
-Challenges arise here for the interaction design of the tool. It should be possible to easily compare the related fragments, both with each other and with the unparameterised molecule. How to properly do this is still an open question. As there is currently no software that does this, a proper way of comparing molecule fragments needs to be designed from scratch. This allows for really creating something new, but also creates the challenge of doing it right without having any clear starting point.
-
-Next, the tool should encourage its user to compare enough related fragments so that he finds the best match. If, however, there are a lot of related fragments to choose from, the user should be able to easily spot the best ones. Otherwise, it might require too much time to fully parameterise a molecule. This creates another challenge, that of showing a set of related fragments in a clear and intuitive way.
-
-Furthermore, as the molecules that will be analysed vary in size from a few atoms to a few hundred, visualisations of the molecules should be given some thought to make sure both large and small molecules look good. This creates yet another challenge, as it is not trivial to show large atoms on a small screen. A good algorithm should be developed, following which both small and large molecules will be nicely displayed.
-
-Overall, the biggest challenge is to make the tool work intuitively and to implement it such that it makes chemists' work easier. Parameterising a large molecule should therefore not require hours to complete. If it would, using the conventional quantum mechanical calculations would still be preferred, since one can at least do other things while waiting for his results. When one has to manually parameterise a molecule, this is not possible.
-\end{comment}
+Overall, the most important requirement for the system is to make it work intuitively and to implement it such that it makes chemists' work easier. Parameterising a large molecule should therefore not take hours to complete. If it would, chemists would probably still prefer using the conventional quantum mechanical calculations, since one can at least do other things while waiting for those results. When one has to manually parameterise a molecule, this is not possible.
