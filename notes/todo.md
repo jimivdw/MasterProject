@@ -1,14 +1,8 @@
 ## TODO list
 - Implementation:
-  - Bugs:
-    - Hiding in your bed...
-  - Implement:
-    - Help;
-    - User studies results store.
-  - Test:
-    - User studies in most browsers.
+  - Done?
 - User studies:
-  - Make a TODO list ;-)
+  - Send all invitations.
 - Thesis:
-  - Haha, right...
+  - Write...
 
