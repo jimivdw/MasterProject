@@ -6,19 +6,28 @@ Here will be the description of the project evaluation\ldots
 \nlipsum
 
 
-\section{Use cases}
-\nlipsum
+\section{Hypotheses}
+\seclab{hypotheses}
+According to Jonassen's dichotomy of problems~\cite{jonassen2000toward}~(see also \secref{id_learning}), fragment-based molecule parameterisation is an ill-structured problem. This means that the problem is quite complex and is therefore hard to solve. Due to this, users need to be ensured that there is a way to find a solution, otherwise they will just give up. This is better facilitated by the smart version than the naive version of the tool, as one can fully parameterise a molecule just by clicking `yes' a number of times in that version. The solution will probably not be too good, but it is definitely a solution and users will continuously see there is a way to get there. This is something that is less clear in the naive version of the tool, where more user action is needed to get to the solution.
+
+When the previously discussed differences are combined with the motivations behind the two interaction designs, one can conclude that the smart version has great benefits in time consumption and user guidance, where the naive version excels in user freedom. In the earlier mentioned study of Payne, Sycara, and Lewis~\cite{payne2000varying}, this was the same. They concluded that many users found that using the naive version was a tedious process, hence the following hypothesis for this research project:
+\begin{quote}
+The `smart' interaction design is the best design for fragment-based molecule parameterisation.
+\end{quote}
+
+The second, for this project essential hypothesis, is as follows:
+\begin{quote}
+It is possible to parameterise a molecule based on fragments of other molecules in a reasonable amount of time.
+\end{quote}
+This hypothesis should hold for both implementations of the tool, as both have been designed to converge to a solution and to provide their information to its clearest and cleanest extent.
 
 
-\section{Questionnaires}
-\nlipsum
-
-
-\begin{comment}
+\section{User studies}
 To evaluate this project's hypotheses~(see \secref{hypotheses}), both versions of the developed tool will be subjected to a number of user studies. Currently, however, the presumed user base is limited to only a small number of researchers. Luckily, project supervisors Klau and El-Kebir keep a close connection with most of those researchers, who work at VU University Amsterdam. They have shown some interest in the tool and are willing to participate in the user studies. Furthermore, as some of the researchers are also teaching, they can ask some of their students to evaluate the tool as well. It is not possible to ask random students, as they will lack domain knowledge, making their results unreliable~\cite{jonassen2000toward}. The researchers' students are considered to have enough domain knowledge to be able to correctly parameterise a molecule.
 
 In the user studies, the test subjects will be split up in two groups, where each subject is randomly assigned to a group and both groups are of equal size and equal student-scientist ratio. This way, it is made sure that both groups are representative, which is essential for user studies~\cite{wohlin2003empirical}~(see also \secref{user_studies}).
 
+\subsection{Use cases}
 The groups will take part in an experiment that compares the two versions of the molecule parameterisation tool~\cite{wohlin2003empirical}. One group will test the naive version, the other will use the smart one. For both groups, every member will be asked to parameterise a few molecules of increasing size and complexity. The first one will be quite easy to complete, but the last one should be of such complexity that, theoretically, using the tool is beneficial over using conventional quantum mechanical calculations. It is in these last situations that the tool should show its true value.
 
 During the tasks, the time required to complete the parameterisation will be measured. The difference between the time required in the two implementations will help deciding which of the two implementations is better, but, for both tools, completing the parameterisation should definitely not take hours to finish. Furthermore, users should not report they are annoyed by the tool or willing to stop parameterising.
@@ -29,9 +38,9 @@ For the experiment, timing and scoring mechanisms will be built into the tool. T
 
 In order to be able to explain the scoring results and to evaluate them in more detail, the proposed fragments and the selected ones will also be stored. This way, it should be possible to pinpoint where a user went wrong, if he did. Furthermore, it can also help to identify outliers. If it is clear that someone was just messing around with the tool and did not care about getting a good result, that user's experiment results can be left out.
 
+\subsection{Questionnaires}
 After completing their tasks, the users will be asked to answer a number of questions about the tool. These will mainly be about how they like the design and if they can see themselves using it, but will also ask them for suggestions on things that can be improved or added. This way, their experiences can be used to further improve the tool, and to make it a tool they really like using.
 
 The questionnaire that test subjects will be asked to fill in will be based on the \verb|SUS| and \verb|UMUX-LITE| usability metrics~\cite{lewis2013umux}~(see also \secref{user_studies}). It will consist of the, for this tool, relevant questions from those metrics, along with some additional application-specific questions. It will be made sure the questions follow some natural flow, in order to encourage the testers to report their detailed experiences~\cite{tuch2013analyzing}. Furthermore, the questions will be somewhat directive, to reduce the chances of test subjects forgetting to report certain things.
 
 The results of the user studies combined with those obtained with the questionnaire should be able to give an answer on which of the two interaction designs is better. The version that gives good results in a short amount of time and is also positively graded in the questionnaire will be the better one. Furthermore, the timing and scoring results from the experiment alone will be able to answer the question if it is possible to do fragment-based molecule parameterisation at all. At least for one of the two versions both time consumption and parameterisation results should be reasonable.
-\end{comment}
