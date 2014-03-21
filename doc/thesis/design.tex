@@ -51,81 +51,117 @@ As many users of the system will be users of the ATB and will probably also find
 
 After the molecule has been shown to the user, the two versions of the interaction design start to differ. This will be discussed in more detail in the following sections, where \secref{id_naive} discusses the `naive' version, and \secref{id_smart} describes the `smart' interaction design.
 
-After the molecule has completely been parameterised, the two interaction designs join the same path once more. The user now has the possibility to manually fine-tune the charges, if he feels that this is needed. This can be done by selecting an atom and clicking an ``Edit charge'' button. In order to assist the user in finding a proper charge for the atom, the molecule fragments that have been used to get the current charge can be displayed. As soon as the user feels the assigned charges are correct, he should be able to download a file containing the results of the parameterisation. 
+After the molecule has completely been parameterised, the two interaction designs join the same path once more. The user now has the possibility to manually fine-tune the charges, if he feels that this is needed. This can be done by selecting an atom and clicking an ``Edit charge'' button. In order to assist the user in finding a proper charge for the atom, the molecule fragments that have been used to get the current charge can be displayed. As soon as the user feels the assigned charges are correct, he should be able to download a file containing the results of the parameterisation.
+
+In order to reduce the effect of user mistakes on the parameterisation process, every user action can be undone. If something has accidentally been undone, it can also be redone using a ``Redo'' button. This way, the user does not need to start over completely when he makes a small mistake, such as accidentally selecting the wrong fragment. It also allows for more experimentation, as there are no definitive consequences of any user action.
 
 
 \subsection{Manual `naive' version}
 \seclab{id_naive}
-Just like the naive RPA implementation from~\cite{payne2000varying}, the naive version of the molecule parameterisation tool will only automatically perform user input validation. Besides ordering the matching fragments based on their probability of being a good match, the tool will not give any advise, nor will it automatically infer any values.
+Just like the naive RPA implementation from~\cite{payne2000varying}, the only automatic process occurring in the naive version of the molecule parameterisation tool is the validation of user input. Besides ordering the matching fragments based on their probability of being a good match, the tool will not give any advise, nor will it automatically infer any values.
 
-\subsubsection{Workings}
-The complete set op steps required to fully parameterise a molecule using the naive version of the tool is as follows:
+\subsubsection{Operation}
+The operation of the naive version of the tool is shown in \figref{id_flows}. In more detail, the complete set of steps required to fully parameterise a molecule is as follows:
 \begin{enumerate}[itemsep=.1em, parsep=.2em, topsep=0em]
-\item The user enters a molecule data string (in \verb|SMILES|, \verb|InChI|, or other format). The molecule will be displayed to the user;
-\item The user selects a single atom or a group of \emph{connected} atoms;
-\item The user clicks the ``Find matches'' button;
-\item A list of matching fragments will be shown, ordered such that the highest rated match comes first and the lowest last. The user can browse through them, preview the result of selecting that match and, once he has found what he sees as the best match, select this match. Hereafter, the charges from that match will be assigned to the molecule;
+\item The user enters a molecule data string (in \verb|SMILES|, \verb|InChI|, \verb|PDB| format, or using an \verb|ATB molecule ID|). The molecule will be displayed to the user;
+\item The user selects a single atom or a group of \emph{connected} atoms. They need to be connected, since non-connected atoms do not affect each other;
+\item A list of matching fragments will be loaded shown, ordered such that the highest rated match comes first and the lowest last. The user can browse through them, preview the result of selecting that match and, once he has found what he sees as the best match, select this match;
 \item
-\begin{itemize}[leftmargin=0cm, itemsep=.1em, parsep=.1em]
-\item[]{\bf Unparameterised atoms remain}:\\The user selects another atom / list of connected atoms. Back to step 3;
-\item[] {\bf Molecule fully parameterised}:\\Continue to step 6;
-\end{itemize}
-\item When needed, the user can fine-tune the atom charges by selecting an atom and modifying its charge using an input field. In order to assist him in this process, the fragments that were matched to this atom \emph{and} have been selected will be shown.
-\end{enumerate}
-
-\noindent
-In the matching process, it is possible that an already charged atom is present in another chosen fragment. In the case where these charges differ, the user will be asked to decide what should happen, which can be one of:
-\begin{enumerate}[itemsep=.1em, parsep=.2em, topsep=0em]
-\item Take the average of the two charges;
-\item Keep the current value;
-\item Take the new value;
-\item Manually enter a value.
+  \begin{itemize}[leftmargin=0cm, itemsep=.1em, parsep=.1em]
+  \item[]{\bf Fragment contains parameterised atoms}:
+    \begin{enumerate}
+    \item
+      Details of the charge conflict are shown, along with the a list of possible solutions. The user picks one of the following solutions:
+      \begin{itemize}[itemsep=.1em, parsep=.2em, topsep=0em]
+      \item Take the average of the two charges;
+      \item Keep the current value;
+      \item Take the new value;
+      \item Manually enter a value.
+      \end{itemize}
+    \item The solution is applied and the resulting charges are assigned to the molecule.
+    \end{enumerate}
+  \item[] {\bf Fragment only contains unparameterised atoms}:\\
+    The charges from that fragment are assigned to the molecule;
+  \end{itemize}
+\item
+  \begin{itemize}[leftmargin=0cm, itemsep=.1em, parsep=.1em]
+  \item[]{\bf Unparameterised atoms remain}:\\The user selects another atom / list of connected atoms. Back to step 2;
+  \item[] {\bf Molecule fully parameterised}:\\Continue to step 6;
+  \end{itemize}
+\item
+  \begin{itemize}[leftmargin=0cm, itemsep=.1em, parsep=.1em]
+  \item[] {\bf User feels charges need to be fine-tuned}:
+    \begin{enumerate}
+    \item The user selects the atom which' charge he wants to modify;
+    \item The user clicks the ``Edit charge'' button for that atom;
+    \item The user can now view the fragments that were used to find the charge for this molecule. Using that and potentially other information, he can find a better charge for the atom.
+    \item The user enters the improved charge in an input field and clicks the ``Apply charge'' button. The charge will be assigned to the atom;
+    \item Re-evaluate the conditions of step 6.
+    \end{enumerate}
+  \item[]{\bf User feels satisfied}:\\Continue to step 7;
+  \end{itemize}
+\item The user can now download the result of the parameterisation process. After he has done this, the process has been completed.
 \end{enumerate}
 
 \subsubsection{Motivation}
-As pointed out earlier, it is important to have a non-automatic baseline to see if automation can work for a certain tool. In this project, the naive version will serve as that baseline. However, it is more than just a baseline; it could also quite possibly work better than any automated version. The same was concluded for the naive RPA in~\cite{payne2000varying}, which was largely outperformed by its more automated siblings, but offered great benefits in situations where full control was required.
+As pointed out earlier, it is important to have a non-automatic baseline to see if automation can work for a certain tool. This naive version can serve as that baseline. In this case, however, it might even serve as more than just a baseline. It could also quite possibly be a better fit for the molecule parameterisation task than any automated version. The same was concluded for the naive RPA in~\cite{payne2000varying}, which was largely outperformed by its more automated siblings, but offered great benefits in situations where full control was required.
 
 In the naive molecule parameterisation tool, the user can manually decide what atoms need to be parameterised and has a clear overview of all matching fragments. Furthermore, he can manually decide what should happen with overlapping fragments and can modify atom charges at any point in the process. This provides the same benefits as the previously discussed naive RPA had.
 
-Another reason why this naive version might work better than an automated one is the fact that this one encourages exploring different options. By providing a list of fragments, rather than proposing a single one, the fragments can easily be compared such that the chances for the best match being selected increase. Furthermore, as the user is free to determine what atoms should be parameterised at which point in time and also to select groups of atoms, he can experiment with the selection size and order, which may lead to better results.
+Another reason why this naive version might work better than an automated one is the fact that this one encourages exploring different options. By providing a list of fragments, rather than proposing a single one, the fragments can easily be compared such that the chances for the best match being selected increase. Furthermore, as the user is free to determine what atoms should be parameterised at which point in time and is also able to select groups of atoms, he can experiment with the selection size and order, which may lead to better results.
 
 
 \subsection{Semi-automatic `smart' version}
 \seclab{id_smart}
-Inspired on the cooperative RPA from~\cite{payne2000varying}, \verb|LookOut|~\cite{horvitz1999principles}, and \verb|SALT|~\cite{marcus1987taking}, the smart tool for molecule parameterisation continuously makes suggestions to the user. It will do so with possible matching fragments and atoms that might require fine-tuning, and will autonomously solve conflicting atom charges.
+Inspired on the cooperative RPA from~\cite{payne2000varying}, \verb|LookOut|~\cite{horvitz1999principles}, and \verb|SALT|~\cite{marcus1987taking}, the smart tool for molecule parameterisation will continuously make suggestions to the user. After the parameterisation process has been started, the system will continuously propose fragments to the user, which he only needs to accept or reject.
 
-\subsubsection{Workings}
-Using the semi-automatic version of the tool, the user should follow the following steps in order to fully parameterise a molecule:
+\subsubsection{Operation}
+The operation of the smart version of the tool is shown in \figref{id_flows}. In more detail, the complete set of steps required to fully parameterise a molecule is as follows:
 \begin{enumerate}[itemsep=.1em, parsep=.2em, topsep=0em]
-\item The user enters a molecule data string (in SMILES, InChI, or other format). The molecule will be displayed to the user;
-\item The user clicks the ``Find matches'' button. One of the atoms will now be automatically selected and matching fragments will be retrieved;
+\item The user enters a molecule data string (in \verb|SMILES|, \verb|InChI|, \verb|PDB| format, or using an \verb|ATB molecule ID|). The molecule will be displayed to the user;
+\item The user clicks the ``Start parameterising'' button. One of the atoms on the edge of the molecule will now be automatically selected and matching fragments for it will be retrieved;
 \item The highest rated match is previewed on the molecule. The user can either accept or reject this proposed match;
 \item
-\begin{itemize}[leftmargin=0cm, itemsep=.1em, parsep=.1em]
-\item[]{\bf Rejected}:\\Remove this match from the list of matching fragments (the user \emph{can} go back to this one if he changes his mind). Back to step 3;
-\item[] {\bf Accepted}:\\Assign the charges of the fragment to the molecule. Continue to step 5;
-\end{itemize}
+  \begin{itemize}[leftmargin=0cm, itemsep=.1em, parsep=.1em]
+  \item[]{\bf Rejected}:\\Remove this match from the list of matching fragments (the user \emph{can} go back to this one if he changes his mind). Back to step 3;
+  \item[] {\bf Accepted}:
+    \begin{itemize}[leftmargin=.5cm, itemsep=.1em, parsep=.1em]
+    \item[]{\bf Fragment contains parameterised atoms}:\\
+      The average of the current and fragment charges is calculated and the resulting charges are assigned to the molecule;
+    \item[] {\bf Fragment only contains unparameterised atoms}:\\
+      The charges from that fragment are assigned to the molecule;
+    \end{itemize}
+  \end{itemize}
 \item
-\begin{itemize}[leftmargin=0cm, itemsep=.1em, parsep=.1em]
-\item[]{\bf Unparameterised atoms remain}:\\Another unparameterised atom is automatically selected and similar fragments are retrieved. Back to step 3;
-\item[] {\bf Molecule fully parameterised}:\\Continue to step 6;
-\end{itemize}
-\item The user can now fine-tune the charges by selecting an atom and modifying the charge using some input field, if he wants to do so. In order to assist him in this process, suggestions will be given on what atoms to fine-tune and to what value they should be adjusted.
+  \begin{itemize}[leftmargin=0cm, itemsep=.1em, parsep=.1em]
+  \item[]{\bf Unparameterised atoms remain}:\\Another unparameterised atom, preferably neighbouring an already parameterised one, is automatically selected and similar fragments are retrieved. Back to step 3;
+  \item[] {\bf Molecule fully parameterised}:\\Continue to step 6;
+  \end{itemize}
+\item
+  \begin{itemize}[leftmargin=0cm, itemsep=.1em, parsep=.1em]
+  \item[] {\bf User feels charges need to be fine-tuned}:
+    \begin{enumerate}
+    \item The user selects the atom which' charge he wants to modify;
+    \item The user clicks the ``Edit charge'' button for that atom;
+    \item The user can now view the fragments that were used to find the charge for this molecule. Using that and potentially other information, he can find a better charge for the atom.
+    \item The user enters the improved charge in an input field and clicks the ``Apply charge'' button. The charge will be assigned to the atom;
+    \item Re-evaluate the conditions of step 6.
+    \end{enumerate}
+  \item[]{\bf User feels satisfied}:\\Continue to step 7;
+  \end{itemize}
+\item The user can now download the result of the parameterisation process. After he has done this, the process has been completed.
 \end{enumerate}
-
-\noindent
-In the matching process, it is possible that an already charged atom is present in another chosen fragment. When these charges differ, the atom's charge will be automatically calculated from the two charges. Experimentation has yet to show the best way to do this, but, presumably, taking the average of the two will be a good solution.
 
 \subsubsection{Motivation}
 One of the most important reasons for developing a tool for fragment-based molecule parameterisation is to speed up the current process that uses quantum mechanical calculations. Having some automation in this tool can help increasing this benefits even further. By suggesting molecule fragments, parameterising a molecule can potentially be done a lot faster than when the user has to manually go through a list of fragments.
 
 By automating certain parts of the parameterisation process, the tool should also be easier to use. One basically only needs to say `yes' or `no' a few times and will therefore be easy to learn. This increases the potential for new people to start using the tool, thereby enhancing its value. Furthermore, it makes sure users do not get lost in a long list of features. Otherwise, users might make the wrong decisions or even stop parameterising completely~\cite{norman2002design}~(see also \secref{design}).
 
-In order to mediate the often occurring problems with automation, the fine-tuning step at the end has been added, based on studies by Norman~\cite{norman1990problem} and Horvitz~\cite{horvitz1999principles}. As there will always be errors in the automatic charge corrections, this provides the user with a way to identify and improve incorrectly assigned atom charges. The warnings that some atoms may be charged incorrectly will be non-intrusive, and the user will be able to see how every charge came to be in order to determine how to improve it.
+In order to mediate the often occurring problems with automation, the fine-tuning step at the end has been added, based on studies by Norman~\cite{norman1990problem} and Horvitz~\cite{horvitz1999principles}. As there will always be errors in the automatic charge corrections, this provides the user with a way to identify and improve incorrectly assigned atom charges. Providing the user with the means he needs to see how every charge came to be helps him to determine how that charge can be improved.
 
 
-\section{Interaction topology}
-In order to be able to discuss visual interfaces at an abstract level, Brehmer and Munzner have developed a multilevel typology for abstract visualisation tasks~\cite{brehmer2013multi}~(see also \secref{id_abstraction}). The Brehmer-Munzner typology\footnote{It is not officially named, but will be referred to as the `Brehmer-Munzner typology' in the remainder of this document.} for the two implementations of the molecule parameterisation tool is shown in \figref{id_typologies}.
+\subsection{Comparison}
+In order to be able to discuss visual interfaces at an abstract level, Brehmer and Munzner have developed a multilevel typology for abstract visualisation tasks~\cite{brehmer2013multi}~(see also \secref{id_abstraction}). The Brehmer-Munzner typologies\footnote{They have not officially been named, but will be referred to as a `Brehmer-Munzner typology' in the remainder of this document.} for the two implementations of the molecule parameterisation tool are shown in \figref{id_typologies}.
 
 \begin{sidewaysfigure}[p]
 \begin{center}
@@ -135,6 +171,6 @@ In order to be able to discuss visual interfaces at an abstract level, Brehmer a
 \end{center}
 \end{sidewaysfigure}
 
-These typologies clearly outline the differences between the two implementations. While the naive version is mainly concerned with presenting things to the user and user exploration, in the smart version, the user is mainly discovering (verifying) the system's proposals and browsing through them. This means that, in the semi-automatic version, the user has easier access to the information, and can therefore make decisions earlier than in the naive version.
+These typologies clearly outline the differences between the two implementations. While the naive version is mainly concerned with presenting things to the user and user exploration,the user is mainly discovering (verifying) the system's proposals and browsing through them in the smart version. This means that, in the semi-automatic version, the user has easier access to the information, and can therefore make decisions earlier than in the naive version.
 
-What is also clear in the typologies is the difference in the number of different methods that is required to parameterise a molecule in the two versions. In every step of the process, the smart version requires less different methods than the naive one. This does not necessarily mean that the smart version will take less time to use, as the methods may need to be used more often. What it does mean, however, is that it will be easier to use the smart version, as less different methods need to be used and learned~\cite{sweller1994cognitive}~(see also \secref{id_learning}).
+What is also clear in the typologies is the contrast in the number of different methods that is required to parameterise a molecule in the two versions. In every step of the process, the smart version requires less different methods than the naive one. This does not necessarily mean that the smart version will take less time to use, as the methods may need to be used more often. What it does mean, however, is that it will be easier to use the smart version, as less different methods need to be used and learned~\cite{sweller1994cognitive}~(see also \secref{id_learning}).
