@@ -21,6 +21,7 @@ This chapter will discuss interaction design for a fragment-based molecule param
 
 
 \section{Platform}
+\seclab{platform}
 Over the past few years, there has been a trend in bringing everything to the web~\cite{ertl2010molecular}. This includes several molecule software packages, such as \verb|JSMol|~\cite{hanson2013jsmol} and \verb|JSME|~\cite{bienfait2013jsme}~(see also \secref{software}). Following this trend, it has been decided to implement the front-end of the molecule parameterisation system using \verb|HTML5|, \verb|CSS3| and \verb|JavaScript|. This allows for great portability and availability across different operating systems and platforms.
 
 Having the user interface as a web service means that the back-end, where the actual finding of matching fragments occurs, also needs to be available through the web. For this purpose, the choice has been made to use the \verb|Python| web framework \verb|Django| for that part. This framework can easily be set up on various platforms and provides a wide span of features.
