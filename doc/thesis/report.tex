@@ -93,6 +93,22 @@
 \renewcommand{\headrulewidth}{0pt} % remove lines as well
 }
 
+% Labeled clickable footnotes
+\newcommand{\lfootnotetext}[2]{%
+    \addtocounter{footnote}{1}%
+    \footnotetext[\thefootnote]{%
+        \phantomsection \label{footnote:#1}%
+        #2%
+    }%
+}
+\newcommand{\lfootnote}[2]{%
+    \lfootnotetext{#1}{#2}%
+    \textsuperscript{\ref{footnote:#1}}%
+}
+\newcommand{\lfootnoteref}[1]{%
+    \textsuperscript{\ref{footnote:#1}}%
+}
+
 \renewcommand{\abstract}[1]{
 \vspace*{\fill}
 \begin{center}
@@ -160,6 +176,7 @@
 \chaptermark{Bibliography}
 
 \appendix
+\include{requirements}
 \include{setup}
 \include{questionnaires}
 
