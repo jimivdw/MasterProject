@@ -1,11 +1,5 @@
 function takeScreenshot() {
-  var jse = document.createElement("script");
-  jse.type = "text/javascript";
-  jse.src = "https://github.com/niklasvh/html2canvas/releases/download/0.4.1/html2canvas.js";
-  document.documentElement.appendChild(jse);
-
-  console.log("Loading html2canvas...");
-  jse.addEventListener('load', function() {
+  function makeScreenshot() {
     console.log("Rendering screenshot...");
     html2canvas(document.documentElement, {
       onrendered: function(canvas) {
@@ -13,6 +7,18 @@ function takeScreenshot() {
         console.log(canvas.toDataURL('image/png'));
       }
     });
-  });
+  }
+
+  if(html2canvas !== undefined && html2canvas instanceof Function) {
+    return makeScreenshot();
+  }
+
+  var jse = document.createElement("script");
+  jse.type = "text/javascript";
+  jse.src = "https://github.com/niklasvh/html2canvas/releases/download/0.4.1/html2canvas.js";
+  document.documentElement.appendChild(jse);
+
+  console.log("Loading html2canvas...");
+  jse.addEventListener('load', makeScreenshot);
 }
 

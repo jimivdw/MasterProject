@@ -5,7 +5,7 @@ A system for fragment-based molecule parameterisation has three distinct tasks: 
 
 The front-end of the system, where users will carry out the parameterisation process, will be called the Online tool for Fragment-based Molecule Parameterisation~(\oframp). This name will also be used to refer to the system as a whole, as it is the hart of the system and is dependent on the other systems. The molecule is also visualised in \oframp, but the for this purpose essential, calculations of atom positions are done in the Online tool for Atom Position Calculations~(\oapoc). Finally, finding matching fragments and sorting them based on relevance is done by the Online tool for Molecule Fragment Finding~(\omfraf).
 
-The complete network diagram for the fragment-based molecule parameterisation system is shown in \figref{diagram}. It is clear that \oframp{} is the central system, but that the more computation-intensive tasks are carried out by \oapoc{} and \omfraf{}. The remainder of this chapter will discuss each of the systems in more detail.
+The complete network diagram for the fragment-based molecule parameterisation system is shown in \figref{network_diagram}. It is clear that \oframp{} is the central system, but that the more computation-intensive tasks are carried out by \oapoc{} and \omfraf{}. The remainder of this chapter will discuss each of the systems in more detail.
 
 
 \begin{sidewaysfigure}[p]
@@ -13,7 +13,7 @@ The complete network diagram for the fragment-based molecule parameterisation sy
 \includegraphics[width=\textwidth]{img/network_diagram.pdf}
 \vspace{1em}
 \caption{Network diagram of \oframp and its supporting systems.}
-\figlab{diagram}
+\figlab{network_diagram}
 \end{center}
 \end{sidewaysfigure}
 
@@ -54,23 +54,52 @@ Overly designed shiny elements are known to distract the user from his tasks~\ci
 
 In \figref{impl_inserting}, the insertion window for molecules is shown. This is where users should submit the molecules in a machine readable format, the so called molecule data string~(MDS). As discussed before, the system supports the \verb|PDB|, \verb|SMILES|, and \verb|InChI| formats, and the use of \verb|ATB ID|s~(see \secref{id_common}). When the MDS has been entered, the user can click the `Submit' button, after which the molecule will be displayed~(see \secref{impl_visualisation}).
 
-Additionally, the user can adjust the fragment repository and shell size that are to be used for finding matching fragments of other molecules. This will be explained in more detail in \secref{impl_generating}. Furthermore, the demonstration mode~(see \secref{impl_demo}) can be started from this window as well, in case the user accidentally clicked the wrong button in the previous step. Finally, the user can load a so called \oframp{} State Storage~(OSS) file. These files can be created at any point in the parameterisation process and will store all progress up until that point. They can be loaded again at a later stage to continue the parameterisation process from that point.
+Additionally, the user can adjust the fragment repository and shell size that are to be used for finding matching fragments of other molecules. The available repositories are retrieved from \omfraf~(see \secref{impl_omfraf}). This will be explained in more detail in \secref{impl_generating}. Furthermore, the demonstration mode~(see \secref{impl_demo}) can be started from this window as well, in case the user accidentally clicked the wrong button in the previous step. Finally, the user can load a so called \oframp{} State Storage~(OSS) file. These files can be created at any point in the parameterisation process and will store all progress up until that point. They can be loaded again at a later stage to continue the parameterisation process from that point.
 
 
 \subsection{Visualisation}
 \seclab{impl_visualisation}
-\nlipsum
+Once a molecule data string has been entered into the system, the positions of its atoms and the connections between them are retrieved from \oapoc~(see \secref{impl_oapoc}). This data is then transformed to a \verb|JavaScript| \verb|Molecule| instance, as can be seen in \figref{oframp_class}. \verb|Molecule| instances can be visualised using a \verb|MoleculeViewer|, which will draw the molecule onto an \verb|HTML| \verb|canvas|.
 
-\subsection{Parameterisation}
-We use LGF files~\cite{dezso2011lemon}\ldots
-
-\begin{figure}[h!]
+\begin{figure}[t!]
 \begin{center}
 \includegraphics[width=\textwidth]{img/oframp_class.pdf}
 \caption{Simplified class diagram of \oframp.}
 \figlab{oframp_class}
 \end{center}
 \end{figure}
+
+Upon entering the \verb|SMILES| MDS \verb|NCC(=O)CCO| into \oframp, one should see something resembling what is shown in \figref{impl_visualising}. Similar to the molecule visualisation of the ATB~(see \figref{partial_charges} on \figpageref{partial_charges}), atoms are displayed as circles containing the atom type and with connecting lines that denote bonds. However, there are also a number of differences. First of all, charge group information is missing here, as these cannot be found before the atomic charges are available. Second, atom IDs (both on molecule and type scale) are left out. These are not considered to add any helpful information, and can therefore only be confusing. Third, obviously, the atom charges are missing, as they have not yet been assigned. As soon as a matching fragment is selected, they will also be added to the visualisation~(see \secref{impl_parameterisation}). Fourth, as can be seen at the bottom-most \verb|O| atom, double bonds are visualised properly as a double line. The same is true for triple bonds that show as a triple line, and aromatic bonds that are indicated with a dotted line on the inside of the aromatic cycle they are a part of~(see also \secref{ormaybeanimage}).
+
+\begin{figure}[b!]
+\begin{center}
+\includegraphics[width=.9\textwidth]{img/impl_visualising.png}
+\caption{\oframp{} visualisation of \texttt{NCC(=O)CCO}.}
+\figlab{impl_visualising}
+\end{center}
+\end{figure}
+
+Finally, what is probably the most notable difference, is the fact that the \verb|H| atoms are grouped with their base atoms\footnote{This, along with many other settings, can be altered. See \secref{impl_settings} for more information.}. This means that they do not need to be drawn separately, leaving more space around the other atoms, thereby enhancing the overview of the complete molecule. Furthermore, in chemistry, it is quite common to have this combination and, in many calculations, these groups can be treated as a single atom. As this does not hold for other atom types, those will not be grouped in the \oframp{} visualisation, to ensure chemical correctness.
+
+\subsubsection{Interaction}
+At this point, the molecule can already be interacted with. It can be moved around by holding down the \emph{left} mouse button and dragging the mouse. This is mostly useful for larger molecules that may not completely fit on smaller screens. To provide further support for large molecules, the user has the opportunity to zoom in on certain sections of the molecule, or zoom out to make more atoms fit on the screen. Zooming can be done using the mouse wheel, or the zoom buttons located in the advanced controls settings, which can be opened using the button with the down pointing arrow~(see \figref{impl_visualising}).
+
+
+\subsubsection{Deoverlapping}
+\nlipsum
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=\textwidth]{img/deoverlap.pdf}
+\caption{Concepts of deoverlap.}
+\figlab{impl_deoverlap}
+\end{center}
+\end{figure}
+
+
+\subsection{Parameterisation}
+\seclab{impl_parameterisation}
+We use LGF files~\cite{dezso2011lemon}\ldots
 
 \nlipsum
 
@@ -100,10 +129,12 @@ We use LGF files~\cite{dezso2011lemon}\ldots
 \nlipsum
 
 \subsubsection{Modifying visualisation parameters}
+\seclab{impl_settings}
 \nlipsum
 
 
 \section[\oapoc]{The Online tool for Atom Position Calculations}
+\seclab{impl_oapoc}
 \nlipsum
 
 \subsection{From ATB}
@@ -114,9 +145,11 @@ We use LGF files~\cite{dezso2011lemon}\ldots
 
 
 \section[\omfraf]{The Online tool for Molecule Fragment Finding}
+\seclab{impl_omfraf}
 \nlipsum
 
 \subsection{Getting the repositories}
+ by sending an empty \verb|JSON| object to its \verb|/repos| URL~(see \figref{network_diagram})
 \nlipsum
 
 \subsection{Generating fragments}
