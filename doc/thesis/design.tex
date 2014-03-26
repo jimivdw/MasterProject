@@ -46,6 +46,7 @@ When implementing multiple versions of a tool with different levels of automatio
 \Figref{id_flows} shows a naive and a cooperative interaction design for the tool that will be developed. Here, the cooperative design has been called the `smart' version to accentuate its differences with the naive version. The following sections will discuss these two interaction designs, the motivation behind them, and their workings.
 
 \subsection{Commonalities}
+\seclab{id_common}
 As can be seen in \figref{id_flows}, the two interaction designs share a common start and ending. First of all, the user will need to find a molecule which he wishes to parameterise. That molecule then needs to be inserted into the system. For that purpose, the user needs to find a representation of the molecule that the system can work with. It has been decided that this so called molecule data string needs to be in the \verb|SMILES|~\cite{daylight1992daylight}, \verb|InChI|~\cite{heller2013inchi}, or \verb|PDB|~\cite{bernstein1977protein} format, as these are the most commonly used.
 
 As many users of the system will be users of the ATB and will probably also find the molecules they want to use the molecule parameterisation system for in the ATB repository, it is should also be possible to submit an \verb|ATB molecule ID|. From that, the system should automatically retrieve the \verb|PDB| structure file that is stored on the ATB servers. This can then be used to get the atom positions and display the molecule to the user.

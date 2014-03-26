@@ -39,7 +39,7 @@ Upon loading \oframp{} for the first time, one should see something similar to w
 
 \Figref{impl_welcome} also shows the basic design of the system. It has been decided to go for a minimal look with a simple, purely textual logo. Besides the pastel colours of the logo, all text uses a dark shade of grey. Boxes and buttons all have a white background and a light grey, slightly rounded border.
 
-Overly designed shiny elements are known to distract the user from his tasks~\cite{}~(see also \secref{}). In some cases this may be beneficial, but for the purpose of finding a good molecule parameterisation this is undesirable. Therefore, this minimal design tries to make sure the user stays focused on the task that he needs to perform, rather than on using the tool. Furthermore, the tool still looks good and decent, which should prevent the users from distrusting it due to poor design~\cite{}~(see also \secref{}).
+Overly designed shiny elements are known to distract the user from his tasks~\cite{norman1990interfaces}~(see also \secref{design}). In some cases this may be beneficial, but for the purpose of finding a good molecule parameterisation this is undesirable. Therefore, this minimal design tries to make sure the user stays focused on the task that he needs to perform, rather than on using the tool. Furthermore, the tool still looks good and decent, which should prevent the users from distrusting it due to poor design~\cite{norman2002emotion}~(see also \secref{design}).
 
 \subsubsection{Submitting a molecule}
 \seclab{impl_inserting}
@@ -52,15 +52,16 @@ Overly designed shiny elements are known to distract the user from his tasks~\ci
 \end{center}
 \end{figure}
 
-In \figref{impl_inserting}, the insertion window for molecules is shown. This is where users should submit the molecules in a machine readable format, the so called molecule data string~(MDS). As discussed before, the system supports the \verb|PDB|, \verb|SMILES|, and \verb|InChI| formats, and the use of \verb|ATB ID|s~(see \secref{}). When the MDS has been entered, the user can click the `Submit' button, after which the molecule will be displayed~(see \secref{impl_visualisation}).
+In \figref{impl_inserting}, the insertion window for molecules is shown. This is where users should submit the molecules in a machine readable format, the so called molecule data string~(MDS). As discussed before, the system supports the \verb|PDB|, \verb|SMILES|, and \verb|InChI| formats, and the use of \verb|ATB ID|s~(see \secref{id_common}). When the MDS has been entered, the user can click the `Submit' button, after which the molecule will be displayed~(see \secref{impl_visualisation}).
 
-Additionally, the user can adjust the fragment repository and shell size that are to be used for finding matching fragments of other molecules. This will be explained in more detail in \secref{idontknowwhatsection}. Furthermore, the demonstration mode~(see \secref{impl_demo}) can be started from this window as well, in case the user accidentally clicked the wrong button in the previous step. Finally, the user can load a so called \oframp State Storage~(OSS) file. These files can be created at any point in the parameterisation process and will store all progress up until that point. They can be loaded again at a later stage to continue the parameterisation process from that point.
+Additionally, the user can adjust the fragment repository and shell size that are to be used for finding matching fragments of other molecules. This will be explained in more detail in \secref{impl_generating}. Furthermore, the demonstration mode~(see \secref{impl_demo}) can be started from this window as well, in case the user accidentally clicked the wrong button in the previous step. Finally, the user can load a so called \oframp{} State Storage~(OSS) file. These files can be created at any point in the parameterisation process and will store all progress up until that point. They can be loaded again at a later stage to continue the parameterisation process from that point.
 
 
 \subsection{Visualisation}
+\seclab{impl_visualisation}
 \nlipsum
 
-\subsection{Interaction}
+\subsection{Parameterisation}
 We use LGF files~\cite{dezso2011lemon}\ldots
 
 \begin{figure}[h!]
@@ -73,8 +74,39 @@ We use LGF files~\cite{dezso2011lemon}\ldots
 
 \nlipsum
 
+\subsubsection{Manual `naive' version}
+\nlipsum
+
+\subsubsection{Semi-automatic `smart' version}
+\nlipsum
+
+
+\subsection{Fine-tuning charges}
+\nlipsum
+
+
+\subsection{Wrapping up}
+\nlipsum
+
+
+\subsection{Other features}
+\nlipsum
+
+\subsubsection{Demo mode}
+\seclab{impl_demo}
+\nlipsum
+
+\subsubsection{Help}
+\nlipsum
+
+\subsubsection{Modifying visualisation parameters}
+\nlipsum
+
 
 \section[\oapoc]{The Online tool for Atom Position Calculations}
+\nlipsum
+
+\subsection{From ATB}
 \nlipsum
 
 \subsection{obabel}
@@ -84,11 +116,15 @@ We use LGF files~\cite{dezso2011lemon}\ldots
 \section[\omfraf]{The Online tool for Molecule Fragment Finding}
 \nlipsum
 
-\subsection{Generation}
+\subsection{Getting the repositories}
+\nlipsum
+
+\subsection{Generating fragments}
+\seclab{impl_generating}
 \nlipsum
 
 \subsubsection{mop/fragments}
 \nlipsum
 
-\subsection{Finding}
+\subsection{Finding fragments}
 \nlipsum
