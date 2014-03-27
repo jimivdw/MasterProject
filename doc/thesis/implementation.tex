@@ -1,6 +1,15 @@
 \chapter{Implementation}
 \chlab{implementation}
 
+
+% Max. one figure at top of page
+\setcounter{topnumber}{1}
+\setcounter{bottomnumber}{1}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.9}
+\renewcommand{\textfraction}{0.1}
+
+
 A system for fragment-based molecule parameterisation has three distinct tasks: visualising a molecule, finding matching fragments for that molecule, and allowing for interaction with the molecule and its matching fragments. As these tasks can be performed in isolation, it has been decided to implement the molecule parameterisation tool as three separate systems.
 
 The front-end of the system, where users will carry out the parameterisation process, will be called the Online tool for Fragment-based Molecule Parameterisation~(\oframp). This name will also be used to refer to the system as a whole, as it is the hart of the system and is dependent on the other systems. The molecule is also visualised in \oframp, but the for this purpose essential, calculations of atom positions are done in the Online tool for Atom Position Calculations~(\oapoc). Finally, finding matching fragments and sorting them based on relevance is done by the Online tool for Molecule Fragment Finding~(\omfraf).
@@ -27,15 +36,15 @@ Making use of the latest \verb|HTML5| technologies, however, also comes at a cos
 
 \subsection{Getting started}
 
-\begin{figure}[b!]
+Upon loading \oframp{} for the first time, one should see something similar to what is shown in \figref{impl_welcome}. It is explained what the tool is, and what it should be used for. Additionally, instructions are provided for first-time users and pointers are provided to the help pages. From this point, users can either start a short demonstration guide~(see \secref{impl_demo}) or submit a new molecule into the system~(see \secref{impl_inserting}).
+
+\begin{figure}
 \begin{center}
 \includegraphics[width=.9\textwidth]{img/impl_welcome.png}
 \caption{\oframp{} welcome screen.}
 \figlab{impl_welcome}
 \end{center}
 \end{figure}
-
-Upon loading \oframp{} for the first time, one should see something similar to what is shown in \figref{impl_welcome}. It is explained what the tool is, and what it should be used for. Additionally, instructions are provided for first-time users and pointers are provided to the help pages. From this point, users can either start a short demonstration guide~(see \secref{impl_demo}) or submit a new molecule into the system~(see \secref{impl_inserting}).
 
 \Figref{impl_welcome} also shows the basic design of the system. It has been decided to go for a minimal look with a simple, purely textual logo. Besides the pastel colours of the logo, all text uses a dark shade of grey. Boxes and buttons all have a white background and a light grey, slightly rounded border.
 
@@ -44,7 +53,7 @@ Overly designed shiny elements are known to distract the user from his tasks~\ci
 \subsubsection{Submitting a molecule}
 \seclab{impl_inserting}
 
-\begin{figure}[t!]
+\begin{figure}
 \begin{center}
 \includegraphics[width=.9\textwidth]{img/impl_inserting.png}
 \caption{Insertion window for molecule data strings.}
@@ -61,7 +70,7 @@ Additionally, the user can adjust the fragment repository and shell size that ar
 \seclab{impl_visualisation}
 Once a molecule data string has been entered into the system, the positions of its atoms and the connections between them are retrieved from \oapoc~(see \secref{impl_oapoc}). This data is then transformed to a \verb|JavaScript| \verb|Molecule| instance, as can be seen in \figref{oframp_class}. \verb|Molecule| instances can be visualised using a \verb|MoleculeViewer|, which will draw the molecule onto an \verb|HTML| \verb|canvas|.
 
-\begin{figure}[t!]
+\begin{figure}
 \begin{center}
 \includegraphics[width=\textwidth]{img/oframp_class.pdf}
 \caption{Simplified class diagram of \oframp.}
@@ -71,7 +80,7 @@ Once a molecule data string has been entered into the system, the positions of i
 
 Upon entering the \verb|SMILES| MDS \verb|NCC(=O)CCO| into \oframp, one should see something resembling what is shown in \figref{impl_visualising}. Similar to the molecule visualisation of the ATB~(see \figref{partial_charges} on \figpageref{partial_charges}), atoms are displayed as circles containing the atom type and with connecting lines that denote bonds. However, there are also a number of differences. First of all, charge group information is missing here, as these cannot be found before the atomic charges are available. Second, atom IDs (both on molecule and type scale) are left out. These are not considered to add any helpful information, and can therefore only be confusing. Third, obviously, the atom charges are missing, as they have not yet been assigned. As soon as a matching fragment is selected, they will also be added to the visualisation~(see \secref{impl_parameterisation}). Fourth, as can be seen at the bottom-most \verb|O| atom, double bonds are visualised properly as a double line. The same is true for triple bonds that show as a triple line, and aromatic bonds that are indicated with a dotted line on the inside of the aromatic cycle they are a part of~(see also \secref{ormaybeanimage}).
 
-\begin{figure}[b!]
+\begin{figure}
 \begin{center}
 \includegraphics[width=.9\textwidth]{img/impl_visualising.png}
 \caption{\oframp{} visualisation of \texttt{NCC(=O)CCO}.}
@@ -88,7 +97,7 @@ At this point, the molecule can already be interacted with. It can be moved arou
 \subsubsection{Deoverlapping}
 As discussed in \secref{ms_visualisation} and~\cite{clark2006structure}, overlap in atoms and bonds still occurs in modern molecule visualisation software. In this case, where the atoms have a relatively large radius to make room for displaying the charge, chances are even higher. To temper the effects of this, a simple deoverlap algorithm has been implemented. \Figref{impl_deoverlap} shows the three different types of deoverlapping that \oframp{} can do. Here, the light blue line indicates a vector that is used to determine if there is any overlap, the red line indicates the overlapping part, and the green arrow~(of equal length to the red line) shows where the atom centre should be moved to in order to resolve the overlap.
 
-\begin{figure}[b!]
+\begin{figure}
 \begin{center}
 \includegraphics[width=\textwidth]{img/deoverlap.pdf}
 \caption{Concepts of deoverlap.}
@@ -106,21 +115,85 @@ Unfortunately, solving one occurrence of overlap could result in overlap occurri
 
 \subsection{Parameterisation}
 \seclab{impl_parameterisation}
-
-\nlipsum
+As soon as the matching fragments for the molecule have been generated, the `Loading fragments...' message as visible in \figref{impl_visualising} will go away. It is now possible to start the fragment-based parameterisation process. Two different implementations of this needed to be made, in order to find the best way of doing it. To allow for easy implementation of multiple interaction systems, a \verb|Behavior| interface has been created, which can be used to implement different behaviours~(see \figref{oframp_class}). The two implemented behaviours will be discussed in the next sections.
 
 \subsubsection{Manual `naive' version}
-\nlipsum
+In order to start the parameterisation process in the naive version of \oframp, a selection needs to be made. This selection can consist of a single atom or multiple \emph{connected} atoms, and should contain the atoms for which the user wants to find matching fragments. In order to make a single-atom selection, the user simply needs to click on that atom~(see \figref{select_1}). There are multiple ways to create multi-atom selections, the easiest of which is holding down the \emph{right} mouse button and dragging the mouse to create a selection rectangle as seen in \figref{select_2}. Alternatively, one could hold down the \verb|Ctrl| key while clicking atoms, or activate the selection modification mode, as seen in the selection details window in \figref{find_1}.
+
+\begin{figure}
+\centering
+\begin{subfigure}[t]{0.45\textwidth}
+\centering
+\includegraphics[width=\textwidth]{img/select_1.png}
+\caption{Making a single-atom selection.}
+\figlab{select_1}
+\end{subfigure}%
+\qquad
+\begin{subfigure}[t]{0.45\textwidth}
+\centering
+\includegraphics[width=\textwidth]{img/select_2.png}
+\caption{Making a multi-atom selection.}
+\figlab{select_2}
+\end{subfigure}
+\caption{\oframp{} atom selection.}
+\figlab{selecting}
+\end{figure}
+
+When a selection has been made, matching fragments will automatically be retrieved from \omfraf~(see \secref{impl_omfraf}). These fragments will be shown in a sidebar on the right-hand side of the screen, and atom selection details will appear on the left-hand side~(see \figref{find_1}). Upon clicking a fragment, its charges will be previewed on the molecule~(see \figref{find_2}). The user then can decide if he wants to apply the charges of this fragment by clicking the `Select fragment' button that appears on the fragment, preview a different fragment by selecting another one, or inspect the fragment in the context of the molecule it originates from by clicking the `Show molecule' button.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=.9\textwidth]{img/find_1.png}
+\caption{Found fragments.}
+\figlab{find_1}
+\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=.9\textwidth]{img/find_2.png}
+\caption{Previewing the second found fragment.}
+\figlab{find_2}
+\end{center}
+\end{figure}
+
+If the user clicks the `Select fragment' button, the charges from that fragment will be copied to the molecule. The selection will be cleared, and, because of that, the list of found fragments will be closed. The user can now select another atom or set of atoms he wants to parameterise, in order to complete the parameterisation. This will be discussed in more detail in \secref{impl_completing}.
+
 
 \subsubsection{Semi-automatic `smart' version}
+In the smart version of \oframp, the parameterisation process can be started by clicking the `Start parameterising' button shown in \figref{find_3}. The system will now automatically select a random atom \emph{at the edge of the molecule} for which fragments will be retrieved. The molecule will be centred on that molecule, and the charges of the best found fragment will be previewed~(see \figref{find_4}). In that figure, the atoms with the green background and the thicker border are the atoms occurring in the found fragment.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=.9\textwidth]{img/find_3.png}
+\caption{Ready to start parameterisation.}
+\figlab{find_3}
+\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=.9\textwidth]{img/find_4.png}
+\caption{Previewing a found fragment.}
+\figlab{find_4}
+\end{center}
+\end{figure}
+
+The user now needs to decide whether he thinks this proposed fragment is a good match with the molecule. In order to help him to make this decision, he can view the fragment in the context of the molecule it originates from by clicking the `View original' button~(see \figref{find_4}). When he rejects the fragment, the next best fragment will be previewed, up until the point where there are no found fragments left. Either the final fragment needs to be accepted then, or the user can undo some of his rejections using the `Undo' button at the top of the page.
+
+Upon acceptance of a fragment, the charges of that fragment are copied to the molecule. The system will then find another \emph{unparameterised} atom for which fragments will be proposed. This atom is preferably connected to the last accepted fragment, or, when no unparameterised atoms are neighbouring that fragment, positioned on the edge of the molecule. If neither of these atoms exist, a random unparameterised atom will be selected in a different part of the molecule. The user can now continue to parameterise the molecule, which will be discussed in more detail in \secref{impl_completing}.
+
+
+\subsection{Completing parameterisation}
+\seclab{impl_completing}
 \nlipsum
 
 
-\subsection{Fine-tuning charges}
+\subsubsection{Fine-tuning charges}
 \nlipsum
 
 
-\subsection{Wrapping up}
+\subsubsection{Downloading results}
 We use LGF files~\cite{dezso2011lemon}\ldots
 
 \nlipsum

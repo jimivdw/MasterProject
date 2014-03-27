@@ -9,7 +9,7 @@ function takeScreenshot() {
     });
   }
 
-  if(html2canvas !== undefined && html2canvas instanceof Function) {
+  if(window.html2canvas !== undefined && html2canvas instanceof Function) {
     return makeScreenshot();
   }
 
