@@ -86,9 +86,9 @@ At this point, the molecule can already be interacted with. It can be moved arou
 
 
 \subsubsection{Deoverlapping}
-\nlipsum
+As discussed in \secref{ms_visualisation} and~\cite{clark2006structure}, overlap in atoms and bonds still occurs in modern molecule visualisation software. In this case, where the atoms have a relatively large radius to make room for displaying the charge, chances are even higher. To temper the effects of this, a simple deoverlap algorithm has been implemented. \Figref{impl_deoverlap} shows the three different types of deoverlapping that \oframp{} can do. Here, the light blue line indicates a vector that is used to determine if there is any overlap, the red line indicates the overlapping part, and the green arrow~(of equal length to the red line) shows where the atom centre should be moved to in order to resolve the overlap.
 
-\begin{figure}[h!]
+\begin{figure}[b!]
 \begin{center}
 \includegraphics[width=\textwidth]{img/deoverlap.pdf}
 \caption{Concepts of deoverlap.}
@@ -96,10 +96,16 @@ At this point, the molecule can already be interacted with. It can be moved arou
 \end{center}
 \end{figure}
 
+By default, for performance reasons, only the deoverlapping of atoms is enabled. This is the easiest to detect and solve, but also the most important one. Atoms that overlap almost entirely might not be spotted by the user, and atom types and charges may become hidden due to another atom lying on top of them. As can be seen in \figref{impl_deoverlap}, this type of deoverlap works by calculating the distance between the two atom centres and subtracting the atom radius from that twice~(once for each atom). If this distance is smaller than $0$, both atom centres will be moved along the line that connects the two for a distance that is equal to the overlap distance. This ensures that the atoms will no longer overlap, and even creates some room between them.
+
+In order to solve atoms overlapping bonds, the perpendicular distance from the atom centre to the bond needs to be calculated. When this distance is smaller than the atom radius, the atom needs to be moved along the perpendicular for a distance that is equal to the overlap distance. This will put the atom right next to the bond.
+
+The third and final type of deoverlapping, the so-called decrossing of bonds, is also the hardest one. First, it needs to be determined if the two bonds intersect each other. When that is the case, the intersection point needs to be found. The overlap distance here is equal to the distance from the atom centre to the intersection point, plus the radius of the atom. The atom then needs to be moved along its bond for a distance that is equal to the overlap distance, in order to solve the crossing bonds.
+
+Unfortunately, solving one occurrence of overlap could result in overlap occurring in a different place, as moving an atom could potentially move it on top of another. Therefore, the deoverlap process will need to repeat itself to solve all overlap in the molecule. However, it is possible that the solution of one overlap occurrence is the exact opposite of another, which means that, after two iterations, the situation will be exactly the same as it was initially. In order to prevent the deoverlap process from going into an endless loop because of this, a time limit~(set to half a second by default) has been built in, after which the deoverlapping will stop.
 
 \subsection{Parameterisation}
 \seclab{impl_parameterisation}
-We use LGF files~\cite{dezso2011lemon}\ldots
 
 \nlipsum
 
@@ -115,6 +121,8 @@ We use LGF files~\cite{dezso2011lemon}\ldots
 
 
 \subsection{Wrapping up}
+We use LGF files~\cite{dezso2011lemon}\ldots
+
 \nlipsum
 
 
