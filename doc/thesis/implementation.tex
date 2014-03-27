@@ -186,17 +186,47 @@ Upon acceptance of a fragment, the charges of that fragment are copied to the mo
 
 \subsection{Completing parameterisation}
 \seclab{impl_completing}
-\nlipsum
+Upon continuing to parameterise a molecule, it is possible to encounter fragments that contain atoms to which a charge has already been assigned. The atoms in question are given a yellow background, as can be seen in \figref{conflict}. When such fragment is selected, it is dependent on which \oframp{} version is used what will happen. As discussed in \secref{}, the smart version will automatically assign the average of the two charges. In the naive version of the tool, pop-up will be shown, asking the user to pick a solution method for solving the charge conflict.
+
+\begin{figure}
+\begin{center}
+\includegraphics[height=140px]{img/conflict.png}
+\caption{Molecule with a charge conflict.}
+\figlab{conflict}
+\end{center}
+\end{figure}
+
+In some cases, it can happen that no matching fragments are found for an atom. This will be indicated by colouring that atom with a pink/red background, as can be seen for the rightmost $CH_{2}$ group in \figref{conflict}~(and also figures \ref{figure:selecting}, \ref{figure:find_1}, \ref{figure:find_2}, \ref{figure:find_3}, and \ref{figure:find_4}). Upon selecting these atoms, no fragments will be returned. It is still possible to parameterise them manually, in the same way one can fine-tune atom charges~(see \secref{impl_finetuning}).
+
+When a charge has been assigned to all \emph{parameterisable} atoms~(i.e. atoms for which fragments can be found), the user will be notified of this with a pop-up similar to the one shown in \figref{finished}. As it says there, he can now fine-tune the atom charges~(see \secref{impl_finetuning}), download the resulting parameterisation~(see \secref{impl_downloading}), or enter a new molecule.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=.9\textwidth]{img/finished.png}
+\caption{Notification of parameterisation completion.}
+\figlab{finished}
+\end{center}
+\end{figure}
 
 
 \subsubsection{Fine-tuning charges}
-\nlipsum
+\seclab{impl_finetuning}
+Charges of fragments of molecules will often not precisely match with the charges of another molecule. Therefore, the user has the ability to manually adjust atom charges when he wishes to do so. In order to do this, he needs to select the atoms he wishes to adjust the charges for. In the selection details panel, the `Show' button in the `Selected atoms' row should be clicked. A table containing detailed information about the atom will be shown, as can be seen in \figref{editing}.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=.9\textwidth]{img/editing.png}
+\caption{Manually fine-tuning or adding charges.}
+\figlab{editing}
+\end{center}
+\end{figure}
+
+The atom details table contains information about all atoms that are part of the selection. Hovering with the mouse over a row will highlight the corresponding atom in the molecule, which can be seen for the $O$ atom in \figref{editing}. The `Elem' column contains the atom element and its \verb|IACM atom type|~(in parentheses). The charge is shown, which can be edited by clicking the `Edit' button in the column next to it. Finally, clicking the `Show' button in the `Frags' column, will show the fragments that were used to get the current atom charge, as discussed in \secref{}.
 
 
 \subsubsection{Downloading results}
-We use LGF files~\cite{dezso2011lemon}\ldots
-
-\nlipsum
+\seclab{impl_downloading}
+When the user feels he is completely done, he can download the resulting parameterisation of the molecule by clicking the `Download' button at the top of the page. This will give him the result in the \verb|LEMON Graph File|~(LGF) format~\cite{dezso2011lemon}. This format has been chosen as it is used by, among others, the fragment finding system~(see \secref{mop_fragments}), and because it is a flexible format that can easily be generated. This file will contain all atoms' element types, \verb|IACM| and charge, and all bonds between the atoms. It can currently not be imported back into the system, but support for that may be added at a later stage.
 
 
 \subsection{Other features}
