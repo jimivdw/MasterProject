@@ -246,7 +246,7 @@ The user will be guided through most aspects of \oframp, including interaction w
 
 \subsubsection{Modifying visualisation parameters}
 \seclab{impl_settings}
-Research on both data visualisation in general~\cite{gallopoulos1994computer}~(see also \secref{design}) and molecule visualisation in particular~\cite{aksela2008computer,taylor2013interface}~(see also \secref{ms_requirements}) has shown that being able to modify visualisation parameters at runtime will greatly enhance the user experience and help him to carry out the task he intends to complete. Therefore, most of the molecule visualisation parameters, such as the atom radius or grouping of \verb|H| atoms, can dynamically be modified. It has been implemented using the \verb|JavaScript| library \verb|dat-gui|~\cite{data2011dat}. More information on how to use it can be found on the \oframp{} Help pages, which are discussed in \secref{impl_help}.
+Research on both data visualisation in general~\cite{gallopoulos1994computer}~(see also \secref{design}) and molecule visualisation in particular~\cite{aksela2008computer,taylor2013interface}~(see also \secref{ms_requirements}) has shown that being able to modify visualisation parameters at runtime will greatly enhance the user experience and help him to carry out the task he intends to complete. Therefore, most of the molecule visualisation parameters, such as the atom radius or grouping of \verb|H| atoms, can dynamically be modified. It has been implemented using a slight modification of the \verb|JavaScript| library \verb|dat-gui|~\cite{data2011dat}. More information on how to use it can be found on the \oframp{} Help pages, which are discussed in \secref{impl_help}.
 
 \subsubsection{Help}
 \seclab{impl_help}
@@ -265,13 +265,18 @@ As can be seen in \figref{help}, the Help page uses the same type of design as \
 
 \section[\oapoc]{The Online tool for Atom Position Calculations}
 \seclab{impl_oapoc}
-\nlipsum
+The atom positions and bonds that are required for visualising molecules are found by \oapoc. As can be seen in \figref{network_diagram} on \figpageref{network_diagram}, \oapoc{} can calculate the molecule data either from an \verb|ATB ID|, or a molecule data string in an optionally specified format\footnote{When not provided, the format will be guessed automatically, which may be error-prone.}. Internally, this input will be converted to some other format that includes the atom position and bond information, and can easily be parsed and interpreted. This conversion is done using \verb|Open Babel|, which will be discussed shortly in \secref{oapoc_obabel}.
+
+The data that \verb|obabel| returns will be parsed and converted to a \verb|JSON| object, such that it can be sent to the client running \oframp. Additionally, \verb|IACM| atom types are calculated, following the algorithm presented by Malde~et.~al.~\cite{malde2011automated}. These atom types are needed later to find matching fragments for the molecule.
 
 \subsection{From ATB}
-\nlipsum
+When an \verb|ATB ID| is supplied to \oapoc, the molecule data string will be retrieved from the ATB. For all its molecules, the ATB stores a \verb|PDB| file, which is one of the formats that \oapoc{} supports. This file will be downloaded, and its contents will be used as the MDS for finding the molecule data.
 
-\subsection{obabel}
-\nlipsum
+\subsection{Open Babel}
+\seclab{oapoc_obabel}
+For converting molecule data strings from one format to another, it has been decided to go with \verb|Open Babel|~\cite{oboyle2011open}. This tool can be used easily and for free, and has support for most common MDS formats. Additionally, it performs quite well, and is known to provide good atom positions.
+
+From \oapoc, the \verb|Open Babel| executable \verb|obabel| takes an MDS and the format that MDS uses. \verb|obabel| will then convert the MDS to the \verb|Mol2| format. This format has been chosen as it can easily be parsed and contains information on atom positions and bonds. Furthermore, it does not leave out the \verb|H| atoms, which some other formats do. For some applications this is fine, but for \oframp{} it is required to have all \verb|H| atoms.
 
 
 \section[\omfraf]{The Online tool for Molecule Fragment Finding}
