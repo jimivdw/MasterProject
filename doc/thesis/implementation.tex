@@ -293,7 +293,7 @@ Before any fragments can be found, all matching fragments for the molecule need 
 As can be seen in \figref{network_diagram}, the \verb|fragments| tool has been wrapped in a program called \verb|fragment_generator|. For every molecule in the provided repository, this tool will retrieve the matching fragments with the input molecule, transform them into a slightly more manageable format, combine the fragments of all molecules, and store them to disk in the so-called \omfraf{} Fragments File~(OFF) format. The name of this file will be sent back to the \oframp{} user, such that he can query for fragments later. Along with the fragment file's name, a list of atoms for which no matching fragments could be found is sent to the user, which will allow for indicating these atoms in the molecule visualisation~(see \secref{impl_completing}).
 
 \subsubsection{mop/fragments}
-Provided with a target molecule file and another input molecule file, the \verb|fragments| tool will find all maximal fragments in the input molecule file that match with parts of the target molecule. In order to be a match, not only the atoms that are part of the fragment must match; the atoms in a so-called shell around the fragment should also match.
+Provided with a target molecule file and another input molecule file, the \verb|fragments| tool will find all maximal fragments in the input molecule file that match with parts of the target molecule. It will score the fragments based on, among others, their size, such that they can be presented in order of relevance. In order to be a match, not only the atoms that are part of the fragment must match; the atoms in a so-called shell around the fragment should also match.
 
 \begin{figure}
 \centering
@@ -325,4 +325,4 @@ Provided with a target molecule file and another input molecule file, the \verb|
 
 \subsection{Finding fragments}
 \seclab{impl_finding}
-\nlipsum
+Once the fragments have been generated, the user of \oframp{} will be able to start finding fragments. The selected atom(s) and OFF filename will be sent to \omfraf, which will invoke the \verb|fragment_finder|. This program will load the fragments from the OFF file, and select those in which \emph{all} selected atoms are present. Those fragments will be ordered based on the score that was assigned to them by the \verb|fragments| tool, and are returned to the \oframp{} front-end such that they can be used in the parameterisation process.
