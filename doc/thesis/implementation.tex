@@ -281,18 +281,48 @@ From \oapoc, the \verb|Open Babel| executable \verb|obabel| takes an MDS and the
 
 \section[\omfraf]{The Online tool for Molecule Fragment Finding}
 \seclab{impl_omfraf}
-\nlipsum
+Perhaps the most important part of the fragment-based molecule parameterisation system is the part that finds matching fragments for the input molecule. In the current implementation, this is done by \omfraf. Provided with the input molecule, a repository of molecules that can be queried for fragments, and a shell size within which the atoms should match, the tool can generate a list of matching fragments~(see \secref{impl_generating}). This list can later be queried to retrieve the fragments in which a certain atom or set of atoms occurs~(see \secref{impl_finding}).
 
 \subsection{Getting the repositories}
- by sending an empty \verb|JSON| object to its \verb|/repos| URL~(see \figref{network_diagram})
-\nlipsum
+In order to be able to select a repository, the user needs to know what repositories are available. As can be seen in \figref{network_diagram}, a list of repositories can be retrieved by sending an empty \verb|JSON| object to \omfraf's \verb|/repos| URL. As of now, this list consists of only the repository titles. Later, this may be extended to also include the list of molecules that are contained in that repository, combined with functionality to exclude individual molecules. This will be discussed in more detail in \secref{futwork}.
 
 \subsection{Generating fragments}
 \seclab{impl_generating}
-\nlipsum
+Before any fragments can be found, all matching fragments for the molecule need to be generated. As some complex chemical concepts need to be understood to determine whether a similar fragment is a good match, an external tool needs to be used for this. In \omfraf, fragments are generated using El-Kebir's \verb|fragments| tool, from the \verb|mop| project\footnote{\url{https://github.com/melkebir/mop/}}.
+
+As can be seen in \figref{network_diagram}, the \verb|fragments| tool has been wrapped in a program called \verb|fragment_generator|. For every molecule in the provided repository, this tool will retrieve the matching fragments with the input molecule, transform them into a slightly more manageable format, combine the fragments of all molecules, and store them to disk in the so-called \omfraf{} Fragments File~(OFF) format. The name of this file will be sent back to the \oframp{} user, such that he can query for fragments later. Along with the fragment file's name, a list of atoms for which no matching fragments could be found is sent to the user, which will allow for indicating these atoms in the molecule visualisation~(see \secref{impl_completing}).
 
 \subsubsection{mop/fragments}
-\nlipsum
+Provided with a target molecule file and another input molecule file, the \verb|fragments| tool will find all maximal fragments in the input molecule file that match with parts of the target molecule. In order to be a match, not only the atoms that are part of the fragment must match; the atoms in a so-called shell around the fragment should also match.
+
+\begin{figure}
+\centering
+\begin{subfigure}[t]{0.29\textwidth}
+\centering
+\includegraphics[width=\textwidth]{img/shell_1.png}
+\caption{Target atoms that should occur in any fragment, highlighted in blue.}
+\figlab{shell_1}
+\end{subfigure}%
+\qquad
+\begin{subfigure}[t]{0.29\textwidth}
+\centering
+\includegraphics[width=\textwidth]{img/shell_2.png}
+\caption{Matching fragment, highlighted in green.}
+\figlab{shell_2}
+\end{subfigure}%
+\qquad
+\begin{subfigure}[t]{0.29\textwidth}
+\centering
+\includegraphics[width=\textwidth]{img/shell_3.png}
+\caption{Non-matching fragment, highlighted in red / pink.}
+\figlab{shell_3}
+\end{subfigure}
+\caption{Fragment matching with shell size $1$.}
+\figlab{shell_matching}
+\end{figure}
+
+\Figref{shell_matching} shows the concepts of fragment matching for a shell size of $1$. As we can see, in \figref{shell_2}, the neighbouring atoms of the selected $CH_{2}$ group are $C$ and $N$ atoms, just like in \figref{shell_1}. In \figref{shell_3}, the $C$ atom to the right still matches, but the atom on the left-hand side no longer matches, as this is a $C$ atom. Would the shell size be increased further, to $2$, for example, then the second fragment would no longer be matching, due to the $CH_{3}$ group connected to the $NH$ group, and the $CH_{2}$ group connected to the $C$ atom to the right. The former is not present in the original molecule at all, the latter should be an $O$ atom to match.
 
 \subsection{Finding fragments}
+\seclab{impl_finding}
 \nlipsum
