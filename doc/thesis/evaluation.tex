@@ -28,29 +28,24 @@ In the user studies, the participants will be split up in two groups, where each
 
 For both versions of the tool, the experiment participants will be asked to complete the Demo mode first, such that they can get used to that version of the system. Next, they will be asked to parameterise a small, simple molecule, followed by a larger, more complex one. They are then asked to fill in a short questionnaire about that version of the system~(see \secref{us_questionnaires}), after which they are asked to switch to the other version of \oframp. When the steps for both versions have been completed, a final questionnaire, about \oframp{} in general, needs to be filled in. The complete set of instructions can be found in \appref{instructions}.
 
-In order to be able to obtain results from the user studies, an extensive logging mechanism has been built into \oframp\footnote{This mechanism is only present in the special `experiment' version.}. It tries to log as much as it can; from browser details to system load times, and from mouse clicks to button presses. Every log message contains a time-stamp, such that the time difference between two log events can be calculated. They also include a message type, such that they can easily be filtered and counted. Finally, the resulting parameterisation is stored in the log as well, to be able to check this later.
-
-%%%
-During the tasks, the time required to complete the parameterisation will be measured. The difference between the time required in the two implementations will help deciding which of the two implementations is better, but, for both tools, completing the parameterisation should definitely not take hours to finish.
-
-Besides time, the user will also be scored on his performance. In order to do this, the molecules that the user will be asked to parameterise should already have been parameterised using the conventional quantum mechanical calculations. This way, the user's results can be compared to the outcomes of the calculations to establish his rating.
+In order to be able to obtain results from the user studies, an extensive logging mechanism has been built into \oframp\footnote{This mechanism is only present in the special `experiment' version.}. It tries to log as much as it can; from browser details to system load times, and from mouse clicks to button presses. Every log message contains a time-stamp, such that the time difference between two log events can be calculated. They also include a message type, such that they can easily be filtered and counted. Finally, the resulting parameterisation is stored in the log as well, to be able to use this for determining which of the \oframp{} versions is best later.
 
 
 \subsection{Questionnaires}
 \seclab{us_questionnaires}
 After completing their tasks on either of the two versions, the users will be asked to answer a number of questions about the tool. These will mainly be questions about how they like the design and if they can see themselves using it, but will also ask them for suggestions on things that can be improved or added. This way, their experiences can be used to further improve the system, and to make it into something they really like to use.
 
-The questionnaire that test subjects will be asked to fill in will be based on the \verb|SUS| and \verb|UMUX-LITE| usability metrics~\cite{lewis2013umux}~(see also \secref{user_studies}). It will consist of the, for this tool, relevant questions from those metrics, followed by some questions about what they liked and disliked about the tool. To be certain that the questions are answered from the interaction design point of view, they will be asked from both the chemistry and interaction design perspectives. This gives the test subjects a place to put their comments on the chemical correctness, such that their feedback on the interaction design will truly concern the design.
+The questionnaire that test subjects will be asked to fill in will be based on the \verb|SUS| and \verb|UMUX-LITE| usability metrics~\cite{lewis2013umux}~(see also \secref{user_studies}). It will consist of the, for this tool, relevant questions from those metrics, followed by some questions about what they liked and disliked about the tool. To be certain that the questions are answered from the interaction design point of view, they will be asked from both the chemistry and interaction design perspectives. This gives the test subjects a place to put their comments on the chemical correctness, such that their feedback on the interaction design will truly concern the design. The complete set of questionnaire questions can be found in \appref{questionnaires}.
 
-Final questionnaire blah \ldots.
+After testing both the naive and smart versions of \oframp, and assessing them with the previously discussed questionnaires, a few more, general questions will be asked. These questions are about what version the user liked best and why, if he wants to see any functionality added to the system, and leaves some room for additional comments. They will probably not provide new insights as to which version is liked better, as this can be inferred from the ratings obtained by the previous questionnaires, but they will help the further development of \oframp.
 
-Implemented using QL~\cite{erdweg2013state}\ldots
+The questionnaires, just like the experiment, needed to be held online. Because of this, they have been implemented as web forms using (a minor extension of) the questionnaire language QL~\cite{erdweg2013state}. This allowed for easy definition of the form, without having to worry about validation or layout.
 
 \subsection{Analysis}
 \seclab{us_analysis}
-How to analyse the results? Blah \ldots.
+The results from the log of the user studies combined with those obtained with the questionnaire should be able to give an answer on which of the two interaction designs is better. The version that gives good results in a short amount of time and is also positively graded in the questionnaire will be the better one. Furthermore, the timing and scoring results from the experiment alone will be able to answer the question if it is possible to do fragment-based molecule parameterisation at all. At least for one of the two versions both time consumption and parameterisation results should be reasonable.
 
-The smaller the difference between the two, the better the performance of the user will be graded. There are two different ways of calculating this:
+In order to rate the user's parameterisation, the molecules that the user will be asked to parameterise should already have been parameterised using the conventional quantum mechanical calculations. This way, the user's results can be compared to the outcomes of the calculations to establish his rating. The smaller the difference between the two, the better the performance of the user will be graded. There are two different ways of calculating this:
 \begin{align*}
 r &= \sum_{i = 0}^{n} \delta_{i} & R &= \sum_{i = 0}^{n} |\delta_{i}|,
 \end{align*}
@@ -63,7 +58,3 @@ n &= \text{total number of atoms in the molecule}.
 \end{align*}
 
 First, it is interesting to know the difference in the total charge of the molecules, which is given by $r$. This is something that can be observed and minimised by the user, as he can see the totally assigned charge during the parameterisation process, and can therefore be used to see if the user is paying attention to that. More important, but not less interesting, is the sum of the absolute differences between the two parameterisations, which is found by $R$. This will determine how good the results of \oframp{} really are, as it concerns the correctness of the individual atom charges.
-
-% Redo, or maybe even remove...
-% The results of the user studies combined with those obtained with the questionnaire should be able to give an answer on which of the two interaction designs is better. The version that gives good results in a short amount of time and is also positively graded in the questionnaire will be the better one. Furthermore, the timing and scoring results from the experiment alone will be able to answer the question if it is possible to do fragment-based molecule parameterisation at all. At least for one of the two versions both time consumption and parameterisation results should be reasonable.
-% Furthermore, users should not report they are annoyed by the tool or willing to stop parameterising.
