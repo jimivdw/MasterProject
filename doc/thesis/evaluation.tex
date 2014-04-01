@@ -1,62 +1,39 @@
 \chapter{Evaluation}
 \chlab{evaluation}
 
-In order to determine which of the two implementations of \oframp{} is the best, and to evaluate the project in general, the system will be subjected to a user study. This chapter will discuss the project's hypotheses~(\secref{hypotheses}) and the contents of the user studies, including the user tasks~(\secref{us_tasks}) and questionnaires~(\secref{us_questionnaires}).
+In order to determine which of the two implementations of \oframp{} is the best, and to evaluate the project in general, the system will be subjected to a user study. This chapter will discuss the project's hypotheses~(\secref{hypotheses}) and the contents of the user studies, including the user tasks~(\secref{us_tasks}) and questionnaires~(\secref{us_questionnaires}). Finally, this chapter will discuss how the experiment outcomes should be analysed, and what certain outcomes should mean~(\secref{us_analysis}).
 
 
 \section{Hypotheses}
 \seclab{hypotheses}
-According to Jonassen's dichotomy of problems~\cite{jonassen2000toward}~(see also \secref{id_learning}), fragment-based molecule parameterisation is an ill-structured problem. This means that the problem is quite complex and is therefore hard to solve. Due to this, users need to be ensured that there is a way to find a solution, or they will simply give up. Blah \ldots.
-% Errrm...
-% This is better facilitated by the smart version than the naive version of the tool, as one can fully parameterise a molecule just by clicking `yes' a number of times in that version. The solution will probably not be too good, but it is definitely a solution and users will continuously see there is a way to get there. This is something that is less clear in the naive version of the tool, where more user action is needed to get to the solution.
+According to Jonassen's dichotomy of problems~\cite{jonassen2000toward}~(see also \secref{id_learning}), fragment-based molecule parameterisation is an ill-structured problem. This means that the problem is quite complex and is therefore hard to solve. Due to this, users need to be ensured that there is a way to find a solution, or they will simply give up. This should be the case for both versions of the system, but is better facilitated by the naive version than the smart one. In the naive version, users will see that, by selecting an atom, it can easily be parameterised. He will know that, in order to complete the parameterisation, this process simply needs to be repeated for the remainder of the atoms.
 
-The differences between the two implementations, as discussed in \secref{id_comparison}, combined with the motivations behind the two interaction designs~(see \secref{id_versions}), one can conclude that the smart version has great benefits in time consumption and user guidance, where the naive version excels in user freedom. In the earlier mentioned study of Payne, Sycara, and Lewis~\cite{payne2000varying}, this was the same. They concluded that many users found that using the naive version was a tedious process, but \ldots. This leads to the following hypothesis for this research project:
+The differences between the two implementations, as discussed in \secref{id_comparison}, combined with the motivations behind the two interaction designs~(see \secref{id_versions}), can lead to the conclusion that the smart version has great theoretical benefits in time consumption and user guidance, where the naive version should excel in user freedom. In the earlier mentioned study of Payne, Sycara, and Lewis~\cite{payne2000varying}, this was the same. They concluded that many users found that using the naive version was a tedious process that cost a lot of time. However, in some, more complex cases, they found that the system users find it really important to have full control of the system, and therefore preferred the naive interaction design. As discussed before, fragment-based molecule parameterisation is an ill-structured, and therefore complex problem, which leads to the following hypothesis about the two versions of the interaction design:
 \begin{quote}
-The `naive' interaction design is the best design for fragment-based molecule parameterisation.
+The `naive' interaction design is the best design for a tool that is used for fragment-based molecule parameterisation.
 \end{quote}
 
-The second, for this project essential hypothesis, is as follows:
+On a more general level, both versions of the interaction design rely on the idea that fragment-based molecule parameterisation should be chemically correct. As this has not been proven yet, \oframp{} aims to help in determining if it is possible. Both versions of the system have been designed in such way that the user should be able to quickly parameterise a molecule, either by providing them with a clear overview of possibilities, or by limiting the user interaction to accepting and rejecting. Furthermore, as it has been proven that good matching parts of molecules have the same atomic charges, the second - for both versions of \oframp{} essential - hypothesis is as follows:
 \begin{quote}
-It is possible to correctly parameterise a molecule based on fragments of other molecules in a reasonable amount of time.
+It is possible to parameterise a molecule based on fragments of other molecules; both correctly and in a reasonable amount of time.
 \end{quote}
-This hypothesis should hold for both implementations of the tool, as both have been designed to converge to a solution and to provide their information to its clearest and cleanest extent. Blah \ldots.
 
 
 \section{User studies}
-To evaluate the hypotheses discussed in the previous section, both versions of the developed system will be subjected to a number of user studies.
-% Needs to be redone..
-% Currently, however, the presumed user base is limited to only a small number of researchers. Luckily, project supervisors Klau and El-Kebir keep a close connection with most of those researchers, who work at VU University Amsterdam. They have shown some interest in the tool and are willing to participate in the user studies. Furthermore, as some of the researchers are also teaching, they can ask some of their students to evaluate the tool as well. It is not possible to ask random students, as they will lack domain knowledge, making their results unreliable~\cite{jonassen2000toward}. The researchers' students are considered to have enough domain knowledge to be able to correctly parameterise a molecule.
-
-In the user studies, the test subjects will be split up in two groups, where each subject is randomly assigned to a group and both groups are of equal size. This way, it is made sure that both groups are representative, which is essential for user studies~\cite{wohlin2003empirical}~(see also \secref{user_studies}).
+To evaluate the hypotheses discussed in the previous section, both versions of the developed system will be subjected to a number of user studies. This will help to determine if the system works properly and whether it is really fit for the molecule parameterisation task. Unfortunately, not just anyone can be asked to test \oframp, as it is a system that is aimed to be used by experienced chemists who understand the details about molecule parameterisation. Luckily, project supervisors Klau and El-Kebir keep a close connection with a substantial group of chemistry researchers, creating the opportunity of asking them to participate in a user study. They were interested in the concept of fragment-based molecule parameterisation, and willing to test a system that does that.
 
 \subsection{Use cases}
 \seclab{us_tasks}
-The groups will take part in an experiment that compares the two versions of the molecule parameterisation tool. Due to the limited number of test subjects, every participant will be asked to test both the naive and the smart version of \oframp. As the effects of the order in which two systems are evaluated are often remarkable, one group will start the evaluation with the naive version, followed by the smart version, where the other group will do this the other way around.
+In the user studies, the participants will be split up in two groups, where each person is randomly assigned to a group and both groups are of equal size. This way, it is made sure that both groups are representative, which is essential for user studies~\cite{wohlin2003empirical}~(see also \secref{user_studies}). The groups will take part in an experiment that compares the two versions of the molecule parameterisation tool. Due to the limited number of test subjects, every participant will be asked to test both the naive and the smart version of \oframp. As the effects of the order in which two systems are evaluated are often remarkable, one group will start the evaluation with the naive version, followed by the smart version, where the other group will do this the other way around.
 
-The tasks are blah \ldots.
-% Needs to be redone..
-% For both groups, every member will be asked to parameterise a few molecules of increasing size and complexity. The first one will be quite easy to complete, but the last one should be of such complexity that, theoretically, using the tool is beneficial over using conventional quantum mechanical calculations. It is in these last situations that the tool should show its true value.
+For both versions of the tool, the experiment participants will be asked to complete the Demo mode first, such that they can get used to that version of the system. Next, they will be asked to parameterise a small, simple molecule, followed by a larger, more complex one. They are then asked to fill in a short questionnaire about that version of the system~(see \secref{us_questionnaires}), after which they are asked to switch to the other version of \oframp. When the steps for both versions have been completed, a final questionnaire, about \oframp{} in general, needs to be filled in. The complete set of instructions can be found in \appref{instructions}.
 
-Everything will be logged, blah \ldots.
-% Redo this...
-% For the experiment, timing and scoring mechanisms will be built into the tool. The timing mechanism will simply measure the time between the first click on the tool's ``Find matches'' button and the moment where the user saves the final parameterisation. This value will be stored in a database, along with the value obtained by the scoring mechanism. This value, as discussed before, will be calculated from the difference between the assigned charges and the previously calculated ones.
-% In order to be able to explain the scoring results and to evaluate them in more detail, the proposed fragments and the selected ones will also be stored. This way, it should be possible to pinpoint where a user went wrong, if he did. Furthermore, it can also help to identify outliers. If it is clear that someone was just messing around with the tool and did not care about getting a good result, that user's experiment results can be left out.
+In order to be able to obtain results from the user studies, an extensive logging mechanism has been built into \oframp\footnote{This mechanism is only present in the special `experiment' version.}. It tries to log as much as it can; from browser details to system load times, and from mouse clicks to button presses. Every log message contains a time-stamp, such that the time difference between two log events can be calculated. They also include a message type, such that they can easily be filtered and counted. Finally, the resulting parameterisation is stored in the log as well, to be able to check this later.
 
+%%%
 During the tasks, the time required to complete the parameterisation will be measured. The difference between the time required in the two implementations will help deciding which of the two implementations is better, but, for both tools, completing the parameterisation should definitely not take hours to finish.
 
-Besides time, the user will also be scored on his performance. In order to do this, the molecules that the user will be asked to parameterise should already have been parameterised using the conventional quantum mechanical calculations. This way, the user's results can be compared to the outcomes of the calculations to establish his rating. The smaller the difference between the two, the better the performance of the user will be graded. There are two different ways of calculating this:
-\begin{align*}
-r &= \sum_{i = 0}^{n} \delta_{i} & R &= \sum_{i = 0}^{n} |\delta_{i}|,
-\end{align*}
-\vspace{-1em}
-\begin{align*}
-\text{where} \quad \delta_{i} &= C_{i} - c_{i},\\
-C_{i} &= \text{ATB charge of the atom with index}~i,\\
-c_{i} &= \text{\oframp{} charge of the atom with index}~i,\\
-n &= \text{total number of atoms in the molecule}.
-\end{align*}
-
-First, it is interesting to know the difference in the total charge of the molecules, which is given by $r$. This is something that can be observed and minimised by the user, as he can see the totally assigned charge during the parameterisation process, and can therefore be used to see if the user is paying attention to that. More important, but not less interesting, is the sum of the absolute differences between the two parameterisations, which is found by $R$. This will determine how good the results of \oframp{} really are, as it concerns the correctness of the individual atom charges.
+Besides time, the user will also be scored on his performance. In order to do this, the molecules that the user will be asked to parameterise should already have been parameterised using the conventional quantum mechanical calculations. This way, the user's results can be compared to the outcomes of the calculations to establish his rating.
 
 
 \subsection{Questionnaires}
@@ -72,6 +49,21 @@ Implemented using QL~\cite{erdweg2013state}\ldots
 \subsection{Analysis}
 \seclab{us_analysis}
 How to analyse the results? Blah \ldots.
+
+The smaller the difference between the two, the better the performance of the user will be graded. There are two different ways of calculating this:
+\begin{align*}
+r &= \sum_{i = 0}^{n} \delta_{i} & R &= \sum_{i = 0}^{n} |\delta_{i}|,
+\end{align*}
+\vspace{-1em}
+\begin{align*}
+\text{where} \quad \delta_{i} &= C_{i} - c_{i},\\
+C_{i} &= \text{ATB charge of the atom with index}~i,\\
+c_{i} &= \text{\oframp{} charge of the atom with index}~i,\\
+n &= \text{total number of atoms in the molecule}.
+\end{align*}
+
+First, it is interesting to know the difference in the total charge of the molecules, which is given by $r$. This is something that can be observed and minimised by the user, as he can see the totally assigned charge during the parameterisation process, and can therefore be used to see if the user is paying attention to that. More important, but not less interesting, is the sum of the absolute differences between the two parameterisations, which is found by $R$. This will determine how good the results of \oframp{} really are, as it concerns the correctness of the individual atom charges.
+
 % Redo, or maybe even remove...
 % The results of the user studies combined with those obtained with the questionnaire should be able to give an answer on which of the two interaction designs is better. The version that gives good results in a short amount of time and is also positively graded in the questionnaire will be the better one. Furthermore, the timing and scoring results from the experiment alone will be able to answer the question if it is possible to do fragment-based molecule parameterisation at all. At least for one of the two versions both time consumption and parameterisation results should be reasonable.
 % Furthermore, users should not report they are annoyed by the tool or willing to stop parameterising.
