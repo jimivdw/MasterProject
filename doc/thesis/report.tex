@@ -17,6 +17,7 @@
     \end{tabular}}
 % The document is now set correctly
 
+\usepackage[british,UKenglish]{babel}
 \usepackage{graphicx}
 \usepackage{wrapfig}
 \usepackage{caption}
@@ -29,6 +30,7 @@
 \usepackage{enumitem}
 \usepackage{rotating}
 \usepackage{amsmath}
+\usepackage{datetime}
 
 % Beramono for code highlighting? If needed...
 
@@ -85,7 +87,7 @@
 
 \fancyhf{}
 \fancyfoot[LE,RO]{\textit{\thepage}}
-\fancyfoot[RE,LO]{\textit{\auth}}
+\fancyfoot[RE,LO]{\textit{Concept \today~\currenttime}}%\auth}}
 \fancyhead[RE,LO]{\textit{\courseshort}}
 \fancyhead[LE,RO]{ %
   \ifthenelse{ %
@@ -98,7 +100,7 @@
 \fancypagestyle{plain}{ %
 \fancyhf{} %
 \fancyfoot[LE,RO]{\textit{\thepage}} %
-\fancyfoot[RE,LO]{\textit{\auth}} %
+\fancyfoot[RE,LO]{\textit{Concept \today~\currenttime}}%\auth}} %
 \renewcommand{\headrulewidth}{0pt} % remove lines as well
 }
 
@@ -159,6 +161,7 @@
 
 % More vertical spacing in tables
 \renewcommand*\arraystretch{1.5}
+\ddmmyyyydate
 
 \include{abstract}
 \include{acknowledgements}
@@ -189,6 +192,8 @@
 \include{setup}
 \include{instructions}
 \include{questionnaires}
+\include{graphs}
+\include{comments}
 
 \cleardoublepage
 

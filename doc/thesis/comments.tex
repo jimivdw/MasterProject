@@ -1,0 +1,586 @@
+\chapter{Comments}
+\section{naive}
+\subsection{first}
+\subsubsection{chem\_pos}
+\begin{itemize}
+\item Quickly selecting arbitrary fragments, looking at the compounds they originate from and iteratively redoing partial charge assignment to get "it right" is good
+
+\item A good variety and potential charge groups available
+
+\item It is a fast way to estimate atomic charges for the unparametrised molecules. It is also quite informative regarding the differences of the same groups in different environments, or different solutions for identical fragments.
+
+\item Quickly selecting arbitrary fragments, looking at the compounds they originate from and iteratively redoing partial charge assignment to get "it right" is good
+
+\item Extremely useful to have a tool to screen for possible sets of charges for a given fragment in a database with pre-equilibrated charges!
+
+Nice representation of molecules and fragments, see below for a few suggestions for possible future extensions.
+
+\item A good variety and potential charge groups available
+
+\end{itemize}
+
+
+\subsubsection{chem\_neg}
+\begin{itemize}
+\item I'm missing out on some intelligence in the interface. What about when the compound contains two identical subunits, could the system point me to it and apply a fragment to both? Could the system take the context (environment) of the fragment selected into account apart from setting shell size, e.a. does the oxygen link to a neighboring phosphate or carbon for instance. Makes a difference in the partial charge it gets. Perhaps sort available fragment to reflect this
+
+\item When many atoms selected, there was no group that could be selected for charge assignment; many charge options possible, how do we know which one is correct/the best; maybe adding confidence factor would help
+
+\item I found that there are several possible solutions for the fragments in the identical context. The question is - which one is to use? Another important question would be how good are the offered charges and what is the impact of mixing parts from different molecules which clearly have different ideas about charge values for certain atom types. I think some ranking could be introduced in sense of adding some flag to more reliable set of charges (by reliable, I mean something that is derived following certain standard procedures).
+
+\item I'm missing out on some intelligence in the interface. What about when the compound contains two identical subunits, could the system point me to it and apply a fragment to both? Could the system take the context (environment) of the fragment selected into account apart from setting shell size, e.a. does the oxygen link to a neighboring phosphate or carbon for instance. Makes a difference in the partial charge it gets. Perhaps sort available fragment to reflect this
+
+\item - It would be very useful to have the possibility to switch to a representation that includes hydrogens explicitly (i.e., to see charges on hydrogens and hydrogen-bound atoms explcitly). Especially charges on hydrogens bound to any atom {\textbackslash}other{\textbackslash} than carbon would be good to be visualized (and then have an option to switch between representation with and without carbond-bound atoms?)
+
+- It would be very nice to have the possibility to distribute error in net charge of molecule (as defined by user) over a selected set or all atoms of the molecule (to be selected by user as well).
+
+\item When many atoms selected, there was no group that could be selected for charge assignment; many charge options possible, how do we know which one is correct/the best; maybe adding confidence factor would help
+
+\end{itemize}
+
+
+\subsubsection{ui\_pos}
+\begin{itemize}
+\item The interface is very clear, no hidden options elaborate menu's and so on. I could start working right away.
+
+\item Clear labels, clear information about the charges, nice clear layout
+
+\item It is a rather user friendly interface and I did not have any major problems with it, except when my connection seemed to unusually slow so I couldn't load the available fragments for inspection.
+
+\item The interface is very clear, no hidden options elaborate menu's and so on. I could start working right away.
+
+\item Many very useful funcionalities.
+
+Fast generation of fitting fragments.
+
+The possibility to easily check the molecule from which a given fragment originates is really nice.
+
+Extensive help function.
+
+Various coloring schemes to warn for atoms for which no fragments are found, overlapping atoms, etc.
+
+\item Clear labels, clear information about the charges, nice clear layout
+
+\end{itemize}
+
+
+\subsubsection{ui\_neg}
+\begin{itemize}
+\item I would always like to see a window indicating the total charge of the system yet parameterized. Also when the system fully parameterized, show the final statistics. Can the system track consistency in real time? perhaps give helpful pointers for parts of the molecule that are not properly parameterized? 
+
+\item The pop-up window after the completion of molecule is confusing; difficult to 'return' to a previous page
+
+\item It is not so easy to answer this question after just 2 molecules, it would probably take some time to figure out what is annoying in the every day usage.
+
+\item I would always like to see a window indicating the total charge of the system yet parameterized. Also when the system fully parameterized, show the final statistics. Can the system track consistency in real time? perhaps give helpful pointers for parts of the molecule that are not properly parameterized? 
+
+\item - Two small suggestions for the demo:
+
+ I 'by accident' found out that after starting the demo, I had to click on the window to have a demo-molecule appear, shouldn't that be in the instructions? And maybe add something like "Swipe with two fingers over mouse pad when scroll wheel is missing" to the demo?
+
+-  I (quickly) found out that I could/had to use arrow keys to scroll down in the menu with selected fragments, when many of them were found and I wanted to look at many of them as well.
+
+-  I was confused by the light color of the atoms in (orange highlighted) fragments: I thought they would not be part of the fragment or so, maybe you could indicate charges that have been assigned already with another color (red font?) instead of changing the color of the atoms)? It is just a suggestion.
+
+- Could you in the menu "attempting to assign a new charge to an already charged atom"  easily highlight the atom that is actually considered with a separate color? That would be very helfpul in the (regularly occurring) cases in which a fragment contains more than one atom with the same atom name.
+
+- It would be very nice to be able to change the default position of the pop-up after clicking "show molecule" (i.e. to have the pop-up not overlapping with the structure of the molecule to be paratemerized).
+
+- From a user perspective, it would be ideal to be able to see for already selected charges to which fragment they belong, e.g. when selecting a fragment in the big molecule, it may have overlap with earlier assigned fragments, and it would be very nice if the user could see with which part of a pre-chosen fragment(s) there is overlap. I could well imagine several issues with implementation (e.g. how to color code atoms that have had overlap between different pre-chosen fragments??)
+
+\item The pop-up window after the completion of molecule is confusing; difficult to 'return' to a previous page
+
+\end{itemize}
+
+
+\subsubsection{errors}
+\begin{itemize}
+\item None
+
+\item None
+
+\item None
+
+\item None
+
+\item I (Daan) encountered the following issues during the demo:
+
+after selecting a first fragment, I selected two atoms (with control-click), for which no fragments could be selected. Then, I did not manage to unselect any of the two selected atoms, and when clicking undo, all selections disappeared and I got the demo hanging when clicking undo and clicking the menu with fragments away (the description about the fragment-menu on the right remained, and I could not make a new selection anymore, so I had to restart the demo, after which I got it hanging again following the same sequence of my selections (I would be happy to show this, this seems to be a bug in the demo; I hope I am wrong.)
+
+\item None
+
+\end{itemize}
+
+
+\subsubsection{comments}
+\begin{itemize}
+\item None
+
+\item None
+
+\item None
+
+\item None
+
+\item Great achievement and a very nice application and user-interface!
+
+
+
+One tiny remark on the questionnaire:  I almost filled in the first part of the questionnaire on the opposite scale, maybe put more emphasis on the remark Please rate the following statements on a scale of 1 (strongly disagree) to 5 (strongly agree)."  ?   (Or show 5  4  3  2  1  n/a) 
+
+\item None
+
+\end{itemize}
+
+
+\subsection{second}
+\subsubsection{chem\_pos}
+\begin{itemize}
+\item It is good to have the possibility to decide which atoms should compose a fragment, and in which direction try to increase the fragment to look for.
+
+
+
+\item The ease with which similar portions of different molecules can be identified.
+
+\item The chemical context was well-defined, and the list of alternatives was extensive
+
+\item In short the overview of all the options for a selection of atoms really allows for a good choice of fragments, however typically the best fragment is not the first one displayed. Especially after a short while it becomes very intuitive to just start with the functional groups and then build up the rest of the molecule, with resulting charges that at least look decent.
+
+\end{itemize}
+
+
+\subsubsection{chem\_neg}
+\begin{itemize}
+\item It would be useful to have a system of averaging among a selected group of atoms.
+
+\item The available fragments seem to be missing some common functional groups. To be chemically relevant the buffer region surrounding fragments must be larger to ensure a degree of independence between fragments. 
+
+\item Some fragments did not have values I would have expected. Inserting them by hand would have been convenient
+
+\item It would be nice to be more capable of adapting charges for a certain atom at a later time. E.g. allow you to remove certain fragments that were used. Right now especially with the huge borredlin molecule you would have to either start all over again or keep hitting the back button. 
+
+\end{itemize}
+
+
+\subsubsection{ui\_pos}
+\begin{itemize}
+\item The list of fragments on the side is very useful, together with the automated updating of the window reporting the original molecule.
+
+I liked a lot the interactive search of fragments, while selecting different groups of atoms.
+
+\item I think the user interface is very good: responsive, intuitive, easy to lean and use. 
+
+\item The information needed pops up when needed
+
+\item The user interface was great and easy to use. It's use is very intuitive and it's lightning fast.
+
+\end{itemize}
+
+
+\subsubsection{ui\_neg}
+\begin{itemize}
+\item In the side panel of the fragments, it would be more handy to display the entire molecule, in which the fragment is highlighted.
+
+It would be more practical to have the possibility to change the atom by hand, without selecting any fragment, in case no suitable fragment has been found.
+
+A preliminary search for big fragments, as present in OFraMP version s, could speed up the parametrization process.
+
+\item Drag to select multiple atoms simultaneously.  It is impractical to keep track of net charge for large molecules. 
+
+\item The list of fragments was not scrollable, reducing 100+ options to only a few
+
+\item Again, I think a great addition to the system would be the use of color coding for the different elements.
+
+\end{itemize}
+
+
+\subsubsection{errors}
+\begin{itemize}
+\item None
+
+\item None
+
+\item None
+
+\item None
+
+\end{itemize}
+
+
+\subsubsection{comments}
+\begin{itemize}
+\item None
+
+\item None
+
+\item None
+
+\item None
+
+\end{itemize}
+
+
+\section{smart}
+\subsection{second}
+\subsubsection{chem\_pos}
+\begin{itemize}
+\item -
+
+\item All assignment done almost without user's input
+
+\item Finding the matching fragment was faster than in the previous version.
+
+\item -
+
+\item As the previous version (version n), it is great to have an interface for automated selection of molecular fragments and atomic charges in hand! This one is even easier to use, but this is probably due to a functionality that I miss when compared to the previous version (see below).
+
+\item All assignment done almost without user's input
+
+\end{itemize}
+
+
+\subsubsection{chem\_neg}
+\begin{itemize}
+\item I was missing out on the true process of fragment based assembly. I often thought I could do better of the particular fragment in context of the whole compound but did want to go to accept/reject/undo cycles. 
+
+\item How are the groups assigned? The same molecule starts optimizing from different parts at different trials. Sometimes no optimal solution available. 
+
+\item I would really like if I could see all the charges in the context molecule rather than just for the fragment. It would help in making a better guess for the neighbouring fragment, considering the multiple options. 
+
+\item I was missing out on the true process of fragment based assembly. I often thought I could do better of the particular fragment in context of the whole compound but did want to go to accept/reject/undo cycles. 
+
+\item I prefer a scroll down menu on the right side, such that I can easily compare different possible fragments. Now I have to click back and forth between different possbilities (to compare them), and that makes this version in fact less user friendly from the chemist's point of view than version n.
+
+Furthermore, most of my remarks on what is good and on what might be improved, as filled in in evaluation of version n, holds true for the current version (s) as well.
+
+\item How are the groups assigned? The same molecule starts optimizing from different parts at different trials. Sometimes no optimal solution available. 
+
+\end{itemize}
+
+
+\subsubsection{ui\_pos}
+\begin{itemize}
+\item The system making suggestions and taking the lead in the process of parametrization is helpful and helps me getting "up and running" quicker. 
+
+
+
+\item Nice clear layout
+
+\item The automatic assignation of the fragment charge speeds up the procedure.
+
+\item The system making suggestions and taking the lead in the process of parametrization is helpful and helps me getting "up and running" quicker. 
+
+
+
+\item See my first answer.
+
+\item Nice clear layout
+
+\end{itemize}
+
+
+\subsubsection{ui\_neg}
+\begin{itemize}
+\item Opposed to the other interface I consider this one to be more of a "black box" Making suggestions is great but I would like tot see the window displaying the alternative fragments available at each suggestion as well as na overal status window show total charge of the system assigned so far and more. 
+
+\item The pop-up window at the end confusing - it covers the result. Difficult to return to previous page/settings
+
+\item Although this automatic selection of the fragment can make choice a bit easier, in cases of larger molecules with different functional groups, it gets more tedious because every rejection results with blind next guess. Perhaps after the first rejection it would be nice to have the menu with all the molecules with the given fragments as in the previous versions.
+
+\item Opposed to the other interface I consider this one to be more of a "black box" Making suggestions is great but I would like tot see the window displaying the alternative fragments available at each suggestion as well as na overal status window show total charge of the system assigned so far and more. 
+
+\item Most of my remarks on what is good and on what might be improved, as filled in in evaluation of version n, holds true for the current version (version s) as well.
+
+My main suggestion would be to let the pop-up menu, after clicking on 'view original' (either in version s or n), pop up beside of the molecule in the main menu, and not let them overlap (as it is now, which means that I constantly have to drag it beside of the molecule in the main menu).
+
+Would it maybe be possbile to combine both functionalities of s and n? I.e., to include both the availability of the buttons below (as in this version s), and the scroll menu on the right?
+
+\item The pop-up window at the end confusing - it covers the result. Difficult to return to previous page/settings
+
+\end{itemize}
+
+
+\subsubsection{errors}
+\begin{itemize}
+\item None
+
+\item None
+
+\item Sometimes after changing the selection of the fragment, the system would not change the charges anymore, but that could've been my fault too (perhaps I did something wrong unaware of it).
+
+\item None
+
+\item None
+
+\item None
+
+\end{itemize}
+
+
+\subsubsection{comments}
+\begin{itemize}
+\item None
+
+\item None
+
+\item None
+
+\item None
+
+\item Include the demonstration of the possibility to click on and adapt atoms in the demo.
+
+\item None
+
+\end{itemize}
+
+
+\subsection{first}
+\subsubsection{chem\_pos}
+\begin{itemize}
+\item The search for the fragments, starting from the biggest to the smallest one found in the repository; the possibility to visualize the query molecule and the original molecule where the fragment has been found.
+
+\item The automated search for possible fragments is helpful. 
+
+\item The system shows the molecules the fragments are chosen from, allowing to get the proper chemical context of the fragment.
+
+\item At least the first few fragments it proposes for a certain part of the molecule look pretty good. The selection details screen really allows for quickly viewing all the necessary information. It allowed for rapidly obtaining a seemingly okay charge distribution for the second molecule.
+
+\end{itemize}
+
+
+\subsubsection{chem\_neg}
+\begin{itemize}
+\item It should be possible to visualize more fragments at the same time, in order to choose the best one. When adding a new fragment, it should be possible to not overwrite charges that have been previously parametrized.
+
+\item The local environments surrounding matched fragments is not large enough to ensure that fragments are independent. 
+
+\item When looking for the 'best' fragment description, aal fragments have to be accepted or rejected, without knowing what other fragments might be coming. As such the choice becomes a bit arbitrary.
+
+\item The proposed fragment quality goes rapidly down hill from just the first few fragments and the proposed fragments become quite inaccurate, especially for small groups such as just a CH3 group. This generally resulted in me having to hit the undo button about 10 times to get back to the first proposed one. It would be better to just have an overview of all available fragments. Averaging the charges of several fragments for a certain part of the molecule also worries me, especially since there is no option to NOT average the charge for certain atoms instead of averaging them with the new fragment.
+
+
+
+The system also does not take into acount molecular symmetry for the 1,3-propanediol, which results in using 1-butanol for the CH2(OH) and the CH2, but not for the other CH2(OH), while in fact these groups are identical. 
+
+
+
+Finally I think that "matching the total charge" is an inappropriate way for judging the quality of the obtained partial charges.
+
+\end{itemize}
+
+
+\subsubsection{ui\_pos}
+\begin{itemize}
+\item Easy interface and nice way to submit the query molecule
+
+\item The user interface is simple to lean and use. 
+
+\item the system runs smoothly, all interactions are quite intuitive.
+
+\item It's incredibly easy to use. The selection details screen is very useful. The molecule and the proposed fragment are illustrated very well.
+
+\end{itemize}
+
+
+\subsubsection{ui\_neg}
+\begin{itemize}
+\item Explicit visualization of double/triple bonds would make the comparison between fragments and molecule more intuitive.
+
+A window that describes the proposed fragment in the original molecule should be always present and updated when a fragment is discarded.
+
+It would be useful to have the possibility to select again a fragment that has been previously discarded.
+
+\item When a potential match is rejected the update of the selected fragment isn't obvious i.e. it appears as if nothing has changed. Showing multiple possible fragments would speed up the fragment selection process. Showing the net charge on each fragment and on the paramaterized portion of the molecule would make it much simpler to keep track of net charge. 
+
+\item the selection detail window is not completely obvious at first sight
+
+\item What I really would prefer is that the interface uses at least some idea of the standard color marking for atoms (e.g. red for oxygen, blue for nitrogen), since this is generally how these molecules are viewed by chemists and it makes it easier to see if a fragment is a match just by looking at it once.
+
+\end{itemize}
+
+
+\subsubsection{errors}
+\begin{itemize}
+\item None
+
+\item None
+
+\item None
+
+\item None
+
+\end{itemize}
+
+
+\subsubsection{comments}
+\begin{itemize}
+\item None
+
+\item None
+
+\item None
+
+\item None
+
+\end{itemize}
+
+
+\section{general}
+\subsection{nf}
+\subsubsection{preference}
+\begin{itemize}
+\item 1
+
+\item 1
+
+\item 1
+
+\item 1
+
+\item 1
+
+\item 1
+
+\end{itemize}
+
+
+\subsubsection{preference\_exp}
+\begin{itemize}
+\item More control over fragment assembly proces. 
+
+\item To be honest I liked both of them, I liked seeing all the available charge groups and picking one rather than having the groups assigned blind (version 2)
+
+\item I found it easier to use and it felt like I have more control over it. The second version requires a lot of clicking back and forth because I can't see what is the next guess and it's not necessarily better than the first one. And it gets confusing when the fragment selection is being changed, I don't find the second version very responsive in that sense. Basically, I find the first version more flexible.
+
+\item More control over fragment assembly proces. 
+
+\item I prefer version n, because I prefer the scroll down menu on the right to more easily compare possible fragment selections.
+
+\item To be honest I liked both of them, I liked seeing all the available charge groups and picking one rather than having the groups assigned blind (version 2)
+
+\end{itemize}
+
+
+\subsubsection{transfer}
+\begin{itemize}
+\item Automatically "walking" through the fragment assembly proces for the compound but keeping the window with alternate fragment options available. 
+
+\item I think it would be nice to have the groups assigned automatically (version 2), but also having the others potential charge groups visible on the side (as in version1)
+
+\item None
+
+\item Automatically "walking" through the fragment assembly proces for the compound but keeping the window with alternate fragment options available. 
+
+\item Combination of n and s (see my comments to questionnaire s).
+
+\item I think it would be nice to have the groups assigned automatically (version 2), but also having the others potential charge groups visible on the side (as in version1)
+
+\end{itemize}
+
+
+\subsubsection{additions}
+\begin{itemize}
+\item Small window with overal statistics. Like total charge of the system while it is being parameterized and even the effect of a different choice on the total charge. That would introduce a bit of "game like" aspects to the proces. 
+
+\item Maybe adding the confidence score of how sure we are about the fact the the assigned charge groups are correct for our molecule. Defining the total charge at the beginning so the groups are fitted to match it would be good as well.
+
+\item I would like to see the charges for all the atoms in the molecule, not just the fragments because it would allow a better guess of the charge set for the patching fragment, in my opinion. Just as a context. 
+
+\item Small window with overal statistics. Like total charge of the system while it is being parameterized and even the effect of a different choice on the total charge. That would introduce a bit of "game like" aspects to the proces. 
+
+\item See my remarks at questionnaire n.
+
+\item Maybe adding the confidence score of how sure we are about the fact the the assigned charge groups are correct for our molecule. Defining the total charge at the beginning so the groups are fitted to match it would be good as well.
+
+\end{itemize}
+
+
+\subsubsection{comments}
+\begin{itemize}
+\item Not more than the above and to say you did a nice job building it!
+
+\item Nice work!
+
+\item None
+
+\item Not more than the above and to say you did a nice job building it!
+
+\item Excellent job, quality and functionality!
+
+\item Nice work!
+
+\end{itemize}
+
+
+\subsection{sf}
+\subsubsection{preference}
+\begin{itemize}
+\item 1
+
+\item 1
+
+\item 1
+
+\item 1
+
+\end{itemize}
+
+
+\subsubsection{preference\_exp}
+\begin{itemize}
+\item The parametrization process is based on the similarity between a query compound and an already paramaterized molecule: version 1 does not practically allow a comparison between the different proposed fragments.
+
+The graphical representation of the molecules in version 1 was less intuitive.
+
+\item Seeing the possible fragments and the local environment of the molecule made the process much quicker. 
+
+\item all options for fragments are given together, allowing for an informed choice
+
+\item The overview of fragments is way more intuitive than just the "accept, reject" system. It may allow for larget throughput if the fragments found match very closely and the first proposal is correct, but in practice I found myself continually hitting undo.
+
+\end{itemize}
+
+
+\subsubsection{transfer}
+\begin{itemize}
+\item The automated search for the biggest fragments as preliminary step.
+
+\item The first fragment could be automatically suggested based on the largest possible match.
+
+\item None
+
+\item None
+
+\end{itemize}
+
+
+\subsubsection{additions}
+\begin{itemize}
+\item None
+
+\item Addition of net charge to potential fragments and to the currently parameterized portion of the molecule. Restriction of the minimum buffer region size to a chemically reasonable value e.g. 3. Entire molecules could be considered as potential fragments e.g. if molecule A contains molecule B as a fragment. Where possible, fragments with an integer (or near integer charge) should be preferred. Generate MD forcefield output by combining the parameters of the matched fragments.
+
+\item I would like to know the raw charges from atb/qm, to guide my choice
+
+\item Color coding for the different elements.
+
+
+
+Allowing for one to more easily adjust the fragment selection afterwards.
+
+\end{itemize}
+
+
+\subsubsection{comments}
+\begin{itemize}
+\item None
+
+\item I think that the system has great potential! The user interface is very intuitive and easy to use. In order to be generally useful as a parameterization aid a few changes are required, but I suspect that the majority of the truly novel functionality (identifying matching fragments) is already present. 
+
+\item None
+
+\item None
+
+\end{itemize}
+
+
