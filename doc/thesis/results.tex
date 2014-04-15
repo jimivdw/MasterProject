@@ -7,68 +7,89 @@ This chapter will contain the important and most interesting results obtained in
 
 
 \section{Action log results}
-\nlipsum
+From the logging system that was built into \oframp{} for the user studies, a wide range of information can be gathered, spanning from the load time and the number of clicks on atom 5 to the selected conflict solutions and resulting parameterisation. This section contains the most interesting results that can be retrieved from the action log.
 
 \subsection{Time required}
-\nlipsum
+First of all, it is interesting to see in what version users spent the most time to fully parameterise the molecules. \Figref{graph_time_1} shows the total time that was required for both the first and second set of molecules, in both the naive and smart version of \oframp. What can be seen here is that, for both the first and second set of molecules, users needed more time to complete the parameterisation using the naive version. Users who started with the naive version used the most time overall, with a median total time of around 300 seconds, after which those same users spent the least time on the smart version, where the median time value is around 100 seconds. At around 200 and 150 seconds, one can find the median times required by the users who did the naive version second and the smart version first respectively.
 
 \begin{figure}
 \center
-\includegraphics[width=.9\textwidth]{img/graphs/1a_02.pdf}
+\includegraphics[width=.6\textwidth]{img/graphs/1a_02.pdf}
 \caption{Total parameterisation time for the two versions in the two orders.}
 \figlab{graph_time_1}
 \end{figure}
 
+The total time used to parameterise the first and second sets of molecules can be used to determine what version of \oframp{} is the most time-consuming. However, as both sets of molecules have slightly varying molecule sizes, it may be more interesting to look at the average time that was required per atom. This can be seen in \figref{graph_time_2}.
+
+What is interesting to see here, is the fact that, where in the total parameterisation time, the group that did the smart version second was done the fastest, its members have spent the most time on average per atom. When taking a closer look at \figref{graph_time_3} and \figref{graph_time_4}, which show the average time per atom required for all molecules separately, this difference appears to be caused completely by the excessive amount of time users spent on parameterising molecule 13913 in the smart version, which is the first molecule users got to parameterise after they have completed the naive version. Even more interesting to see is the fact that most users spent more time parameterising this 11-atom molecule than on the larger 77-atom molecule 17738.
+
 \begin{figure}
 \center
-\includegraphics[width=.9\textwidth]{img/graphs/1a_03.pdf}
-\caption{Average time per fragment for the two versions in the two orders.}
+\includegraphics[width=.6\textwidth]{img/graphs/1a_03.pdf}
+\caption{Average time per atom for the two versions in the two orders.}
 \figlab{graph_time_2}
 \end{figure}
 
-\begin{figure}
-\center
-\includegraphics[width=.9\textwidth]{img/graphs/1b_03.pdf}
-\caption{Average time per fragment for the smaller molecules in the two orders.}
-\figlab{graph_time_3}
-\end{figure}
+It is hard to say what exactly is causing this difference. It is possible that, after using the naive version, it is hard to get used to the smart version, which is way more restrictive as to what a user can do. However, this difference is not present when switching from the smart to the naive version. This can either mean that this switch is easier to make, or that there must be a different cause of the large time difference.
+
+Another possible explanation for the large increase in time required for parameterising molecule 13913 is that there may not be really good matching fragments, enforcing the user to browse through many of them before being able to select the best one. This is better facilitated by the naive version of the tool, and can potentially have the extreme effects that are observed here.
 
 \begin{figure}
-\center
-\includegraphics[width=.9\textwidth]{img/graphs/1c_03.pdf}
-\caption{Average time per fragment for the larger molecules in the two orders.}
+\centering
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{img/graphs/1c_03.pdf}
+\caption{Smaller molecules.}
+\figlab{graph_time_3}
+\end{subfigure}%
+~
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{img/graphs/1d_03.pdf}
+\caption{Larger molecules.}
 \figlab{graph_time_4}
+\end{subfigure}
+\caption{Average time per atom for all molecules in the two orders.}
+\figlab{graph_time_34}
 \end{figure}
+
+Apart from molecule 13913, \figref{graph_time_34} shows that finishing a parameterisation using the naive version of \oframp{} requires more time than using the smart one. It is also clear that the time required is much more constant, and, with an overall average of around 7 seconds per atom, overall still the fastest, compared to 10 seconds for the naive version.
+
 
 \subsection{Parameterisation rating}
 \nlipsum
 
 \begin{figure}
 \center
-\includegraphics[width=.9\textwidth]{img/graphs/1a_00.pdf}
+\includegraphics[width=.6\textwidth]{img/graphs/1a_00.pdf}
 \caption{Total charge difference for the two versions in the two orders.}
 \figlab{graph_rating_1}
 \end{figure}
 
 \begin{figure}
 \center
-\includegraphics[width=.9\textwidth]{img/graphs/1a_01.pdf}
+\includegraphics[width=.6\textwidth]{img/graphs/1a_01.pdf}
 \caption{Average charge difference per atom for the two versions in the two orders.}
 \figlab{graph_rating_2}
 \end{figure}
 
 \begin{figure}
-\center
-\includegraphics[width=.9\textwidth]{img/graphs/1b_01.pdf}
-\caption{Average charge difference per atom for the smaller molecules in the two orders.}
+\centering
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{img/graphs/1c_01.pdf}
+\caption{Smaller molecules.}
 \figlab{graph_rating_3}
-\end{figure}
-
-\begin{figure}
-\center
-\includegraphics[width=.9\textwidth]{img/graphs/1c_01.pdf}
-\caption{Average charge difference per atom for the larger molecules in the two orders.}
+\end{subfigure}%
+~
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{img/graphs/1d_01.pdf}
+\caption{Larger molecules.}
 \figlab{graph_rating_4}
+\end{subfigure}
+\caption{Average charge difference per atom for all molecules in the two orders.}
+\figlab{graph_rating_34}
 \end{figure}
 
 \subsection{Other results}
@@ -79,7 +100,7 @@ This chapter will contain the important and most interesting results obtained in
 
 \begin{figure}
 \center
-\includegraphics[width=.9\textwidth]{img/graphs/1a_10.pdf}
+\includegraphics[width=.6\textwidth]{img/graphs/1a_10.pdf}
 \caption{Number of undo actions for the two versions in the two orders.}
 \figlab{graph_undo}
 \end{figure}
@@ -89,7 +110,7 @@ This chapter will contain the important and most interesting results obtained in
 
 \begin{figure}
 \center
-\includegraphics[width=.9\textwidth]{img/graphs/1a_04.pdf}
+\includegraphics[width=.6\textwidth]{img/graphs/1a_04.pdf}
 \caption{Total number of clicks for the two versions in the two orders.}
 \figlab{graph_clicks}
 \end{figure}
@@ -99,7 +120,7 @@ This chapter will contain the important and most interesting results obtained in
 
 \begin{figure}
 \center
-\includegraphics[width=.9\textwidth]{img/graphs/2_01.pdf}
+\includegraphics[width=.6\textwidth]{img/graphs/1b_01.pdf}
 \caption{Total number of clicks on the help button for the two versions in the two orders.}
 \figlab{graph_help}
 \end{figure}
@@ -109,28 +130,28 @@ This chapter will contain the important and most interesting results obtained in
 
 \begin{figure}
 \center
-\includegraphics[width=.9\textwidth]{img/graphs/3a_00.pdf}
+\includegraphics[width=.6\textwidth]{img/graphs/3a_00.pdf}
 \caption{Average charge difference per atom in relation to the time used per fragment.}
 \figlab{graph_correlation_1}
 \end{figure}
 
 \begin{figure}
 \center
-\includegraphics[width=.9\textwidth]{img/graphs/3a_01.pdf}
+\includegraphics[width=.6\textwidth]{img/graphs/3a_01.pdf}
 \caption{Average charge difference per atom in relation to the total time used.}
 \figlab{graph_correlation_2}
 \end{figure}
 
 \begin{figure}
 \center
-\includegraphics[width=.9\textwidth]{img/graphs/3a_02.pdf}
+\includegraphics[width=.6\textwidth]{img/graphs/3a_02.pdf}
 \caption{Average charge difference per atom in relation to the number of used fragments per atom.}
 \figlab{graph_correlation_3}
 \end{figure}
 
 \begin{figure}
 \center
-\includegraphics[width=.9\textwidth]{img/graphs/3a_03.pdf}
+\includegraphics[width=.6\textwidth]{img/graphs/3a_03.pdf}
 \caption{Average charge difference per atom in relation to the number of original molecule views per used fragment.}
 \figlab{graph_correlation_4}
 \end{figure}
@@ -144,38 +165,44 @@ This chapter will contain the important and most interesting results obtained in
 
 \begin{figure}
 \center
-\includegraphics[width=.9\textwidth]{img/graphs/4a_10.pdf}
+\includegraphics[width=.3\textwidth]{img/graphs/4a_10.pdf}
 \caption{Average rating for the two versions.}
 \figlab{graph_rating_1}
 \end{figure}
 
 \begin{figure}
 \center
-\includegraphics[width=.9\textwidth]{img/graphs/4b_10.pdf}
+\includegraphics[width=.6\textwidth]{img/graphs/4b_10.pdf}
 \caption{Average rating for the two versions in the two orders.}
 \figlab{graph_rating_2}
 \end{figure}
 
 \begin{figure}
-\center
-\includegraphics[width=.9\textwidth]{img/graphs/4a_00.pdf}
-\caption{Rating of \texttt{SUS1} for the two versions.}
+\centering
+\begin{subfigure}[t]{0.32\textwidth}
+\centering
+\includegraphics[width=\textwidth]{img/graphs/4a_00.pdf}
+\caption{Rating of \texttt{SUS1}.}
 \figlab{graph_rating_3}
-\end{figure}
-
-\begin{figure}
-\center
-\includegraphics[width=.9\textwidth]{img/graphs/4a_01.pdf}
-\caption{Rating of \texttt{UMUX1} for the two versions.}
+\end{subfigure}%
+~
+\begin{subfigure}[t]{0.32\textwidth}
+\centering
+\includegraphics[width=\textwidth]{img/graphs/4a_01.pdf}
+\caption{Rating of \texttt{UMUX1}.}
 \figlab{graph_rating_4}
+\end{subfigure}%
+~
+\begin{subfigure}[t]{0.32\textwidth}
+\centering
+\includegraphics[width=\textwidth]{img/graphs/4a_09.pdf}
+\caption{Rating of \texttt{SUS10}.}
+\figlab{graph_rating_5}
+\end{subfigure}
+\caption{Selected ratings for the two versions of \oframp.}
+\figlab{graph_rating_345}
 \end{figure}
 
-\begin{figure}
-\center
-\includegraphics[width=.9\textwidth]{img/graphs/4a_09.pdf}
-\caption{Rating of \texttt{SUS10} for the two versions.}
-\figlab{graph_rating_5}
-\end{figure}
 
 \subsection{Comments}
 \nlipsum
