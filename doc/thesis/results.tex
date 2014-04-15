@@ -101,10 +101,7 @@ As can be seen in \figref{graph_rating_34}, the naive version of \oframp{} score
 \end{figure}
 
 \subsection{Other results}
-\nlipsum
-
-\subsubsection{Undo operations}
-\nlipsum
+Besides the time required to complete the parameterisation and its rating, some other interesting things were observed in the user studies. First of all, there appears to be a great correlation between the version of \oframp{} that is used and the amount of actions a user needs to undo, as can be seen in \figref{graph_undo}. Where in the naive version, users practically do not undo any action, there are extreme cases where a user needed to undo over a hundred times in the smart version. This difference can be explained by the fact that users of the smart version have to undo accidentally rejected fragments, or may use a combination of reject and undo actions to compare various fragments.
 
 \begin{figure}[h!]
 \center
@@ -113,8 +110,7 @@ As can be seen in \figref{graph_rating_34}, the naive version of \oframp{} score
 \figlab{graph_undo}
 \end{figure}
 
-\subsubsection{Clicks}
-\nlipsum
+As can be seen in \figref{graph_clicks}, a few more clicks are required to complete a parameterisation in the smart version of the tool, then there are in the naive version. Nevertheless, the medians are not too far apart, so it is not really possible to draw any conclusions from this. It is interesting to see, however, that even though the smart version of \oframp{} requires less user interaction, is does not require less, and possibly even more clicks to complete a parameterisation.
 
 \begin{figure}[h!]
 \center
@@ -123,8 +119,7 @@ As can be seen in \figref{graph_rating_34}, the naive version of \oframp{} score
 \figlab{graph_clicks}
 \end{figure}
 
-\subsubsection{Help}
-\nlipsum
+\Figref{graph_help} shows that not many users had to consult the help pages during the parameterisation process. Furthermore, no users checked the help pages in their second version of the system. This can mean that either they did not know there were different versions of the help pages as well, or they did not need it any more. The fact that most users did not go to the help pages at all suggests that the tool is intuitive to use, and that taking the demo provides enough information to be able to use \oframp.
 
 \begin{figure}[h!]
 \center
@@ -133,35 +128,46 @@ As can be seen in \figref{graph_rating_34}, the naive version of \oframp{} score
 \figlab{graph_help}
 \end{figure}
 
+There are also a few things users did not do at all. They were not required or instructed to use every aspect of \oframp, but it was expected that they would at least try some of the more advanced features. First, none of the users used any of the available keyboard shortcuts. Although all actions for which a keyboard shortcut exists can also be completed using a single mouse click, it was expected that some users would find it beneficial to use keyboard shortcuts for some actions, but this turned out not to be the case.
+
+Furthermore, and more surprisingly, none of the users manually edited a single atom charge. Again, they were not specifically instructed to do so, but they were made aware of the possibility of doing this, and instructed to make the parameterisation as good as possible. Possibly, users were unable to locate the position of the charge edit fields, but no comments about that have been made. Probably, they just did not feel the need of it, or thought their parameterisation was perfect the way it was.
+
 \subsection{Correlations}
 \nlipsum
 
+
+% TODO fix axis labels saying 'time per FRAGMENT'
 \begin{figure}[h!]
-\center
-\includegraphics[width=.6\textwidth]{img/graphs/3a_00.pdf}
-\caption{Average charge difference per atom in relation to the time used per fragment.}
+\centering
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{img/graphs/3a_00.pdf}
+\caption{Average charge difference per atom in relation to the average time used per atom.}
 \figlab{graph_correlation_1}
-\end{figure}
-
-\begin{figure}[h!]
-\center
-\includegraphics[width=.6\textwidth]{img/graphs/3a_01.pdf}
-\caption{Average charge difference per atom in relation to the total time used.}
+\end{subfigure}%
+~
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{img/graphs/3a_01.pdf}
+\caption{Total charge difference in relation to the average time used per atom.}
 \figlab{graph_correlation_2}
-\end{figure}
-
-\begin{figure}[h!]
-\center
-\includegraphics[width=.6\textwidth]{img/graphs/3a_02.pdf}
+\end{subfigure}%
+\\
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{img/graphs/3a_02.pdf}
 \caption{Average charge difference per atom in relation to the number of used fragments per atom.}
 \figlab{graph_correlation_3}
-\end{figure}
-
-\begin{figure}[h!]
-\center
-\includegraphics[width=.6\textwidth]{img/graphs/3a_03.pdf}
-\caption{Average charge difference per atom in relation to the number of original molecule views per used fragment.}
+\end{subfigure}%
+~
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{img/graphs/3a_03.pdf}
+\caption{Average charge difference per atom in relation to the number of original molecule views per selected fragment.}
 \figlab{graph_correlation_4}
+\end{subfigure}
+\caption{Presumed correlations between user studies outcomes.}
+\figlab{graph_correlation}
 \end{figure}
 
 
