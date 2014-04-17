@@ -240,7 +240,7 @@ The general questionnaire users were asked to submit after they were completely 
 Additionally, some users commented that the naive version allowed for easier comparison of fragments, compared to having to make a combination of rejects and undos in the smart version. One user even commented this made the parameterisation process a lot quicker, though the timing results discussed before tell a different story. This means that the naive version \emph{feels} faster, and suggests that the parameterisation process using the smart version may be considered to be tedious.
 
 \subsection{Comments}
-Following the \verb|SUS| and \verb|UMUX| questions, users were asked to answer a few open questions and had room for some comments. The next sections will discuss these comments for both versions of \oframp{} and the general comments they made at the end. As no significant difference has been observed between the comments of the people in the different orders they used the system in, no distinction will be made between those comments.
+Following the \verb|SUS| and \verb|UMUX| questions, users were asked to answer a few open questions and had room for some comments. The next sections will discuss these comments for both versions of \oframp{} and the suggestions they had for improving the tool. As no significant difference has been observed between the comments of the people in the different orders they used the system in, no distinction will be made between those comments.
 
 \subsubsection{Naive version}
 For the naive version of the system, users were very positive about the user interaction. They noted that the interface and layout were very clear and nicely designed, and also gave a nice representation of molecules and fragments. The interface was found to be very responsive and easy to use and learn, thanks to the demo mode, the extensive help pages, and the fact that the system was intuitive to use in general. Finally, the right information was noted to come up exactly when needed.
@@ -263,5 +263,21 @@ Despite all the positive feedback, all users encountered one major problem: they
 
 Most of the shortcomings of the naive version were also mentioned here. Again, many noted that they needed to have an easy way to keep track of the total molecule charge. Some found the `finished' popup obstructive, and it was mentioned once more that making matches based on a shell around the target atoms may not be the best approach.
 
-\subsubsection{General comments}
-\nlipsum
+\subsubsection{Suggestions for improvement}
+Many users had some ideas for further improving the value of \oframp. The following list contains the most mentioned and feasible ones, ordered on descending number of mentions.
+\begin{enumerate}
+\item Continuously show the total molecule charge:\\
+Even though the molecule charge can be viewed in the selection details window, this window is not opened all the time. Additionally, the effect selecting a proposed fragment has on the total charge can be shown with the total charge;
+\item Ability to manually add/edit charges:\\
+As discussed before, many users wanted to see this feature added, although it is already present. Additionally though, they commented that they would like to be able to assign a charge to a group of atoms, and have this automatically distributed over the group;
+\item Combine the auto-select system with the fragment list:\\
+Some users noted they did not want to manually select atoms all the time, and liked the automatic selection system from the smart version. As this was lacking the overview of fragments, they wanted to combine it with the list of fragments from the naive version to make the ultimate parameterisation system;
+\item Show the confidence score of fragments:\\
+It was noted a few times that this would help in selecting the best fragment;
+\item Indicate identical sections in the atom that is being parameterised:\\
+In some molecules, sections of atoms occur multiple times. For these sections, the charges are generally equal. It would therefore be useful if these sections would be highlighted and probably automatically copy the charges automatically;
+\item Remember the position of the popup:\\
+As the popup location is reset every time, users have to move it to the side every time they want to compare an original molecule to the input molecule. Some therefore consider it better to remember the location the popup was dragged to once it is reopened;
+\item Colour coding of atom types:\\
+It has been noted to be common practice in chemistry applications to colour code atoms based on their type. Some users would like to see that in \oframp{} as well.
+\end{enumerate}
