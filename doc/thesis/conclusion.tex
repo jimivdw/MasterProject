@@ -1,12 +1,23 @@
 \chapter{Conclusion}
 \chlab{conclusion}
 
-Here, the project's conclusion will be presented\ldots
+%\begin{quote}
+%``No programming system will satisfy all of its users''
+%
+%\leftskip=.5cm-- \textit{David J. Kuck}~\cite{kuck1992user}
+%\end{quote}
 
-\begin{quote}
-``No programming system will satisfy all of its users''
+In an attempt to speed up the molecule parameterisation process, a new approach has been developed, where the charges of individual atoms in a molecule are retrieved from fragments of other molecules. In order to facilitate this, a system called the Online tool for Fragment-based Molecule Parameterisation~(\oframp) has been developed. Two versions of it, called naive and smart, have been designed and implemented, and compared using a user study.
 
-\leftskip=.5cm-- \textit{David J. Kuck}~\cite{kuck1992user}
-\end{quote}
+From the user studies, it has been concluded that the naive interaction design is the best for the task at hand. The users liked the overview they had of the matching fragments, and felt like they were more in control than in the smart version. This has turned out to be an important aspect, and is required to make a good parameterisation of a molecule.
 
-\nlipsum
+More in general, most of the commonalities between the two versions were appreciated as well. First, the graphical design of the application was found to be very clean and clear, and noted to look professional. Second, users were enthusiastic about the way in which the molecule was visualised, the ability to move it around and scale it, and the responsiveness of the visualisation. The selection details window was found to be very useful, and the demo mode helped them to quickly learn how to use the system. Finally, although not everyone used it, the help pages were highly appreciated for their extensive descriptions of every aspect of \oframp.
+
+There were, of course, also some negative comments. Often, the found fragments were not ordered such that the truly best match ended up on top of the list. Furthermore, fragments that were bad matches sometimes even got marked as being the best. Although the development of the fragment finding system was not a part of this project, it really needs to be improved in order for \oframp{} to be able to attain to its full potential.
+
+Additionally, some suggestions have been provided on how the system can be improved further. Spanning from the addition of an auto-select mode for atoms, to the modification of certain atom colours, implementing these suggested changes will further improve the quality of \oframp.
+
+Once all alterations of the system have been made, it is believed that it will become a tool using which a parameterisation can be obtained that is of comparable quality to one obtained using the conventional quantum-mechanical calculations. Furthermore, it will be able to fully parameterise a molecule using \oframp{} in less time than using the conventional methods.
+
+
+
