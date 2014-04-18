@@ -10,6 +10,7 @@ This chapter will contain the important and most interesting results obtained in
 From the logging system that was built into \oframp{} for the user studies, a wide range of information can be gathered, spanning from the load time and the number of clicks on atom 5 to the selected conflict solutions and resulting parameterisation. This section contains the most interesting results that can be retrieved from the action log.
 
 \subsection{Time required}
+\seclab{res_time}
 First of all, it is interesting to see in what version users spent the most time to fully parameterise the molecules. \Figref{graph_time_1} shows the total time that was required for both the first and second set of molecules, in both the naive and smart version of \oframp. What can be seen here is that, for both the first and second set of molecules, users needed more time to complete the parameterisation using the naive version. Users who started with the naive version used the most time overall, with a median total time of around 300 seconds, after which those same users spent the least time on the smart version, where the median time value is around 100 seconds. At around 200 and 150 seconds, one can find the median times required by the users who did the naive version second and the smart version first respectively.
 
 \begin{figure}[h!]
@@ -57,6 +58,7 @@ Apart from molecule 13913, \figref{graph_time_34} shows that finishing a paramet
 
 
 \subsection{Parameterisation rating}
+\seclab{res_rating}
 Not only the time required by the parameterisation tool is important to determine which interaction design is the best, the quality of the result is also of great importance. As discussed in \secref{analysis}, there are two ways of calculating this quality rating. First, the total difference between the charge found by the user and the charge present in the ATB can be found, as shown in \figref{graph_rating_1}. As this difference can easily be observed and corrected by the user, it would be expected that it would be relatively close to 0. This, however, turns out not to be the case. Especially in the smart version of \oframp, the charge difference can get quite high, and is greater than the charge difference for the naive version in any case.
 
 \begin{figure}[h!]
@@ -101,6 +103,7 @@ As can be seen in \figref{graph_rating_34}, the naive version of \oframp{} score
 \end{figure}
 
 \subsection{Other results}
+\seclab{res_other}
 Besides the time required to complete the parameterisation and its rating, some other interesting things were observed in the user studies. First of all, there appears to be a great correlation between the version of \oframp{} that is used and the amount of actions a user needs to undo, as can be seen in \figref{graph_undo}. Where in the naive version, users practically do not undo any action, there are extreme cases where a user needed to undo over a hundred times in the smart version. This difference can be explained by the fact that users of the smart version have to undo accidentally rejected fragments, or may use a combination of reject and undo actions to compare various fragments.
 
 \begin{figure}[h!]
@@ -181,6 +184,7 @@ For the number of original molecule views, the results are the most widespread~(
 Besides the log files from the users parameterising a few molecules, some more information can be gathered from the questionnaire users were asked to fill in. This includes the results of the combined \verb|SUS| / \verb|UMUX| questionnaire, their opinion on which version was the best, and other comments about the system. All of these will be discussed in the next sections.
 
 \subsection{\texttt{SUS} / \texttt{UMUX} results}
+\seclab{res_sus}
 The average \verb|SUS| / \verb|UMUX| results of the naive and smart versions of the system are shown in \figref{graph_sus_1}. As can be seen here, the naive version, with a median rating of $76$, scores better than the smart version, which has a median rating of only $61$. This means that the naive version scores above the average \verb|SUS| score of 68~\cite{}, where the smart version scores below that. In the adjective rating scale, the naive version is `good', but the smart version still scores `OK'~\cite{}.
 
 \begin{figure}[h!]
@@ -235,6 +239,7 @@ Finally, as mentioned before, the tenth \verb|SUS| question is on of the highest
 
 
 \subsection{Preference}
+\seclab{res_preference}
 The general questionnaire users were asked to submit after they were completely done started off with the question which version of the system they preferred. All participants actually preferred the naive version, no matter whether they had to use that first or last. Most users commented that they felt they had more control over the parameterisation process in that version, which they thought they really needed. Furthermore, they preferred seeing a list of possible matches over the accept/reject system.
 
 Additionally, some users commented that the naive version allowed for easier comparison of fragments, compared to having to make a combination of rejects and undos in the smart version. One user even commented this made the parameterisation process a lot quicker, though the timing results discussed before tell a different story. This means that the naive version \emph{feels} faster, and suggests that the parameterisation process using the smart version may be considered to be tedious.
@@ -264,6 +269,7 @@ Despite all the positive feedback, all users encountered one major problem: they
 Most of the shortcomings of the naive version were also mentioned here. Again, many noted that they needed to have an easy way to keep track of the total molecule charge. Some found the `finished' popup obstructive, and it was mentioned once more that making matches based on a shell around the target atoms may not be the best approach.
 
 \subsubsection{Suggestions for improvement}
+\seclab{res_suggestions}
 Many users had some ideas for further improving the value of \oframp. The following list contains the most mentioned and feasible ones, ordered on descending number of mentions.
 \begin{enumerate}
 \item Continuously show the total molecule charge:\\
