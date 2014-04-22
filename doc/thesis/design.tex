@@ -20,7 +20,9 @@ These existing tools will serve as an initial guideline for the molecule paramet
 
 \section{Platform}
 \seclab{platform}
-Over the past few years, there has been a trend in bringing everything to the web~\cite{ertl2010molecular}~(see also \secref{software}). Following this trend, it has been decided to implement the front-end of the molecule parameterisation system as a web application. This allows for great portability and availability across different operating systems and platforms. Having the user interface as a web service also means that the back-end, where the actual finding of matching fragments occurs, needs to be available through the web as well.
+Over the past few years, there has been a trend in bringing everything to the web~\cite{ertl2010molecular}~(see also \secref{software}). Following this trend, it has been decided to implement the front-end of the molecule parameterisation system as a web application. This allows the system to run on any desktop and laptop operating system, and creates the possibility of running it on a smartphone or tablet\footnote{This, however, is not a requirement for the system.}, without requiring any modifications. Having the user interface as a web service also means that the back-end, where the actual finding of matching fragments occurs, needs to be available through the web as well.
+
+Making use of the latest web technologies unfortunately also comes at a cost. Older browsers generally lack support, and will therefore not be able to run the system. Luckily, according to the latest browser statistics from StatCounter~\cite{statcounter2014statcounter}, almost 85\% of internet users uses a browser that has full support for these technologies. Thanks to many compatibility libraries and especially the Internet Explorer \verb|canvas| fallback \verb|excanvas|~\cite{arvidsson2009explorercanvas}, partial support can be provided for browsers used by an additional 11\% of people. A complete list of system requirements can be found in \secref{client_req}.
 
 
 \section{Two versions}

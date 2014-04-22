@@ -13,9 +13,9 @@
 
 A system for fragment-based molecule parameterisation has three distinct tasks: visualising a molecule, finding matching fragments for that molecule, and allowing for interaction with the molecule and its matching fragments. As these tasks can be performed in isolation, it has been decided to implement the molecule parameterisation tool as three separate systems.
 
-The front-end of the system, where users will carry out the parameterisation process, will be called the Online tool for Fragment-based Molecule Parameterisation~(\oframp). This name will also be used to refer to the system as a whole, as it is the hart of the system and is dependent on the other systems. The molecule is also visualised in \oframp, but the for this purpose essential, calculations of atom positions are done in the Online tool for Atom Position Calculations~(\oapoc). Finally, finding matching fragments and sorting them based on relevance is done by the Online tool for Molecule Fragment Finding~(\omfraf).
+The front-end of the system, where users will carry out the parameterisation process, will be called the Online tool for Fragment-based Molecule Parameterisation~(\oframp). This name will also be used to refer to the system as a whole, as it is the hart of the system and is dependent on the other systems. The molecule is also visualised in \oframp, but the - for this purpose essential - calculations of atom positions are done in the Online tool for Atom Position Calculations~(\oapoc). Finally, finding matching fragments and sorting them based on relevance is done by the Online tool for Molecule Fragment Finding~(\omfraf).
 
-The complete network diagram for the fragment-based molecule parameterisation system is shown in \figref{network_diagram}. It is clear that \oframp{} is the central system, but that the more computation-intensive tasks are carried out by \oapoc{} and \omfraf{}. The remainder of this chapter will discuss each of the systems in more detail.
+The complete network diagram for the fragment-based molecule parameterisation system is shown in \figref{network_diagram}. It is clear that \oframp{} is the central system, but that the more computation-intensive tasks are carried out by \oapoc{} and \omfraf{}. The remainder of this chapter will discuss each of the systems in more detail. Additionally, some more details can be found in \appref{implementation_extra}.
 
 
 \begin{sidewaysfigure}[p]
@@ -29,10 +29,6 @@ The complete network diagram for the fragment-based molecule parameterisation sy
 
 \section[\oframp]{The Online tool for Fragment-based Molecule Parameterisation}
 \oframp{} is the central part of the fragment-based molecule parameterisation system. It contains the user interface and connects with \oapoc{} and \omfraf{}. As discussed in \secref{platform}, it has been decided to implement the system as a web application. Following the current trend in web applications, \oframp{} has been implemented using the latest techniques from \verb|HTML5|, \verb|CSS3| and \verb|JavaScript|.
-
-Using the latest web technologies allows for great cross-platform support. It allows the system to run on any desktop and laptop operating system, and creates the possibility of running it on a smartphone or tablet\footnote{This has not been a requirement for the project and has therefore not been tested extensively.}, without requiring any modifications. Still, of course, the limited size of a smartphone screen can be problematic, but it can at least run.
-
-Making use of the latest \verb|HTML5| technologies, however, also comes at a cost. Older browsers generally lack support, and will therefore not be able to run \oframp. Luckily, according to the latest browser statistics from StatCounter~\cite{statcounter2014statcounter}, almost 85\% of internet users uses a browser that has full support for these technologies. Thanks to many compatibility libraries and especially the Internet Explorer \verb|canvas| fallback \verb|excanvas|~\cite{arvidsson2009explorercanvas}, partial support can be provided for browsers used by an additional 11\% of people. In total, this means that 96\% of internet users should be able to run \oframp. A complete list of system requirements can be found in \secref{client_req}.
 
 \subsection{Getting started}
 \seclab{impl_starting}
@@ -62,21 +58,21 @@ Overly designed shiny elements are known to distract the user from his tasks~\ci
 
 In \figref{impl_inserting}, the insertion window for molecules is shown. This is where users should submit the molecules in a machine readable format, the so called molecule data string~(MDS). As discussed before, the system supports the \verb|PDB|, \verb|SMILES|, and \verb|InChI| formats, and the use of \verb|ATB ID|s~(see \secref{id_common}). When the MDS has been entered, the user can click the `Submit' button, after which the molecule will be displayed~(see \secref{impl_visualisation}).
 
-Additionally, the user can adjust the fragment repository and shell size that are to be used for finding matching fragments of other molecules. The available repositories are retrieved from \omfraf~(see \secref{impl_omfraf}). This will be explained in more detail in \secref{impl_generating}. Furthermore, the demonstration mode~(see \secref{impl_demo}) can be started from this window as well, in case the user accidentally clicked the wrong button in the previous step. Finally, the user can load a so called \oframp{} State Storage~(OSS) file. These files can be created at any point in the parameterisation process and will store all progress up until that point. They can be loaded again at a later stage to continue the parameterisation process from that point.
+Additionally, the user can adjust the fragment repository and shell size that are to be used for finding matching fragments of other molecules~(see \secref{impl_generating}). Furthermore, the demonstration mode~(see \secref{impl_demo}) can be started from this window as well, in case the user accidentally clicked the wrong button in the previous step. Finally, the user can load a so called \oframp{} State Storage~(OSS) file. These files can be created at any point in the parameterisation process and will store all progress up until that point. They can be loaded again at a later stage to continue the parameterisation process from that point.
 
 
 \subsection{Visualisation}
 \seclab{impl_visualisation}
-Once a molecule data string has been entered into the system, the positions of its atoms and the connections between them are retrieved from \oapoc~(see \secref{impl_oapoc}). This data is then transformed to a \verb|JavaScript| \verb|Molecule| instance, as can be seen in \figref{oframp_class}. \verb|Molecule| instances can be visualised using a \verb|MoleculeViewer|, which will draw the molecule onto an \verb|HTML| \verb|canvas|.
+% Once a molecule data string has been entered into the system, the positions of its atoms and the connections between them are retrieved from \oapoc~(see \secref{impl_oapoc}). This data is then transformed to a \verb|JavaScript| \verb|Molecule| instance, as can be seen in \figref{oframp_class}. \verb|Molecule| instances can be visualised using a \verb|MoleculeViewer|, which will draw the molecule onto an \verb|HTML| \verb|canvas|.
 
-\begin{figure}
-\center
-\includegraphics[width=\textwidth]{img/oframp_class.pdf}
-\caption{Simplified class diagram of \oframp.}
-\figlab{oframp_class}
-\end{figure}
+% \begin{figure}
+% \center
+% \includegraphics[width=\textwidth]{img/oframp_class.pdf}
+% \caption{Simplified class diagram of \oframp.}
+% \figlab{oframp_class}
+% \end{figure}
 
-Upon entering the \verb|SMILES| MDS \verb|NCC(=O)CCO| into \oframp, one should see something resembling what is shown in \figref{impl_visualising}. Similar to the molecule visualisation of the ATB~(see \figref{partial_charges} on \figpageref{partial_charges}), atoms are displayed as circles containing the atom type and with connecting lines that denote bonds. However, there are also a number of differences. First of all, charge group information is missing here, as these cannot be found before the atomic charges are available. Second, atom IDs (both on molecule and type scale) are left out. These are not considered to add any helpful information, and can therefore only be confusing. Third, obviously, the atom charges are missing, as they have not yet been assigned. As soon as a matching fragment is selected, they will also be added to the visualisation~(see \secref{impl_parameterisation}). Fourth, as can be seen at the bottom-most \verb|O| atom, double bonds are visualised properly as a double line. The same is true for triple bonds that show as a triple line, and aromatic bonds that are indicated with a dotted line on the inside of the aromatic cycle they are a part of~(see also \secref{ormaybeanimage}).
+Upon entering the \verb|SMILES| MDS `\verb|NCC(=O)CCO|' into \oframp, one should see something resembling what is shown in \figref{impl_visualising}. Similar to the molecule visualisation of the ATB~(see \figref{partial_charges} on \figpageref{partial_charges}), atoms are displayed as circles containing the atom type and with connecting lines that denote bonds. However, there are also a number of differences. First of all, charge group information is missing here, as these cannot be found before the atomic charges are available. Second, atom IDs (both on molecule and type scale) are left out. These are not considered to add any helpful information, and can therefore only be confusing. Third, obviously, the atom charges are missing, but they will also be added to the visualisation as soon as a matching fragment is selected~(see \secref{impl_parameterisation}). Fourth, as can be seen at the bottom-most \verb|O| atom, double bonds are visualised properly as a double line. The same is true for triple bonds~(triple line), and aromatic bonds~(dotted line on the inside of the aromatic cycle they are a part of).
 
 \begin{figure}
 \center
@@ -85,33 +81,15 @@ Upon entering the \verb|SMILES| MDS \verb|NCC(=O)CCO| into \oframp, one should s
 \figlab{impl_visualising}
 \end{figure}
 
-Finally, what is probably the most notable difference, is the fact that the \verb|H| atoms are grouped with their base atoms\footnote{This, along with many other settings, can be altered. See \secref{impl_settings} for more information.}. This means that they do not need to be drawn separately, leaving more space around the other atoms, thereby enhancing the overview of the complete molecule. Furthermore, in chemistry, it is quite common to have this combination and, in many calculations, these groups can be treated as a single atom. As this does not hold for other atom types, those will not be grouped in the \oframp{} visualisation, to ensure chemical correctness.
+Finally, what is probably the most notable difference, is the fact that the \verb|H| atoms are grouped with their base atoms\footnote{This, along with many other settings, can be altered. See \secref{impl_settings} for more information.}. This means that they do not need to be drawn separately, leaving more space around the other atoms, thereby enhancing the overview of the complete molecule. Furthermore, in chemistry, it is quite common to have this combination. In many calculations, these groups can be treated as a single atom.
 
 \subsubsection{Interaction}
 At this point, the molecule can already be interacted with. It can be moved around by holding down the \emph{left} mouse button and dragging the mouse. This is mostly useful for larger molecules that may not completely fit on smaller screens. To provide further support for large molecules, the user has the opportunity to zoom in on certain sections of the molecule, or zoom out to make more atoms fit on the screen. Zooming can be done using the mouse wheel, or the zoom buttons located in the advanced controls settings, which can be opened using the button with the down pointing arrow~(see \figref{impl_visualising}).
 
 
-\subsubsection{Deoverlapping}
-As discussed in \secref{ms_visualisation} and~\cite{clark2006structure}, overlap in atoms and bonds still occurs in modern molecule visualisation software. In this case, where the atoms have a relatively large radius to make room for displaying the charge, chances are even higher. To temper the effects of this, a simple deoverlap algorithm has been implemented. \Figref{impl_deoverlap} shows the three different types of deoverlapping that \oframp{} can do. Here, the light blue line indicates a vector that is used to determine if there is any overlap, the red line indicates the overlapping part, and the green arrow~(of equal length to the red line) shows where the atom centre should be moved to in order to resolve the overlap.
-
-\begin{figure}
-\center
-\includegraphics[width=\textwidth]{img/deoverlap.pdf}
-\caption{Concepts of deoverlap.}
-\figlab{impl_deoverlap}
-\end{figure}
-
-By default, for performance reasons, only the deoverlapping of atoms is enabled. This is the easiest to detect and solve, but also the most important one. Atoms that overlap almost entirely might not be spotted by the user, and atom types and charges may become hidden due to another atom lying on top of them. As can be seen in \figref{impl_deoverlap}, this type of deoverlap works by calculating the distance between the two atom centres and subtracting the atom radius from that twice~(once for each atom). If this distance is smaller than $0$, both atom centres will be moved along the line that connects the two for a distance that is equal to the overlap distance. This ensures that the atoms will no longer overlap, and even creates some room between them.
-
-In order to solve atoms overlapping bonds, the perpendicular distance from the atom centre to the bond needs to be calculated. When this distance is smaller than the atom radius, the atom needs to be moved along the perpendicular for a distance that is equal to the overlap distance. This will put the atom right next to the bond.
-
-The third and final type of deoverlapping, the so-called decrossing of bonds, is also the hardest one. First, it needs to be determined if the two bonds intersect each other. When that is the case, the intersection point needs to be found. The overlap distance here is equal to the distance from the atom centre to the intersection point, plus the radius of the atom. The atom then needs to be moved along its bond for a distance that is equal to the overlap distance, in order to solve the crossing bonds.
-
-Unfortunately, solving one occurrence of overlap could result in overlap occurring in a different place, as moving an atom could potentially move it on top of another. Therefore, the deoverlap process will need to repeat itself to solve all overlap in the molecule. However, it is possible that the solution of one overlap occurrence is the exact opposite of another, which means that, after two iterations, the situation will be exactly the same as it was initially. In order to prevent the deoverlap process from going into an endless loop because of this, a time limit~(set to half a second by default) has been built in, after which the deoverlapping will stop.
-
 \subsection{Parameterisation}
 \seclab{impl_parameterisation}
-As soon as the matching fragments for the molecule have been generated, the `Loading fragments...' message as visible in \figref{impl_visualising} will go away. It is now possible to start the fragment-based parameterisation process. Two different implementations of this needed to be made, in order to find the best way of doing it. To allow for easy implementation of multiple interaction systems, a \verb|Behavior| interface has been created, which can be used to implement different behaviours~(see \figref{oframp_class}). The two implemented behaviours will be discussed in the next sections.
+As soon as the matching fragments for the molecule have been generated, the `Loading fragments...' message as visible in \figref{impl_visualising} will go away. It is now possible to start the fragment-based parameterisation process. The two implemented behaviours will be discussed in the next sections.
 
 \subsubsection{Manual `naive' version}
 In order to start the parameterisation process in the naive version of \oframp, a selection needs to be made. This selection can consist of a single atom or multiple \emph{connected} atoms, and should contain the atoms for which the user wants to find matching fragments. In order to make a single-atom selection, the user simply needs to click on that atom~(see \figref{select_1}). There are multiple ways to create multi-atom selections, the easiest of which is holding down the \emph{right} mouse button and dragging the mouse to create a selection rectangle as seen in \figref{select_2}. Alternatively, one could hold down the \verb|Ctrl| key while clicking atoms, or activate the selection modification mode, as seen in the selection details window in \figref{find_1}.
@@ -151,7 +129,7 @@ When a selection has been made, matching fragments will automatically be retriev
 \figlab{find_2}
 \end{figure}
 
-If the user clicks the `Select fragment' button, the charges from that fragment will be copied to the molecule. The selection will be cleared, and, because of that, the list of found fragments will be closed. The user can now select another atom or set of atoms he wants to parameterise, in order to complete the parameterisation. This will be discussed in more detail in \secref{impl_completing}.
+As soon as the user clicks the `Select fragment' button, the charges from that fragment will be copied to the molecule. The selection will be cleared, and, because of that, the list of found fragments will be closed. The user can now select another atom or set of atoms he wants to parameterise, in order to complete the parameterisation. This will be discussed in more detail in \secref{impl_completing}.
 
 
 \subsubsection{Semi-automatic `smart' version}
@@ -173,12 +151,12 @@ In the smart version of \oframp, the parameterisation process can be started by 
 
 The user now needs to decide whether he thinks this proposed fragment is a good match with the molecule. In order to help him to make this decision, he can view the fragment in the context of the molecule it originates from by clicking the `View original' button~(see \figref{find_4}). When he rejects the fragment, the next best fragment will be previewed, up until the point where there are no found fragments left. Either the final fragment needs to be accepted then, or the user can undo some of his rejections using the `Undo' button at the top of the page.
 
-Upon acceptance of a fragment, the charges of that fragment are copied to the molecule. The system will then find another \emph{unparameterised} atom for which fragments will be proposed. This atom is preferably connected to the last accepted fragment, or, when no unparameterised atoms are neighbouring that fragment, positioned on the edge of the molecule. If neither of these atoms exist, a random unparameterised atom will be selected in a different part of the molecule. The user can now continue to parameterise the molecule, which will be discussed in more detail in \secref{impl_completing}.
+Upon acceptance of a fragment, the charges of that fragment are copied to the molecule. The system will then find another \emph{unparameterised} atom for which fragments will be proposed. This atom is preferably connected to the last accepted fragment, or, when no unparameterised atoms are neighbouring that fragment, positioned on the edge of the molecule. The user can now continue to parameterise the molecule, which will be discussed in more detail in \secref{impl_completing}.
 
 
 \subsection{Completing parameterisation}
 \seclab{impl_completing}
-Upon continuing to parameterise a molecule, it is possible to encounter fragments that contain atoms to which a charge has already been assigned. The atoms in question are given a yellow background, as can be seen in \figref{conflict}. When such fragment is selected, it is dependent on which \oframp{} version is used what will happen. As discussed in \secref{}, the smart version will automatically assign the average of the two charges. In the naive version of the tool, pop-up will be shown, asking the user to pick a solution method for solving the charge conflict.
+Upon continuing to parameterise a molecule, it is possible to encounter fragments that contain atoms to which a charge has already been assigned. The atoms in question are given a yellow background, as can be seen in \figref{conflict}. When such fragment is selected, it is dependent on which \oframp{} version is used what will happen. As discussed in \secref{id_smart}, the smart version will automatically assign the average of the two charges. In the naive version of the tool, a pop-up will be shown, asking the user to pick a solution method for solving the charge conflict.
 
 \begin{figure}
 \center
@@ -187,9 +165,9 @@ Upon continuing to parameterise a molecule, it is possible to encounter fragment
 \figlab{conflict}
 \end{figure}
 
-In some cases, it can happen that no matching fragments are found for an atom. This will be indicated by colouring that atom with a pink/red background, as can be seen for the rightmost $CH_{2}$ group in \figref{conflict}~(and also figures \ref{figure:selecting}, \ref{figure:find_1}, \ref{figure:find_2}, \ref{figure:find_3}, and \ref{figure:find_4}). Upon selecting these atoms, no fragments will be returned. It is still possible to parameterise them manually, in the same way one can fine-tune atom charges~(see \secref{impl_finetuning}).
+In some cases, it can happen that no matching fragments are found for an atom. This will be indicated by colouring that atom with a pink/red background, as can be seen for the rightmost $CH_{2}$ group in \figref{conflict}~(and also figures \ref{figure:selecting}, \ref{figure:find_1}, \ref{figure:find_2}, \ref{figure:find_3}, and \ref{figure:find_4}). Upon selecting these atoms, no fragments will be returned. It is still possible to parameterise them manually, in the same way one can fine-tune atom charges~(see below).
 
-When a charge has been assigned to all \emph{parameterisable} atoms~(i.e. atoms for which fragments can be found), the user will be notified of this with a pop-up similar to the one shown in \figref{finished}. As it says there, he can now fine-tune the atom charges~(see \secref{impl_finetuning}), download the resulting parameterisation~(see \secref{impl_downloading}), or enter a new molecule.
+When a charge has been assigned to all \emph{parameterisable} atoms~(i.e. atoms for which fragments can be found), the user will be notified of this with a pop-up similar to the one shown in \figref{finished}. As it says there, he can now fine-tune the atom charges~(see below), download the resulting parameterisation, or enter a new molecule.
 
 \begin{figure}
 \center
@@ -210,12 +188,12 @@ Charges of fragments of molecules will often not precisely match with the charge
 \figlab{editing}
 \end{figure}
 
-The atom details table contains information about all atoms that are part of the selection. Hovering with the mouse over a row will highlight the corresponding atom in the molecule, which can be seen for the $O$ atom in \figref{editing}. The `Elem' column contains the atom element and its \verb|IACM atom type|~(in parentheses). The charge is shown, which can be edited by clicking the `Edit' button in the column next to it. Finally, clicking the `Show' button in the `Frags' column, will show the fragments that were used to get the current atom charge, as discussed in \secref{}.
+The atom details table contains information about all atoms that are part of the selection. Hovering with the mouse over a row will highlight the corresponding atom in the molecule, which can be seen for the $O$ atom in \figref{editing}. The `Elem' column contains the atom element and its \verb|IACM atom type|~(in parentheses). The charge is shown, which can be edited by clicking the `Edit' button in the column next to it. Finally, clicking the `Show' button in the `Frags' column, will show the fragments that were used to get the current atom charge, as discussed in \secref{id_common}.
 
 
-\subsubsection{Downloading results}
-\seclab{impl_downloading}
-When the user feels he is completely done, he can download the resulting parameterisation of the molecule by clicking the `Download' button at the top of the page. This will give him the result in the \verb|LEMON Graph File|~(LGF) format~\cite{dezso2011lemon}. This format has been chosen as it is used by, among others, the fragment finding system~(see \secref{mop_fragments}), and because it is a flexible format that can easily be generated. This file will contain all atoms' element types, \verb|IACM| and charge, and all bonds between the atoms. It can currently not be imported back into the system, but support for that may be added at a later stage.
+% \subsubsection{Downloading results}
+% \seclab{impl_downloading}
+% When the user feels he is completely done, he can download the resulting parameterisation of the molecule by clicking the `Download' button at the top of the page. This will give him the result in the \verb|LEMON Graph File|~(LGF) format~\cite{dezso2011lemon}. This format has been chosen as it is used by, among others, the fragment finding system~(see \secref{mop_fragments}), and because it is a flexible format that can easily be generated. This file will contain all atoms' element types, \verb|IACM| and charge, and all bonds between the atoms. It can currently not be imported back into the system, but support for that may be added at a later stage.
 
 
 \subsection{Other features}
@@ -224,7 +202,7 @@ Besides the features required for the normal use of \oframp{} described in the p
 \subsubsection{Demo mode}
 \seclab{impl_demo}
 
-In order to help new users learn to use the system, a Demo mode has been implemented. As can be seen in \figref{oframp_class}, both implementations of \oframp{} have their own Demo implementation, suited for that version. It can be started by clicking the `Start demo' button, as discussed in \secref{impl_starting}.
+In order to help new users learn to use the system, a Demo mode has been implemented. Both implementations of \oframp{} have their own Demo implementation, suited for that version. It can be started by clicking the `Start demo' button, as discussed in \secref{impl_starting}.
 
 \begin{figure}
 \center
@@ -246,7 +224,8 @@ The user will be guided through most aspects of \oframp, including interaction w
 
 \subsubsection{Modifying visualisation parameters}
 \seclab{impl_settings}
-Research on both data visualisation in general~\cite{gallopoulos1994computer}~(see also \secref{design}) and molecule visualisation in particular~\cite{aksela2008computer,taylor2013interface}~(see also \secref{ms_requirements}) has shown that being able to modify visualisation parameters at runtime will greatly enhance the user experience and help him to carry out the task he intends to complete. Therefore, most of the molecule visualisation parameters, such as the atom radius or grouping of \verb|H| atoms, can dynamically be modified. It has been implemented using a slight modification of the \verb|JavaScript| library \verb|dat-gui|~\cite{data2011dat}. More information on how to use it can be found on the \oframp{} Help pages, which are discussed in \secref{impl_help}.
+Research on both data visualisation in general~\cite{gallopoulos1994computer}~(see also \secref{design}) and molecule visualisation in particular~\cite{aksela2008computer,taylor2013interface}~(see also \secref{ms_requirements}) has shown that being able to modify visualisation parameters at runtime will greatly enhance the user experience and help him to carry out the task he intends to complete. Therefore, most of the molecule visualisation parameters, such as the atom radius or grouping of \verb|H| atoms, can dynamically be modified. % It has been implemented using a slight modification of the \verb|JavaScript| library \verb|dat-gui|~\cite{data2011dat}.
+This is not included in the demo, but information about it can be found on the \oframp{} Help pages.
 
 \subsubsection{Help}
 \seclab{impl_help}
@@ -260,39 +239,45 @@ Research on both data visualisation in general~\cite{gallopoulos1994computer}~(s
 
 Despite the fact that using \oframp{} should be intuitive, and the presence of its Demo mode, some users prefer textual instructions. Furthermore, some of the advanced features that are not covered by the demonstration need to be documented as well. Therefore, a Help page has been created~(see \figref{help}). It includes a little introduction on \oframp, basic instructions on how to parameterise a molecule, detailed descriptions of the advanced features, and instructions on how to solve common problems.
 
-As can be seen in \figref{help}, the Help page uses the same type of design as \oframp{} does, consisting of white boxes with grey, slightly rounded borders. Once again, this simplicity makes sure users are not distracted by the interface, but will be able to find the information they need. Furthermore, the consistency in the layout follows the interaction design principles~\cite{norman2010gestural,blair2008user}~(see also \secref{id_principles}), to enhance user satisfaction.
+As can be seen in \figref{help}, the Help page uses the same type of design as \oframp, consisting of white boxes with grey, slightly rounded borders. Once again, this simplicity makes sure users are not distracted by the interface, but will be able to find the information they need. Furthermore, the consistency in the layout follows the interaction design principles~\cite{norman2010gestural,blair2008user}~(see also \secref{id_principles}), to enhance user satisfaction.
 
 
 \section[\oapoc]{The Online tool for Atom Position Calculations}
 \seclab{impl_oapoc}
-The atom positions and bonds that are required for visualising molecules are found by \oapoc. As can be seen in \figref{network_diagram} on \figpageref{network_diagram}, \oapoc{} can calculate the molecule data either from an \verb|ATB ID|, or a molecule data string in an optionally specified format\footnote{When not provided, the format will be guessed automatically, which may be error-prone.}. Internally, this input will be converted to some other format that includes the atom position and bond information, and can easily be parsed and interpreted. This conversion is done using \verb|Open Babel|, which will be discussed shortly in \secref{oapoc_obabel}.
 
-The data that \verb|obabel| returns will be parsed and converted to a \verb|JSON| object, such that it can be sent to the client running \oframp. Additionally, \verb|IACM| atom types are calculated, following the algorithm presented by Malde~et.~al.~\cite{malde2011automated}. These atom types are needed later to find matching fragments for the molecule.
+The atom positions and bonds that are required for visualising molecules are found by \oapoc, which has been implemented using the \verb|Python| web framework \verb|Django|. As can be seen in \figref{network_diagram} on \figpageref{network_diagram}, \oapoc{} can calculate the molecule data either from an \verb|ATB ID|, or a molecule data string in an optionally specified format\footnote{When not provided, the format will be guessed automatically, which may be error-prone.}. Internally, this input will be converted to some other format that includes the atom position and bond information, and can easily be parsed and interpreted.
 
-\subsection{From ATB}
-When an \verb|ATB ID| is supplied to \oapoc, the molecule data string will be retrieved from the ATB. For all its molecules, the ATB stores a \verb|PDB| file, which is one of the formats that \oapoc{} supports. This file will be downloaded, and its contents will be used as the MDS for finding the molecule data.
+For making this conversion, it has been decided to go with \verb|Open Babel|~\cite{oboyle2011open}~(see also \secref{ms_visualisation}). This tool can be used easily and for free, and has support for most common MDS formats.
 
-\subsection{Open Babel}
-\seclab{oapoc_obabel}
-For converting molecule data strings from one format to another, it has been decided to go with \verb|Open Babel|~\cite{oboyle2011open}. This tool can be used easily and for free, and has support for most common MDS formats. Additionally, it performs quite well, and is known to provide good atom positions.
+% The data that \verb|obabel| returns will be parsed and converted to a \verb|JSON| object, such that it can be sent to the client running \oframp. Additionally, \verb|IACM| atom types are calculated, following the algorithm presented by Malde~et.~al.~\cite{malde2011automated}. These atom types are needed later to find matching fragments for the molecule.
 
-From \oapoc, the \verb|Open Babel| executable \verb|obabel| takes an MDS and the format that MDS uses. \verb|obabel| will then convert the MDS to the \verb|Mol2| format. This format has been chosen as it can easily be parsed and contains information on atom positions and bonds. Furthermore, it does not leave out the \verb|H| atoms, which some other formats do. For some applications this is fine, but for \oframp{} it is required to have all \verb|H| atoms.
+% \subsection{From ATB}
+% When an \verb|ATB ID| is supplied to \oapoc, the molecule data string will be retrieved from the ATB. For all its molecules, the ATB stores a \verb|PDB| file, which is one of the formats that \oapoc{} supports. This file will be downloaded, and its contents will be used as the MDS for finding the molecule data.
+
+% \subsection{Open Babel}
+% \seclab{oapoc_obabel}
+% For converting molecule data strings from one format to another, it has been decided to go with \verb|Open Babel|~\cite{oboyle2011open}. This tool can be used easily and for free, and has support for most common MDS formats. 
+
+% Needs to be merged properly still!
+For this purpose, the choice has been made to use the \verb|Python| web framework \verb|Django| for that part. This framework can easily be set up on various platforms and provides a wide span of features.Additionally, it performs quite well, and is known to provide good atom positions.
+
+% From \oapoc, the \verb|Open Babel| executable \verb|obabel| takes an MDS and the format that MDS uses. \verb|obabel| will then convert the MDS to the \verb|Mol2| format. This format has been chosen as it can easily be parsed and contains information on atom positions and bonds. Furthermore, it does not leave out the \verb|H| atoms, which some other formats do. For some applications this is fine, but for \oframp{} it is required to have all \verb|H| atoms.
 
 
 \section[\omfraf]{The Online tool for Molecule Fragment Finding}
 \seclab{impl_omfraf}
-Perhaps the most important part of the fragment-based molecule parameterisation system is the part that finds matching fragments for the input molecule. In the current implementation, this is done by \omfraf. Provided with the input molecule, a repository of molecules that can be queried for fragments, and a shell size within which the atoms should match, the tool can generate a list of matching fragments~(see \secref{impl_generating}). This list can later be queried to retrieve the fragments in which a certain atom or set of atoms occurs~(see \secref{impl_finding}).
+Perhaps the most important part of the fragment-based molecule parameterisation system is the part that finds matching fragments for the input molecule. In the current implementation, this is done by \omfraf, which, just like \oapoc, has been implemented in \verb|Django|. Provided with the input molecule, a repository of molecules that can be queried for fragments, and a shell size within which the atoms should match, the tool can generate a list of matching fragments. As some complex chemical concepts need to be understood to determine whether a similar fragment is a good match, an external tool needs to be used for this. In \omfraf, fragments are generated using El-Kebir's \verb|fragments| tool, from the \verb|mop| project~\cite{elkebir2014molecule}.
 
-\subsection{Getting the repositories}
-In order to be able to select a repository, the user needs to know what repositories are available. As can be seen in \figref{network_diagram}, a list of repositories can be retrieved by sending an empty \verb|JSON| object to \omfraf's \verb|/repos| URL. As of now, this list consists of only the repository titles. Later, this may be extended to also include the list of molecules that are contained in that repository, combined with functionality to exclude individual molecules. This will be discussed in more detail in \secref{futwork}.
+% \subsection{Getting the repositories}
+% In order to be able to select a repository, the user needs to know what repositories are available. As can be seen in \figref{network_diagram}, a list of repositories can be retrieved by sending an empty \verb|JSON| object to \omfraf's \verb|/repos| URL. As of now, this list consists of only the repository titles. Later, this may be extended to also include the list of molecules that are contained in that repository, combined with functionality to exclude individual molecules. This will be discussed in more detail in \secref{futwork}.
 
-\subsection{Generating fragments}
-\seclab{impl_generating}
-Before any fragments can be found, all matching fragments for the molecule need to be generated. As some complex chemical concepts need to be understood to determine whether a similar fragment is a good match, an external tool needs to be used for this. In \omfraf, fragments are generated using El-Kebir's \verb|fragments| tool, from the \verb|mop| project~\cite{elkebir2014molecule}.
+% \subsection{Generating fragments}
+% \seclab{impl_generating}
+% Before any fragments can be found, all matching fragments for the molecule need to be generated. As some complex chemical concepts need to be understood to determine whether a similar fragment is a good match, an external tool needs to be used for this. In \omfraf, fragments are generated using El-Kebir's \verb|fragments| tool, from the \verb|mop| project~\cite{elkebir2014molecule}.
 
-As can be seen in \figref{network_diagram}, the \verb|fragments| tool has been wrapped in a program called \verb|fragment_generator|. For every molecule in the provided repository, this tool will retrieve the matching fragments with the input molecule, transform them into a slightly more manageable format, combine the fragments of all molecules, and store them to disk in the so-called \omfraf{} Fragments File~(OFF) format. The name of this file will be sent back to the \oframp{} user, such that he can query for fragments later. Along with the fragment file's name, a list of atoms for which no matching fragments could be found is sent to the user, which will allow for indicating these atoms in the molecule visualisation~(see \secref{impl_completing}).
+% As can be seen in \figref{network_diagram}, the \verb|fragments| tool has been wrapped in a program called \verb|fragment_generator|. For every molecule in the provided repository, this tool will retrieve the matching fragments with the input molecule, transform them into a slightly more manageable format, combine the fragments of all molecules, and store them to disk in the so-called \omfraf{} Fragments File~(OFF) format. The name of this file will be sent back to the \oframp{} user, such that he can query for fragments later. Along with the fragment file's name, a list of atoms for which no matching fragments could be found is sent to the user, which will allow for indicating these atoms in the molecule visualisation~(see \secref{impl_completing}).
 
-\subsubsection{mop/fragments}
+% \subsubsection{mop/fragments}
 Provided with a target molecule file and another input molecule file, the \verb|fragments| tool will find all maximal fragments in the input molecule file that match with parts of the target molecule. It will score the fragments based on, among others, their size, such that they can be presented in order of relevance. In order to be a match, not only the atoms that are part of the fragment must match; the atoms in a so-called shell around the fragment should also match.
 
 \begin{figure}
@@ -323,6 +308,8 @@ Provided with a target molecule file and another input molecule file, the \verb|
 
 \Figref{shell_matching} shows the concepts of fragment matching for a shell size of $1$. As we can see, in \figref{shell_2}, the neighbouring atoms of the selected $CH_{2}$ group are $C$ and $N$ atoms, just like in \figref{shell_1}. In \figref{shell_3}, the $C$ atom to the right still matches, but the atom on the left-hand side no longer matches, as this is a $C$ atom. Would the shell size be increased further, to $2$, for example, then the second fragment would no longer be matching, due to the $CH_{3}$ group connected to the $NH$ group, and the $CH_{2}$ group connected to the $C$ atom to the right. The former is not present in the original molecule at all, the latter should be an $O$ atom to match.
 
-\subsection{Finding fragments}
-\seclab{impl_finding}
-Once the fragments have been generated, the user of \oframp{} will be able to start finding fragments. The selected atom(s) and OFF filename will be sent to \omfraf, which will invoke the \verb|fragment_finder|. This program will load the fragments from the OFF file, and select those in which \emph{all} selected atoms are present. Those fragments will be ordered based on the score that was assigned to them by the \verb|fragments| tool, and are returned to the \oframp{} front-end such that they can be used in the parameterisation process.
+% \subsection{Finding fragments}
+% \seclab{impl_finding}
+% Once the fragments have been generated, the user of \oframp{} will be able to start finding fragments. The selected atom(s) and OFF filename will be sent to \omfraf, which will invoke the \verb|fragment_finder|. This program will load the fragments from the OFF file, and select those in which \emph{all} selected atoms are present. Those fragments will be ordered based on the score that was assigned to them by the \verb|fragments| tool, and are returned to the \oframp{} front-end such that they can be used in the parameterisation process.
+
+Once the fragments have been generated, the user of \oframp{} will be able to start finding fragments. For this purpose, the generated list of fragments will be queried to retrieve the fragments in which a certain atom or set of atoms~(the selection) occurs.
