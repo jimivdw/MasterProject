@@ -1,9 +1,9 @@
 \chapter{Results}
 \chlab{results}
 
-In the user studies, a lot of different types of data has been created. First, graphical representations of most observations from the user action log can be found in \appref{graphs}. In that same chapter, the outcomes of the \verb|SUS| and \verb|UMUX| questions that were asked in the questionnaire can also be found. \Appref{comments} contains all answers to the open questions, including general comments about the system, the preferred version and suggestions for improvement.
+In the user studies, a lot of different types of data has been gathered. Graphical representations of most observations from the user action log can be found in \appref{graphs}. In that same chapter, the outcomes of the \verb|SUS| and \verb|UMUX| questions that were asked in the questionnaire can be found as well. \Appref{comments} contains all answers to the open questions, including general comments about the system, the preferred version and suggestions for improvement.
 
-This chapter will contain the important and most interesting results obtained in the user studies. Each result will shortly be discussed, and further analysed in \chref{discussion}.
+This chapter contains the important and most interesting results obtained from the user studies. Each result will shortly be discussed, and further analysed in \chref{discussion}.
 
 
 \section{Action log results}
@@ -29,7 +29,7 @@ The total time used to parameterise the first and second sets of molecules can b
 \figlab{graph_time_2}
 \end{figure}
 
-What is interesting to see here, is the fact that, where in the total parameterisation time, the group that did the smart version second was done the fastest, its members have spent the most time on average per atom. When taking a closer look at \figref{graph_time_3} and \figref{graph_time_4}, which show the average time per atom required for all molecules separately, this difference appears to be caused completely by the excessive amount of time users spent on parameterising molecule 13913 in the smart version, which is the first molecule users got to parameterise after they have completed the naive version. Even more interesting to see is the fact that most users spent more time parameterising this 11-atom molecule than on the larger 77-atom molecule 17738.
+What is interesting to see here, is the fact that, where in the total parameterisation time, the group that did the smart version second was done the fastest, its members have spent the most time on average per atom. When taking a closer look at \figref{graph_time_3} and \figref{graph_time_4}, which show the average time per atom required for all molecules separately, this difference appears to be caused completely by the excessive amount of time users spent on parameterising molecule 13913 in the smart version. This is the first molecule users got to parameterise after they have completed the naive version. Even more interesting to see is the fact that most users spent more time parameterising this 11-atom molecule than on the larger 77-atom molecule 17738.
 
 \begin{figure}[h!]
 \centering
@@ -59,7 +59,7 @@ Apart from molecule 13913, \figref{graph_time_34} shows that finishing a paramet
 
 \subsection{Parameterisation rating}
 \seclab{res_rating}
-Not only the time required by the parameterisation tool is important to determine which interaction design is the best, the quality of the result is also of great importance. As discussed in \secref{analysis}, there are two ways of calculating this quality rating. First, the total difference between the charge found by the user and the charge present in the ATB can be found, as shown in \figref{graph_rating_1}. As this difference can easily be observed and corrected by the user, it would be expected that it would be relatively close to 0. This, however, turns out not to be the case. Especially in the smart version of \oframp, the charge difference can get quite high, and is greater than the charge difference for the naive version in any case.
+Not only the time required by the parameterisation tool is important to determine which interaction design is the best, the quality of the result is also of great importance. As discussed in \secref{us_analysis}, there are two ways of calculating this quality rating. First, the total difference between the charge found by the user and the charge present in the ATB can be found, as shown in \figref{graph_rating_1}. As this difference can easily be observed and corrected by the user, it would be expected that it would be relatively close to 0. This, however, turns out not to be the case. Especially in the smart version of \oframp, the charge difference can get quite high, and is greater than the charge difference for the naive version in any case.
 
 \begin{figure}[h!]
 \center
@@ -79,9 +79,9 @@ Where the difference in the total molecule charge can mainly be used to assess u
 \figlab{graph_rating_2}
 \end{figure}
 
-In contrast to the total charge differences though, the average charge differences for the second set of molecules are smaller than those for the first set. This suggests the opposite of what was concluded from \figref{graph_rating_1}: the second set of molecules may be easier to parameterise, or there may be better matching fragments available. This suggestion is more probable, as for the total charge difference a negative offset between two atom charges can be compensated by a positive offset in two others, which is not the case for the per-atom difference.
+In contrast to the total charge differences though, the average charge differences for the second set of molecules are smaller than those for the first set. This suggests the opposite of what was concluded from \figref{graph_rating_1}: the second set of molecules may be easier to parameterise, or there may be better matching fragments available. This suggestion is more probable, as, for the total charge difference, a negative offset between two atom charges can be compensated by a positive offset in two others. This is not the case for the per-atom difference.
 
-As can be seen in \figref{graph_rating_34}, the naive version of \oframp{} scores better for all individual molecules. What can also be seen there is the fact that, even on average, the charge differences are bigger for the larger molecules than for the smaller ones. Unfortunately, there is no obvious explanation for this. Probably, larger fragments are used for the larger molecules. When one of those fragments is wrong, it quickly adds up to the atom charge difference. On the other hand, it is also possible that users felt more comfortable selecting small fragments, which are generally worse matches than the large ones, due to less atoms matching between the two molecules.
+As can be seen in \figref{graph_rating_34}, the naive version of \oframp{} scores better for all individual molecules. What can also be seen there is the fact that, even on average, the charge differences are bigger for the larger molecules than for the smaller ones. Unfortunately, there is no obvious explanation for this. Probably, larger fragments are used for the larger molecules. When one of those fragments is bad, it quickly adds up to the atom charge difference. On the other hand, it is also possible that users felt more comfortable selecting small fragments, which are generally worse matches than the large ones, due to less atoms matching between the two molecules.
 
 \begin{figure}[h!]
 \centering
@@ -104,7 +104,7 @@ As can be seen in \figref{graph_rating_34}, the naive version of \oframp{} score
 
 \subsection{Other results}
 \seclab{res_other}
-Besides the time required to complete the parameterisation and its rating, some other interesting things were observed in the user studies. First of all, there appears to be a great correlation between the version of \oframp{} that is used and the amount of actions a user needs to undo, as can be seen in \figref{graph_undo}. Where in the naive version, users practically do not undo any action, there are extreme cases where a user needed to undo over a hundred times in the smart version. This difference can be explained by the fact that users of the smart version have to undo accidentally rejected fragments, or may use a combination of reject and undo actions to compare various fragments.
+Besides the time required to complete the parameterisation and its rating, some other interesting things were observed in the user studies. First of all, there appears to be a great correlation between the version of \oframp{} that is used and the amount of actions a user needs to undo, as can be seen in \figref{graph_undo}. Where, in the naive version, users practically do not undo any action, there are extreme cases where a user needed to undo over a hundred actions in the smart version. This difference can be explained by the fact that users of the smart version have to undo accidentally rejected fragments, or may use a combination of reject and undo actions to compare various fragments.
 
 \begin{figure}[h!]
 \center
@@ -113,7 +113,7 @@ Besides the time required to complete the parameterisation and its rating, some 
 \figlab{graph_undo}
 \end{figure}
 
-As can be seen in \figref{graph_clicks}, a few more clicks are required to complete a parameterisation in the smart version of the tool, then there are in the naive version. Nevertheless, the medians are not too far apart, so it is not really possible to draw any conclusions from this. It is interesting to see, however, that even though the smart version of \oframp{} requires less user interaction, is does not require less, and possibly even more clicks to complete a parameterisation.
+As can be seen in \figref{graph_clicks}, a few more clicks are required to complete a parameterisation in the smart version of the tool, than there are in the naive version. Nevertheless, the medians are not too far apart, so it is not really possible to draw any conclusions from this. It is interesting to see, however, that even though the smart version of \oframp{} requires less user interaction, is does not require less, and possibly even more clicks to complete a parameterisation.
 
 \begin{figure}[h!]
 \center
@@ -122,7 +122,7 @@ As can be seen in \figref{graph_clicks}, a few more clicks are required to compl
 \figlab{graph_clicks}
 \end{figure}
 
-\Figref{graph_help} shows that not many users had to consult the help pages during the parameterisation process. Furthermore, no users checked the help pages in their second version of the system. This can mean that either they did not know there were different versions of the help pages as well, or they did not need it any more. The fact that most users did not go to the help pages at all suggests that the tool is intuitive to use, and that taking the demo provides enough information to be able to use \oframp.
+\Figref{graph_help} shows that not many users had to consult the help pages during the parameterisation process. Furthermore, no users checked the help pages in their second version of the system. This can mean that either they did not know there were different versions of the help pages, or they did not need it any more. The fact that most users did not go to the help pages at all suggests that the tool is intuitive to use, and that taking the demo provides enough information to be able to use \oframp.
 
 \begin{figure}[h!]
 \center
@@ -131,10 +131,12 @@ As can be seen in \figref{graph_clicks}, a few more clicks are required to compl
 \figlab{graph_help}
 \end{figure}
 
-There are also a few things users did not do at all. They were not required or instructed to use every aspect of \oframp, but it was expected that they would at least try some of the more advanced features. First, none of the users used any of the available keyboard shortcuts. Although all actions for which a keyboard shortcut exists can also be completed using a single mouse click, it was expected that some users would find it beneficial to use keyboard shortcuts for some actions, but this turned out not to be the case.
+There are also a few things users did not do at all. They were not required or instructed to use every aspect of \oframp, but it was expected that they would at least try some of the more advanced features. First, none of the users used any of the available keyboard shortcuts. Although all actions for which a keyboard shortcut exists can also be completed using a single mouse click, it was expected that some users would find it beneficial to use keyboard shortcuts for some actions.
 
-Furthermore, and more surprisingly, none of the users manually edited a single atom charge. Again, they were not specifically instructed to do so, but they were made aware of the possibility of doing this, and instructed to make the parameterisation as good as possible. Possibly, users were unable to locate the position of the charge edit fields, but no comments about that have been made. Probably, they just did not feel the need of it, or thought their parameterisation was perfect the way it was.
+Furthermore, and more surprisingly, none of the users manually edited a single atom charge. Again, they were not specifically instructed to do so, but they were made aware of the possibility of doing this, and instructed to make the parameterisation as good as possible. Possibly, they just did not feel the need of it, or thought their parameterisation was perfect the way it was. However, some users commented they were unable to locate the position of the charge edit fields, suggesting otherwise~(see also \secref{res_comments}).
 
+% Left out:
+\begin{comment}
 \subsection{Correlations}
 From the data gathered from the log files, it is interesting to see if there is any correlation between the rating of the outcome and any other parameter. \Figref{graph_correlation} shows four presumed possible correlations, with data points for both the naive and the smart version of \oframp. Trend lines have been plotted - a cyan one for the naive version and a magenta line for the smart - to help identifying if there is any correlation.
 
@@ -178,19 +180,20 @@ When taking a look at \figref{graph_correlation_1} and \figref{graph_correlation
 Just like is the case for the charge differences, the extremes in the number of used fragments are among the best results~(see \figref{graph_correlation_3}). However, it may also be the case here that these points are just outliers, and more experimentation is needed to be able to observe any real trend.
 
 For the number of original molecule views, the results are the most widespread~(see \figref{graph_correlation_4}). It appears that viewing many original molecules has absolutely no effect on the quality of the parameterisation result. Furthermore, the best results for both the naive and smart version of \oframp{} are obtained by users who did not check a single original molecule. This is an interesting observation, as it is believed that, in order to judge if a fragment is a good match, one needs to see the fragment in the context of its originating molecule.
-
+\end{comment}
+% End left out.
 
 \section{Questionnaire outcomes}
 Besides the log files from the users parameterising a few molecules, some more information can be gathered from the questionnaire users were asked to fill in. This includes the results of the combined \verb|SUS| / \verb|UMUX| questionnaire, their opinion on which version was the best, and other comments about the system. All of these will be discussed in the next sections.
 
 \subsection{\texttt{SUS} / \texttt{UMUX} results}
 \seclab{res_sus}
-The average \verb|SUS| / \verb|UMUX| results of the naive and smart versions of the system are shown in \figref{graph_sus_1}. As can be seen here, the naive version, with a median rating of $76$, scores better than the smart version, which has a median rating of only $61$. This means that the naive version scores above the average \verb|SUS| score of 68~\cite{sauro2011measuring}, where the smart version scores below that. In the adjective rating scale, the naive version is `good', but the smart version still scores `OK'~\cite{bangor2009determining}.
+The total \verb|SUS| score of the naive and smart versions of the system is shown in \figref{graph_sus_1}. As can be seen here, the naive version, with a median rating of $76$, scores better than the smart version, which has a median rating of only $61$. This means that the naive version scores above the average \verb|SUS| score of 68~\cite{sauro2011measuring}, where the smart version scores below that. In the adjective rating scale, the naive version is `good', but the smart version still scores `OK'~\cite{bangor2009determining}~(see also \secref{us_analysis}).
 
 \begin{figure}[h!]
 \center
 \includegraphics[width=.32\textwidth]{img/graphs/4a_10.pdf}
-\caption{Average rating for the two versions.}
+\caption{\texttt{SUS} score of the two versions.}
 \figlab{graph_sus_1}
 \end{figure}
 
@@ -199,13 +202,13 @@ The average \verb|SUS| / \verb|UMUX| results of the naive and smart versions of 
 \begin{figure}[h!]
 \center
 \includegraphics[width=.6\textwidth]{img/graphs/4b_10.pdf}
-\caption{Average rating for the two versions in the two orders.}
+\caption{\texttt{SUS} score of the two versions in the two orders.}
 \figlab{graph_sus_2}
 \end{figure}
 
 For the other group of users, the opposite is true. They already awarded the smart version with the average grade of $68$, and later rewarded the naive version with a rating of $85$, which translates to `excellent' on the adjective scale. This large difference here can possibly be explained by the users preferring the naive version over the smart one and therefore, consciously or unconsciously, giving higher grades to the naive version. The lower, but still `OK' grading of the smart version in the other group can then be explained by the users still liking the smart version, and therefore willing to grade it sufficiently.
 
-The most extreme rated \verb|SUS| questions are shown in \figref{graph_sus_345}. \Figref{graph_sus_3} shows the lowest scoring point for both the naive and the smart versions of \oframp, being the answer to the first \verb|SUS| statement: ``I think that I would like to use this system frequently''. Where, for the naive version, most people are neutral, with some agreeing or even fully agreeing with the statement, the median answer in the smart version was a disagree. This is an important result, as users not liking to use a system frequently is a bad sign.
+The most extremely rated \verb|SUS| questions are shown in \figref{graph_sus_345}. \Figref{graph_sus_3} shows the lowest scoring point for both the naive and the smart versions of \oframp, being the answer to the first \verb|SUS| statement: ``I think that I would like to use this system frequently''. Where, for the naive version, most people are neutral, with some agreeing or even fully agreeing with the statement, the median answer in the smart version was a disagree. This is an important result, as users not liking to use a system frequently is, of course, a bad sign.
 
 \begin{figure}[h!]
 \centering
@@ -235,7 +238,7 @@ The most extreme rated \verb|SUS| questions are shown in \figref{graph_sus_345}.
 
 The fourth \verb|SUS| question was the highest rated for both the naive and smart versions of the system~(see \figref{graph_sus_4}), although the tenth question is rated equally high in the smart version. \verb|SUS4| states: ``I found the various functions in the system were well integrated''. As there is no difference in the rating of the two versions, no conclusions can be drawn for this, other than the fact that both interaction designs are good in general.
 
-Finally, as mentioned before, the tenth \verb|SUS| question is on of the highest rated for the smart version. Furthermore, this is the only statement for which the smart version actually scores higher than the naive one. As the tenth statement is ``I think the system meets up with its requirements'', it is quite interesting that the smart version scores higher here. Probably, the test participants considered the required time to complete the parameterisation an important requirement. As seen before, the smart version requires the least time, which may explain the difference here.
+Finally, as mentioned before, the tenth \verb|SUS| question is one of the highest rated for the smart version. Furthermore, this is the only statement for which the smart version actually scores higher than the naive one. As the tenth statement is ``I think the system meets up with its requirements'', it is quite interesting that the smart version scores higher here. Probably, the test participants considered the required time to complete the parameterisation an important requirement. As seen before, the smart version requires the least time, which may explain the difference here.
 
 
 \subsection{Preference}
@@ -245,7 +248,8 @@ The general questionnaire users were asked to submit after they were completely 
 Additionally, some users commented that the naive version allowed for easier comparison of fragments, compared to having to make a combination of rejects and undos in the smart version. One user even commented this made the parameterisation process a lot quicker, though the timing results discussed before tell a different story. This means that the naive version \emph{feels} faster, and suggests that the parameterisation process using the smart version may be considered to be tedious.
 
 \subsection{Comments}
-Following the \verb|SUS| and \verb|UMUX| questions, users were asked to answer a few open questions and had room for some comments. The next sections will discuss these comments for both versions of \oframp{} and the suggestions they had for improving the tool. As no significant difference has been observed between the comments of the people in the different orders they used the system in, no distinction will be made between those comments.
+\seclab{res_comments}
+Following the \verb|SUS| and \verb|UMUX| questions, users were asked to answer a few open questions and had room for some comments. The next sections will discuss these comments for both versions of \oframp{} and the suggestions they had for improving the tool. As no significant difference has been observed between the comments of the people for the different orders in which they used the system, no distinction will be made between those comments.
 
 \subsubsection{Naive version}
 For the naive version of the system, users were very positive about the user interaction. They noted that the interface and layout were very clear and nicely designed, and also gave a nice representation of molecules and fragments. The interface was found to be very responsive and easy to use and learn, thanks to the demo mode, the extensive help pages, and the fact that the system was intuitive to use in general. Finally, the right information was noted to come up exactly when needed.
@@ -264,7 +268,7 @@ Finally, many users noted that they would like to be able to manually alter or i
 \subsubsection{Smart version}
 In their comments about the smart version of \oframp, users were, again, quite positive about the interface. They noted it to be clear and running smooth, and liked the visualisation of the molecule. Additionally, they found the tool extremely easy to learn, and mentioned it helped them to parameterise a molecule very quickly. It was mentioned again that fragment-based molecule parameterisation is a good concept to speed up molecule parameterisation. Finally, the ability to view the original molecule was found to be truly valuable.
 
-Despite all the positive feedback, all users encountered one major problem: they were not able to easily compare different fragments. This either resulted in them having to go through some sort of reject/undo loop, or made them select a fragment before they were certain it was the best match. Furthermore, they noted that taking the average of the conflicting atom charges is not always a good solution, and needed to be able to decide how the conflict should be solved. Some users also commented that the automatic atom selection was too arbitrary, and needed to be more intelligent.
+Despite all the positive feedback, all users encountered one major problem: they were not able to easily compare different fragments. This either resulted in them having to go through some sort of reject/undo loop, or made them select a fragment before they were certain it was the best match. Furthermore, they noted that taking the average of the conflicting atom charges is not always a good solution, and they needed to be able to decide how the conflict should be solved. Some users also commented that the automatic atom selection was too arbitrary, and needed to be more intelligent.
 
 Most of the shortcomings of the naive version were also mentioned here. Again, many noted that they needed to have an easy way to keep track of the total molecule charge. Some found the `finished' popup obstructive, and it was mentioned once more that making matches based on a shell around the target atoms may not be the best approach.
 
@@ -273,7 +277,7 @@ Most of the shortcomings of the naive version were also mentioned here. Again, m
 Many users had some ideas for further improving the value of \oframp. The following list contains the most mentioned and feasible ones, ordered on descending number of mentions.
 \begin{enumerate}
 \item Continuously show the total molecule charge:\\
-Even though the molecule charge can be viewed in the selection details window, this window is not opened all the time. Additionally, the effect selecting a proposed fragment has on the total charge can be shown with the total charge;
+Even though the molecule charge can be viewed in the selection details window, this window is not opened all the time. Additionally, the effect of selecting a proposed fragment on the total charge can be shown with it;
 \item Ability to manually add/edit charges:\\
 As discussed before, many users wanted to see this feature added, although it is already present. Additionally though, they commented that they would like to be able to assign a charge to a group of atoms, and have this automatically distributed over the group;
 \item Combine the auto-select system with the fragment list:\\
@@ -281,7 +285,7 @@ Some users noted they did not want to manually select atoms all the time, and li
 \item Show the confidence score of fragments:\\
 It was noted a few times that this would help in selecting the best fragment;
 \item Indicate identical sections in the atom that is being parameterised:\\
-In some molecules, sections of atoms occur multiple times. For these sections, the charges are generally equal. It would therefore be useful if these sections would be highlighted and probably automatically copy the charges automatically;
+In some molecules, sections of atoms occur multiple times. For these sections, the charges are generally equal. It would therefore be useful if these sections would be highlighted and will probably be useful to copy the charges automatically;
 \item Remember the position of the popup:\\
 As the popup location is reset every time, users have to move it to the side every time they want to compare an original molecule to the input molecule. Some therefore consider it better to remember the location the popup was dragged to once it is reopened;
 \item Colour coding of atom types:\\
