@@ -1,0 +1,94 @@
+\chapter{Additional literature}
+\chlab{relwork_extra}
+
+\section{Interaction design}
+Besides trying to optimise the preparation steps for molecule simulations, the main challenge of this thesis project is to come up with a good interaction design for a tool that does that. In the interaction design area, Donald Norman is a respected and often cited author. He feels that technology can only live up to its full potential by, first of all, supporting human tasks, while making the supporting technology as transparent as possible~\cite{norman2002design}. This can be achieved by making the tools easy to use, easy to learn and easy to understand. Designing for this purpose is called user-centred design.
+
+%
+
+Despite the fact that the importance of design has been long known, many software products are still poorly designed. In an attempt to overcome this, an approach called human-centred design (HCD) has been developed~\cite{norman2005human}. However, even though the needs of the user play a central role here, many companies following the HCD principles still develop complex and confusing products. The systems are often superb at the level of the static, individual display, but fail to support the sequential requirements of the underlying tasks and activities. Therefore, a new approach is needed that does not put the user in a central role, but rather does so with the activity that needs to be performed. In this Activity-Centred Design~(ACD) method, it is sometimes necessary to ignore a user's requests, as they might compromise the task that has to be carried out.
+
+This, however, does not mean that the application user's needs should be completely ignored. On the contrary, it is really important that the user's characteristics are understood and used in the design of an application~\cite{badre2002shaping}. Also, a good analysis of the context is needed to make the right design decisions. If one ignores the user characteristics and context of an application, the application is  likely to fail, as the context in which the application is developed will almost always differ from the context in which it will be used.
+
+%
+
+\subsection{Learning}
+\seclab{id_learning}
+In order to determine what makes a good interaction design, it needs to be known how people learn new things and how our problem solving system works. There are two main learning mechanisms: schema acquisition, where knowledge of subject matter is organized in schemas that determine how new information is dealt with, and the transfer of learned procedures from controlled to automatic processing~\cite{sweller1994cognitive}. Well learned material can be processed automatically, without much effort, while new or less familiar information needs to be processed in a controlled fashion. This means that, when learning something new, one can only use that knowledge by devoting considerable cognitive effort to it. After getting more familiar with the task, the skill may become automatic. Only then can intellectual performance attain its full potential.
+
+In order to facilitate learning, the process of schema acquisition needs to be triggered and supported. Trying to teach by only providing examples will eventually even have the opposite effect. The learner will then be able to execute the task under the conditions that are equal to those in which he learned the skills, but will fail to do so in other cases. In order to overcome this, teaching should be done using goal-free problems. These problems focus on achieving various problem states and the steps on how to get there, which is exactly how schema acquisition works.
+
+How easy it is to learn something new is highly dependent on the level of interactivity between the different elements of a task. If there is no interaction between two elements, they can be learned in isolation, requiring less cognitive load than when they have to be learned simultaneously. However, making something easy to learn is not as simple as reducing the element interactivity, as it is dependent on the knowledge of the individual what constitutes an element. For the more experienced, an element may be a whole chunk of the information, while for the rest it may just be an atomic part of the information. Luckily, it is only hard to learn something new when both the intrinsic and extraneous cognitive loads are high. When there is only one high load, the lack of the other compensates for this.
+
+There are two types of problems: well-structured problems and ill-structured problems. In a well-structured problem, the initial state is well-defined, the goal state is known, and there is a limited set of logical operations to solve the problem~\cite{jonassen2000toward}. If either of these is missing, the problem is classified as being ill-structured. Ill-structured problems are generally more complex than well-structured problems, and are therefore often harder to solve.
+
+Besides the complexity, there are also many individual differences that determine how easy it is to solve a problem. First of all, when a person is familiar with the domain of a problem, it will be easier to solve for him than it will be for someone with less domain knowledge. Second, more analytical thinkers are often good problem solvers. They must believe that there will be a way to solve the problem, especially when the problem is ill-structured, as they might otherwise just give up before finding a solution. It also helps when someone has a certain affection with the problem. He will then be more likely to try and find the solution. If, however, one has certain beliefs or attitudes about a problem and its solution, he might be a less effective problem solver due to over-relying on that solution. Finally, every problem is different and requires different skills to solve. It can be easier to solve the problem for someone who is familiar with the problem type, but one may never forget that every problem requires a different way of learning.
+
+%
+
+\subsection{Interaction design principles}
+Thimbleby, on the other hand, \emph{does} relate his principles to technology~\cite{thimbleby2007press}:
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+\item Use good algorithms for better user interfaces: interactive devices are designed to solve problems in a structured way, which is exactly what a good algorithm does;
+\item Use simple, explicit interaction frameworks: those provide clear interaction structures, which allow for reliable feature integration, checking, analysis, fault identification, and error fixing;
+\item Interrelate all interaction programming: all aspects of the design should come out of the same specification;
+\item Define properties and analyse designs for them.
+\end{itemize}
+A more extensive list is provided by Blair-Early and Zender~\cite{blair2008user}:
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+\item Obvious start: design an obvious starting point;
+\item Clear reverse: design an obvious exit or stop;
+\item Consistent logic: design an internally consistent logic for content, actions, and effects (the most important consistency is that with user expectations);
+\item Observe conventions: identify and consider the impact of familiar interface conventions;
+\item Feedback: design tangible responses to apt user actions;
+\item Landmarks: design landmarks as a reference for context;
+\item Proximity: design interface elements in consistent proximity to their content objects and to each other;
+\item Adaptation: design an interface that adapts or is adapted to use;
+\item Help: as necessary, provide a readily accessible overall mechanism for assistance;
+\item Interface is content: design interface elements that minimise interface and maximise content.
+\end{itemize}
+
+The above lists of principles are all quite different, but all consider automation of certain processes. The next section will discuss this in more detail.
+
+%
+
+\subsection{Automation}
+Automation is often said to be causing problems and to increase the chances for human error when failures occur. Norman proposes in~\cite{norman1990problem} that this is not the cause of automation itself, but rather of the automated systems' lack of appropriate feedback when humans need to take over control. In regular conditions and some predefined exceptional situations, automated systems are perfectly able to operate. It is in those other abnormal situations that automated systems often fail; both in executing their task and alerting the user that something unusual is happening. In order to overcome this, automated systems should be designed while keeping in mind that errors will occur. An appropriate feedback system needs to be present that allows for human intervention when needed.
+
+An often used, but wrong way of alerting a system's user that something is wrong, is the use of alarms for every component of the system~\cite{norman1990problem}. In exceptional situations, multiple components will often fail at the same time. When all of these would sound an alarm, the user could get confused and will not know what component requires immediate attention and what can wait. Rather than this, systems should continually inform the user about their state, such that he can detect exceptional situations and act upon them. Still, this information should be non-intrusive and presented in a natural way, such that man and machine can jointly solve the problem at hand.
+
+%
+
+\section{Molecule software}
+
+\subsection{Molecule visualisation}
+Molecule visualisation is generally done using either two-dimensional schematic views, or three-dimensional structure models. Which of these forms is best depends on the application for which the visualisation needs to be used. In cases where correct perception of the molecule structure including bond angles, bond lengths, and atom sizes is needed, 3D representations need to be used. A study on Slovenian primary and secondary schools has shown that, for understanding chemical concepts, 3D models are highly beneficial if they can be interacted with~\cite{ferk2003students}. However, as they convey more information than the 2D representations, it does take more time for the students to understand the 3D models. Furthermore, as the structures often have to be converted to a 2D form which the students can draw in their notebooks, transition rules need to be taught, which increases the steepness of the learning curve even further.
+
+%
+
+When a molecule in a textual format that lacks positional information needs to be visualised, its atoms' positions need to be calculated. Starting from the 1970s, algorithms for schematically displaying molecules in 2D have been developed. Dittmar, Mockus and Couvreur created one of the first programs that converted a connection table to a structural molecule diagram~\cite{dittmar1977algorithmic}. Back in the day, computing power was limited, which meant that advanced operations to eliminate overlap in the visualisation needed to be limited. Nevertheless, computing the diagrams still took over three minutes for an average sized molecule. Since then, advances in computer hardware and algorithm improvements have made it possible to speed up the structural diagram generation to times of under a second~\cite{fricker2004automated}. The improvements of computer hardware also allowed for better overlap prevention in the diagrams, leading to much cleaner visualisations~\cite{clark2006structure}. However, overlap is still not completely eliminated, so there is a need for further improvements in these algorithms.
+
+%
+
+A different study on the use of computer programs in biology unveiled some more requirements~\cite{taylor2013interface}. First of all, it is highly beneficial to have different visual representations of the molecule, or to at least be able to modify the visualisation parameters at runtime. This allows the application user to fully tailor the visualisation to his needs. Second, as visualisations are usually only there to make a certain task easier, they should not get in the way of that task. Finally, even though the main goal of the visualisation is often to answer questions, it should also have the potential of posing new ones. A good visualisation shows things that were previously unknown, which have the potential of raising new questions.
+
+%
+
+\section{User studies}
+%% Not all this has been left out...
+In Software Engineering, an often used method to evaluate a project is performing a user study. In general, user studies can be assigned to one of the following categories: experiments, case studies, surveys, and post-mortem analyses~\cite{wohlin2003empirical}. In all of these types of studies, it is important to have a representative group of test subjects. These should preferably be picked at random from the population of application users.
+
+In the first type of user studies, the experiment, two (or more) different configurations of the examined tool are compared by examining the effects the configuration has on the tool's output~\cite{wohlin2003empirical}. It is important to define exactly what one wants to validate~\cite{stein2009assessing}. This should preferably be something that can easily be observed (e.g. `time required' or `number of clicks', but not `comprehensibility'). Furthermore, it is important that all different configurations are semantically equivalent (i.e. doing the same thing), have an equal degree of compression (i.e. contain the same information) and are formatted into their cleanest and clearest extent.
+
+Before starting an experiment, it is very important to make sure the subjects are committed to the tasks they need to perform. Otherwise, the experiment will not properly reflect the production environment. Furthermore, the experiment should be well-prepared, as start-up problems might negatively impact the subject's opinion otherwise.
+
+Another type of user studies is the survey. In a survey, it is easy to test a large number of variables, but one should be careful not to test too many, as this will make the analysis infeasible~\cite{wohlin2003empirical}. In order to collect questionnaire information in a structured way, its questions should follow some natural flow that embodies all aspects of a user's experience~\cite{tuch2013analyzing}. This encourages them to report their detailed experiences, as this is less demanding than answering one big open question. Furthermore, it also reduces the chances of subjects failing to report certain things, simply because they forgot about them.
+
+A few predefined surveys are available for usability testing, including \verb|SUS|~(System Usability Scale)~\cite{brooke2013sus} and \verb|UMUX|~(Usability Metric for User Experience)~\cite{lewis2013umux}. \verb|SUS| consists of ten items, each of which should be graded on a scale of 1 (strongly disagree) to 5 (strongly agree). It has been extensively tested and turns out to have a reliability score of 0.96. \verb|UMUX| is a shorter questionnaire, consisting of four questions, with a reliability score of 0.86. However, its even shorter brother, \verb|UMUX-LITE|, consisting of only two questions, has been shown to provide results of the same reliability. It is believed that when a system is subjected to both \verb|SUS| and \verb|UMUX-LITE|, one can get very reliable results on the usability of that system.
+
+On a final note about surveys, the fact that they are often straightforward makes them perfectly suitable for being held over the internet. It has been shown that the results of online surveys do not significantly differ from their offline counterparts~\cite{komarov2013crowdsourcing}. However, face-to-face surveys are still the only way that allows both the interviewer and the test subject to immediately ask and answer questions~\cite{wohlin2003empirical}. Nevertheless, the effects of this are considered minimal and can often be mitigated by asking the test subject if he has any questions in the questionnaire.
+
+Before analysing the data obtained by a user study, it is important to validate it~\cite{wohlin2003empirical}. All the obtained results should be complete and correctly documented. Furthermore, extreme outliers should be identified dealt with. What should happen exactly depends on the situation, but in most cases it is best to leave out the extreme results~\cite{komarov2013crowdsourcing}. Finally, it is very important to provide a grade of validity along with the conclusions of the user studies. This grade depends on, for instance, the number of test subjects, their representativeness or the distribution of the results.
+
+
+
