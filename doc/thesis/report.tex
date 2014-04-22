@@ -31,6 +31,7 @@
 \usepackage{rotating}
 \usepackage{amsmath}
 \usepackage{datetime}
+\usepackage{color}
 
 % Beramono for code highlighting? If needed...
 
@@ -138,6 +139,20 @@
 \parbox{.8\textwidth}{#1}
 \end{center}
 \vspace*{\fill}
+}
+
+\setlength{\fboxsep}{1em}
+\def\wip{%
+  \noindent%
+  \setlength{\fboxsep}{10pt}%
+  \begin{center}%
+  \fcolorbox{red}{white}{%
+    \setlength{\fboxsep}{0pt}%
+    \makebox[.9\linewidth]{%
+      \emph{\color{red} This is still a work in progress\ldots}%
+    }%
+  }%
+  \end{center}%
 }
 
 \setlength{\parskip}{.5em}
