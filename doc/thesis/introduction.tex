@@ -3,11 +3,11 @@
 
 In the world of biomolecular science, molecular simulations are becoming increasingly important. For these calculations, many different parameters are needed, including detailed information about the molecules that will be examined in the simulation. One important parameter here is the list of atomic partial charges of the molecule~(see \chref{analysis}). Calculating these charges, however, can take a lot of time, even on advanced computation clusters.
 
-Various attempts have been made to speed up this process, but all without success. It is therefore believed that, using the current approach, the calculation process can only be speeded up with advances in computer hardware development. In order to speed up the process of finding atomic partial charges, a different approach needs to be developed.
+Various attempts have been made to speed up this process, but all without success. It is therefore believed that, using the current approach, the calculation process can only be speeded up with advances in computer hardware development. In order to reduce the running time of the process for finding atomic partial charges, a different approach needs to be developed.
 
 It is known that similar parts of different molecules often have roughly the same atomic charges. Therefore, it should be possible to assign the charges of a molecule based on the known charges of parts of other molecules. It is expected that humans (read: experienced scientists) will be able to find the best matching molecule fragment out of a set of possible ones. Therefore, a system needs to be designed that allows for parameterisation of a molecule, based on a set of fragments of other molecules.
 
-For this thesis project, a system for fragment-based molecule parameterisation has been designed. In an attempt to find the best interaction design for such system, two slightly different versions of it have been implemented. These two versions have been compared using a user study, where participants were asked to parameterise a few molecules using the system. Using the outcomes of the user study, it is possible to determine which of the interaction designs is the best fit for the task of fragment-based molecule parameterisation. Furthermore, it will show if manual parameterisation of molecules is possible at all, and whether it has ant advantages over the current method using complex calculations.
+For this thesis project, a system for fragment-based molecule parameterisation has been designed. In an attempt to find the best interaction design for such system, two slightly different versions of it have been implemented. These two versions have been compared using a user study, where participants were asked to parameterise a few molecules using the system. Using the outcomes of the user study, it is possible to determine which of the interaction designs is the best fit for the task of fragment-based molecule parameterisation. Furthermore, it will show if manual parameterisation of molecules is possible at all, and whether it has any advantages over the current method that uses complex calculations.
 
 % TODO : maybe reconsider?
 Given the short problem description above, a main research question for this project can be formulated:
@@ -18,9 +18,9 @@ What is the best way for chemists to interact with a tool for fragment-based mol
 
 This question can be split up into the following sub-questions:
 \begin{enumerate}
-\item What is the best way for chemists to interact with a system for finding atomic charges using similar fragments of other molecules?
-\item Compared to the computed charges, how good are the charges obtained using manual charge assignment?
-\item Is it feasible to do manual partial charge assignment in a reasonable amount of time?
+\item What is the best way for chemists to interact with a system for finding atomic partial charges using similar fragments of other molecules?
+\item Compared to the computed charges, how accurate are the charges obtained using manual charge assignment?
+\item Is it feasible to do manual partial charge assignment in a reasonable amount of time, and faster than performing computations?
 \end{enumerate}
 Using the outcomes of the user studies, it should be possible to answer all of these questions. Furthermore, feedback gathered in the user studies can be used to finalise the design and deliver a great system for fragment-based molecule parameterisation.
 
