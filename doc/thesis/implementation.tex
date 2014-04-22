@@ -288,7 +288,7 @@ In order to be able to select a repository, the user needs to know what reposito
 
 \subsection{Generating fragments}
 \seclab{impl_generating}
-Before any fragments can be found, all matching fragments for the molecule need to be generated. As some complex chemical concepts need to be understood to determine whether a similar fragment is a good match, an external tool needs to be used for this. In \omfraf, fragments are generated using El-Kebir's \verb|fragments| tool, from the \verb|mop| project\footnote{\url{https://github.com/melkebir/mop/}}.
+Before any fragments can be found, all matching fragments for the molecule need to be generated. As some complex chemical concepts need to be understood to determine whether a similar fragment is a good match, an external tool needs to be used for this. In \omfraf, fragments are generated using El-Kebir's \verb|fragments| tool, from the \verb|mop| project~\cite{elkebir2014molecule}.
 
 As can be seen in \figref{network_diagram}, the \verb|fragments| tool has been wrapped in a program called \verb|fragment_generator|. For every molecule in the provided repository, this tool will retrieve the matching fragments with the input molecule, transform them into a slightly more manageable format, combine the fragments of all molecules, and store them to disk in the so-called \omfraf{} Fragments File~(OFF) format. The name of this file will be sent back to the \oframp{} user, such that he can query for fragments later. Along with the fragment file's name, a list of atoms for which no matching fragments could be found is sent to the user, which will allow for indicating these atoms in the molecule visualisation~(see \secref{impl_completing}).
 
