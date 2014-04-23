@@ -55,7 +55,7 @@ In order to allow for modification of visualisation parameters at runtime, a sli
 
 \section[\oapoc]{The Online tool for Atom Position Calculations}
 \seclab{impl2_oapoc}
-Provided with a molecule data string~(MDS) and optionally a format specification for that string, \oapoc{} will provide detailed molecule data~(e.g. atoms, atom positions, bonds) represented by the MDS. Internally, \oapoc{} uses the \verb|Open Babel| program \verb|obabel| to convert the MDS to the \verb|Mol2| format. This format has been chosen as it can easily be parsed and contains information on atom positions and bonds. Furthermore, it does not leave out the \verb|H| atoms, which some other formats do. For some applications this is fine, but for \oframp{} it is required to have all \verb|H| atoms.
+Provided with a molecule data string~(MDS) and optionally a format specification for that string, \oapoc{} will provide detailed molecule data~(e.g. atoms, atom positions, bonds) represented by the MDS. Internally, \oapoc{} uses the \verb|Open Babel| program \verb|obabel| to convert the MDS to the \verb|Mol2| format. This format has been chosen as it can easily be parsed and contains information on atom positions and bonds. Furthermore, it does not leave out the $H$ atoms, which some other formats do. For some applications this is fine, but for \oframp{} it is required to have all $H$ atoms.
 
 The data that \verb|obabel| returns will be parsed and converted to a \verb|JSON| object, such that it can be sent to the client running \oframp. Additionally, \verb|IACM| atom types are calculated, following the algorithm presented by Malde~et.~al.~\cite{malde2011automated}. These atom types are needed later to be able to find matching fragments for the molecule.
 
