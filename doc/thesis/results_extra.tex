@@ -1,10 +1,11 @@
 \chapter{Additional results}
 \chlab{results_extra}
 
-\wip
+Apart from the results that have already been discussed in more detail in \chref{results}, some more results from \appref{graphs} are interesting to discuss. These discussions are presented in this chapter.
 
-\section{Action log results}
-\subsection{Correlations}
+
+
+\section{Correlations}
 From the data gathered from the log files, it is interesting to see if there is any correlation between the rating of the outcome and any other parameter. \Figref{graph_correlation} shows four presumed possible correlations, with data points for both the naive and the smart version of \oframp. Trend lines have been plotted - a cyan one for the naive version and a magenta line for the smart - to help identifying if there is any correlation.
 
 \begin{figure}[h!]
@@ -46,4 +47,6 @@ When taking a look at \figref{graph_correlation_1} and \figref{graph_correlation
 
 Just like is the case for the charge differences, the extremes in the number of used fragments are among the best results~(see \figref{graph_correlation_3}). However, it may also be the case here that these points are just outliers, and more experimentation is needed to be able to observe any real trend.
 
-For the number of original molecule views, the results are the most widespread~(see \figref{graph_correlation_4}). It appears that viewing many original molecules has absolutely no effect on the quality of the parameterisation result. Furthermore, the best results for both the naive and smart version of \oframp{} are obtained by users who did not check a single original molecule. This is an interesting observation, as it is believed that, in order to judge if a fragment is a good match, one needs to see the fragment in the context of its originating molecule.
+For the number of original molecule views, the results are the most widespread~(see \figref{graph_correlation_4}). It appears that viewing many original molecules has absolutely no effect on the quality of the parameterisation result. Furthermore, the best results for both the naive and smart version of \oframp{} are obtained by users who did not check a single original molecule. This is an interesting observation, as it is believed that, in order to judge if a fragment is a good match, one needs to see the fragment in the context of its originating molecule. However, again, more experimentation is needed to show if there truly is no correlation between the number of original fragment views and the quality of the resulting charge.
+
+The data shown in \figref{graph_correlation} was considered to be the most likely to have any form of correlation. It is still possible, however, that there is some correlation between any other combination of observed parameters, although this seems unlikely. Nevertheless, more experimentation is needed to be able to identify any true correlation, or to prove there is none at all.
