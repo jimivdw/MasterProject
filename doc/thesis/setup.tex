@@ -1,8 +1,62 @@
-\chapter{Setting up OFraMP}
+\chapter{Setting up \oframp}
 \chlab{setup}
 
-\wip
+\lstset{language=sh, frame=single, basicstyle=\ttfamily\small, breaklines=true}
 
-This chapter will contaion informatipon on how to setup OFraMP and its subsystems\ldots
+When one wants to set up the \oframp{} system, it should be made sure that the requirements presented in \secref{server_req} are met. Then, one first needs to set up \oapoc{} and \omfraf{}, after which \oframp{} can be properly configured. This chapter will contain detailed instructions on the complete process, following which the set up should be easy.
 
-\nlipsum
+
+
+\section[\oapoc]{Setting up \oapoc}
+When setting up \oapoc, first, \verb|Open Babel| should be downloaded\footnote{\url{http://openbabel.org/wiki/Get_Open_Babel}}. Make sure to install the right version for your operating system, and follow the installation instructions that are provided on the download page. Once \verb|obabel| has been installed, the source code of \oapoc{} needs to be downloaded:
+\begin{lstlisting}
+$ git clone git@github.com:jimivdw/OAPoC.git <target>
+\end{lstlisting}
+Now, your web server (e.g. \verb|Apache|) needs to be configured such that \oapoc{} can be reached through the internet.
+
+Everything should be up and running now. This can be validated by navigating with your browser to the configured root URL of your \oapoc{} instance, and submitting a simple MDS (e.g. `CCC'). If something fails, try to look at the configuration in \verb|<target>/atompos/atompos/main/util.py|, and see if anything should be changed there. This should generally not be the case, but might be necessary for some operating systems.
+
+
+
+\section[\omfraf]{Setting up \omfraf}
+Before one can set up \omfraf, the \verb|LEMON| graph library needs to be downloaded\footnote{\url{http://lemon.cs.elte.hu/trac/lemon/wiki/Downloads}} and installed following the installation instructions on the download page. Once this is done, \omfraf's source code should be downloaded:
+\begin{lstlisting}
+$ git clone git@github.com:jimivdw/OMFraF.git <target>
+\end{lstlisting}
+Next, the \verb|mop| system should be initialized. This can be done by executing the following commands:
+\begin{lstlisting}
+$ cd <target>
+$ git submodule init
+$ git submodule update
+$ cd src/bin/mop/
+\end{lstlisting}
+Now, follow the compilation instructions present on the \verb|mop| project page\footnote{\url{https://github.com/melkebir/mop}}. Just like for \oapoc, configure your web server such that \omfraf{} can be reached through the internet.
+
+You can now validate if everything works by navigating with your browser to the configured root URL of your \omfraf{} instance, and checking if repositories can be retrieved. Again, when something fails, one can try to look at the configuration in \verb|<target>/src/omfraf/main/util.py|, and see if anything should be changed there. This should generally not be the case, but might be necessary for some operating systems.
+
+
+
+\section[\oframp]{Setting up \oframp}
+Once both \oapoc{} and \omfraf{} have been set up, it is time to initialise \oframp. First, the source needs to be downloaded:
+\begin{lstlisting}
+$ git clone git@github.com:jimivdw/OFraMP.git <target>
+\end{lstlisting}
+Next, the URLs to \oapoc{} and \omfraf{} need to be specified in the configuration file. Open the file \verb|<path>/src/static/js/OFraMP/settings.js| in your favourite editor and look for the lines that look like this:
+\begin{lstlisting}[language=JavaScript]
+var DEFAULT_SETTINGS = {
+  oapoc: {
+    url: "http://vps955.directvps.nl/OAPoC/generate/",
+    loadUrl: "http://vps955.directvps.nl/OAPoC/loadATB/",
+    version: "1.0"
+  },
+
+  omfraf: {
+    url: "http://vps955.directvps.nl/OMFraF/load/",
+    repoUrl: "http://vps955.directvps.nl/OMFraF/repos/",
+    generateUrl: "http://vps955.directvps.nl/OMFraF/generate/",
+    version: "1.0"
+  },
+  // ...
+};
+\end{lstlisting}
+Make sure to replace all URLs with those where your \oapoc{} and \omfraf{} servers are located. Now, one last time, configure your web server such that \oframp{} can be reached through the internet. Everything should be up and running, and \oframp{} is ready to be used.
