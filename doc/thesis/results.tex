@@ -56,7 +56,7 @@ What is interesting to see here, is the fact that, where in the total parameteri
 
 It is hard to say what exactly is causing this difference. It is possible that, after using the naive version, it is hard to get used to the smart version, which is way more restrictive as to what a user can do. However, this difference is not present when switching from the smart to the naive version. This can either mean that this switch is easier to make, or that there must be a different cause of the large time difference.
 
-Another possible explanation for the large increase in time required for parameterising molecule 13913 is that there may not be really good matching fragments, enforcing the user to browse through many of them before being able to select the best one. This is better facilitated by the naive version of the tool, and can potentially have the extreme effects that are observed here.
+Another possible explanation for the large increase in time required for parameterising molecule 13913 is that there may not be really good matching fragments, enforcing the user to browse through many of them before being able to select what they consider to be the best one. This is better facilitated by the naive version of the tool, and can potentially have the extreme effects that are observed here.
 
 Apart from molecule 13913, \figref{graph_time_34} shows that finishing a parameterisation using the naive version of \oframp{} requires more time than using the smart one. It is also clear that the time required is much more constant, and, with an overall average of around 7 seconds per atom, overall still the fastest, compared to 10 seconds for the naive version.
 
@@ -258,7 +258,7 @@ Following the \verb|SUS| and \verb|UMUX| questions, users were asked to answer a
 \subsubsection{Naive version}
 For the naive version of the system, users were very positive about the user interaction. They noted that the interface and layout were very clear and nicely designed, and also gave a nice representation of molecules and fragments. The interface was found to be very responsive and easy to use and learn, thanks to the demo mode, the extensive help pages, and the fact that the system was intuitive to use in general. Finally, the right information was noted to come up exactly when needed.
 
-Users were also enthusiastic about the chemical concepts behind \oframp. They liked the idea of fragment-based molecule parameterisation in general, and specifically the fact that this allows them to iteratively assign charges to a molecule. Furthermore, they found that there was a good variety of fragments available to complete the parameterisation. However, the ordering of these fragments could use some work, as the highest rated ones are in fact rarely the best matches. It was also commented that using a shell around the atoms to find matching fragments may not be the best way to find good matches, as this will not detect all atomic properties.
+Users were also enthusiastic about the chemical concepts behind \oframp. They liked the idea of fragment-based molecule parameterisation in general, and specifically the fact that this allows them to iteratively assign charges to a molecule. Furthermore, they found that there was a good variety of fragments available to complete the parameterisation. However, the ordering of these fragments could use some work, as the highest rated ones are in fact rarely the best available matches. It was also commented that using a shell around the atoms to find matching fragments may not be the best way to find good matches, as this will not detect all atomic properties.
 
 %Additionally, it was noted that it was a good idea to combine the hydrogen~(\verb|H|) atoms with their carbon~(\verb|C|) bases, but that this should not be done when they were connected to a different type of atom~(e.g. \verb|N|).
 
@@ -272,7 +272,7 @@ Finally, many users noted that they would like to be able to manually alter or i
 \subsubsection{Smart version}
 In their comments about the smart version of \oframp, users were, again, quite positive about the interface. They noted it to be clear and running smooth, and liked the visualisation of the molecule. Additionally, they found the tool extremely easy to learn, and mentioned it helped them to parameterise a molecule very quickly. It was mentioned again that fragment-based molecule parameterisation is a good concept to speed up molecule parameterisation. Finally, the ability to view the original molecule was found to be truly valuable.
 
-Despite all the positive feedback, all users encountered one major problem: they were not able to easily compare different fragments. This either resulted in them having to go through some sort of reject/undo loop, or made them select a fragment before they were certain it was the best match. Furthermore, they noted that taking the average of the conflicting atom charges is not always a good solution, and they needed to be able to decide how the conflict should be solved. Some users also commented that the automatic atom selection was too arbitrary, and needed to be more intelligent.
+Despite all the positive feedback, all users encountered one major problem: they were not able to easily compare different fragments. This either resulted in them having to go through some sort of reject/undo loop, or made them select a fragment before they were confident that it was the best available. Furthermore, they noted that taking the average of the conflicting atom charges is not always a good solution, and they needed to be able to decide how the conflict should be solved. Some users also commented that the automatic atom selection was too arbitrary, and needed to be more intelligent.
 
 Most of the shortcomings of the naive version were also mentioned here. Again, many noted that they needed to have an easy way to keep track of the total molecule charge. Some found the `finished' popup obstructive, and it was mentioned once more that making matches based on a shell around the target atoms may not be the best approach.
 
@@ -287,7 +287,7 @@ As discussed before, many users wanted to see this feature added, although it is
 \item Combine the auto-select system with the fragment list:\\
 Some users noted they did not want to manually select atoms all the time, and liked the automatic selection system from the smart version. As this was lacking the overview of fragments, they wanted to combine it with the list of fragments from the naive version to make the ultimate parameterisation system;
 \item Show the confidence score of fragments:\\
-It was noted a few times that this would help in selecting the best fragment;
+It was noted a few times that this would help in finding the best available fragment;
 \item Indicate identical sections in the atom that is being parameterised:\\
 In some molecules, sections of atoms occur multiple times. For these sections, the charges are generally equal. It would therefore be useful if these sections would be highlighted and will probably be useful to copy the charges automatically;
 \item Remember the position of the popup:\\
