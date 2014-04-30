@@ -158,6 +158,16 @@
   sensitive=true
 }
 
+
+\usepackage{framed}
+\newenvironment{cframed}[2][white]
+  {\def\FrameCommand{\fboxsep=\FrameSep\fcolorbox{#2}{#1}}%
+    \MakeFramed {\advance\hsize-\width \FrameRestore}}
+  {\endMakeFramed}
+\newenvironment{colored}[1]
+  {\color{#1}}
+  {\ignorespacesafterend}
+
 \setlength{\fboxsep}{1em}
 \def\wip{%
   \noindent%
@@ -170,6 +180,19 @@
     }%
   }%
   \end{center}%
+}
+
+\newenvironment{todo}{
+  \noindent
+  \begin{cframed}{red}
+    \begin{colored}{red}
+      \it
+      This is still a work in progress. What needs to be done:
+      \begin{itemize}[noitemsep,nolistsep]
+}{
+      \end{itemize}
+    \end{colored}
+  \end{cframed}
 }
 
 \setlength{\parskip}{.5em}
@@ -203,9 +226,15 @@
 \tableofcontents
 \setlength{\parskip}{.5em}
 
+\begin{todo}
+\item Rename `naive' and `smart';
+\item Do not talk about `best version'.
+\end{todo}
+
 \include{introduction}
 \include{analysis}
 \include{relwork}
+\include{approach}
 \include{design}
 \include{implementation}
 \include{evaluation}
