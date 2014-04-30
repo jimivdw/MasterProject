@@ -11,16 +11,16 @@
 \renewcommand{\textfraction}{0.1}
 
 
+\begin{todo}
+\item Check everything: Is is clear? Is it interesting? Does it need to be discussed?
+\item Check formatting and image positions.
+\end{todo}
+
 A system for fragment-based molecule parameterisation has three distinct tasks: visualising a molecule, finding matching fragments for that molecule, and allowing for interaction with the molecule and its matching fragments. As these tasks can be performed in isolation, it has been decided to implement the molecule parameterisation tool as three separate systems.
 
 The front-end of the system, where users will carry out the parameterisation process, will be called the Online tool for Fragment-based Molecule Parameterisation~(\oframp). This name will also be used to refer to the system as a whole, as it is the hart of the system and is dependent on the other systems. The molecule is also visualised in \oframp, but the - for this purpose essential - calculations of atom positions are done in the Online tool for Atom Position Calculations~(\oapoc). Finally, finding matching fragments and sorting them based on relevance is done by the Online tool for Molecule Fragment Finding~(\omfraf).
 
 The complete network diagram for the fragment-based molecule parameterisation system is shown in \figref{network_diagram}. It is clear that \oframp{} is the central system, but that the more computation-intensive tasks are carried out by \oapoc{} and \omfraf{}. The remainder of this chapter will discuss each of the systems in more detail. Additionally, some more details can be found in \appref{implementation_extra}.
-
-
-\begin{todo}
-\item Include metrics like \#LOC, see \verb|Dropbox/loc.txt|.
-\end{todo}
 
 
 \begin{sidewaysfigure}[p]
@@ -32,8 +32,18 @@ The complete network diagram for the fragment-based molecule parameterisation sy
 \end{sidewaysfigure}
 
 
+
+\section{General statistics}
+Following the current trend in web applications, \oframp{} has been implemented using the latest techniques from \verb|HTML5|, \verb|CSS3| and \verb|JavaScript|. It has turned out to be quite a big system, even though it consists of only three pages~(the application itself and the help and download pages). Combined with its three \verb|CSS| documents and 31 \verb|JavaScript| files, it consists of over 11,000 lines of code\footnote{This includes blank lines and lines containing just a closing bracket.}, or over 17,000 lines when the ten used - and often modified - external libraries are counted as well.
+
+As \oapoc{} and \omfraf{} needed to be available as web services, it has been decided to implement them using the \verb|Python| web framework \verb|Django|. Even though this creates a whole lot of unnecessary files and has a lot of unneeded functionality, it allows for a quick and easy setup of the systems. Furthermore, it provides the full functionality of \verb|Python|, which can be used to easily run external applications.
+
+Size-wise, \oapoc{} and \omfraf{} are almost equally large. Both consist of eight \verb|Python| files, containing around 600 lines of code, or, when the seven additional \verb|Django| configuration files are included, around 900 lines. This brings the total number of manually written lines over 12,000, which will rise close to 20,000 when all automatically generated code and pre-existing libraries are included.
+
+
+
 \section[\oframp]{The Online tool for Fragment-based Molecule Parameterisation}
-\oframp{} is the central part of the fragment-based molecule parameterisation system. It contains the user interface and connects with \oapoc{} and \omfraf{}. As discussed in \secref{platform}, it has been decided to implement the system as a web application. Following the current trend in web applications, \oframp{} has been implemented using the latest techniques from \verb|HTML5|, \verb|CSS3| and \verb|JavaScript|.
+\oframp{} is the central part of the fragment-based molecule parameterisation system. It contains the user interface and connects with \oapoc{} and \omfraf{}. As discussed in \secref{platform}, it has been decided to implement the system as a web application, which the user can simply load in his web browser.
 
 \subsection{Getting started}
 \seclab{impl_starting}
