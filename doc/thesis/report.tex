@@ -164,6 +164,7 @@
   {\def\FrameCommand{\fboxsep=\FrameSep\fcolorbox{#2}{#1}}%
     \MakeFramed {\advance\hsize-\width \FrameRestore}}
   {\endMakeFramed}
+
 \newenvironment{colored}[1]
   {\color{#1}}
   {\ignorespacesafterend}
@@ -171,29 +172,28 @@
 \setlength{\fboxsep}{1em}
 \def\wip{%
   \noindent%
-  \setlength{\fboxsep}{10pt}%
-  \begin{center}%
-  \fcolorbox{red}{white}{%
-    \setlength{\fboxsep}{0pt}%
-    \makebox[.9\linewidth]{%
-      \emph{\color{red} This is still a work in progress\ldots}%
-    }%
-  }%
-  \end{center}%
+  \begin{cframed}{red}%
+    \begin{colored}{red}%
+      \it\noindent%
+      This is still a work in progress\ldots%
+    \end{colored}%
+  \end{cframed}%
 }
 
-\newenvironment{todo}{
-  \noindent
-  \begin{cframed}{red}
-    \begin{colored}{red}
-      \it
-      This is still a work in progress. What needs to be done:
-      \begin{itemize}[noitemsep,nolistsep]
-}{
-      \end{itemize}
-    \end{colored}
-  \end{cframed}
-}
+\newenvironment{todo}
+  {
+    \noindent
+    \begin{cframed}{red}
+      \begin{colored}{red}
+        \it\noindent
+        This is still a work in progress. What needs to be done:
+        \begin{itemize}[noitemsep,nolistsep,leftmargin=15px]
+  }
+  {
+        \end{itemize}
+      \end{colored}
+    \end{cframed}
+  }
 
 \setlength{\parskip}{.5em}
 
