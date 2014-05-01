@@ -13,25 +13,20 @@ Here will be the interaction designs for the tool\ldots
 \end{quote}
 \end{comment}
 
-From the fact that the idea of fragment-based molecule parameterisation is a new concept, it comes as no surprise that there are no existing tools for this. Furthermore, no tools exist that allow for easy comparison of molecules - or fragments of them - either. What does exist is a wide range of tools and programs for visualising, creating and editing molecules. This includes stand-alone molecule drawing software such as \verb|Accelerys Draw|~\cite{accelrys2012accelrys}, \verb|Avogadro|~\cite{hanwell2012avogadro}, \verb|PyMOL|~\cite{delano2002pymol}, and \verb|RasMol|~\cite{pembroke2000bio}, two-dimensional web based molecule editors like \verb|ChemDoodle 2D Sketcher|~\cite{ichemlabs2013chemdoodle}, \verb|Marvin4JS|~\cite{chemxon2013marvin}, and \verb|Molsoft HTML5 Molecule Editor|~\cite{molsoft2012molsoft}, and online three-dimensional visualisation tools \verb|CanvasMol|~\cite{altered2013canvasmol} and \verb|JSMol|~\cite{hanson2013jsmol}.
+As discussed before, there is no existing software for fragment-based molecule parameterisation, which means that there are no existing interaction designs for such systems either. What does exist is a wide range of tools and programs for visualising, creating and editing molecules. This includes stand-alone molecule drawing software such as \verb|Accelerys Draw|~\cite{accelrys2012accelrys}, \verb|Avogadro|~\cite{hanwell2012avogadro}, \verb|PyMOL|~\cite{delano2002pymol}, and \verb|RasMol|~\cite{pembroke2000bio}, two-dimensional web based molecule editors like \verb|ChemDoodle 2D Sketcher|~\cite{ichemlabs2013chemdoodle}, \verb|Marvin4JS|~\cite{chemxon2013marvin}, and \verb|Molsoft HTML5 Molecule Editor|~\cite{molsoft2012molsoft}, and online three-dimensional visualisation tools \verb|CanvasMol|~\cite{altered2013canvasmol} and \verb|JSMol|~\cite{hanson2013jsmol}.
 
-These existing tools will serve as an initial guideline for the molecule parameterisation system that is to be developed. Combined with the basic interaction design principles as posed by Norman and others~(see \secref{id_principles}), the system should be able to meet its requirements, which have been stated in \chref{analysis}. This chapter will discuss a possible interaction design for the system. 
+These existing tools will serve as an initial guideline for the interaction design of the molecule parameterisation system that is to be developed. Combined with the basic interaction design principles as posed by Norman and others~(see \secref{design}) and the knowledge gathered in earlier studies on molecule software~(see \secref{software}), it should be possible to design the system such that it meets its requirements~(as stated in \chref{analysis}). Such interaction design will be discussed in the remainder of this chapter.
+
 
 
 \section{Platform}
 \seclab{platform}
 Over the past few years, there has been a trend in bringing everything to the web~\cite{ertl2010molecular}~(see also \secref{software}). Following this trend, it has been decided to implement the front-end of the molecule parameterisation system as a web application. This allows the system to run on any desktop and laptop operating system, and creates the possibility of running it on a smartphone or tablet\footnote{This, however, is not a requirement for the system.}, without requiring any modifications. Having the user interface as a web service also means that the back-end, where the actual finding of matching fragments occurs, needs to be available through the web as well.
 
-Making use of the latest web technologies unfortunately also comes at a cost. Older browsers generally lack support, and will therefore not be able to run the system. Luckily, according to the latest browser statistics from StatCounter~\cite{statcounter2014statcounter}, almost 85\% of internet users uses a browser that has full support for these technologies. Thanks to many compatibility libraries and especially the Internet Explorer \verb|canvas| fallback \verb|excanvas|~\cite{arvidsson2009explorercanvas}, partial support can be provided for browsers used by an additional 11\% of people. A complete list of system requirements can be found in \secref{client_req}.
 
 
 \section{Two versions}
 \seclab{id_versions}
-As there is no existing software for fragment-based molecule parameterisation, there is also no baseline to which the developed tool can be compared. In order to still be able to say something about the quality of the tool, two different implementations of it will be made. There are a few axes along which this difference can be made. One could, for instance, compare two tools with varying visualisation methods. Visualising molecules, however, is a well-exhausted field of research, leaving very little room for new ideas.
-
-Another possible variable in the tool is the way its users will interact with it and especially its degree of automation. Varying this degree has been the subject of several studies~(e.g.~\cite{payne2000varying, horvitz1999principles, marcus1987taking, norman1990problem}, see also \secref{id_automation}), all of which concluded the degree to which automation can be applied is highly dependent on the context of the system and sometimes even to the situation in which the system is used.
-
-As discussed in \secref{id_automation}, usually three levels of automation are implemented, creating a naive, cooperative and autonomous version of the system~\cite{payne2000varying}. As it is considered hard to parameterise a molecule based on fragments of other molecules, and little is known on what is the best way of doing this, an autonomous version of a tool that does this cannot yet be developed. The other two versions, however, seem to be perfectly implementable and both can be considered useful.
 
 \begin{figure}[h!]
 \begin{center}
@@ -42,7 +37,8 @@ As discussed in \secref{id_automation}, usually three levels of automation are i
 \end{center}
 \end{figure}
 
-\Figref{id_flows} shows a naive and a cooperative interaction design for the tool that will be developed. Here, the cooperative design has been called the `smart' version to accentuate its differences with the naive version. The following sections will discuss these two interaction designs, the motivation behind them, and their workings.
+Is discussed in \secref{ra_versions}, two different versions of the molecule parameterisation system need to be implemented, with varying levels of automation. This means that two different interaction designs need to be made as well. \Figref{id_flows} shows a version where the user has to manually do the whole parameterisation, and a semi-automatic one which continuously makes suggestions to the user. This manual and semi-automatic versions have been called xxx and yyy respectively, to indicate that xxx is the more x version, where in yyy users have to y more. The following sections will discuss these two interaction designs, the motivation behind them, and their workings.
+
 
 \subsection{Commonalities}
 \seclab{id_common}

@@ -1,64 +1,52 @@
 \chapter{Evaluation}
 \chlab{evaluation}
 
+\begin{comment}
 \begin{todo}
 \item Completely redo chapter;
 \item Move hypotheses to approach;
 \item Move basic user studies description to approach;
 \item Only discuss details of evaluation process here.
 \end{todo}
+\end{comment}
 
-In order to determine which of the two implementations of \oframp{} is the best, and to evaluate the project in general, the system will be subjected to a user study. This chapter will discuss the project's hypotheses~(\secref{hypotheses}) and the contents of the user studies, including the user tasks~(\secref{us_tasks}) and questionnaires~(\secref{us_questionnaires}). Finally, this chapter will discuss how the experiment outcomes should be analysed, and what certain outcomes should mean~(\secref{us_analysis}).
+In order to determine which of the two implementations of \oframp{} is better in which aspects, and to evaluate the project in general, the system will be subjected to a user study~(see also \chref{approach}). This chapter will discuss what will be evaluated in the user studies in more detail. It will describe the tasks the participants have to complete~(\secref{ev_tasks}), the questionnaires they have to fill in~(\secref{ev_questionnaires}), and how to calculate certain scores and what their meaning should be~(\secref{ev_analysis}).
 
-
-\section{Hypotheses}
-\seclab{hypotheses}
-According to Jonassen's dichotomy of problems~\cite{jonassen2000toward}~(see also \secref{id_learning}), fragment-based molecule parameterisation is an ill-structured problem. This means that the problem is quite complex and is therefore hard to solve. Due to this, users need to be ensured that there is a way to find a solution, or they will simply give up. This should be the case for both versions of the system, but is better facilitated by the naive version than the smart one. In the naive version, users will see that, by selecting an atom, it can easily be parameterised. He will know that, in order to complete the parameterisation, this process simply needs to be repeated for the remainder of the atoms.
-
-The differences between the two implementations, as discussed in \secref{id_comparison}, combined with the motivations behind the two interaction designs~(see \secref{id_versions}), can lead to the conclusion that the smart version has great theoretical benefits in time consumption and user guidance, where the naive version should excel in user freedom. In the earlier mentioned study of Payne, Sycara, and Lewis~\cite{payne2000varying}, this was the same. They concluded that many users found that using the naive version was a tedious process that cost a lot of time. However, in some, more complex cases, they found that the system users find it really important to have full control of the system, and therefore preferred the naive interaction design. As fragment-based molecule parameterisation is an ill-structured, and therefore complex problem, the following hypothesis about the two versions of the interaction design can be formulated:
-\begin{quote}
-The `naive' interaction design is the best design for a tool that is used for fragment-based molecule parameterisation.
-\end{quote}
-
-On a more general level, both versions of the interaction design rely on the idea that fragment-based molecule parameterisation should be chemically correct. As this has not been proven yet, \oframp{} aims to help in determining if it is possible. Both versions of the system have been designed in such way that the user should be able to quickly parameterise a molecule, either by providing them with a clear overview of possibilities, or by limiting the user interaction to accepting and rejecting. Furthermore, as it has been proven that properly matching parts of molecules have the same atomic charges, the second - for both versions of \oframp{} essential - hypothesis is as follows:
-\begin{quote}
-It is possible to parameterise a molecule based on fragments of other molecules; both correctly and in a reasonable amount of time.
-\end{quote}
+The full set of experiment instructions, as was sent to the users, can be found in \appref{instructions}. This does not include the invitation email, or accompanying text, but rather just the set of tasks. Additionally, all questionnaires that participants were asked to complete can be found in \appref{questionnaires}.
 
 
-\section{User studies}
-To evaluate the hypotheses discussed in the previous section, both versions of the developed system will be subjected to a number of user studies. This will help to determine if the system works properly and whether it is really fit for the molecule parameterisation task. Unfortunately, not just anyone can be asked to test \oframp, as it is a system that is aimed to be used by experienced chemists who understand the details about molecule parameterisation. Luckily, project supervisors Klau and El-Kebir keep a close connection with a substantial group of chemistry researchers, creating the opportunity of asking them to participate in a user study. They were interested in the concept of fragment-based molecule parameterisation, and willing to test a system that does that.
 
-\subsection{Use cases}
-\seclab{us_tasks}
-In the user studies, the participants will be split up in two groups, where each person is randomly assigned to a group and both groups are of equal size. This way, it is made sure that both groups are representative, which is essential for user studies~\cite{wohlin2003empirical}~(see also \secref{user_studies}). The groups will take part in an experiment that compares the two versions of the molecule parameterisation tool. Due to the limited number of test subjects, every participant will be asked to test both the naive and the smart version of \oframp. As the effects of the order in which two systems are evaluated are often remarkable, one group will start the evaluation with the naive version, followed by the smart version, where the other group will do this the other way around.
+\section{User tasks}
+\seclab{ev_tasks}
+As discussed in \secref{ra_tasks}, the participants in the user studies will be equally divided over two groups, each of which will be instructed to use both versions of the system in a different order. The experiment participants will be asked to complete the Demo mode first, such that they can get used to the system, and get some instructions on how to use it. Next, they will be asked to parameterise a small, simple molecule, followed by a larger, more complex one. By starting with a small molecule, it should be easier to learn how to use the tool, and users should not be scared by the magnitude of their first task. The larger molecule they have to parameterise later, on the other hand, will be a better reflection of the actual use of the system.
 
-\begin{todo}
-\item Explain why 2 molecules per version.
-\end{todo}
+After completely parameterising the two molecule, users are asked to fill in a short questionnaire about the version of the system they used~(see \secref{ev_questionnaires}), after which they are asked to switch to the other version of \oframp. They then have to complete the same tasks, including following the demo, for two additional molecules using that version, and complete a similar questionnaire. When all this has been done, a final questionnaire about \oframp{} in general needs to be filled in. By that time, users are completely done, and will have spent around an hour in total.
 
-For both versions of the tool, the experiment participants will be asked to complete the Demo mode first, such that they can get used to that version of the system. Next, they will be asked to parameterise a small, simple molecule, followed by a larger, more complex one. They are then asked to fill in a short questionnaire about that version of the system~(see \secref{us_questionnaires}), after which they are asked to switch to the other version of \oframp. When the steps for both versions have been completed, a final questionnaire, about \oframp{} in general, needs to be filled in. The complete set of instructions can be found in \appref{instructions}.
+In order to make sure users are not prejudiced by the names of the two versions of the system, these names are never used in the instructions. In the final questionnaire they are simply referred to as 1 and 2, reflecting the first and second used version. The only other location where the difference can be observed is in the URLs to the two versions. Where the naive version has a URL ending in \verb|/n|, the smart version of the system can be accessed via \verb|/s|. As the words `naive' and `smart' are never mentioned, users will not be able to infer the meanings of the characters. Furthermore, as they are not called `a' and `b', for instance, they will not be able to guess which version has been hypothesized to be the better one.
 
-In order to be able to obtain results from the user studies, an extensive logging mechanism has been built into \oframp\footnote{This mechanism is only present in the special `experiment' version.}. It tries to log as much as it can; from browser details to system load times, and from mouse clicks to button presses. Every log message contains a time-stamp, such that the time difference between two log events can be calculated. They also include a message type, such that they can easily be filtered and counted. Finally, the resulting parameterisation is stored in the log as well, to be able to grade the user's performance.
+An extensive logging mechanism has been built into \oframp\footnote{This mechanism is only present in the special `experiment' version.}, that allows for easy usage statistics acquisition. It tries to log as much as it can; from browser details to system load times, and from mouse clicks to button presses. Every log message contains a time-stamp, such that the time difference between two log events can be calculated. They also include a message type, such that they can easily be filtered and counted. Finally, the resulting parameterisation is stored in the log as well, in order to be able to grade the user's performance.
 
 
-\subsection{Questionnaires}
-\seclab{us_questionnaires}
-After completing their tasks on either of the two versions, the users will be asked to answer a number of questions about the tool. These will mainly be questions about how they like the design and if they can see themselves using it, but will also ask them for suggestions on things that can be improved or added. This way, their experiences can be used to further improve the system, and to make it into something they really like to use.
 
-The questionnaire that test subjects will be asked to fill in will be based on the \verb|SUS| and \verb|UMUX-LITE| usability metrics~\cite{lewis2013umux}~(see also \secref{user_studies}). It will consist of the, for this tool, relevant questions from those metrics, followed by some questions about what they liked and disliked about the tool. To be certain that the questions are answered from the interaction design point of view, they will be asked from both the chemistry and interaction design perspectives. This gives the test subjects a place to put their comments on the chemical correctness, such that their feedback on the interaction design will truly concern the design. The complete set of questionnaire questions can be found in \appref{questionnaires}.
+\section{Questionnaires}
+\seclab{ev_questionnaires}
+The questions that users will be asked to answer after completing their tasks on either of the two versions of the system will mainly be questions about how they like the design and if they can see themselves using it. Additionally, it will ask them for suggestions on things that can be improved or added. This way, the user's experiences can be used to further improve the system, and to make it into something they really like to use.
 
-After testing both the naive and smart versions of \oframp, and assessing them with the previously discussed questionnaires, a few more, general questions will be asked. These questions are about what version the user liked best and why, if he wants to see any functionality added to the system, and leaves some room for additional comments. They will probably not provide new insights as to which version is liked better, as this can be inferred from the ratings obtained by the previous questionnaires, but they will help the further development of \oframp.
+The first half of this questionnaire will be based on the \verb|SUS| and \verb|UMUX-LITE| usability metrics~\cite{lewis2013umux}~(see also \secref{user_studies}). It will consist of the, for this tool, relevant questions from those metrics, followed by some questions about what they liked and disliked about the tool. To be certain that the questions are answered from the interaction design point of view, they will be asked from both the chemistry and interaction design perspectives. This gives the test subjects a place to put their comments on the chemical correctness, such that their feedback on the interaction design will truly concern the design.
+
+After testing both the naive and smart versions of \oframp, and assessing them with the previously discussed questionnaires, a few more, general questions will be asked. These questions are about what version the user liked best and why, if he wants to see any functionality added to the system, and leaves some room for additional comments. These questions will probably not provide new insights as to which version is liked better, as this can be inferred from the ratings obtained by the previous questionnaires, but they will help the further development of \oframp.
 
 The questionnaires, just like the experiment, needed to be held online. Because of this, they have been implemented as web forms using (a minor extension of) the questionnaire language QL~\cite{erdweg2013state}. This allowed for easy definition of the form, without having to worry about validation or layout.
 
-\subsection{Analysis}
-\seclab{us_analysis}
-The results from the log of the user studies combined with those obtained with the questionnaire should be able to give an answer on which of the two interaction designs is better. The version that gives good results in a short amount of time, and is also positively graded in the questionnaire, will be the better one. Furthermore, the timing and scoring results from the experiment alone will be able to answer the question if it is possible to do fragment-based molecule parameterisation at all. At least for one of the two versions both time consumption and parameterisation results should be reasonable.
 
-In order to rate the user's parameterisation, the molecules that the user will be asked to parameterise should already have been parameterised using the conventional quantum mechanical calculations. This way, the user's results can be compared to the outcomes of the calculations to establish his rating. The smaller the difference between the two, the better the performance of the user will be graded.
 
-There are two different ways of calculating this:
+\section{Analysis}
+\seclab{ev_analysis}
+The results from the log of the user studies, combined with those obtained with the questionnaire, should be able to give an answer on which of the two interaction designs is better from what perspective. The version that gives good results in a short amount of time, and is also positively graded in the questionnaire, will be the overall better one. Furthermore, the timing and scoring results from the experiment alone will be able to answer the question if it is possible to do fragment-based molecule parameterisation at all. At least for one of the two versions both time consumption and parameterisation results should be reasonable.
+
+In order to rate the user's parameterisation, the molecules that the user will be asked to parameterise should already have been parameterised using the conventional quantum mechanical calculations, and present in the ATB. This way, the user's results can be compared to the outcomes of the calculations to establish his rating. The smaller the difference between the two, the better the performance of the user will be graded.
+
+There are two different ways of calculating the user's result rating:
 \begin{align*}
 R &= |\Phi - C| & r &= \sum_{i = 1}^{n} |\delta_{i}|,
 \end{align*}
