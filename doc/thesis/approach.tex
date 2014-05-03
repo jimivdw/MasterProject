@@ -6,21 +6,27 @@
 \item Borrow from ID, and evaluation chapters.
 \end{todo}
 
-\nlipsum
+In this project, as discussed before, a tool for fragment-based molecule parameterisation will be developed and implemented, in order to answer the research questions that were discussed in \chref{introduction}. In this chapter, the taken approach will be discussed. 
 
+From the fact that the idea of fragment-based molecule parameterisation is a new concept, it comes as no surprise that there are no existing tools for this. Furthermore, no tools exist that allow for easy comparison of molecules - or fragments of them - either. This means that there is no baseline to which the developed tool can be compared. In order to still be able to say something about the quality of the tool, two different implementations of it will have to be made~(see \secref{ra_versions}).
+
+In order to evaluate the two implementations, both of them will be subjected to a user study~(see \secref{ra_studies}). This will help to determine if the system works properly and whether it is really fit for the molecule parameterisation task. The project's research questions will be able to be answered, and the hypotheses that will be discussed in \secref{ra_hypotheses}, evaluated.
 
 
 \section{Two versions}
 \seclab{ra_versions}
-From the fact that the idea of fragment-based molecule parameterisation is a new concept, it comes as no surprise that there are no existing tools for this. Furthermore, no tools exist that allow for easy comparison of molecules - or fragments of them - either. This means that there is no baseline to which the developed tool can be compared. In order to still be able to say something about the quality of the tool, two different implementations of it will be made. There are a few axes along which this difference can be made. One could, for instance, compare two tools with varying visualisation methods. Visualising molecules, however, is a well-exhausted field of research, leaving very little room for new ideas.
+There are a few axes along which the differences between the two implementations can be made. One could, for instance, compare two tools with varying visualisation methods. Visualising molecules, however, is a well-exhausted field of research, leaving very little room for new ideas.
 
 Another possible variable in the tool is the way its users will interact with it and especially its degree of automation. Varying this degree has been the subject of several studies~(e.g.~\cite{payne2000varying, horvitz1999principles, marcus1987taking, norman1990problem}, see also \secref{id_automation}), all of which concluded the degree to which automation can be applied is highly dependent on the context of the system and sometimes even to the situation in which the system is used.
 
 As discussed in \secref{id_automation}, usually three levels of automation are implemented, creating a naive, cooperative and autonomous version of the system~\cite{payne2000varying}. As it is considered hard to parameterise a molecule based on fragments of other molecules, and little is known on what is the best way of doing this, an autonomous version of a tool that does this cannot yet be developed. The other two versions, however, seem to be perfectly implementable and both can be considered useful.
 
+It has therefore been decided to implement a naive version of the system that has barely any automation at all, and a cooperative version that will continuously make suggestions to the user. They have been called version xxx and yyy respectively~(see \secref{id_versions}). In \chref{design}, the interaction designs for these two versions are discussed in detail, and their implementations are covered in \chref{implementation}.
+
 
 
 \section{User studies}
+\seclab{ra_studies}
 To evaluate the hypotheses discussed in the previous section, both versions of the developed system will be subjected to a number of user studies. This will help to determine if the system works properly and whether it is really fit for the molecule parameterisation task. Unfortunately, not just anyone can be asked to test \oframp, as it is a system that is aimed to be used by experienced chemists who understand the details about molecule parameterisation. Luckily, project supervisors Klau and El-Kebir keep a close connection with a substantial group of chemistry researchers, creating the opportunity of asking them to participate in a user study. They were interested in the concept of fragment-based molecule parameterisation, and willing to test a system that does that.
 
 
