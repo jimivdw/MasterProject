@@ -1,11 +1,6 @@
 \chapter{Research approach}
 \chlab{approach}
 
-\begin{todo}
-\item Write this chapter;
-\item Borrow from ID, and evaluation chapters.
-\end{todo}
-
 In this project, as discussed before, a tool for fragment-based molecule parameterisation will be developed and implemented, in order to answer the research questions that were discussed in \chref{introduction}. In this chapter, the taken approach will be discussed. 
 
 From the fact that the idea of fragment-based molecule parameterisation is a new concept, it comes as no surprise that there are no existing tools for this. Furthermore, no tools exist that allow for easy comparison of molecules - or fragments of them - either. This means that there is no baseline to which the developed tool can be compared. In order to still be able to say something about the quality of the tool, two different implementations of it will have to be made~(see \secref{ra_versions}).
@@ -27,31 +22,22 @@ It has therefore been decided to implement a naive version of the system that ha
 
 \section{User studies}
 \seclab{ra_studies}
+
+\begin{todo}
+\item Explain over the internet!
+\end{todo}
+
 As mentioned before, both versions of the developed system will be subjected to a number of user studies. Unfortunately, not just anyone can be asked to partake in this experiment, as it is a system that is aimed to be used by experienced chemists who understand the details about molecule parameterisation. Luckily, project supervisors Klau and El-Kebir keep a close connection with a substantial group of chemistry researchers, creating the opportunity of asking them to participate in a user study. They were interested in the concept of fragment-based molecule parameterisation, and willing to test a system that does that.
 
 In the user studies, the participants will be split up in two groups, where each person is randomly assigned to a group and both groups are of equal size. This way, it is made sure that both groups are representative, which is essential for user studies~\cite{wohlin2003empirical}~(see also \secref{user_studies}). The groups will take part in an experiment that compares the two versions of the molecule parameterisation tool. Due to the limited number of test subjects, every participant will be asked to test both the naive and the smart version of \oframp. As the effects of the order in which two systems are evaluated are often remarkable, one group will start the evaluation with the naive version, followed by the smart version, where the other group will do this the other way around.
 
-\begin{todo}
-\item Explain why 2 molecules per version;
-\item Limit to 'parameterise 2 molecules';
-\item Limit next paragraph to 'build in a log system'.
-\end{todo}
+For both versions of the tool, the experiment participants will be instructed to parameterise a couple of molecules, after which they will be asked to answer a short questionnaire, containing questions about that specific version of the system. When they have tested and answered questions about both versions of the tool, users will be asked to submit one final questionnaire, containing more general questions about having a system for molecule parameterisation, but will also ask for their preferred version.
 
-For both versions of the tool, the experiment participants will be asked to complete the Demo mode first, such that they can get used to that version of the system. Next, they will be asked to parameterise a small, simple molecule, followed by a larger, more complex one. They are then asked to fill in a short questionnaire about that version of the system~(see \secref{us_questionnaires}), after which they are asked to switch to the other version of \oframp. When the steps for both versions have been completed, a final questionnaire, about \oframp{} in general, needs to be filled in. The complete set of instructions can be found in \appref{instructions}.
+Due to the large number of tasks the experiment participants have to complete, it has been decided to have them parameterise only two molecules per version of the system, i.e. four molecules in total. With an estimated time requirement of ten minutes per questionnaire, participants will already be spending half an hour on that. As the experiment should not take up more than an hour of the participants' time, this leaves only 30 minutes for the actual molecule parameterisation. When loading times are considered, it has to be concluded that there is only time for four molecules in total, i.e. two per version.
 
-In order to be able to obtain results from the user studies, an extensive logging mechanism has been built into \oframp\footnote{This mechanism is only present in the special `experiment' version.}. It tries to log as much as it can; from browser details to system load times, and from mouse clicks to button presses. Every log message contains a time-stamp, such that the time difference between two log events can be calculated. They also include a message type, such that they can easily be filtered and counted. Finally, the resulting parameterisation is stored in the log as well, to be able to grade the user's performance.
+Even though testing more than two molecules per version of the system would be better, it is not necessarily a problem to only test two. Many problems with a system will be found in the first two test runs, after which the number of newly discovered problems decreases rapidly~\cite{krug2006dont}. Despite the fact that some problems may be left undiscovered, the most common flaws will usually be spotted in the first few runs.
 
-\begin{todo}
-\item Limit to 'there will be a questionnaire after each version and one at the end'.
-\end{todo}
-
-After completing their tasks on either of the two versions, the users will be asked to answer a number of questions about the tool. These will mainly be questions about how they like the design and if they can see themselves using it, but will also ask them for suggestions on things that can be improved or added. This way, their experiences can be used to further improve the system, and to make it into something they really like to use.
-
-The questionnaire that test subjects will be asked to fill in will be based on the \verb|SUS| and \verb|UMUX-LITE| usability metrics~\cite{lewis2013umux}~(see also \secref{user_studies}). It will consist of the, for this tool, relevant questions from those metrics, followed by some questions about what they liked and disliked about the tool. To be certain that the questions are answered from the interaction design point of view, they will be asked from both the chemistry and interaction design perspectives. This gives the test subjects a place to put their comments on the chemical correctness, such that their feedback on the interaction design will truly concern the design. The complete set of questionnaire questions can be found in \appref{questionnaires}.
-
-After testing both the naive and smart versions of \oframp, and assessing them with the previously discussed questionnaires, a few more, general questions will be asked. These questions are about what version the user liked best and why, if he wants to see any functionality added to the system, and leaves some room for additional comments. They will probably not provide new insights as to which version is liked better, as this can be inferred from the ratings obtained by the previous questionnaires, but they will help the further development of \oframp.
-
-The questionnaires, just like the experiment, needed to be held online. Because of this, they have been implemented as web forms using (a minor extension of) the questionnaire language QL~\cite{erdweg2013state}. This allowed for easy definition of the form, without having to worry about validation or layout.
+In order to be able to obtain results from the user studies, an extensive logging mechanism will have to be built into the system. This can then be used later to precisely reproduce the user's actions, in order to mediate the loss of information due to the fact that the user studies are performed over the internet, with no human observing the participants. If any odd results are found, this can potentially help to pinpoint what went wrong, and, more importantly, it can be used to obtain all kinds of statistics about the molecule parameterisation system.
 
 
 
