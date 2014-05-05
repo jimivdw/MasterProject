@@ -27,24 +27,24 @@ It has therefore been decided to implement a naive version of the system that ha
 
 \section{User studies}
 \seclab{ra_studies}
-To evaluate the hypotheses discussed in the previous section, both versions of the developed system will be subjected to a number of user studies. This will help to determine if the system works properly and whether it is really fit for the molecule parameterisation task. Unfortunately, not just anyone can be asked to test \oframp, as it is a system that is aimed to be used by experienced chemists who understand the details about molecule parameterisation. Luckily, project supervisors Klau and El-Kebir keep a close connection with a substantial group of chemistry researchers, creating the opportunity of asking them to participate in a user study. They were interested in the concept of fragment-based molecule parameterisation, and willing to test a system that does that.
+As mentioned before, both versions of the developed system will be subjected to a number of user studies. Unfortunately, not just anyone can be asked to partake in this experiment, as it is a system that is aimed to be used by experienced chemists who understand the details about molecule parameterisation. Luckily, project supervisors Klau and El-Kebir keep a close connection with a substantial group of chemistry researchers, creating the opportunity of asking them to participate in a user study. They were interested in the concept of fragment-based molecule parameterisation, and willing to test a system that does that.
 
-
-\subsection{Use cases}
-\seclab{ra_tasks}
 In the user studies, the participants will be split up in two groups, where each person is randomly assigned to a group and both groups are of equal size. This way, it is made sure that both groups are representative, which is essential for user studies~\cite{wohlin2003empirical}~(see also \secref{user_studies}). The groups will take part in an experiment that compares the two versions of the molecule parameterisation tool. Due to the limited number of test subjects, every participant will be asked to test both the naive and the smart version of \oframp. As the effects of the order in which two systems are evaluated are often remarkable, one group will start the evaluation with the naive version, followed by the smart version, where the other group will do this the other way around.
 
 \begin{todo}
-\item Explain why 2 molecules per version.
+\item Explain why 2 molecules per version;
+\item Limit to 'parameterise 2 molecules';
+\item Limit next paragraph to 'build in a log system'.
 \end{todo}
 
 For both versions of the tool, the experiment participants will be asked to complete the Demo mode first, such that they can get used to that version of the system. Next, they will be asked to parameterise a small, simple molecule, followed by a larger, more complex one. They are then asked to fill in a short questionnaire about that version of the system~(see \secref{us_questionnaires}), after which they are asked to switch to the other version of \oframp. When the steps for both versions have been completed, a final questionnaire, about \oframp{} in general, needs to be filled in. The complete set of instructions can be found in \appref{instructions}.
 
 In order to be able to obtain results from the user studies, an extensive logging mechanism has been built into \oframp\footnote{This mechanism is only present in the special `experiment' version.}. It tries to log as much as it can; from browser details to system load times, and from mouse clicks to button presses. Every log message contains a time-stamp, such that the time difference between two log events can be calculated. They also include a message type, such that they can easily be filtered and counted. Finally, the resulting parameterisation is stored in the log as well, to be able to grade the user's performance.
 
+\begin{todo}
+\item Limit to 'there will be a questionnaire after each version and one at the end'.
+\end{todo}
 
-\subsection{Questionnaires}
-\seclab{ra_questionnaires}
 After completing their tasks on either of the two versions, the users will be asked to answer a number of questions about the tool. These will mainly be questions about how they like the design and if they can see themselves using it, but will also ask them for suggestions on things that can be improved or added. This way, their experiences can be used to further improve the system, and to make it into something they really like to use.
 
 The questionnaire that test subjects will be asked to fill in will be based on the \verb|SUS| and \verb|UMUX-LITE| usability metrics~\cite{lewis2013umux}~(see also \secref{user_studies}). It will consist of the, for this tool, relevant questions from those metrics, followed by some questions about what they liked and disliked about the tool. To be certain that the questions are answered from the interaction design point of view, they will be asked from both the chemistry and interaction design perspectives. This gives the test subjects a place to put their comments on the chemical correctness, such that their feedback on the interaction design will truly concern the design. The complete set of questionnaire questions can be found in \appref{questionnaires}.
@@ -57,14 +57,18 @@ The questionnaires, just like the experiment, needed to be held online. Because 
 
 \section{Hypotheses}
 \seclab{ra_hypotheses}
-According to Jonassen's dichotomy of problems~\cite{jonassen2000toward}~(see also \secref{id_learning}), fragment-based molecule parameterisation is an ill-structured problem. This means that the problem is quite complex and is therefore hard to solve. Due to this, users need to be ensured that there is a way to find a solution, or they will simply give up. This should be the case for both versions of the system, but is better facilitated by the naive version than the smart one. In the naive version, users will see that, by selecting an atom, it can easily be parameterised. He will know that, in order to complete the parameterisation, this process simply needs to be repeated for the remainder of the atoms.
+According to Jonassen's dichotomy of problems~\cite{jonassen2000toward}~(see also \secref{id_learning}), fragment-based molecule parameterisation is an ill-structured problem. This means that the problem is quite complex and is therefore hard to solve. Due to this, users need to be ensured that there is a way to find a solution, or they will simply give up. This should be the case for both versions of the system, but is better facilitated by the naive version than the smart one. In the naive version, users are not relying on a system to automatically come up with suggestions, but rather do everything themselves. They will know that, by simply repeating the same process a few times, they will get a result. The fact that they have everything in their own hands will make them feel more comfortable to get a good solution.
 
-The differences between the two implementations, as discussed in \secref{id_comparison}, combined with the motivations behind the two interaction designs~(see \secref{id_versions}), can lead to the conclusion that the smart version has great theoretical benefits in time consumption and user guidance, where the naive version should excel in user freedom. In the earlier mentioned study of Payne, Sycara, and Lewis~\cite{payne2000varying}, this was the same. They concluded that many users found that using the naive version was a tedious process that cost a lot of time. However, in some, more complex cases, they found that the system users find it really important to have full control of the system, and therefore preferred the naive interaction design. As fragment-based molecule parameterisation is an ill-structured, and therefore complex problem, the following hypothesis about the two versions of the interaction design can be formulated:
+In the earlier mentioned study of Payne, Sycara, and Lewis~\cite{payne2000varying}, it was found that the cooperative version of the examined system had great theoretical benefits in time consumption and user guidance, where the naive version excelled in user freedom. They concluded that many users found that using the naive version was a tedious process that cost a lot of time, but, in some more complex cases, users find it really important to have full control of the system, and therefore would prefer the naive interaction design. As fragment-based molecule parameterisation is an ill-structured, and therefore complex problem, the following hypothesis about the two versions of the interaction design can be formulated:
 \begin{quote}
-The `naive' interaction design is the best design for a tool that is used for fragment-based molecule parameterisation.
+For a tool used for fragment-based molecule parameterisation, it is better for users to have full control, than to automate certain parts.
 \end{quote}
 
-On a more general level, both versions of the interaction design rely on the idea that fragment-based molecule parameterisation should be chemically correct. As this has not been proven yet, \oframp{} aims to help in determining if it is possible. Both versions of the system have been designed in such way that the user should be able to quickly parameterise a molecule, either by providing them with a clear overview of possibilities, or by limiting the user interaction to accepting and rejecting. Furthermore, as it has been proven that properly matching parts of molecules have the same atomic charges, the second - for both versions of \oframp{} essential - hypothesis is as follows:
+On a more general level, both versions of the interaction design rely on the idea that fragment-based molecule parameterisation should be chemically correct. As this has not been proven yet, this research project aims to help in determining if it is possible. Both versions of the system will be designed in such way that the user should be able to quickly parameterise a molecule. Furthermore, as it has been proven that properly matching parts of molecules have the same atomic charges, the second - for both versions of the system essential - hypothesis is as follows:
 \begin{quote}
 It is possible to parameterise a molecule based on fragments of other molecules; both correctly and in a reasonable amount of time.
 \end{quote}
+
+\begin{todo}
+\item Maybe add some more?
+\end{todo}
