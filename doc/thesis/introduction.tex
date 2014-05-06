@@ -5,9 +5,7 @@ In the world of biomolecular science, molecular simulations are becoming increas
 
 Various attempts have been made to speed up this process, but all without success. It is therefore believed that, using the current approach, the completion time of the calculation process can only be reduced by improving computer hardware. In order to reduce the required time for finding atomic partial charges, a different approach needs to be developed.
 
-It is known that similar parts of different molecules often have roughly the same atomic charges. Therefore, it should be possible to assign the charges of a molecule based on the known charges of parts of other molecules. It is expected that humans (read: experienced scientists) will be able to find the best available matching molecule fragment out of a set of possible ones. Therefore, a system needs to be designed that allows for parameterisation of a molecule, based on a set of fragments of other molecules.
-
-For this thesis project, a system for fragment-based molecule parameterisation has been designed. In an attempt to find the best interaction design for such system, two slightly different versions of it have been implemented. These two versions have been compared using a user study, where participants were asked to parameterise a few molecules using the system. Using the outcomes of the user study, it is possible to determine which of the interaction designs is the best fit for the task of fragment-based molecule parameterisation. Furthermore, it will show if manual parameterisation of molecules is possible at all, and whether it has any advantages over the current method that uses complex calculations.
+It is known that similar parts of different molecules often have roughly the same atomic charges. Therefore, it should be possible to assign the charges of a molecule based on the known charges of parts of other molecules. It is expected that humans (read: experienced scientists) will be able to find the best available matching molecule fragment out of a set of possible ones. Therefore, a system needs to be designed that allows for parameterisation of a molecule, using a set of fragments of other molecules.
 
 Given the short problem description above, a main research question for this project can be formulated:
 \begin{quote}
@@ -20,12 +18,12 @@ This question can be split up into the following sub-questions:
 \item Compared to the computed charges, how accurate are the charges obtained using manual charge assignment?
 \item Is it feasible to do manual partial charge assignment in a reasonable amount of time, and faster than performing computations?
 \end{enumerate}
-Using the outcomes of the user studies, it should be possible to answer all of these questions. Furthermore, feedback gathered in the user studies can be used to finalise the design and deliver a great system for fragment-based molecule parameterisation.
 
-\begin{todo}
-\item Summarise everything;
-\item Update outline.
-\end{todo}
+In order to answer these questions, a system for fragment-based molecule parameterisation has been designed. Two slightly different versions of such system have been implemented in an attempt to find the best interaction design. The two versions have been compared using a user study, where participants were asked to parameterise a few molecules using the system. Using the outcomes of the user study, it is possible to determine which of the interaction designs is the best fit for the task of fragment-based molecule parameterisation, and if this task makes any chemical sense at all.
+
+First of all, it has been found that it \emph{is} possible to parameterise a molecule based on fragments of other molecules, and get a result of comparable value to that obtained using the conventional quantum-mechanical calculations. Second, it turns out that a system that makes suggestions to the user has great benefits in time consumption, where one that provides the user with full control yields better results.
+
+The answers to questionnaires that user studies participants were asked to fill in showed that system users had a strong preference for the version in which they had full control. Using the additional comments they made, the design for that version of the system can be improved further, in order to make it a system that can be of great value in chemistry research.
 
 \section{Outline}
-The remainder of this document will discuss the designed system and obtained results in detail. First of all, in \chref{analysis}, a more detailed analysis of the problems this project tries to solve is provided. Related work will be discussed in \chref{relwork}. The two interaction designs can be found in \chref{design}, followed by implementation details for the whole system in \chref{implementation}. The evaluation methods for the project are discussed in \chref{evaluation}, followed by their results in \chref{results}. \Chref{discussion} provides a discussion of the results, along with threats to validity and future work. Finally, the conclusion for the project is provided in \chref{conclusion}.
+The remainder of this document will discuss the designed system and obtained results in detail. First of all, in \chref{analysis}, a more detailed analysis of the problems this project tries to solve is provided. Related work will be discussed in \chref{relwork}, and the research approach is discussed in \chref{approach}. The two interaction designs can be found in \chref{design}, followed by implementation details for the whole system in \chref{implementation}. The evaluation methods for the project are discussed in \chref{evaluation}, followed by their results in \chref{results}. \Chref{discussion} provides a discussion of the results, along with threats to validity and future work. Finally, the conclusion for the project is provided in \chref{conclusion}.
