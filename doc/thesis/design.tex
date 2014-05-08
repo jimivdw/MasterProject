@@ -1,18 +1,6 @@
 \chapter{Interaction design}
 \chlab{design}
 
-\begin{comment}
-Here will be the interaction designs for the tool\ldots
-
-\nlipsum
-
-\begin{quote}
-``Design is an act of choosing among [\ldots] future ways of being''
-
-\leftskip=.5cm-- \textit{Eli Blevis}~\cite{blevis2007sustainable}
-\end{quote}
-\end{comment}
-
 As discussed before, there is no existing software for fragment-based molecule parameterisation, which means that there are no existing interaction designs for such systems either. What does exist is a wide range of tools and programs for visualising, creating and editing molecules. This includes stand-alone molecule drawing software such as \verb|Accelerys Draw|~\cite{accelrys2012accelrys}, \verb|Avogadro|~\cite{hanwell2012avogadro}, \verb|PyMOL|~\cite{delano2002pymol}, and \verb|RasMol|~\cite{pembroke2000bio}, two-dimensional web based molecule editors like \verb|ChemDoodle 2D Sketcher|~\cite{ichemlabs2013chemdoodle}, \verb|Marvin4JS|~\cite{chemxon2013marvin}, and \verb|Molsoft HTML5 Molecule Editor|~\cite{molsoft2012molsoft}, and online three-dimensional visualisation tools \verb|CanvasMol|~\cite{altered2013canvasmol} and \verb|JSMol|~\cite{hanson2013jsmol}.
 
 These existing tools will serve as an initial guideline for the interaction design of the molecule parameterisation system that is to be developed. Combined with the basic interaction design principles as posed by Norman and others~(see \secref{design}) and the knowledge gathered in earlier studies on molecule software~(see \secref{software}), it should be possible to design the system such that it meets its requirements~(as stated in \chref{analysis}). Such interaction design will be discussed in the remainder of this chapter.
@@ -37,7 +25,7 @@ Over the past few years, there has been a trend in bringing everything to the we
 \end{center}
 \end{figure}
 
-Is discussed in \secref{ra_versions}, two different versions of the molecule parameterisation system need to be implemented, with varying levels of automation. This means that two different interaction designs need to be made as well. \Figref{id_flows} shows a version where the user has to manually do the whole parameterisation, and a semi-automatic one which continuously makes suggestions to the user. This manual and semi-automatic versions have been called xxx and yyy respectively, to indicate that xxx is the more x version, where in yyy users have to y more. The following sections will discuss these two interaction designs, the motivation behind them, and their workings.
+Is discussed in \secref{ra_versions}, two different versions of the molecule parameterisation system need to be implemented, with varying levels of automation. This means that two different interaction designs need to be made as well. \Figref{id_flows} shows a version where the user has to manually do the whole parameterisation, and a semi-automatic one which continuously makes suggestions to the user. These manual and semi-automatic versions have been called consuming and producing respectively. In the consuming version, the system only does what the user tells it to do. It does not give any suggestions, and only consumes user input. The producing version, on the other hand, \emph{does} continuously make suggestions, i.e. it automatically produces parameterisation previews~(see also \secref{id_comparison}). The following sections will discuss these two interaction designs, the motivation behind them, and their workings.
 
 
 \subsection{Commonalities}
@@ -46,19 +34,19 @@ As can be seen in \figref{id_flows}, the two interaction designs share a common 
 
 As many users of the system will be users of the ATB~\cite{malde2011automated}~(see also \secref{simulations}) and will probably also find the molecules they want to use the molecule parameterisation system for in the ATB repository, it is should also be possible to submit an \verb|ATB molecule ID|. From that, the system should automatically retrieve the \verb|PDB| structure file that is stored on the ATB servers, which can then be used as the input.
 
-After the molecule has been shown to the user, the two versions of the interaction design start to differ. This will be discussed in more detail in the following sections, where \secref{id_naive} discusses the `naive' version, and \secref{id_smart} describes the `smart' interaction design.
+After the molecule has been shown to the user, the two versions of the interaction design start to differ. This will be discussed in more detail in the following sections, where \secref{id_naive} discusses the consuming version, and \secref{id_smart} describes the producing interaction design.
 
 As soon as the molecule has completely been parameterised, the two interaction designs join the same path once more. The user now has the possibility to manually fine-tune the charges, if he feels that this is needed. This can be done by selecting an atom and clicking an ``Edit charge'' button. In order to assist the user in finding a proper charge for the atom, the molecule fragments that have been used to get the current charge can be displayed. As soon as the user feels the assigned charges are correct, he should be able to download a file containing the results of the parameterisation.
 
 In order to reduce the effect of user mistakes on the parameterisation process, every user action can be undone, including the undo action itself. This way, the user does not need to start over completely when he makes a small mistake, such as accidentally selecting the wrong fragment. It also allows for more experimentation, as there are no definitive consequences of any user action~\cite{norman2002design,norman2010gestural}~(see also \secref{design}).
 
 
-\subsection{Manual `naive' version}
+\subsection{Consuming version}
 \seclab{id_naive}
-Just like the naive RPA implementation from~\cite{payne2000varying}, the only automatic process occurring in the naive version of the molecule parameterisation tool is the validation of user input. Besides ordering the matching fragments based on their probability of being a good match, the tool will not give any advise, nor will it automatically infer any values.
+Just like the naive RPA implementation from~\cite{payne2000varying}, the only automatic process occurring in the consuming version of the molecule parameterisation tool is the validation of user input. Besides ordering the matching fragments based on their probability of being a good match, the tool will not give any advise, nor will it automatically infer any values.
 
 \subsubsection{Operation}
-The operation of the naive version of the tool is shown in \figref{id_flows}. In more detail, the complete set of steps required to fully parameterise a molecule is as follows:
+The operation of the consuming version of the tool is shown in \figref{id_flows}. In more detail, the complete set of steps required to fully parameterise a molecule is as follows:
 \begin{enumerate}[itemsep=.1em, parsep=.2em, topsep=0em]
 \item The user enters a molecule data string (in \verb|SMILES|, \verb|InChI|, \verb|PDB| format, or using an \verb|ATB molecule ID|). The molecule will be displayed to the user;
 \item The user selects a single atom or a group of \emph{connected} atoms. They need to be connected, since non-connected atoms do not affect each other;
@@ -101,19 +89,19 @@ The operation of the naive version of the tool is shown in \figref{id_flows}. In
 \end{enumerate}
 
 \subsubsection{Motivation}
-As pointed out earlier, it is important to have a non-automatic baseline to see if automation can work for a certain tool. This naive version can serve as that baseline. In this case, however, it might serve as more than just a baseline, as it could also quite possibly be a better fit for the molecule parameterisation task than any automated version. The same was concluded for the naive RPA in~\cite{payne2000varying}, which was largely outperformed by its more automated siblings, but offered great benefits in situations where full control was required.
+As pointed out earlier, it is important to have a non-automatic baseline to see if automation can work for a certain tool. This consuming version can serve as that baseline. In this case, however, it might serve as more than just a baseline, as it could also quite possibly be a better fit for the molecule parameterisation task than any automated version. The same was concluded for the naive RPA in~\cite{payne2000varying}, which was largely outperformed by its more automated siblings, but offered great benefits in situations where full control was required.
 
-In the naive molecule parameterisation tool, the user can manually decide what atoms need to be parameterised and has a clear overview of all matching fragments. Furthermore, he can manually decide what should happen with overlapping fragments and can modify atom charges at any point in the process. This provides the same benefits as the previously discussed naive RPA had.
+In the consuming molecule parameterisation tool, the user can manually decide what atoms need to be parameterised and has a clear overview of all matching fragments. Furthermore, he can manually decide what should happen with overlapping fragments and can modify atom charges at any point in the process. This provides the same benefits as the previously discussed naive RPA had.
 
-Another reason why this naive version might work better than an automated one, is the fact that this version encourages the exploration of different options. By providing a list of fragments, these can easily be compared, such that the chances of finding the best matching fragment increase. Furthermore, as the user is free to determine what atoms should be parameterised at which point in time, and is also able to select groups of atoms, he can experiment with the selection size and order, which may lead to better results.
+Another reason why this consuming version might work better than an automated one, is the fact that this version encourages the exploration of different options. By providing a list of fragments, these can easily be compared, such that the chances of finding the best matching fragment increase. Furthermore, as the user is free to determine what atoms should be parameterised at which point in time, and is also able to select groups of atoms, he can experiment with the selection size and order, which may lead to better results.
 
 
-\subsection{Semi-automatic `smart' version}
+\subsection{Producing version}
 \seclab{id_smart}
-Inspired on the cooperative RPA from~\cite{payne2000varying}, \verb|LookOut|~\cite{horvitz1999principles}, and \verb|SALT|~\cite{marcus1987taking}, the smart tool for molecule parameterisation will continuously make suggestions to the user. After the parameterisation process has been started, the system will continuously propose fragments to the user, which he only needs to accept or reject.
+Inspired on the cooperative RPA from~\cite{payne2000varying}, \verb|LookOut|~\cite{horvitz1999principles}, and \verb|SALT|~\cite{marcus1987taking}, the producing tool for molecule parameterisation will continuously make suggestions to the user. After the parameterisation process has been started, the system will continuously propose fragments to the user, which he only needs to accept or reject.
 
 \subsubsection{Operation}
-The operation of the smart version of the tool is shown in \figref{id_flows}. In more detail, the complete set of steps required to fully parameterise a molecule is as follows:
+The operation of the producing version of the tool is shown in \figref{id_flows}. In more detail, the complete set of steps required to fully parameterise a molecule is as follows:
 \begin{enumerate}[itemsep=.1em, parsep=.2em, topsep=0em]
 \item The user enters a molecule data string (in \verb|SMILES|, \verb|InChI|, \verb|PDB| format, or using an \verb|ATB molecule ID|). The molecule will be displayed to the user;
 \item The user clicks the ``Start parameterising'' button. One of the atoms on the edge of the molecule will now be automatically selected and matching fragments for it will be retrieved;
@@ -170,12 +158,10 @@ Brehmer and Munzner have developed a multilevel typology for abstract visualisat
 \end{center}
 \end{figure}
 
-%These typologies clearly outline the differences between the two implementations. While in the naive version, the system is mainly concerned with presenting things to the user and user exploration,the user is mainly discovering (verifying) the system's proposals and browsing through them in the smart version.
+The differences between the two versions are already very apparent in the second step of the parameterisation, where atom selections are made. In the consuming version, the molecule needs to be presented to the user, after which he can navigate through it and identify an unparameterised atom by selecting it. The producing version of the system automatically makes atom selections. These only need to be shown to the user, and can be derived from the at that point visible molecule.
 
-The differences between the two versions are already very apparent in the second step of the parameterisation, where atom selections are made. In the naive version, the molecule needs to be presented to the user, after which he can navigate through it and identify an unparameterised atom by selecting it. The smart version of the system automatically makes atom selections. These only need to be shown to the user, and can be derived from the at that point visible molecule.
+In the third step, the parameterisation of the atom, the differences are also clear. In the consuming version, found molecule fragments need to be presented in such way that they can be explored and compared by the user, after which he can select what he considers to be the best available match. The producing version, on the other hand, only requires the user to accept or reject a fragment. In other words, he needs to discover if a fragment is a good match by browsing through its details and identifying whether it is a good match or not.
 
-In the third step, the parameterisation of the atom, the differences are also clear. In the naive version, found molecule fragments need to be presented in such way that they can be explored and compared by the user, after which he can select what he considers to be the best available match. The smart version, on the other hand, only requires the user to accept or reject a fragment. In other words, he needs to discover if a fragment is a good match by browsing through its details and identifying whether it is a good match or not.
+Upon acceptance or selection of a fragment, it is possible that a charge conflict occurs (see also \secref{id_naive} and \secref{id_smart}). In the producing version, these conflicts are resolved automatically, but in the consuming one several solution methods need to be presented, from which the user has to select one. This leads to a great difference in the number of mind methods that are used in the two versions, as finding the proper solution method can be quite complex.
 
-Upon acceptance or selection of a fragment, it is possible that a charge conflict occurs (see also \secref{id_naive} and \secref{id_smart}). In the smart version, these conflicts are resolved automatically, but in the naive one several solution methods need to be presented, from which the user has to select one. This leads to a great difference in the number of mind methods that are used in the two versions, as finding the proper solution method can be quite complex.
-
-This contrast in the number of different methods that is required to parameterise a molecule in the two versions is also apparent in the other differing steps. In every of those steps, the smart version requires less different methods than the naive one. This means that, in the semi-automatic version, the user has easier access to the information, and can therefore make decisions quicker than in the naive version. This does not necessarily mean that the smart version will take less time to use, as the methods may need to be used more often. What it does mean, however, is that it will be easier to use the smart version, as less different methods need to be used and learned~\cite{sweller1994cognitive}~(see also \secref{id_learning}).
+This contrast in the number of different methods that is required to parameterise a molecule in the two versions is also apparent in the other differing steps. In every of those steps, the producing version requires less different methods than the consuming one. This means that, in the semi-automatic version, the user has easier access to the information, and can therefore make decisions quicker than in the other version. This does not necessarily mean that the producing version will take less time to use, as the methods may need to be used more often. What it does mean, however, is that it will be easier to learn how to use the producing version, as less different methods need to be used~\cite{sweller1994cognitive}~(see also \secref{id_learning}).
