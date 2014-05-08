@@ -162,7 +162,7 @@ As soon as the user clicks the `Select fragment' button, the charges from that f
 
 
 \subsubsection{Producing version}
-In the producing version of \oframp, the parameterisation process can be started by clicking the `Start parameterising' button shown in \figref{find_3}. The system will now automatically select a random atom \emph{at the edge of the molecule} for which fragments will be retrieved. The molecule will be centred on that molecule, and the charges of the best found fragment will be previewed~(see \figref{find_4}). In that figure, the atoms with the green background and the thicker border are the atoms occurring in the found fragment.
+In the producing version of \oframp, the parameterisation process can be started by clicking the `Start parameterising' button shown in \figref{find_3}. The system will now automatically select a random atom \emph{at the edge of the molecule} for which fragments will be retrieved. The molecule will be centred on that molecule, and the charges of the highest rated fragment will be previewed~(see \figref{find_4}). In that figure, the atoms with the green background and the thicker border are the atoms occurring in the found fragment.
 
 \begin{figure}
 \center
@@ -178,7 +178,7 @@ In the producing version of \oframp, the parameterisation process can be started
 \figlab{find_4}
 \end{figure}
 
-The user now needs to decide whether he thinks this proposed fragment is a good match with the molecule. In order to help him to make this decision, he can view the fragment in the context of the molecule it originates from by clicking the `View original' button~(see \figref{find_4}). When he rejects the fragment, the next best fragment will be previewed, up until the point where there are no found fragments left. Either the final fragment needs to be accepted then, or the user can undo some of his rejections using the `Undo' button at the top of the page.
+The user now needs to decide whether he thinks this proposed fragment is a good match with the molecule. In order to help him to make this decision, he can view the fragment in the context of the molecule it originates from by clicking the `View original' button~(see \figref{find_4}). When he rejects the fragment, the next best rated fragment will be previewed, up until the point where there are no found fragments left. Either the final fragment needs to be accepted then, or the user can undo some of his rejections using the `Undo' button at the top of the page.
 
 Upon acceptance of a fragment, the charges of that fragment are copied to the molecule. The system will then find another \emph{unparameterised} atom for which fragments will be proposed. This atom is preferably connected to the last accepted fragment, or, when no unparameterised atoms are neighbouring that fragment, positioned on the edge of the molecule. The user can now continue to parameterise the molecule, which will be discussed in more detail in \secref{impl_completing}.
 

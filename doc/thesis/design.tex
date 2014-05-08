@@ -50,7 +50,7 @@ The operation of the consuming version of the tool is shown in \figref{id_flows}
 \begin{enumerate}[itemsep=.1em, parsep=.2em, topsep=0em]
 \item The user enters a molecule data string (in \verb|SMILES|, \verb|InChI|, \verb|PDB| format, or using an \verb|ATB molecule ID|). The molecule will be displayed to the user;
 \item The user selects a single atom or a group of \emph{connected} atoms. They need to be connected, since non-connected atoms do not affect each other;
-\item A list of matching fragments will be loaded shown, ordered such that the highest rated match comes first and the lowest last. The user can browse through them, preview the result of selecting that match and, once he has found what he sees as the best match, select this match;
+\item A list of matching fragments will be loaded and shown, ordered such that the highest rated match comes first and the lowest last. The user can browse through them, preview the result of selecting that match and, once he has found what he sees as the best available match, select this one;
 \item
   \begin{itemize}[leftmargin=0cm, itemsep=.1em, parsep=.1em]
   \item[] {\bf Fragment only contains unparameterised atoms}:\\
@@ -93,7 +93,7 @@ As pointed out earlier, it is important to have a non-automatic baseline to see 
 
 In the consuming molecule parameterisation tool, the user can manually decide what atoms need to be parameterised and has a clear overview of all matching fragments. Furthermore, he can manually decide what should happen with overlapping fragments and can modify atom charges at any point in the process. This provides the same benefits as the previously discussed naive RPA had.
 
-Another reason why this consuming version might work better than an automated one, is the fact that this version encourages the exploration of different options. By providing a list of fragments, these can easily be compared, such that the chances of finding the best matching fragment increase. Furthermore, as the user is free to determine what atoms should be parameterised at which point in time, and is also able to select groups of atoms, he can experiment with the selection size and order, which may lead to better results.
+Another reason why this consuming version might work better than an automated one, is the fact that this version encourages the exploration of different options. By providing a list of fragments, these can easily be compared, such that the chances of finding the best available matching fragment increase. Furthermore, as the user is free to determine what atoms should be parameterised at which point in time, and is also able to select groups of atoms, he can experiment with the selection size and order, which may lead to better results.
 
 
 \subsection{Producing version}

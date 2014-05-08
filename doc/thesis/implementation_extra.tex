@@ -11,10 +11,9 @@ As can be seen in \figref{oframp_class}, a \verb|JavaScript| \verb|OFraMP| insta
 \begin{figure}
 \center
 \includegraphics[width=\textwidth]{img/oframp_class.pdf}
-\caption{Simplified class diagram of \oframp.}
+\caption{Simplified class diagram of \oframp. The consuming and producing versions were initially called naive and smart respectively, hence their occurrence in the class names.}
 \figlab{oframp_class}
 \end{figure}
-
 
 \subsection{Visualisation}
 Once a molecule data string has been entered into the system, the positions of its atoms and the connections between them are retrieved from \oapoc~(see \secref{impl2_oapoc}). This data is then transformed to a \verb|JavaScript| \verb|Molecule| instance, as can be seen in \figref{oframp_class}. \verb|Molecule| instances can be visualised using a \verb|MoleculeViewer|, which will draw the molecule onto an \verb|HTML| \verb|canvas|.
@@ -40,7 +39,7 @@ Unfortunately, solving one occurrence of overlap could result in overlap occurri
 
 
 \subsection{Parameterisation}
-In order to find the best interaction design for \oframp, two different interaction designs of it have been made. In order to allow for easy implementation of these different versions, a \verb|Behavior| interface\footnote{\texttt{JavaScript}, as of \texttt{ECMAScript} 5, does not have real interfaces, but the \texttt{Behavior} object acts as one.} has been created~(see \figref{oframp_class}). When a new behaviour for the system is designed, implementing this is as easy as making an implementation of that interface. As each interaction design also needs to have its own demo mode, the \verb|Demo| has been implemented as an interface as well. Implementing a demo mode for a different interaction design is therefore just as easy.
+In order to find a good interaction design for \oframp, two different interaction designs of it have been made. In order to allow for easy implementation of these different versions, a \verb|Behavior| interface\footnote{\texttt{JavaScript}, as of \texttt{ECMAScript} 5, does not have real interfaces, but the \texttt{Behavior} object acts as one.} has been created~(see \figref{oframp_class}). When a new behaviour for the system is designed, implementing this is as easy as making an implementation of that interface. As each interaction design also needs to have its own demo mode, the \verb|Demo| has been implemented as an interface as well. Implementing a demo mode for a different interaction design is therefore just as easy.
 
 
 \subsection{Downloading results}
