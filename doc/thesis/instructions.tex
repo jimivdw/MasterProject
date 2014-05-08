@@ -1,38 +1,7 @@
 \chapter{User studies instructions}
 \chlab{instructions}
 
-In this chapter, the exact instructions that have been provided to the user studies participants can be found. Note that these are the instructions for the group that first did the naive version of \oframp, followed by the smart version. The other group of participants received similar instructions, but just with the URLs swapped.
-
-
-\begin{comment}
-\section{Invitation}
-Dear all,
-
-As you may have heard, Gunnar Klau, Mohammed El-Kebir, and I have been working on a tool for fragment-based molecule parameterisation. Using this tool, you should be able to approximate the charges of the atoms in a molecule, based on fragments of other molecules. I am glad to announce that the initial version of the tool, called OFraMP, has been completed and is ready to be tested.
-
-For me, developing the system has been part of my graduation project of the Master Software Engineering at the University of Amsterdam. As this is a software engineering project, it is, for me, mainly aimed at finding the best way to interact with a tool for fragment-based molecule parameterisation, and less at implementing a system that is only providing chemically correct solutions (although I tried to do my best, and I think it should at least make some sense).
-
-In order to find out what a good way of interacting with this kind of system would be, I had to develop two different versions of it. These two versions need to be compared using a user study. I would like to ask you to please take part in this experiment, which will cost you approximately one hour. I do realise that this may be quite long, but the outcome of the studies will not only help me finish my Master's project; it will also be most valuable for further development of the system, and should help you learning how to use it (in case you wish to use the system in the future).
-
-As there are different versions of the system, there are also different variants of the user studies. Every one of you will get a follow-up email shortly, containing your personal instructions.
-
-Please try to complete the experiment within the next week (before the end of Thursday 27 March), as I need to finish my project before the end of April, and can therefore not wait too long for the results.
-
-Thanks a lot for participating in the user studies and thereby helping me finish my master's project and further improvement of OFraMP. If you are interested, I could send you a copy of the experiment results, or even my complete master's thesis (although that might not be that interesting for you, as it is a software engineering thesis).
-
-
-Kind regards,
-Jimi van der Woning
-\end{comment}
-
-%\section{Naive-first version}
-\begin{comment}
-Dear all,
-
-I hereby send you your personal instructions for the OFraMP user studies. Note again that your colleagues may have gotten slightly different instructions, so please make sure to follow only the instructions that were emailed to you. Also, please wait before discussing your opinion on the systems until your colleagues have finished the experiment as well, to prevent you from biasing them.
-
-For the experiment, I would like you to use either the Chrome or Safari browser. Usually, browser choice is not as restricted, but in order to get consistent experiment outcomes, every user should experience the system in the same way.
-\end{comment}
+In this chapter, the exact instructions that have been provided to the user studies participants can be found. Note that these are the instructions for the group that first did the consuming version of \oframp, followed by the producing version. The other group of participants received similar instructions, but just with the URLs swapped.
 
 Please execute the following steps in the exact order in which they are presented:
 \begin{enumerate}
@@ -55,41 +24,3 @@ Please execute the following steps in the exact order in which they are presente
 \end{enumerate}
 Good luck, and thanks again for participating in the user studies.
 
-\begin{comment}
-Kind regards,
-Jimi van der Woning
-\end{comment}
-
-\begin{comment}
-\section{Smart-first version}
-Dear all,
-
-I hereby send you your personal instructions for the OFraMP user studies. Note again that your colleagues may have gotten slightly different instructions, so please make sure to follow only the instructions that were mailed to you. Also, please wait before discussing your opinion on the systems until your colleagues have finished the experiment as well, to prevent you from biasing them.
-
-For the experiment, I would like you to use either the Chrome or Safari browser. Usually, browser choice is not as restricted, but in order to get consistent experiment outcomes, every user should experience the system in the same way.
-
-Please execute the following steps in the exact order in which they are presented:
-\begin{enumerate}
-\item Go to OFraMP at \url{http://vps955.directvps.nl/OFraMP/s/};
-\item As soon as the page has been loaded, click the `Start demo' button;
-\item Follow the instructions given to you by the demo, and finish the parameterisation of the demo molecule (does not need to be perfect, just make sure every atom has a charge assigned);
-\item Now, either reload the page or click the `New molecule' button at the top of the page;
-\item Insert the following into the text input field: \textbf{10321}. This number represents an ATB ID, which we use here as it is easier to insert than a SMILES or InChI string. It represents 1,3-propandiol (PDO), a molecule with a total net charge of \textbf{0.0};
-\item Make sure the repository is set to \textbf{arbitrary\_qm1} (an arbitrary selection of QM1 molecules from the ATB) and the shell size to \textbf{1}; then click the `Submit' button;
-\item Fully parameterise the molecule, just like you did in the demo. This time, try to make it as good as possible and try to make the charges add up to the total net charge of the molecule. Feel free to consult the Help page if you need more detailed information;
-\item \underline{Make sure to download the result LGF file} using either the `Download LGF' button in the `Fully parameterised' popup, or the `Download' button at the top of the page;
-\item Now, enter a new molecule \textbf{16978} (\_V3M, total net charge of \textbf{-1.0}) and repeat steps 6 through 8. Again, \underline{remember to download the result file};
-\item Please evaluate \emph{this version} of the system at \url{http://vps955.directvps.nl/OFraMP/sq/}. \underline{Try to focus as much as you can on the user interaction aspect}. Note that statements are ranked on a scale of 1 (strongly \emph{dis}agree) to 5 (strongly agree);
-\item As soon as you have submitted the questionnaire, please go to the second version of OFraMP, available at \url{http://vps955.directvps.nl/OFraMP/n/};
-\item Quickly take the demo again, in order to get to know this version and the differences with the other;
-\item Fully parameterise the molecule \textbf{13913} (1h-imidazol-2-amine (2AI), total net charge of \textbf{0.0}). Again, make sure the repository and shell size are set to the values shown in step 6, and please \underline{download the result file as soon as you are done};
-\item Parameterise one final molecule: \textbf{17738} (borrelidin (\_VOQ), total net charge of \textbf{-1.0}), with the same repository and shell size, and also \underline{download this one's result};
-\item Please evaluate \emph{this version} of the system at \url{http://vps955.directvps.nl/OFraMP/nq/}. Again, \underline{try to focus as much as you can on the user interaction aspect}. Note that statements are, again, ranked on a scale of 1 (strongly \emph{dis}agree) to 5 (strongly agree);
-\item Finally, please answer some general questions at \url{http://vps955.directvps.nl/OFraMP/q/}.
-\end{enumerate}
-Good luck, and thanks again for participating in the user studies.
-
-
-Kind regards,
-Jimi van der Woning
-\end{comment}
