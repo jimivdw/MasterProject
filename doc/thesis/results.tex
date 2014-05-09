@@ -1,41 +1,41 @@
 \chapter{Results}
 \chlab{results}
 
-For the user studies, a total of 16 chemistry researchers has been invited. They come from various institutes, but the majority works at VU University Amsterdam or the University of Queensland, Australia. Half of them received the instructions for the consuming-first version of the experiment, the other half was instructed to use the producing version first.
+For the user studies, we invited a total of 16 chemistry researchers. They come from various institutes, but the majority works at VU University Amsterdam or the University of Queensland, Australia. Half of them received the instructions for the consuming-first version of the experiment, the other half was instructed to use the producing version first.
 
-Out of all the invited people, ten persons fully completed their tasks and submitted the results they obtained. Six of them used the consuming version first, the other four started with the producing version. Unfortunately, it is impossible to tell how many people started the experiment, but did not finish it, as the log files were only uploaded to the server after completing a version's questionnaire. However, it can be seen that there were no people who only completed one of the two versions.
+Out of all the invited people, 10 fully completed their tasks and submitted the results they obtained. 6 of them used the consuming version first, the other 4 started with the producing version. Unfortunately, it is impossible to tell how many people started the experiment, but did not finish it, as the log files were only uploaded to the server after completing a version's questionnaire. However, we observed that there were no people who only completed one of the two versions.
 
-A lot of different types of data have been gathered. Graphical representations of most observations from the user action log can be found in \appref{graphs}. In that same chapter, the outcomes of the \verb|SUS| and \verb|UMUX| questions that were asked in the questionnaire can be found as well. \Appref{comments} contains all answers to the open questions, including general comments about the system, the preferred version and suggestions for improvement.
+A lot of different types of data have been gathered. Graphical representations of most observations from the user action log can be found in \appref{graphs}. In that same chapter, one can find the outcomes of the \verb|SUS| and \verb|UMUX| questions that were asked in the questionnaire as well. \Appref{comments} contains all answers to the open questions, including general comments about the system, the preferred version and suggestions for improvement.
 
-This chapter contains the important and most interesting results obtained from the user studies. Each result will shortly be discussed, and further analysed in \chref{discussion}. Some additional results are provided in \appref{results_extra}.
+In this chapter, we present the important and most interesting results obtained from the user studies. Each result will shortly be discussed, and further analysed in \chref{discussion}. Some additional results are provided in \appref{results_extra}.
 
 
 \section{Action log results}
-From the logging system that was built into \oframp{} for the user studies, a wide range of information can be gathered, spanning from the load time and the number of clicks on atom 5 to the selected conflict solutions and resulting parameterisation. This section contains the most interesting results that can be retrieved from the action log.
+From the logging system that was built into \oframp{} for the user studies, a wide range of information can be gathered, spanning from the load time and the number of clicks on atom 5 to the selected conflict solutions and resulting parameterisation. In this section, we present the most interesting results that can be retrieved from the action log.
 
 \subsection{Time required}
 \seclab{res_time}
-First of all, it is interesting to see in what version users spent the most time to fully parameterise the molecules. \Figref{graph_time_1} shows the total time that was required for both the first and second set of molecules, in both the consuming and producing version of \oframp. What can be seen here is that, for both the first and second set of molecules, users needed more time to complete the parameterisation using the consuming version. Users who started with the consuming version used the most time overall, with a median total time of around 300 seconds, after which those same users spent the least time on the producing version, where the median time value is around 100 seconds. At around 200 and 150 seconds, one can find the median times required by the users who did the consuming version second and the producing version first respectively.
+First of all, it is interesting to see in which version users spent the most time to fully parameterise the molecules. \Figref{graph_time_1} shows the total time that was required for both the first and second set of molecules, in both the consuming and producing version of \oframp. What can be seen here is that, for both the first and second set of molecules, users needed more time to complete the parameterisation using the consuming version. Users who started with the consuming version used the most time overall, with a median total time of around 300 seconds. Those same users spent the least time on the producing version, where the median time value is around 100 seconds. At around 200 and 150 seconds, one can find the median times required by the users who did the consuming version second and the producing version first respectively.
 
-\begin{figure}[h!]
+\begin{figure}
 \center
 \includegraphics[width=.6\textwidth]{img/graphs/1a_02.pdf}
 \caption{Total parameterisation time for the two versions in the two orders.}
 \figlab{graph_time_1}
 \end{figure}
 
-The total time used to parameterise the first and second sets of molecules can be used to determine what version of \oframp{} is the most time-consuming. However, as both sets of molecules have slightly varying molecule sizes, it may be more interesting to look at the average time that was required per atom. This can be seen in \figref{graph_time_2}.
+The total time used to parameterise the first and second sets of molecules can be used to determine which version of \oframp{} is the most time-consuming. However, as both sets of molecules have slightly varying molecule sizes, it may be more interesting to look at the average time that was required per atom. This can be seen in \figref{graph_time_2}.
 
-\begin{figure}[h!]
+\begin{figure}
 \center
 \includegraphics[width=.6\textwidth]{img/graphs/1a_03.pdf}
 \caption{Average time per atom for the two versions in the two orders.}
 \figlab{graph_time_2}
 \end{figure}
 
-What is interesting to see here, is the fact that, where in the total parameterisation time, the group that did the producing version second was done the fastest, its members have spent the most time on average per atom. When taking a closer look at \figref{graph_time_3} and \figref{graph_time_4}, which show the average time per atom required for all molecules separately, this difference appears to be caused completely by the excessive amount of time users spent on parameterising molecule 13913 in the producing version. This is the first molecule users got to parameterise after they have completed the consuming version. Even more interesting to see is the fact that most users spent more time parameterising this 11-atom molecule than on the larger 77-atom molecule 17738.
+What is interesting to see here, is the fact that, where in the total parameterisation time, the group that did the producing version second was done the fastest, its members have spent the most time on average per atom. When taking a closer look at \figref{graph_time_3} and \figref{graph_time_4}, which show the average time per atom required for all molecules separately, this difference appears to be caused completely by the excessive amount of time users spent on parameterising molecule 13913 in the producing version. This is the first molecule users got to parameterise after they completed the consuming version. Even more interesting to see is the fact that most users spent more time on this 11-atom molecule than they did on the larger 77-atom molecule 17738.
 
-\begin{figure}[h!]
+\begin{figure}
 \centering
 \begin{subfigure}[t]{0.48\textwidth}
 \centering
@@ -54,29 +54,30 @@ What is interesting to see here, is the fact that, where in the total parameteri
 \figlab{graph_time_34}
 \end{figure}
 
-It is hard to say what exactly is causing this difference. It is possible that, after using the consuming version, it is hard to get used to the producing version, which is way more restrictive as to what a user can do. However, this difference is not present when switching from the producing to the consuming version. This can either mean that this switch is easier to make, or that there must be a different cause of the large time difference.
+It is hard to say what exactly is causing this difference. It is possible that, after using the consuming version, it is hard to get used to the producing version, which is way more restrictive as to what a user can do. This difference is not present when switching from the producing to the consuming version, which can either mean that this switch is easier to make, or that there must be a different cause of the large time difference.
 
 Another possible explanation for the large increase in time required for parameterising molecule 13913 is that there may not be really good matching fragments, enforcing the user to browse through many of them before being able to select what they consider to be the best one. This is better facilitated by the consuming version of the tool, and can potentially have the extreme effects that are observed here.
 
-Apart from molecule 13913, \figref{graph_time_34} shows that finishing a parameterisation using the consuming version of \oframp{} requires more time than using the producing one. It is also clear that the time required is much more constant, and, with an overall average of around 7 seconds per atom, overall still the fastest, compared to 10 seconds for the consuming version.
+% Apart from molecule 13913, \figref{graph_time_34} shows that finishing a parameterisation using the consuming version of \oframp{} requires more time than using the producing one. It is also clear that the time required is much more constant, and, with an overall average of around 7 seconds per atom, overall still the fastest, compared to 10 seconds for the consuming version.
 
 
 \subsection{Parameterisation rating}
 \seclab{res_rating}
-Not only the time required by the parameterisation tool can be used to assess the two interaction designs, the quality of the result is also of great importance. As discussed in \secref{ev_analysis}, there are two ways of calculating this quality rating. First, the total difference between the charge found by the user and the charge present in the ATB can be found, as shown in \figref{graph_rating_1}. As this difference can easily be observed and corrected by the user, it would be expected that it would be relatively close to 0. This, however, turns out not to be the case. Especially in the producing version of \oframp, the charge difference can get quite high, and is greater than the charge difference for the consuming version in any case.
 
-\begin{figure}[h!]
+\begin{figure}
 \center
 \includegraphics[width=.6\textwidth]{img/graphs/1a_00.pdf}
 \caption{Total charge difference for the two versions in the two orders.}
 \figlab{graph_rating_1}
 \end{figure}
 
-What is also interesting to note here is the fact that, for both the consuming and the producing version of \oframp, the total charge difference is higher for the second set of molecules. This may indicate that these molecules are harder to parameterise, or that there are no good matching fragments for those molecules available. However, it may also indicate that users were starting to lose their concentration, or were confused due to the switch from one version to another.
+Not only the time required by the parameterisation tool can be used to assess the two interaction designs, the quality of the result is also of great importance. As discussed in \secref{ev_analysis}, there are two ways of calculating this quality rating. First, the total difference between the charge found by the user and the charge present in the ATB is shown in \figref{graph_rating_1}. As this difference can easily be observed and corrected by the user, it would be expected that it would be relatively close to 0. This, however, turns out not to be the case. Especially in the producing version of \oframp, the charge difference can get quite high, and is greater than the charge difference for the consuming version in any case.
 
-Where the difference in the total molecule charge can mainly be used to assess user performance, the correctness of the parameterisation can better be measured using the per-atom charge differences. \Figref{graph_rating_2} shows these differences for the first and second set of molecules, both for the consuming and producing version of \oframp. As can be seen in that graph, charge differences are, again, smaller for the consuming version than they are for the producing version.
+What is also interesting to note here is the fact that, for both the consuming and the producing version of \oframp, the total charge difference is higher for the second set of molecules. This may indicate that these molecules are harder to parameterise, or that there are no good matching fragments available for those molecules. However, it may also indicate that users were starting to lose their concentration, or were confused due to the switch from one version to another.
 
-\begin{figure}[h!]
+Whereas the difference in the total molecule charge can mainly be used to assess user performance, the correctness of the parameterisation can better be measured using the per-atom charge differences. \Figref{graph_rating_2} shows these differences for the first and second set of molecules, both for the consuming and producing version of \oframp. As can be seen in that graph, charge differences are, again, smaller for the consuming version than they are for the producing version.
+
+\begin{figure}
 \center
 \includegraphics[width=.6\textwidth]{img/graphs/1a_01.pdf}
 \caption{Average charge difference per atom for the two versions in the two orders.}
@@ -85,9 +86,7 @@ Where the difference in the total molecule charge can mainly be used to assess u
 
 In contrast to the total charge differences though, the average charge differences for the second set of molecules are smaller than those for the first set. This suggests the opposite of what was concluded from \figref{graph_rating_1}: the second set of molecules may be easier to parameterise, or there may be better matching fragments available. This suggestion is more probable, as, for the total charge difference, a negative offset between two atom charges can be compensated by a positive offset in two others. This is not the case for the per-atom difference.
 
-As can be seen in \figref{graph_rating_34}, the consuming version of \oframp{} scores better for all individual molecules. What can also be seen there is the fact that, even on average, the charge differences are bigger for the larger molecules than for the smaller ones. Unfortunately, there is no obvious explanation for this. Probably, larger fragments are used for the larger molecules. When one of those fragments is bad, it quickly adds up to the atom charge difference. On the other hand, it is also possible that users felt more comfortable selecting small fragments, which are generally worse matches than the large ones, due to less atoms matching between the two molecules.
-
-\begin{figure}[h!]
+\begin{figure}
 \centering
 \begin{subfigure}[t]{0.48\textwidth}
 \centering
@@ -106,29 +105,32 @@ As can be seen in \figref{graph_rating_34}, the consuming version of \oframp{} s
 \figlab{graph_rating_34}
 \end{figure}
 
+As can be seen in \figref{graph_rating_34}, the consuming version of \oframp{} scores better for all individual molecules. What can also be seen there is the fact that, even on average, the charge differences are bigger for the larger molecules than for the smaller ones. Unfortunately, there is no obvious explanation for this. Probably, larger fragments are used for the larger molecules. When one of those fragments is bad, it quickly adds up to the atom charge difference. On the other hand, it is also possible that users felt more comfortable selecting small fragments, which are generally worse matches than the large ones, due to less atoms matching between the two molecules.
+
 \subsection{Other results}
 \seclab{res_other}
-Besides the time required to complete the parameterisation and its rating, some other interesting things were observed in the user studies. First of all, there appears to be a great correlation between the version of \oframp{} that is used and the amount of actions a user needs to undo, as can be seen in \figref{graph_undo}. Where, in the consuming version, users practically do not undo any action, there are extreme cases where a user needed to undo over a hundred actions in the producing version. This difference can be explained by the fact that users of the producing version have to undo accidentally rejected fragments, or may use a combination of reject and undo actions to compare various fragments.
 
-\begin{figure}[h!]
+\begin{figure}
 \center
 \includegraphics[width=.6\textwidth]{img/graphs/1a_10.pdf}
 \caption{Number of undo actions for the two versions in the two orders.}
 \figlab{graph_undo}
 \end{figure}
 
-As can be seen in \figref{graph_clicks}, a few more clicks are required to complete a parameterisation in the producing version of the tool, than there are in the consuming version. Nevertheless, the medians are not too far apart, so it is not really possible to draw any conclusions from this. It is interesting to see, however, that even though the producing version of \oframp{} requires less user interaction, is does not require less, and possibly even more clicks to complete a parameterisation.
+Besides the time required to complete the parameterisation and its rating, some other interesting things were observed in the user studies. First of all, there appears to be a great correlation between the version of \oframp{} that is used and the amount of actions a user needs to undo, as we can see in \figref{graph_undo}. Where, in the consuming version, users practically do not undo any action, there are extreme cases where a user undid over a hundred actions in the producing version. This difference can be explained by the fact that users of the producing version have to undo accidentally rejected fragments, or may use a combination of reject and undo actions to compare various fragments.
 
-\begin{figure}[h!]
+\begin{figure}
 \center
 \includegraphics[width=.6\textwidth]{img/graphs/1a_04.pdf}
 \caption{Total number of clicks for the two versions in the two orders.}
 \figlab{graph_clicks}
 \end{figure}
 
+As can be seen in \figref{graph_clicks}, a few more clicks are required to complete a parameterisation in the producing version of the tool, than there are in the consuming version. Nevertheless, the medians are not too far apart, so it is not really possible to draw any conclusions from this. It is interesting to see, however, that even though the producing version of \oframp{} requires less user interaction, is does not require less, and possibly even more clicks to complete a parameterisation.
+
 \Figref{graph_help} shows that not many users had to consult the help pages during the parameterisation process. Furthermore, no users checked the help pages in their second version of the system. This can mean that either they did not know there were different versions of the help pages, or they did not need it any more. The fact that most users did not go to the help pages at all suggests that the tool is intuitive to use, and that taking the demo provides enough information to be able to use \oframp.
 
-\begin{figure}[h!]
+\begin{figure}
 \center
 \includegraphics[width=.6\textwidth]{img/graphs/1b_01.pdf}
 \caption{Total number of clicks on the help button for the two versions in the two orders.}
@@ -142,13 +144,13 @@ Furthermore, and more surprisingly, none of the users manually edited a single a
 
 
 \section{Questionnaire outcomes}
-Besides the log files from the users parameterising a few molecules, some more information can be gathered from the questionnaire users were asked to fill in. This includes the results of the combined \verb|SUS| / \verb|UMUX| questionnaire, their preference verdict on the two versions, and other comments about the system. All of these will be discussed in the next sections.
+Besides the log files from the users parameterising a few molecules, some more information can be gathered from the questionnaire users were asked to fill in. This includes the results of the combined \verb|SUS| / \verb|UMUX| questionnaire, their preference verdict on the two versions, and other comments about the system. We will discuss all of these in the next sections.
 
 \subsection{\texttt{SUS} / \texttt{UMUX} results}
 \seclab{res_sus}
 The total \verb|SUS| score of the consuming and producing versions of the system is shown in \figref{graph_sus_1}. As can be seen here, the consuming version, with a median rating of $76$, scores better than the producing version, which has a median rating of only $61$. This means that the consuming version scores above the average \verb|SUS| score of 68~\cite{sauro2011measuring}, where the producing version scores below that. In the adjective rating scale, the consuming version is `good', but the producing version still scores `OK'~\cite{bangor2009determining}~(see also \secref{ev_analysis}).
 
-\begin{figure}[h!]
+\begin{figure}
 \center
 \includegraphics[width=.32\textwidth]{img/graphs/4a_10.pdf}
 \caption{\texttt{SUS} score of the two versions.}
@@ -157,18 +159,18 @@ The total \verb|SUS| score of the consuming and producing versions of the system
 
 \Figref{graph_sus_2}, where the ratings are shown separately for the two different orders in which the users used the two versions of \oframp, shows a slightly different situation. First of all, it appears that the group that did the consuming version first was less positive in general. With a median grade of only 62, the consuming version scores below average and is rated as just `OK'. Although it is still rated higher than the producing version, with outliers to very high ratings, the difference in the medians is very small and not really significant.
 
-\begin{figure}[h!]
+\begin{figure}
 \center
 \includegraphics[width=.6\textwidth]{img/graphs/4b_10.pdf}
 \caption{\texttt{SUS} score of the two versions in the two orders.}
 \figlab{graph_sus_2}
 \end{figure}
 
-For the other group of users, the opposite is true. They already awarded the producing version with the average grade of $68$, and later rewarded the consuming version with a rating of $85$, which translates to `excellent' on the adjective scale. This large difference here can possibly be explained by the users preferring the consuming version over the producing one and therefore, consciously or unconsciously, giving higher grades to the consuming version. The lower, but still `OK' grading of the producing version in the other group can then be explained by the users still liking the producing version, and therefore willing to grade it sufficiently.
+For the other group of users, the opposite is true. They already awarded the producing version with the average grade of $68$, and later rewarded the consuming version with a rating of $85$, which translates to `excellent' on the adjective scale. This large difference can possibly be explained by the users preferring the consuming version over the producing one and therefore, consciously or unconsciously, giving higher grades to the consuming version. The lower, but still `OK' grading of the producing version in the other group can then be explained by the users still liking the producing version, and therefore willing to grade it sufficiently.
 
-The most extremely rated \verb|SUS| questions are shown in \figref{graph_sus_345}. \Figref{graph_sus_3} shows the lowest scoring point for both the consuming and the producing versions of \oframp, being the answer to the first \verb|SUS| statement: ``I think that I would like to use this system frequently''. Where, for the consuming version, most people are neutral, with some agreeing or even fully agreeing with the statement, the median answer in the producing version was a disagree. This is an important result, as users not liking to use a system frequently is, of course, a bad sign.
+The most extremely rated \verb|SUS| questions are shown in \figref{graph_sus_345}. \Figref{graph_sus_3} shows the lowest scoring point for both the consuming and the producing versions of \oframp, being the answer to the first \verb|SUS| statement: ``I think that I would like to use this system frequently''. Whereas, for the consuming version, most people are neutral, with some agreeing or even fully agreeing with the statement, the median answer in the producing version was a disagree. This is an important result, as users not liking to use a system frequently is, of course, a bad sign.
 
-\begin{figure}[h!]
+\begin{figure}
 \centering
 \begin{subfigure}[t]{0.32\textwidth}
 \centering
@@ -194,7 +196,7 @@ The most extremely rated \verb|SUS| questions are shown in \figref{graph_sus_345
 \figlab{graph_sus_345}
 \end{figure}
 
-The fourth \verb|SUS| question was the highest rated for both the consuming and producing versions of the system~(see \figref{graph_sus_4}), although the tenth question is rated equally high in the producing version. \verb|SUS4| states: ``I found the various functions in the system were well integrated''. As there is no difference in the rating of the two versions, no conclusions can be drawn for this, other than the fact that both interaction designs are good in general.
+The fourth \verb|SUS| question was the highest rated for both the consuming and producing versions of the system~(see \figref{graph_sus_4}), although the tenth question is rated equally high in the producing version. \verb|SUS4| states: ``I found the various functions in the system were well integrated''. As there is no difference in the rating of the two versions, no conclusions can be drawn for this, other than the fact that both interaction designs are well-integrated in general.
 
 Finally, as mentioned before, the tenth \verb|SUS| question is one of the highest rated for the producing version. Furthermore, this is the only statement for which the producing version actually scores higher than the consuming one. As the tenth statement is ``I think the system meets up with its requirements'', it is quite interesting that the producing version scores higher here. Probably, the test participants considered the required time to complete the parameterisation an important requirement. As seen before, the producing version requires the least time, which may explain the difference here.
 
@@ -207,7 +209,7 @@ Additionally, some users commented that the consuming version allowed for easier
 
 \subsection{Comments}
 \seclab{res_comments}
-Following the \verb|SUS| and \verb|UMUX| questions, users were asked to answer a few open questions and had room for some comments. The next sections will discuss these comments for both versions of \oframp{} and the suggestions they had for improving the tool. As no significant difference has been observed between the comments of the people for the different orders in which they used the system, no distinction will be made between those comments.
+Following the \verb|SUS| and \verb|UMUX| questions, users were asked to answer a few open questions and had room for some comments. In the next sections, we will discuss these comments for both versions of \oframp{} and the suggestions they had for improving the tool. As we have not observe any significant difference between the comments of the people for the different orders in which they used the system, no distinction will be made between those comments.
 
 \subsubsection{Consuming version}
 For the consuming version of the system, users were very positive about the user interaction. They noted that the interface and layout were very clear and nicely designed, and also gave a nice representation of molecules and fragments. The interface was found to be very responsive and easy to use and learn, thanks to the demo mode, the extensive help pages, and the fact that the system was intuitive to use in general. Finally, the right information was noted to come up exactly when needed.
@@ -233,9 +235,9 @@ Most of the shortcomings of the consuming version were also mentioned here. Agai
 Many users had some ideas for further improving the value of \oframp. The following list contains the most mentioned and feasible ones, ordered on descending number of mentions.
 \begin{enumerate}
 \item Continuously show the total molecule charge:\\
-Even though the molecule charge can be viewed in the selection details window, this window is not opened all the time. Additionally, the effect of selecting a proposed fragment on the total charge can be shown with it;
+Even though the molecule charge can be viewed in the selection details window, this window is not opened at all times. Additionally, the effect of selecting a proposed fragment on the total charge can be shown with it;
 \item Ability to manually add/edit charges:\\
-As discussed before, many users wanted to see this feature added, although it is already present. Additionally though, they commented that they would like to be able to assign a charge to a group of atoms, and have this automatically distributed over the group;
+As discussed before, many users wanted to see this feature added, even though it is already present. Additionally though, they commented that they would like to be able to assign a charge to a group of atoms, and have this automatically distributed over the group;
 \item Combine the auto-select system with the fragment list:\\
 Some users noted they did not want to manually select atoms all the time, and liked the automatic selection system from the producing version. As this was lacking the overview of fragments, they wanted to combine it with the list of fragments from the consuming version to make the ultimate parameterisation system;
 \item Show the confidence score of fragments:\\
