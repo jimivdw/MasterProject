@@ -50,6 +50,12 @@ When the user feels he is completely done, he can download the resulting paramet
 \subsection{Modifying visualisation parameters}
 In order to allow for modification of visualisation parameters at runtime, a slightly modified version of the \verb|JavaScript| library \verb|dat-gui|~\cite{data2011dat} has been used. This library can automatically generate a user interface from a \verb|JSON| object that contains the settings. Additionally, it can be provided with an object that contains various settings for the interface itself, such as which widget to use, and change event handlers.
 
+\subsection{Saving progress}
+\begin{todo}
+\item Fix this!
+\end{todo}
+Finally, the user can load a so called \oframp{} State Storage~(OSS) file. These files can be created at any point in the parameterisation process and will store all progress up until that point. They can be loaded again at a later stage to continue the parameterisation process from that point.
+
 
 
 \section[\oapoc]{The Online tool for Atom Position Calculations}
