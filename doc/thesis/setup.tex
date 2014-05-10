@@ -3,22 +3,25 @@
 
 \lstset{language=sh, frame=single, basicstyle=\ttfamily\small, breaklines=true}
 
-When one wants to set up the \oframp{} system, it should be made sure that the requirements presented in \secref{server_req} are met. Then, one first needs to set up \oapoc{} and \omfraf{}, after which \oframp{} can be properly configured. This chapter will contain detailed instructions on the complete process, following which the set up should be easy.
+When one wants to set up the \oframp{} system, he should make sure that the requirements discussed in \secref{server_req} are met. Then, one first needs to set up \oapoc{} and \omfraf{}, after which \oframp{} can be properly configured. In this chapter, we provide detailed instructions on the complete process, following which the set up should be easy.
 
 
-
+\vspace{-.2cm}
 \section[\oapoc]{Setting up \oapoc}
-When setting up \oapoc, first, \verb|Open Babel| should be downloaded\footnote{\url{http://openbabel.org/wiki/Get_Open_Babel}}. Make sure to install the right version for your operating system, and follow the installation instructions that are provided on the download page. Once \verb|obabel| has been installed, the source code of \oapoc{} needs to be downloaded:
+\vspace{-.1cm}
+When setting up \oapoc, first, \verb|Open Babel| needs to be downloaded\footnote{\url{http://openbabel.org/wiki/Get_Open_Babel}}. Make sure to install the right version for the used operating system, and follow the installation instructions that are provided on the download page. Once \verb|obabel| has been installed, the source code of \oapoc{} needs to be downloaded:
 \begin{lstlisting}
 $ git clone git@github.com:jimivdw/OAPoC.git <target>
 \end{lstlisting}
-Now, your web server (e.g. \verb|Apache|) needs to be configured such that \oapoc{} can be reached through the internet.
+Now, your web server (e.g. \verb|Apache|) needs to be configured such that \oapoc{} can be reached through the internet. More detailed instructions on how to configure a web server can be found online.
 
-Everything should be up and running now. This can be validated by navigating with your browser to the configured root URL of your \oapoc{} instance, and submitting a simple MDS (e.g. `CCC'). If something fails, try to look at the configuration in \verb|<target>/atompos/atompos/main/util.py|, and see if anything should be changed there. This should generally not be the case, but might be necessary for some operating systems.
+Everything should be up and running now. This can be validated by navigating with your browser to the configured root URL of your \oapoc{} instance, and submitting a simple MDS (e.g. `\texttt{CCC}'). If something fails, try to look at the configuration in \verb|<target>/atompos/atompos/main/util.py|, and see if anything should be changed there. This should not be the case, but might be necessary for some operating systems.
 
 
 
+\vspace{-.1cm}
 \section[\omfraf]{Setting up \omfraf}
+\vspace{-.1cm}
 Before one can set up \omfraf, the \verb|LEMON| graph library needs to be downloaded\footnote{\url{http://lemon.cs.elte.hu/trac/lemon/wiki/Downloads}} and installed following the installation instructions on the download page. Once this is done, \omfraf's source code should be downloaded:
 \begin{lstlisting}
 $ git clone git@github.com:jimivdw/OMFraF.git <target>
@@ -41,7 +44,7 @@ Once both \oapoc{} and \omfraf{} have been set up, it is time to initialise \ofr
 \begin{lstlisting}
 $ git clone git@github.com:jimivdw/OFraMP.git <target>
 \end{lstlisting}
-Next, the URLs to \oapoc{} and \omfraf{} need to be specified in the configuration file. Open the file \verb|<path>/src/static/js/OFraMP/settings.js| in your favourite editor and look for the lines that look like this:
+Next, the URLs to \oapoc{} and \omfraf{} need to be specified in the configuration file. Open the file \verb|<target>/src/static/js/OFraMP/settings.js| in your preferred editor and look for the lines that look like this:
 \begin{lstlisting}[language=JavaScript]
 var DEFAULT_SETTINGS = {
   oapoc: {
@@ -59,4 +62,4 @@ var DEFAULT_SETTINGS = {
   // ...
 };
 \end{lstlisting}
-Make sure to replace all URLs with those where your \oapoc{} and \omfraf{} servers are located. Now, one last time, configure your web server such that \oframp{} can be reached through the internet. Everything should be up and running, and \oframp{} is ready to be used.
+Make sure to replace all URLs with those where your \oapoc{} and \omfraf{} servers are located. Now, one last time, configure your web server such that \oframp{} can be reached through the internet as well. Everything should be up and running, and \oframp{} will be ready for use.
