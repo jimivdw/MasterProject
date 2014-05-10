@@ -1,13 +1,13 @@
 \chapter{System requirements}
 \chlab{requirements}
 
-In order to be able to run \oframp, certain system requirements need to be met. This chapter will discuss the requirements both for the user (\secref{client_req}) and the servers (\secref{server_req}).
+In order to be able to run \oframp, certain system requirements need to be met. We discuss the requirements for both the user (\secref{client_req}) and the servers (\secref{server_req}) in this chapter.
 
 
-
+\vspace{-.1cm}
 \section{Client requirements}
 \seclab{client_req}
-In order to be able to use \oframp, you need to use a modern browser. There are no real hardware requirements, other than those that are required for the browser you are running. The following browsers are supported:
+In order to be able to use \oframp, a modern browser needs to be used. There are no hardware requirements, other than those of the browser that is used to access the system. We provide support for the following browsers:
 
 \lfootnotetext{chrome}{\url{http://chrome.google.com/}}
 \lfootnotetext{ie}{\url{http://windows.microsoft.com/en-us/internet-explorer/download-ie}}
@@ -43,7 +43,7 @@ Safari\lfootnoteref{safari} & 7 \\\hline
 \end{tabular}
 \end{minipage}
 
-Note that no full support is present for any version of the Opera\lfootnoteref{opera} browser. This is currently not possible due to the fact that they automatically bind mouse gestures to right mouse click and drag actions. As, in \oframp, this is used to make multi-atom selections, it is not possible to provide complete support for the Opera browser.
+Note that no version of the Opera\lfootnoteref{opera} browser is full supported. This is currently not possible due to the fact that, in that browser, mouse gestures are automatically bound to right mouse click and drag actions. As, in \oframp, these actions are used to make multi-atom selections, it is not possible to provide complete support for the Opera browser.
 
 The system has been mostly tested and implemented using Google Chrome\lfootnoteref{chrome}. It is therefore recommended to use the latest version of that browser, in order to get the best experience.
 
@@ -51,9 +51,9 @@ The system has been mostly tested and implemented using Google Chrome\lfootnoter
 
 \section{Server requirements}
 \seclab{server_req}
-As discussed before, \oframp{} consists of three systems: \oapoc{} for retrieving the atom positions, \omfraf{} for getting the fragments, and \oframp{} itself, which is the web service the user connects to. For the best results, it is advised to run all of these systems on separate servers, as both \oapoc{} and \omfraf{} perform quite computationally intensive tasks.
+As discussed before, \oframp{} consists of three systems: \oapoc{} for retrieving the atom positions, \omfraf{} for getting the fragments, and \oframp{} itself, which is the web service the user connects to. For the best results, it is advised to run all of these systems on separate servers, as both \oapoc{} and \omfraf{} have to perform computationally intensive tasks.
 
-For \oframp, it is not necessary to run on a server with very high performance. This server basically only needs to serve two \verb|HTML| pages, a few images, and some \verb|CSS| and \verb|JavaScript| files. \oapoc{} and \omfraf, on the other hand, are a different story. They perform tasks that are both computationally and memory intensive. Even though the processes are currently not parallelised, running the systems on multi-core machines will help with simultaneous processing of multiple users.
+For \oframp, it is not necessary to be run on a server with very high performance. This server basically only needs to serve two \verb|HTML| pages, a few images, and some \verb|CSS| and \verb|JavaScript| files. \oapoc{} and \omfraf, on the other hand, are a different story, as they perform tasks that are both computationally and memory-wise intensive. Even though the processes are currently not parallelised, running the systems on multi-core machines will help with simultaneous processing of multiple users.
 
 \lfootnotetext{oapoc_only}{Only for \oapoc}
 \lfootnotetext{omfraf_only}{Only for \omfraf}
@@ -78,4 +78,4 @@ PHP 4 (or newer) & Python 2.7 \\
 \label{server_req}
 \end{table}
 
-Table~\ref{server_req} shows the requirements for the different servers. Note that a different configuration with a simpler server for \oapoc{} or \omfraf{} may also work, but might not give the desired performance. Furthermore, different software versions may work as well, but have not been tested.
+Table~\ref{server_req} shows the requirements for the different servers. Note that a different configuration with a simpler server for \oapoc{} or \omfraf{} may also work, but might not give the desired performance. Furthermore, different software versions might work as well, but have not been tested.
