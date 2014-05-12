@@ -1,7 +1,6 @@
 \chapter{Implementation}
 \chlab{implementation}
 
-
 % Max. one figure at top of page
 \setcounter{topnumber}{1}
 \setcounter{bottomnumber}{1}
@@ -9,7 +8,6 @@
 \renewcommand{\topfraction}{0.9}
 \renewcommand{\bottomfraction}{0.9}
 \renewcommand{\textfraction}{0.1}
-
 
 A system for fragment-based molecule parameterisation has three distinct tasks: visualising a molecule, finding matching fragments for that molecule, and allowing for interaction with the molecule and its matching fragments. As these tasks can be performed in isolation, we have decided to implement the molecule parameterisation system as three separate tools.
 
@@ -73,7 +71,6 @@ Upon loading \oframp{} for the first time, one should see something similar to w
 \Figref{impl_welcome} also shows the basic design of the system. We decided to go for a minimal look with a simple, purely textual logo. Besides the pastel colours of the logo, all text uses a dark shade of grey. Boxes and buttons all have a white background and a light grey, slightly rounded border.
 
 Overly designed shiny elements are known to distract the user from his tasks~\cite{norman1990interfaces}~(see also \secref{design}). In some cases this may be beneficial, but for the purpose of finding a good molecule parameterisation this is undesirable. Therefore, this minimal design tries to make sure the user stays focused on the task that he needs to perform, rather than on using the tool. Furthermore, the tool still looks good and decent, which should prevent the users from distrusting it due to poor design~\cite{norman2002emotion}~(see also \secref{design}).
-
 
 \subsubsection{Submitting a molecule}
 \seclab{impl_inserting}

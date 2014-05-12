@@ -10,8 +10,10 @@ A lot of different types of data have been gathered. Graphical representations o
 In this chapter, we present the important and most interesting results obtained from the user studies. Each result will shortly be discussed, and further analysed in \chref{discussion}. Some additional results are provided in \appref{results_extra}.
 
 
+
 \section{Action log results}
 From the logging system that was built into \oframp{} for the user studies, a wide range of information can be gathered, spanning from the load time and the number of clicks on atom 5 to the selected conflict solutions and resulting parameterisation. In this section, we present the most interesting results that can be retrieved from the action log.
+
 
 \subsection{Time required}
 \seclab{res_time}
@@ -57,8 +59,6 @@ What is interesting to see here, is the fact that, where in the total parameteri
 It is hard to say what exactly is causing this difference. It is possible that, after using the consuming version, it is hard to get used to the producing version, which is way more restrictive as to what a user can do. This difference is not present when switching from the producing to the consuming version, which can either mean that this switch is easier to make, or that there must be a different cause of the large time difference.
 
 Another possible explanation for the large increase in time required for parameterising molecule 13913 is that there may not be really good matching fragments, enforcing the user to browse through many of them before being able to select what they consider to be the best one. This is better facilitated by the consuming version of the tool, and can potentially have the extreme effects that are observed here.
-
-% Apart from molecule 13913, \figref{graph_time_34} shows that finishing a parameterisation using the consuming version of \oframp{} requires more time than using the producing one. It is also clear that the time required is much more constant, and, with an overall average of around 7 seconds per atom, overall still the fastest, compared to 10 seconds for the consuming version.
 
 
 \subsection{Parameterisation rating}
@@ -107,6 +107,7 @@ In contrast to the total charge differences though, the average charge differenc
 
 As can be seen in \figref{graph_rating_34}, the consuming version of \oframp{} scores better for all individual molecules. What can also be seen there is the fact that, even on average, the charge differences are bigger for the larger molecules than for the smaller ones. Unfortunately, there is no obvious explanation for this. Probably, larger fragments are used for the larger molecules. When one of those fragments is bad, it quickly adds up to the atom charge difference. On the other hand, it is also possible that users felt more comfortable selecting small fragments, which are generally worse matches than the large ones, due to less atoms matching between the two molecules.
 
+
 \subsection{Other results}
 \seclab{res_other}
 
@@ -145,6 +146,7 @@ Furthermore, and more surprisingly, none of the users manually edited a single a
 
 \section{Questionnaire outcomes}
 Besides the log files from the users parameterising a few molecules, some more information can be gathered from the questionnaire users were asked to fill in. This includes the results of the combined \verb|SUS| / \verb|UMUX| questionnaire, their preference verdict on the two versions, and other comments about the system. We will discuss all of these in the next sections.
+
 
 \subsection{\texttt{SUS} / \texttt{UMUX} results}
 \seclab{res_sus}
@@ -207,6 +209,7 @@ The general questionnaire users were asked to submit after they were completely 
 
 Additionally, some users commented that the consuming version allowed for easier comparison of fragments, compared to having to make a combination of rejects and undos in the producing version. One user even commented this made the parameterisation process a lot quicker, though the timing results discussed before tell a different story. This means that the consuming version \emph{feels} faster, and suggests that the parameterisation process using the producing version may be considered to be tedious.
 
+
 \subsection{Comments}
 \seclab{res_comments}
 Following the \verb|SUS| and \verb|UMUX| questions, users were asked to answer a few open questions and had room for some comments. In the next sections, we will discuss these comments for both versions of \oframp{} and the suggestions they had for improving the tool. As we have not observe any significant difference between the comments of the people for the different orders in which they used the system, no distinction will be made between those comments.
@@ -221,7 +224,6 @@ There were some critical notes about the user interface as well. Some users foun
 There were also some disagreements between different users. Where some really liked the colour coding of the atoms, and especially the indication of the conflicting fragments, others found the used colours confusing and suggested using different ones. It was also noted that it made no real sense for users to manually decide which (group of) atoms needed to be selected, while others highly valued this.
 
 Finally, many users noted that they would like to be able to manually alter or insert charges for certain atoms. As was already suspected from the analysis of the action logs, users did not find the charge edit functionality in the selection details window. A user also commented that he would like to be able to see what fragments have been  used to parameterise an atom. This is available in the same place where the charges can be edited, and further confirms the idea that it has to be positioned in a more prominent spot, or indicated in a better way.
-
 
 \subsubsection{Producing version}
 In their comments about the producing version of \oframp, users were, again, quite positive about the interface. They noted it to be clear and running smooth, and liked the visualisation of the molecule. Additionally, they found the tool extremely easy to learn, and mentioned it helped them to parameterise a molecule very quickly. It was mentioned again that fragment-based molecule parameterisation is a good concept to speed up molecule parameterisation. Finally, the ability to view the original molecule was found to be truly valuable.

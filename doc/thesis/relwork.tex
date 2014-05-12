@@ -4,11 +4,13 @@
 Quite a lot of literature is available that relates to interaction design for systems like the tool for fragment-based molecule parameterisation that we discuss in this thesis. The literature has been divided into four different categories, each of which discusses a number of papers. Additionally, supporting literature for the work discussed here can be found in \appref{relwork_extra}.
 
 
+
 \section{Molecule parameterisation}
 \seclab{simulations}
 For running molecular simulations, a force-field model describing a molecule's interatomic interactions is required~\cite{canzar2012charge}. In the simulations, the force field requires a specific topology, which includes the molecule's atom types, bonds, bond angles and atomic charges. Using this information, a molecule can be divided into a set of non-overlapping charge groups: sets of \emph{connected} atoms each of whose charge is ideally equal to the molecule's total charge. The work of Canzar, El-Kebir, et al. shows the need for finding the atomic partial charges of a molecule. These are required for finding the charge groups, which in turn are essential for running molecule simulations.
 
 Malde et al. present the Automated Force Field Topology Builder~(ATB)~\cite{malde2011automated}. The ATB is a web service that provides topologies which can be used in molecular simulations. It both acts as a repository for molecules that have already been parameterised, and is able to parameterise molecules itself. This automatic parameterisation involves quantum mechanical calculations, which are very complex and computationally intensive. As it is believed that there is no way to speed up these calculations, we developed a new approach. By comparing the charges found with the new approach to the charges that are present in the ATB topologies, this new approach can be validated.
+
 
 
 \section{Interaction design}
@@ -18,6 +20,7 @@ One of the most important aspects of design is visibility~\cite{norman2002design
 When doing interaction design, one has to keep in mind that the appearance of a tool can have great impact on how well the user of that tool can carry out the tasks the tool is intended for~\cite{norman2002emotion}. Tools that are unattractive tend to focus the mind, which leads to better concentration. For tasks where something needs to be done quickly, this is good, but in cases where creative thinking is required, this will not provide a satisfying result. In that case, the thought processes should be broadened by having something that looks really good, thereby slightly distracting the user and allowing him to use creative thinking.
 
 Not only the appearance of software tools is important, the form in which the information it comprises is presented can make a big difference as well. For certain types of data, it is highly beneficial to be represented in a visual form. This allows the viewers to perceive patterns and relationships that might be missed in tables and numbers~\cite{gallopoulos1994computer}. Providing users with the ability to modify view parameters at runtime can increase the benefits even further, as they then have the freedom to explore every aspect of the data. However, as discussed before, these options can cause application users to get lost in the list of options, no longer being able to execute the task they want to perform. Therefore, the options should generally be located in some initially closed menu.
+
 
 \subsection[Principles]{Interaction design principles}
 \seclab{id_principles}
@@ -33,6 +36,7 @@ Norman and Nielsen present the following principles of interaction design that a
 \item Reliability: operations should work and events should not happen randomly.
 \end{itemize}
 
+
 \subsection{Automation}
 \seclab{id_automation}
 Software and artificial intelligence developments allow for increasing possibilities in automating processes. The amount of interaction between humans and computers can be reduced, allowing humans to concentrate on other tasks~\cite{payne2000varying}. However, it depends on the situation when automation should be applied and to what extent. Automation reduces people's situational awareness, which may be undesirable in some environments. Furthermore, it may leave users feeling out of control when decisions are being made autonomously, rather than having a system that is only giving advise.
@@ -45,9 +49,11 @@ An example of a system that has implemented this cooperative interaction design 
 
 At every step in \verb|SALT|'s incremental parameter assignment, the proposed values are provided in such order that the ones having the least negative effect come first. However, as this does not consider future assignments of other parameters, this means that the assignment may not always converge to a proper solution. This is where the previously discussed backtracking will be useful to see where the `wrong' decision has been made. In two field studies, \verb|SALT| has proven to be a good and useful tool for problem solving. However, it has also been found that the required degree of interaction can vary among different systems. Therefore, one should always study the context of a system before deciding on the level of automation that system will have.
 
+
 \subsection{Abstraction}
 \seclab{id_abstraction}
 In order to be able to properly discuss an interaction design, this design needs to be represented at an abstract level. In~\cite{brehmer2013multi}, Brehmer and Munzner describe a multilevel typology for visualisation tasks. This typology consists of the answers to three questions: \textit{why} the task is performed, \textit{how} the task is performed and \textit{what} it pertains to. A list of predefined nodes is provided, using which those questions must be answered. By comparing multiple of these typologies, one is able to reason about the differences between two systems on an abstract level, which can be used to hypothesise what system will work better under which circumstances.
+
 
 
 \section{Molecule software}
@@ -59,6 +65,7 @@ An example of a previously offline, closed source tool is \verb|JSmol|, original
 With the ongoing migration of molecule software to the web, new devices, such as smartphones and tablets, will be able to run the tools. As these devices promote different ways of user interaction and often have smaller screens, designs of the molecule software need to be reconsidered. \verb|TB Mobile| is a mobile app for identification of potential anti-tuberculosis molecules~\cite{ekins2013tb}. The app is structured in such way that there is always a small control bar at the top, and a large area for showing the content. Interaction with the app is handled by a small number of large buttons, allowing for easy touch controls. In order to work for different screen sizes, everything in the content area is scalable, and, in case not everything fits on the screen, scrollable. Usage of the app in practice has shown that it helps to improve the work flow of tuberculosis researchers, by lowering the barriers for accessing the information it provides.
 
 The issue of showing a lot of data on a limited-size screen is also addressed by Ertl and Rohde~\cite{ertl2012molecule}. They took the concept of a word cloud, and transformed that to the so called Molecule Cloud. Here the highest scored molecules are the biggest and the lowest are the smallest, just like the highest and lowest scored words in a word cloud. None of the molecules overlap, and the sizes are divided such that the whole available screen space is filled. User studies have shown that these molecule clouds provide an easy way of finding the most relevant molecules. However, when many molecules need to be displayed in a small area, this means that either all molecules will be very small, or the lowest scored molecules need to be left out completely. Depending on the situation, this may not be desirable.
+
 
 \subsection{Molecule visualisation}
 \seclab{ms_visualisation}
@@ -72,9 +79,11 @@ In order to find the positional data of a molecule, it is possible to implement 
 
 As a molecule can essentially be seen as a graph of bounded degree with labelled nodes and edges, certain aspects of graph visualisation can be used when drawing molecules~\cite{boissonnat2001structure}. For very large molecules, graph reduction algorithms may provide a way to fit the whole molecule on a limited size screen~\cite{batagelj2004pajek}. Nodes of that reduced molecule can then be expanded to reveal hidden parts of the molecule, and cut-outs of the whole molecule can be shown to see only its relevant parts. In some cases, however, it may be necessary for the application user to see every atom of the molecule at all times. It is therefore application dependent if, and to what extent graph visualisation aspects can be applied to molecule visualisation.
 
+
 \subsection{General requirements}
 \seclab{ms_requirements}
 In the earlier discussed study on the use of molecule visualisation software in chemistry education in Finnish secondary education (see \secref{ms_visualisation}), and another study on the user of computer programs for biology teaching~\cite{taylor2013interface}, several requirements for molecule visualisation programs have been identified. Molecule software should be easy to use, visually appealing, able to save information, and moderately priced~\cite{aksela2008computer}. Furthermore, it should allow its users to rotate and scale molecules, and have logical ways of interaction. Additionally, it is highly beneficial to have different visual representations of the molecule, or to at least be able to modify the visualisation parameters at runtime. This allows the application user to fully tailor the visualisation to his needs. Finally, a clear and extensive manual is needed that not only describes the basic features of the system, but also the more advanced aspects in great detail.
+
 
 
 \section{User studies}

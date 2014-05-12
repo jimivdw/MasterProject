@@ -37,12 +37,6 @@
 	\thispagestyle{empty}
 	\hspace*{1em} 	% a fake element on the page (else texpos absolute option
 			% doesn't work)
-     \begin{textblock*}{15cm}(5cm, 24cm)
-          \begin{rotate}{55}
-			\noindent\scshape\ENORMOUS\textcolor{light}{
-				CONCEPT}
-		\end{rotate}
-     \end{textblock*}
 	\begin{textblock*}{12cm}(5cm,3cm)
 		\noindent\large\scshape Master Software Engineering\\[2ex]
 		\includegraphics[height=1cm]{uva_logo.pdf}

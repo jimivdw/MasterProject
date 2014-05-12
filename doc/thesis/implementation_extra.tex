@@ -15,15 +15,14 @@ As we can see in \figref{oframp_class}, a \verb|JavaScript| \verb|OFraMP| instan
 \figlab{oframp_class}
 \end{figure}
 
+
 \subsection{Visualisation}
 Once a molecule data string has been entered into the system, the positions of its atoms and the connections between them are retrieved from \oapoc~(see \secref{impl2_oapoc}). This data is then transformed to a \verb|JavaScript| \verb|Molecule| instance, as can be seen in \figref{oframp_class}. \verb|Molecule| instances can be visualised using a \verb|MoleculeViewer|, which will draw the molecule onto an \verb|HTML| \verb|canvas|.
-
 
 \subsubsection{Deoverlapping}
 As discussed in \secref{rw2_visualisation} and~\cite{clark2006structure}, overlap in atoms and bonds still occurs in modern molecule visualisation software. In the case of \oframp, where the atoms have a relatively large radius to make room for displaying the charge, chances are even higher. To temper the effects of this, a simple deoverlap algorithm has been implemented.
 
 \Figref{impl_deoverlap} shows the three different types of deoverlapping that \oframp{} can perform. Here, the light blue line indicates a vector that is used to determine if there is any overlap, the red line indicates the overlapping part, and the green arrow~(of equal length to the red line) shows where the atom centre should be moved to in order to resolve the overlap.
-
 
 By default, for performance reasons, only the deoverlapping of atoms is enabled. This is the easiest to detect and solve, but also the most important one. Atoms that overlap almost entirely might not be spotted by the user, and atom types and charges may become hidden 
 \begin{figure}
@@ -52,6 +51,7 @@ When the user feels he is completely done, or at any other point in the process,
 \subsection{Modifying visualisation parameters}
 In order to allow for modification of visualisation parameters at runtime, a slightly modified version of the \verb|JavaScript| library \verb|dat-gui|~\cite{data2011dat} has been used. Using the extension we made, this library can automatically generate a user interface from a \verb|JSON| object that contains the settings. Additionally, it can be provided with an object that contains various settings for the interface itself, such as which widget to use, and change event handlers.
 
+
 \subsection{Saving progress}
 Throughout the whole process, the user has the ability to download a checkpoint file that contains all his progress up to that point. This so called \oframp\ State Storage~(OSS) file can be loaded back into the system later, such that it functions as some sort of save file. In addition to the typical save file contents, OSS files also store the action history. This means that there is absolutely no penalty to stopping parameterisation at some point and continuing on it some time later. It allows users to work on a molecule for a bit, even if they do not have enough time to fully complete it.
 
@@ -73,8 +73,10 @@ When an \verb|ATB ID| is supplied to \oapoc, the accompanying molecule data stri
 \seclab{impl2_omfraf}
 \omfraf{} is the system that is responsible for retrieving matching fragments for the examined molecule. First, fragments will need to be generated, after which they can be queried. Additionally, it is possible to retrieve information about the available repositories. We will discuss all of this in the next sections.
 
+
 \subsection{Getting the repositories}
 In order to be able to select a repository, the user needs to know what repositories are available. As can be seen in \figref{network_diagram}, a list of repositories can be retrieved by sending an empty \verb|JSON| object to \omfraf's \verb|/repos| URL. As of now, this list consists of only the repository titles, but this may be extended in a future version.
+
 
 \subsection{Generating fragments}
 \seclab{impl2_generating}
