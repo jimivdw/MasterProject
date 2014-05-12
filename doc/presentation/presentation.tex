@@ -1,0 +1,81 @@
+\documentclass{beamer}
+
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{ulem}
+\usepackage{tikz}
+
+\newcommand{\image}[2][]{%
+  \IfFileExists{#2}%
+    {\includegraphics[#1]{#2}}%
+    {%
+      \begingroup\fboxsep=-\fboxrule
+      \fbox{%
+        \rule{150pt}{0pt}%
+        \rule{0pt}{100pt}%
+      }%
+      \endgroup%
+    }%
+}
+
+\usetheme{Madrid}
+\title[ID for Molecule Parameterisation]{Interaction Design for Fragment-Based Molecule Parameterisation}
+\author[JvdW]{Jimi M. van der Woning (6061400)\\\url{Jimi.vanderWoning@student.uva.nl}}
+\institute[UvA, CWI]{\parbox{3.7cm}{\center\includegraphics[height=1.5cm]{uva_logo}\\[.1cm]Universiteit van Amsterdam} \parbox{.5cm}{\center\vspace{1.5cm}\ \\[.1cm]and} \parbox{4.5cm}{\center\includegraphics[height=1.5cm]{cwi_logo}\\[.1cm]Centrum Wiskunde \& Informatica}\\[.5cm]{\bf Supervisors:} Mohammed El-Kebir, Gunnar W. Klau and Tijs van der Storm}
+
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\addtobeamertemplate{frametitle}{}{%
+\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north east,yshift=2pt] at (current page.north east) {\includegraphics[height=0.8cm]{cwi_logo}};
+\node[anchor=north east,yshift=2pt,xshift=-2cm] at (current page.north east) {\includegraphics[height=0.8cm]{uva_logo}};
+\end{tikzpicture}}
+
+\begin{frame}{Contents}
+\setcounter{tocdepth}{2}
+\tableofcontents
+\end{frame}
+
+\section{Introduction}
+\subsection{Chemical concepts}
+\begin{frame}{Introduction}{Chemical concepts}
+  \begin{columns}
+   \column{0.4\textwidth}
+     \begin{figure}
+      \centering
+      \image[width=\textwidth]{img/molecule.pdf}
+      \caption{Some molecule~\cite{atb2014ethanamine}.}
+     \end{figure}
+  
+   \column{0.6\textwidth}
+    \begin{itemize}
+      \item A molecule;
+      \item Is very;
+      \item Molecular, right?
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+
+\subsection{Problem description}
+\begin{frame}{Introduction}{Problem description}
+\begin{itemize}
+\item There are many problems;
+\item We solve them!
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]{Bibliography}
+\nocite{all, the, things}
+\bibliographystyle{abbrv}
+\tiny{\bibliography{../thesis/references}}
+\end{frame}
+
+
+\end{document}
