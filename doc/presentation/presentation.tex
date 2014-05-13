@@ -1,9 +1,8 @@
 \documentclass{beamer}
 
-\usepackage{graphicx}
-\usepackage{hyperref}
-\usepackage{ulem}
+\usepackage[english,UKenglish]{babel}
 \usepackage{tikz}
+\usepackage{datetime}
 
 \newcommand{\image}[2][]{%
   \IfFileExists{#2}%
@@ -18,10 +17,23 @@
     }%
 }
 
+\newdate{swat_pres_date}{16}{05}{2014}
+
+\definecolor{cwi-red}{cmyk}{0,.9058,.7068,.251}
+\definecolor{cwi-blue}{cmyk}{.7,.4,.4,0}
+\definecolor{cwi-green}{cmyk}{.41,.18,.43,.1}
+\definecolor{cwi-orange}{cmyk}{.14,.35,.65,.15}
+\definecolor{cwi-yellow}{cmyk}{.14,.20,.65,.16}
+
 \usetheme{Madrid}
-\title[ID for Molecule Parameterisation]{Interaction Design for Fragment-Based Molecule Parameterisation}
-\author[JvdW]{Jimi M. van der Woning (6061400)\\\url{Jimi.vanderWoning@student.uva.nl}}
-\institute[UvA, CWI]{\parbox{3.7cm}{\center\includegraphics[height=1.5cm]{uva_logo}\\[.1cm]Universiteit van Amsterdam} \parbox{.5cm}{\center\vspace{1.5cm}\ \\[.1cm]and} \parbox{4.5cm}{\center\includegraphics[height=1.5cm]{cwi_logo}\\[.1cm]Centrum Wiskunde \& Informatica}\\[.5cm]{\bf Supervisors:} Mohammed El-Kebir, Gunnar W. Klau and Tijs van der Storm}
+\useinnertheme{rectangles}
+\usecolortheme[named=cwi-blue]{structure}
+\beamertemplatenavigationsymbolsempty
+
+\title[Interaction Design for Molecule Param.]{Interaction Design for Fragment-Based Molecule Parameterisation}
+\author[Jimi van der Woning]{Jimi M. van der Woning\\\url{Jimi.vanderWoning@student.uva.nl}}
+\institute[UvA, CWI]{\parbox{4.1cm}{\center\scshape\includegraphics[height=1.5cm]{uva_logo}\\[.1cm]University of Amsterdam} \parbox{.5cm}{\center\vspace{1.5cm}\ \\[.1cm]and} \parbox{5.2cm}{\center\scshape\includegraphics[height=1.5cm]{cwi_logo}\\[.1cm]Centrum Wiskunde \& Informatica}\\[1cm]{\bf Supervisors:} Mohammed El-Kebir, Gunnar W. Klau, and Tijs van der Storm}
+\date{\displaydate{swat_pres_date}}
 
 
 \begin{document}
