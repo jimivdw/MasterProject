@@ -36,6 +36,11 @@
     \ \insertcaption%
 }
 
+\newlength{\wideitemsep}
+\setlength{\wideitemsep}{\itemsep}
+\addtolength{\wideitemsep}{.6em}
+\let\olditem\item
+\renewcommand{\item}{\setlength{\itemsep}{\wideitemsep}\olditem}
 
 \title[Interaction Design for Molecule Param.]{Interaction Design for Fragment-Based Molecule Parameterisation}
 \author[Jimi van der Woning]{Jimi M. van der Woning\\\url{Jimi.vanderWoning@student.uva.nl}}
@@ -46,6 +51,8 @@
 
 
 \begin{document}
+
+\setlength{\itemsep}{20pt}
 
 
 
@@ -82,11 +89,12 @@
       \caption{Ethanamine molecule~\cite{atb2014ethanamine}.}
      \end{figure}
   
-   \column{0.6\textwidth}
+   \column{0.5\textwidth}
     \begin{itemize}
-      \item A molecule;
-      \item Is very;
-      \item Molecular, right?
+      \item Everything consists of molecules;
+      \item Molecules consist of atoms and bonds;
+      \item Atoms have a charge;
+      \item Atoms can be grouped in charge groups.
     \end{itemize}
   \end{columns}
 \end{frame}
@@ -94,10 +102,21 @@
 
 \subsection{Problem analysis}
 \begin{frame}{x}{}
-TODO:
-\begin{itemize}
-\item Create this slide\ldots
-\end{itemize}
+  \begin{columns}
+   \column{0.3\textwidth}
+    \begin{itemize}
+     \item Current methods are too slow;
+     \item Possible to parameterise a molecule based on fragments of other molecules;
+     \item No existing software for this.
+    \end{itemize}
+
+   \column{0.6\textwidth}
+     \begin{figure}
+      \centering
+      \image[width=.4\textwidth]{img/molecule.pdf}
+      \caption{Matching fragments.}
+     \end{figure}
+  \end{columns}
 \end{frame}
 
 
@@ -197,8 +216,7 @@ TODO:
 \end{frame}
 
 
-
-\section{Conclusion}
+\subsection{Future work}
 \begin{frame}{x}{}
 TODO:
 \begin{itemize}
@@ -208,7 +226,7 @@ TODO:
 
 
 
-\section{Future work}
+\section{Conclusion}
 \begin{frame}{x}{}
 TODO:
 \begin{itemize}
