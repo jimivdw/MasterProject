@@ -42,20 +42,21 @@
 \titlepage
 \end{frame}
 
-\addtobeamertemplate{frametitle}{}{%
+\addtobeamertemplate{frametitle}{\let\insertframetitle\insertsectionhead\let\insertframesubtitle\insertsubsectionhead}{%
 \begin{tikzpicture}[remember picture,overlay]
 \node[anchor=north east,yshift=2pt] at (current page.north east) {\includegraphics[height=0.8cm]{cwi_logo}};
 \node[anchor=north east,yshift=2pt,xshift=-2cm] at (current page.north east) {\includegraphics[height=0.8cm]{uva_logo}};
 \end{tikzpicture}}
 
-\begin{frame}{Contents}
+\section*{Contents}
+\begin{frame}{x}{}
 \setcounter{tocdepth}{2}
 \tableofcontents
 \end{frame}
 
 \section{Introduction}
 \subsection{Chemical concepts}
-\begin{frame}{Introduction}{Chemical concepts}
+\begin{frame}{x}{}
   \begin{columns}
    \column{0.4\textwidth}
      \begin{figure}
@@ -74,16 +75,17 @@
 \end{frame}
 
 
-\subsection{Problem description}
-\begin{frame}{Introduction}{Problem description}
+\subsection{Problem analysis}
+\begin{frame}{x}{}
+TODO:
 \begin{itemize}
-\item There are many problems;
-\item We solve them!
+\item Create this slide\ldots
 \end{itemize}
 \end{frame}
 
 
-\begin{frame}[allowframebreaks]{Bibliography}
+\section*{Bibliography}
+\begin{frame}[allowframebreaks]{x}{}
 \nocite{all, the, things}
 \bibliographystyle{abbrv}
 \tiny{\bibliography{../thesis/references}}
