@@ -28,6 +28,7 @@
 \usetheme{Madrid}
 \useinnertheme{rectangles}
 \usecolortheme[named=cwi-blue]{structure}
+\setbeamertemplate{blocks}[default]
 \beamertemplatenavigationsymbolsempty
 
 \setbeamertemplate{caption}{%
@@ -40,7 +41,8 @@
 \setlength{\wideitemsep}{\itemsep}
 \addtolength{\wideitemsep}{.6em}
 \let\olditem\item
-\renewcommand{\item}{\setlength{\itemsep}{\wideitemsep}\olditem}
+\renewcommand{\item}[1][\wideitemsep]{\setlength{\itemsep}{#1}\olditem}
+\def\sitem{\item[.2em]}
 
 \title[Interaction Design for Molecule Param.]{Interaction Design for Fragment-Based Molecule Parameterisation}
 \author[Jimi van der Woning]{Jimi M. van der Woning\\\url{Jimi.vanderWoning@student.uva.nl}}
@@ -105,17 +107,22 @@
   \begin{columns}
    \column{0.3\textwidth}
     \begin{itemize}
-     \item Current methods are too slow;
-     \item Possible to parameterise a molecule based on fragments of other molecules;
-     \item No existing software for this.
+     \item<1-> Current methods are too slow;
+     \item<2-> Possible to parameterise a molecule based on fragments of other molecules;
+     \item<3-> No existing software for this.
     \end{itemize}
 
-   \column{0.6\textwidth}
-     \begin{figure}
-      \centering
-      \image[width=.4\textwidth]{img/molecule.pdf}
-      \caption{Matching fragments.}
-     \end{figure}
+   \column{0.6\textwidth}<2->
+    \begin{figure}
+     \vspace{-1em}
+     \frame{\includegraphics[width=.42\textwidth]{img/match_target.pdf}}%
+     \\[.3cm]
+     \frame{\includegraphics[width=.42\textwidth]{img/match_good.pdf}}%
+     \qquad
+     \frame{\includegraphics[width=.42\textwidth]{img/match_none.pdf}}
+     \vspace{-.2cm}
+     \caption{Fragment matching.}
+    \end{figure}
   \end{columns}
 \end{frame}
 
@@ -123,48 +130,63 @@
 
 \section{Approach}
 \begin{frame}{x}{}
-TODO:
 \begin{itemize}
-\item Create this slide\ldots
+\item<1-> Design and implement two versions:
+      \begin{itemize}
+      \sitem Consuming: non-automated;
+      \sitem Producing: semi-automatic.
+      \end{itemize}
+\item<2-> Compare in a user study:
+      \begin{itemize}
+      \sitem Parameterise molecules in both versions;
+      \sitem Positive SUS / UMUX questionnaire;
+      \sitem General questionnaire.
+      \end{itemize}
+\end{itemize}
+\end{frame}
+
+
+
+\section{Hypotheses}
+\begin{frame}{x}{}
+\begin{itemize}
+\item<1-> It is possible to parameterise a molecule based on fragments of other molecules; both correctly and in a reasonable amount of time.
+\item<2-> The producing version will take the least time to use.
+\item<3-> The consuming version will yield more accurate results.
+\item<4-> For a tool for fragment-based molecule parameterisation, it is better for users to have full, manual control, than to automate certain parts.
 \end{itemize}
 \end{frame}
 
 
 
 \section{Interaction Design}
-\subsection{Common start}
 \begin{frame}{x}{}
-TODO:
-\begin{itemize}
-\item Create this slide\ldots
-\end{itemize}
-\end{frame}
+ \begin{columns}
+  \column{.45\textwidth}
+   \begin{block}{Consuming version}
+    \begin{enumerate}
+     \item<2-> Insert a molecule;
+     \item<3-> Select atom(s);
+     \item<4-> Compare fragments;
+     \item<5-> Pick a fragment;
+     \item<9-> Fine-tune charges;
+     \item<10-> Download result.
+    \end{enumerate}
+   \end{block}
 
+  \column{.45\textwidth}
+   \begin{block}{Producing version}
+    \begin{enumerate}
+     \item<2-> Insert a molecule;
+     \item<6-> Click ``Start'' button;
+     \item<7-> Inspect suggested fragment;
+     \item<8-> Accept/Reject fragment;
+     \item<9-> Fine-tune charges;
+     \item<10-> Download result.
+    \end{enumerate}
+   \end{block}
 
-\subsection{Consuming version}
-\begin{frame}{x}{}
-TODO:
-\begin{itemize}
-\item Create this slide\ldots
-\end{itemize}
-\end{frame}
-
-
-\subsection{Producing version}
-\begin{frame}{x}{}
-TODO:
-\begin{itemize}
-\item Create this slide\ldots
-\end{itemize}
-\end{frame}
-
-
-\subsection{Common ending}
-\begin{frame}{x}{}
-TODO:
-\begin{itemize}
-\item Create this slide\ldots
-\end{itemize}
+ \end{columns}
 \end{frame}
 
 

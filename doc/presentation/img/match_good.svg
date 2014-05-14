@@ -12,13 +12,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="333.19342"
-   height="314.44016"
-   viewBox="0 0 266.78812 251.23527"
+   width="319.99896"
+   height="319.9957"
+   viewBox="0 0 256.22331 255.67411"
    id="svg2"
    version="1.1"
    inkscape:version="0.48.2 r9819"
-   sodipodi:docname="propylamine.svg">
+   sodipodi:docname="match_good.svg">
   <metadata
      id="metadata204">
     <rdf:RDF>
@@ -27,7 +27,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -46,13 +46,13 @@
      inkscape:window-height="688"
      id="namedview200"
      showgrid="false"
-     fit-margin-top="-65"
-     fit-margin-left="-8"
+     fit-margin-top="-58.82"
+     fit-margin-left="-20.57"
      fit-margin-right="0"
      fit-margin-bottom="0"
      inkscape:zoom="0.97069409"
-     inkscape:cx="-24.230582"
-     inkscape:cy="224.79226"
+     inkscape:cx="-36.800603"
+     inkscape:cy="224.17377"
      inkscape:window-x="0"
      inkscape:window-y="25"
      inkscape:window-maximized="1"
@@ -68,24 +68,24 @@
      sodipodi:cy="-255.299"
      sodipodi:rx="36.7696"
      sodipodi:ry="32.526901"
-     style="fill:#9f9f9f;stroke:none;fill-opacity:1"
-     transform="translate(-158.8056,251.97692)" />
+     style="fill:#9f9f9f;fill-opacity:1;stroke:none"
+     transform="translate(-168.87041,256.92051)" />
   <text
-     x="44.706371"
-     y="-9.7221155"
+     x="34.641548"
+     y="-4.7785416"
      font-size="14.00"
      id="text37"
      style="font-size:14px;text-anchor:middle;font-family:'Times Roman,serif'">C</text>
   <text
-     x="44.706371"
-     y="9.2779016"
+     x="34.641548"
+     y="14.221477"
      font-size="14.00"
      id="text39"
      style="font-size:14px;text-anchor:middle;font-family:'Times Roman,serif'">0.117</text>
   <g
      class="edge"
      id="edge26"
-     transform="translate(-158.8056,251.97692)">
+     transform="translate(-168.87041,256.92051)">
     <title
        id="title42">1--6</title>
     <path
@@ -97,7 +97,7 @@
   <g
      class="edge"
      id="edge24"
-     transform="translate(-158.8056,251.97692)">
+     transform="translate(-168.87041,256.92051)">
     <title
        id="title56">2--6</title>
     <path
@@ -109,7 +109,7 @@
   <g
      class="edge"
      id="edge16"
-     transform="translate(-158.8056,251.97692)">
+     transform="translate(-168.87041,256.92051)">
     <title
        id="title112">6--7</title>
     <path
@@ -129,24 +129,24 @@
      sodipodi:cy="-183.49899"
      sodipodi:rx="36.7696"
      sodipodi:ry="32.526901"
-     style="fill:#599855;stroke:none;fill-opacity:1"
-     transform="translate(-158.8056,251.97692)" />
+     style="fill:#599855;fill-opacity:1;stroke:none"
+     transform="translate(-168.87041,256.92051)" />
   <text
-     x="95.54937"
-     y="62.078026"
+     x="85.48455"
+     y="67.021606"
      font-size="14.00"
      id="text121"
      style="font-size:14px;text-anchor:middle;font-family:'Times Roman,serif'">C</text>
   <text
-     x="95.54937"
-     y="81.078041"
+     x="85.48455"
+     y="86.021622"
      font-size="14.00"
      id="text123"
      style="font-size:14px;text-anchor:middle;font-family:'Times Roman,serif'">0.326</text>
   <g
      class="edge"
      id="edge14"
-     transform="translate(-158.8056,251.97692)">
+     transform="translate(-168.87041,256.92051)">
     <title
        id="title126">6--9</title>
     <path
@@ -166,24 +166,24 @@
      sodipodi:cy="-114.507"
      sodipodi:rx="36.977001"
      sodipodi:ry="32.526901"
-     style="fill:#4dff40;stroke:none;stroke-opacity:1;fill-opacity:1"
-     transform="translate(-158.8056,251.97692)" />
+     style="fill:#4dff40;fill-opacity:1;stroke:none"
+     transform="translate(-168.87041,256.92051)" />
   <text
-     x="145.62639"
-     y="131.07002"
+     x="135.56158"
+     y="136.01358"
      font-size="14.00"
      id="text135"
      style="font-size:14px;text-anchor:middle;font-family:'Times Roman,serif'">N</text>
   <text
-     x="145.62639"
-     y="150.07002"
+     x="135.56158"
+     y="155.01361"
      font-size="14.00"
      id="text137"
      style="font-size:14px;text-anchor:middle;font-family:'Times Roman,serif'">-1.062</text>
   <g
      class="edge"
      id="edge12"
-     transform="translate(-158.8056,251.97692)">
+     transform="translate(-168.87041,256.92051)">
     <title
        id="title140">8--9</title>
     <path
@@ -203,24 +203,24 @@
      sodipodi:cy="-99.1371"
      sodipodi:rx="41.216702"
      sodipodi:ry="32.526901"
-     style="fill:#599855;stroke:none;fill-opacity:1"
-     transform="translate(-158.8056,251.97692)" />
+     style="fill:#599855;fill-opacity:1;stroke:none"
+     transform="translate(-168.87041,256.92051)" />
   <text
-     x="225.0714"
-     y="146.44002"
+     x="215.00659"
+     y="151.38361"
      font-size="14.00"
      id="text149"
      style="font-size:14px;text-anchor:middle;font-family:'Times Roman,serif'">H</text>
   <text
-     x="225.0714"
-     y="165.43993"
+     x="215.00659"
+     y="170.38351"
      font-size="14.00"
      id="text151"
      style="font-size:14px;text-anchor:middle;font-family:'Times Roman,serif'">0.386</text>
   <g
      class="edge"
      id="edge10"
-     transform="translate(-158.8056,251.97692)">
+     transform="translate(-168.87041,256.92051)">
     <title
        id="title154">8--10</title>
     <path
@@ -240,24 +240,24 @@
      sodipodi:cy="-33.5"
      sodipodi:rx="41.216702"
      sodipodi:ry="32.526901"
-     style="fill:#599855;stroke:none;fill-opacity:1"
-     transform="translate(-158.8056,251.97692)" />
+     style="fill:#599855;fill-opacity:1;stroke:none"
+     transform="translate(-168.87041,256.92051)" />
   <text
-     x="136.52937"
-     y="212.07704"
+     x="126.46456"
+     y="217.02063"
      font-size="14.00"
      id="text163"
      style="font-size:14px;text-anchor:middle;font-family:'Times Roman,serif'">H</text>
   <text
-     x="136.52937"
-     y="231.07703"
+     x="126.46456"
+     y="236.02061"
      font-size="14.00"
      id="text165"
      style="font-size:14px;text-anchor:middle;font-family:'Times Roman,serif'">0.386</text>
   <g
      class="edge"
      id="edge8"
-     transform="translate(-158.8056,251.97692)">
+     transform="translate(-168.87041,256.92051)">
     <title
        id="title168">8--11</title>
     <path
@@ -277,24 +277,24 @@
      sodipodi:cy="-121.413"
      sodipodi:rx="41.216702"
      sodipodi:ry="32.526901"
-     style="fill:#9f9f9f;stroke:none;stroke-opacity:1;fill-opacity:1"
-     transform="translate(-158.8056,251.97692)" />
+     style="fill:#9f9f9f;fill-opacity:1;stroke:none"
+     transform="translate(-168.87041,256.92051)" />
   <text
-     x="43.741375"
-     y="124.16402"
+     x="33.676552"
+     y="129.1076"
      font-size="14.00"
      id="text177"
      style="font-size:14px;text-anchor:middle;font-family:'Times Roman,serif'">H</text>
   <text
-     x="43.741375"
-     y="143.16402"
+     x="33.676552"
+     y="148.1076"
      font-size="14.00"
      id="text179"
      style="font-size:14px;text-anchor:middle;font-family:'Times Roman,serif'">-0.018</text>
   <g
      class="edge"
      id="edge6"
-     transform="translate(-158.8056,251.97692)">
+     transform="translate(-168.87041,256.92051)">
     <title
        id="title182">9--12</title>
     <path
@@ -314,24 +314,24 @@
      sodipodi:cy="-217.689"
      sodipodi:rx="41.216702"
      sodipodi:ry="32.526901"
-     style="fill:#9f9f9f;stroke:none;fill-opacity:1"
-     transform="translate(-158.8056,251.97692)" />
+     style="fill:#9f9f9f;fill-opacity:1;stroke:none"
+     transform="translate(-168.87041,256.92051)" />
   <text
-     x="171.09138"
-     y="27.888029"
+     x="161.02658"
+     y="32.8316"
      font-size="14.00"
      id="text191"
      style="font-size:14px;text-anchor:middle;font-family:'Times Roman,serif'">H</text>
   <text
-     x="171.09138"
-     y="46.888023"
+     x="161.02658"
+     y="51.831596"
      font-size="14.00"
      id="text193"
      style="font-size:14px;text-anchor:middle;font-family:'Times Roman,serif'">-0.018</text>
   <g
      class="edge"
      id="edge4"
-     transform="translate(-158.8056,251.97692)">
+     transform="translate(-168.87041,256.92051)">
     <title
        id="title196">9--13</title>
     <path
