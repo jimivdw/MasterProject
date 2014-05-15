@@ -64,7 +64,7 @@
 
 
 
-\addtobeamertemplate{frametitle}{\let\insertframetitle\insertsectionhead\let\insertframesubtitle\insertsubsectionhead}{%
+\addtobeamertemplate{frametitle}{\def\insertframetitle{\insertsectionhead\ \insertcontinuationcountroman}\let\insertframesubtitle\insertsubsectionhead}{%
 \begin{tikzpicture}[remember picture,overlay]
 \node[anchor=north east,yshift=2pt] at (current page.north east) {\includegraphics[height=0.8cm]{cwi_logo}};
 \node[anchor=north east,yshift=2pt,xshift=-2cm] at (current page.north east) {\includegraphics[height=0.8cm]{uva_logo}};
@@ -105,14 +105,15 @@
 \subsection{Problem analysis}
 \begin{frame}{x}{}
   \begin{columns}
-   \column{0.3\textwidth}
+   \column{0.4\textwidth}
     \begin{itemize}
-     \item<1-> Current methods are too slow;
-     \item<2-> Possible to parameterise a molecule based on fragments of other molecules;
-     \item<3-> No existing software for this.
+     \item<1-> Molecule simulations gain in importance;
+     \item<2-> Current methods are too slow;
+     \item<3-> Possible to parameterise a molecule based on fragments of other molecules;
+     \item<4-> No existing software for this.
     \end{itemize}
 
-   \column{0.6\textwidth}<2->
+   \column{0.6\textwidth}<3->
     \begin{figure}
      \vspace{-1em}
      \frame{\includegraphics[width=.42\textwidth]{img/match_target.pdf}}%
@@ -133,11 +134,12 @@
 \begin{itemize}
 \item<1-> Design and implement two versions:
       \begin{itemize}
-      \sitem Consuming: non-automated;
-      \sitem Producing: semi-automatic.
+      \sitem Consuming: inspired on naive RPA~\cite{payne2000varying};
+      \sitem Producing: inspired on LookOut~\cite{horvitz1999principles}, SALT~\cite{marcus1987taking}, cooperative RPA~\cite{payne2000varying}.
       \end{itemize}
 \item<2-> Compare in a user study:
       \begin{itemize}
+      \sitem Small initial target audience;
       \sitem Parameterise molecules in both versions;
       \sitem Positive SUS / UMUX questionnaire;
       \sitem General questionnaire.
@@ -193,25 +195,33 @@
 
 \section{Implementation}
 \begin{frame}{x}{}
-\vspace{-2em}
+\vspace{-1.2em}
+\mbox{The Online tool for Fragment-based Molecule Parameterisation (\textsc{OFraMP})}
+\begin{center}
+Demonstration: parameterisation of propanamide~(\texttt{NC(=O)CC}, 19).
+\end{center}
+\vspace{-.8em}
 \begin{figure}
 \image[width=.8\textwidth]{img/demo.png}
 \end{figure}
-\vspace{-2.3em}
-\begin{center}
-Demonstration: parameterisation of 1,3-propandiol.
-\end{center}
 \end{frame}
 
 
 
 \section{Results}
 \begin{frame}{x}{}
-Quick recap:
 \begin{itemize}
-\item Two experiment groups;
-\item One group did consuming first, other started with producing;
-\item Two molecules per version.
+\item<1-> Quick evaluation recap:
+\begin{itemize}
+\sitem Two experiment groups;
+\sitem One group did consuming first, other started with producing;
+\sitem Two molecules per version.
+\end{itemize}
+\item<2-> 16 computational chemists invited, 10 participated:
+\begin{itemize}
+\sitem 6 consuming-first;
+\sitem 4 producing-first.
+\end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -276,20 +286,30 @@ Quick recap:
  \begin{columns}
   \column{.45\textwidth}
    \begin{itemize}
-    \item \emph{All} users preferred consuming version;
-    \item Interface very clear and responsive;
-    \item Easy to learn;
-    \item<5-> Finished popup confusing;
-    \item<5-> Fragment matching not perfect;
-    \item<5-> Charge edit missing.
+    \item<1-> \emph{All} users preferred consuming version;
+    \item<2-> Interface very clear and responsive;
+    \item<3-> Easy to learn;
    \end{itemize}
 
   \column{.45\textwidth}
    \begin{itemize}
-    \item<2-> ``Excellent job, quality and functionality!''
-    \item<3-> ``Nice work!''
-    \item<4-> ``I think that the system has great potential!''
+    \item<4-> ``Excellent job, quality and functionality!''
+    \item<5-> ``Nice work!''
+    \item<6-> ``I think that the system has great potential!''
    \end{itemize}
+
+ \end{columns}
+ \vspace{1em}
+ \begin{columns}
+  \column{.45\textwidth}
+   \begin{itemize}
+    \item<7-> `Finished' popup confusing;
+    \item<8-> Fragment matching not perfect;
+    \item<9-> Charge edit missing.
+   \end{itemize}
+
+  \column{.45\textwidth}
+   \ 
 
  \end{columns}
 \end{frame}
@@ -297,9 +317,16 @@ Quick recap:
 
 \subsection{Future work}
 \begin{frame}{x}{}
-TODO:
 \begin{itemize}
-\item Create this slide\ldots
+\item<1-> Many suggestions:
+\begin{itemize}
+\sitem More visible molecule charge;
+\sitem Hybrid consuming/producing version;
+\sitem Improvements to popup;
+\sitem etc.
+\end{itemize}
+\item<2-> More visible charge edit;
+\item<3-> Improve matching algorithm.
 \end{itemize}
 \end{frame}
 
@@ -307,9 +334,12 @@ TODO:
 
 \section{Conclusion}
 \begin{frame}{x}{}
-TODO:
 \begin{itemize}
-\item Create this slide\ldots
+\item Implemented two variations of fragment-based molecule parameterisation system;
+\item Producing version is quicker;
+\item Consuming version yields more accurate results;
+\item Consuming version was preferred by the users;
+\item Fragment-based molecule parameterisation has great potential.
 \end{itemize}
 \end{frame}
 
@@ -317,7 +347,7 @@ TODO:
 
 \section*{Bibliography}
 \begin{frame}[allowframebreaks]{x}{}
-\nocite{all, the, things}
+\nocite{badre2002shaping, blair2008user, brooke2013sus, canzar2012charge, horvitz1999principles, lewis2013umux, malde2011automated, norman2002design, sauro2011measuring, tullis2004comparison, wohlin2003empirical}
 \bibliographystyle{abbrv}
 \tiny{\bibliography{../thesis/references}}
 \end{frame}
