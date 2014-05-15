@@ -48,6 +48,7 @@
 \author[Jimi van der Woning]{Jimi M. van der Woning\\\url{Jimi.vanderWoning@student.uva.nl}}
 \institute[UvA, CWI]{\parbox{4.1cm}{\center\scshape\includegraphics[height=1.5cm]{uva_logo}\\[.1cm]University of Amsterdam} \parbox{.5cm}{\center\vspace{1.5cm}\ \\[.1cm]and} \parbox{5.2cm}{\center\scshape\includegraphics[height=1.5cm]{cwi_logo}\\[.1cm]Centrum Wiskunde \& Informatica}\\[1cm]{\bf Supervisors:} Mohammed El-Kebir, Gunnar W. Klau, and Tijs van der Storm}
 \date{\displaydate{swat_pres_date}}
+\ddmmyyyydate
 
 
 
@@ -72,14 +73,6 @@
 
 
 
-\section*{Contents}
-\begin{frame}{x}{}
-\setcounter{tocdepth}{1}
-\tableofcontents
-\end{frame}
-
-
-
 \section{Introduction}
 \subsection{Chemical concepts}
 \begin{frame}{x}{}
@@ -95,8 +88,7 @@
     \begin{itemize}
       \item Everything consists of molecules;
       \item Molecules consist of atoms and bonds;
-      \item Atoms have a charge;
-      \item Atoms can be grouped in charge groups.
+      \item Atoms have a charge.
     \end{itemize}
   \end{columns}
 \end{frame}
@@ -134,28 +126,15 @@
 \begin{itemize}
 \item<1-> Design and implement two versions:
       \begin{itemize}
-      \sitem Consuming: inspired on naive RPA~\cite{payne2000varying};
-      \sitem Producing: inspired on LookOut~\cite{horvitz1999principles}, SALT~\cite{marcus1987taking}, cooperative RPA~\cite{payne2000varying}.
+      \sitem Consuming: non-automated;
+      \sitem Producing: semi-automatic.
       \end{itemize}
-\item<2-> Compare in a user study:
+\item<2-> Use external tools for:
       \begin{itemize}
-      \sitem Small initial target audience;
-      \sitem Parameterise molecules in both versions;
-      \sitem Positive SUS / UMUX questionnaire;
-      \sitem General questionnaire.
+      \sitem Molecule visualisation: \texttt{OpenBabel}~\cite{oboyle2011open};
+      \sitem Fragment finding: \texttt{mop/fragments}~\cite{elkebir2014molecule}.
       \end{itemize}
-\end{itemize}
-\end{frame}
-
-
-
-\section{Hypotheses}
-\begin{frame}{x}{}
-\begin{itemize}
-\item<1-> It is possible to parameterise a molecule based on fragments of other molecules; both correctly and in a reasonable amount of time.
-\item<2-> The producing version will take the least time to use.
-\item<3-> The consuming version will yield more accurate results.
-\item<4-> For a tool for fragment-based molecule parameterisation, it is better for users to have full, manual control, than to automate certain parts.
+\item<3-> Compare in a user study.
 \end{itemize}
 \end{frame}
 
@@ -198,7 +177,7 @@
 \vspace{-1.2em}
 \mbox{The Online tool for Fragment-based Molecule Parameterisation (\textsc{OFraMP})}
 \begin{center}
-Demonstration: parameterisation of propanamide~(\texttt{NC(=O)CC}, 19).
+Demonstration: parameterisation of propanamide~(\texttt{NC(=O)CC}).
 \end{center}
 \vspace{-.8em}
 \begin{figure}
@@ -208,14 +187,16 @@ Demonstration: parameterisation of propanamide~(\texttt{NC(=O)CC}, 19).
 
 
 
-\section{Results}
+\section{Evaluation}
 \begin{frame}{x}{}
 \begin{itemize}
-\item<1-> Quick evaluation recap:
+\item<1-> User study:
 \begin{itemize}
-\sitem Two experiment groups;
-\sitem One group did consuming first, other started with producing;
-\sitem Two molecules per version.
+\sitem Two groups;
+\sitem One group consuming first, other producing;
+\sitem Two molecules per version;
+\sitem SUS questionnaire for each version;
+\sitem General questionnaire.
 \end{itemize}
 \item<2-> 16 computational chemists invited, 10 participated:
 \begin{itemize}
@@ -225,6 +206,7 @@ Demonstration: parameterisation of propanamide~(\texttt{NC(=O)CC}, 19).
 \end{itemize}
 \end{frame}
 
+\section{Results}
 \subsection{Time consumption}
 \begin{frame}{x}{}
 \begin{figure}
@@ -232,23 +214,11 @@ Demonstration: parameterisation of propanamide~(\texttt{NC(=O)CC}, 19).
 \end{figure}
 \end{frame}
 
-\begin{frame}{x}{}
-\begin{figure}
-\image[width=\textwidth]{../thesis/img/graphs/1d_03.pdf}
-\end{figure}
-\end{frame}
-
 
 \subsection{Result accuracy}
 \begin{frame}{x}{}
 \begin{figure}
-\image[width=\textwidth]{../thesis/img/graphs/1a_00.pdf}
-\end{figure}
-\end{frame}
-
-\begin{frame}{x}{}
-\begin{figure}
-\image[width=\textwidth]{../thesis/img/graphs/1d_01.pdf}
+\image[width=\textwidth]{../thesis/img/graphs/1a_01.pdf}
 \end{figure}
 \end{frame}
 
@@ -315,37 +285,23 @@ Demonstration: parameterisation of propanamide~(\texttt{NC(=O)CC}, 19).
 \end{frame}
 
 
-\subsection{Future work}
-\begin{frame}{x}{}
-\begin{itemize}
-\item<1-> Many suggestions:
-\begin{itemize}
-\sitem More visible molecule charge;
-\sitem Hybrid consuming/producing version;
-\sitem Improvements to popup;
-\sitem etc.
-\end{itemize}
-\item<2-> More visible charge edit;
-\item<3-> Improve matching algorithm.
-\end{itemize}
-\end{frame}
-
-
 
 \section{Conclusion}
 \begin{frame}{x}{}
 \begin{itemize}
-\item Implemented two variations of fragment-based molecule parameterisation system;
-\item Producing version is quicker;
-\item Consuming version yields more accurate results;
-\item Consuming version was preferred by the users;
-\item Fragment-based molecule parameterisation has great potential.
+\item<1-> Designed and implemented two variations of a system for fragment-based molecule parameterisation;
+\item<2-> Fragment-based molecule parameterisation \emph{is} possible;
+\item<3-> Producing version is quicker;
+\item<4-> Consuming version yields more accurate results;
+\item<5-> Consuming version was preferred by the users;
+\item<6-> With a few improvements, \textsc{OFraMP} will be of great value.
 \end{itemize}
 \end{frame}
 
 
 
 \section*{Bibliography}
+\renewcommand{\item}{\olditem}
 \begin{frame}[allowframebreaks]{x}{}
 \nocite{badre2002shaping, blair2008user, brooke2013sus, canzar2012charge, horvitz1999principles, lewis2013umux, malde2011automated, norman2002design, sauro2011measuring, tullis2004comparison, wohlin2003empirical}
 \bibliographystyle{abbrv}
