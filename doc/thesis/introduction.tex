@@ -1,11 +1,11 @@
 \chapter{Introduction}
 \chlab{introduction}
 
-In the world of biomolecular science, molecular simulations are becoming increasingly important. For these calculations, many different parameters are needed, including detailed information about the molecules that will be examined in the simulation. One important parameter here is the list of atomic partial charges of the molecule~(see \chref{analysis}). Calculating these charges, however, can take a lot of time, even on advanced computation clusters.
+In the world of biomolecular science, molecular simulations are becoming increasingly important. These simulations are used in many different fields, among which are computational chemistry and drug design. For these simulations, many different parameters are needed, including detailed information about the molecules that will be simulated. One important parameter here is the list of atomic partial charges of the molecule~(see \chref{analysis}). Calculating these charges, however, is currently only feasible for small molecules, and can take a very long time.
 
 It is believed that, using the current approach, the completion time of the calculation process can only be reduced by improving computer hardware. Therefore, in order to speed up the process of finding atomic partial charges, a different approach needs to be developed.
 
-Similar parts of different molecules often have roughly the same atomic charges. Therefore, it should be possible to assign the charges of a molecule based on the known charges of parts of other molecules. We expect that humans (read: experienced scientists) will be able to find the best available matching molecule fragment out of a set of possible ones. Therefore, we design a system that allows for parameterisation of a molecule, using a set of fragments of other molecules.
+Similar parts of different molecules often have roughly the same atomic charges. Therefore, it should be possible to assign the charges of a molecule based on the known charges of parts of other molecules. We expect that experienced chemists will be able to find the best available matching molecule fragment out of a set of possible ones. Therefore, we design a system that allows for parameterisation of a molecule using a set of fragments of other molecules.
 
 Given the short problem description above, we formulate the main research question for this project as follows:
 \begin{quote}
