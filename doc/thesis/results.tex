@@ -1,9 +1,9 @@
 \chapter{Results}
 \chlab{results}
 
-For the user studies, we invited a total of 16 chemistry researchers. They come from various institutes, but the majority works at VU University Amsterdam or the University of Queensland, Australia. Half of the invited received the instructions for the consuming-first version of the experiment, the other half was instructed to use the producing version first.
+For the user studies, we invited a total of 16 chemistry researchers. They come from various institutes, but the majority works at VU University Amsterdam or the University of Queensland, Australia. Half of the invited received the instructions for the \IDa-first version of the experiment, the other half was instructed to use the \IDb\ version first.
 
-Out of all the invited people, 10 fully completed their tasks and submitted the results they obtained. 6 of them used the consuming version first, the other 4 started with the producing version. Unfortunately, it is impossible to tell how many people started the experiment, but did not finish it, as the log files were only uploaded to the server after completing a version's questionnaire. However, we observed that there were no people who only completed one of the two versions.
+Out of all the invited people, 10 fully completed their tasks and submitted the results they obtained. 6 of them used the \IDa\ version first, the other 4 started with the \IDb\ version. Unfortunately, it is impossible to tell how many people started the experiment, but did not finish it, as the log files were only uploaded to the server after completing a version's questionnaire. However, we observed that there were no people who only completed one of the two versions.
 
 A lot of different types of data have been gathered. Graphical representations of most observations from the user action log can be found in \appref{graphs}. In that same chapter, one can find the outcomes of the \verb|SUS| and \verb|UMUX| questions that were asked in the questionnaire as well. \Appref{comments} contains all answers to the open questions, including general comments about the system, the preferred version and suggestions for improvement.
 
@@ -17,7 +17,7 @@ From the logging system that was built into \oframp{} for the user studies, a wi
 
 \subsection{Time required}
 \seclab{res_time}
-First of all, it is interesting to see in which version users spent the most time to fully parameterise the molecules. \Figref{graph_time_1} shows the total time that was required for both the first and second set of molecules, in both the consuming and producing version of \oframp. What can be seen here is that, for both the first and second set of molecules, users needed more time to complete the parameterisation using the consuming version. Users who started with the consuming version used the most time overall, with a median total time of around 300 seconds. Those same users spent the least time on the producing version, where the median time value is around 100 seconds. At around 200 and 150 seconds, one can find the median times required by the users who did the consuming version second and the producing version first respectively.
+First of all, it is interesting to see in which version users spent the most time to fully parameterise the molecules. \Figref{graph_time_1} shows the total time that was required for both the first and second set of molecules, in both the \IDa\ and \IDb\ version of \oframp. What can be seen here is that, for both the first and second set of molecules, users needed more time to complete the parameterisation using the \IDa\ version. Users who started with the \IDa\ version used the most time overall, with a median total time of around 300 seconds. Those same users spent the least time on the \IDb\ version, where the median time value is around 100 seconds. At around 200 and 150 seconds, one can find the median times required by the users who did the \IDa\ version second and the \IDb\ version first respectively.
 
 \begin{figure}
 \center
@@ -35,7 +35,7 @@ The total time used to parameterise the first and second sets of molecules can b
 \figlab{graph_time_2}
 \end{figure}
 
-What is interesting to see here, is the fact that, where in the total parameterisation time, the group that did the producing version second was done the fastest, its members have spent the most time on average per atom. When taking a closer look at \figref{graph_time_3} and \figref{graph_time_4}, which show the average time per atom required for all molecules separately, this difference appears to be caused completely by the excessive amount of time users spent on parameterising molecule 13913 in the producing version. This is the first molecule users got to parameterise after they completed the consuming version. Even more interesting to see is the fact that most users spent more time on this 11-atom molecule than they did on the larger 77-atom molecule 17738.
+What is interesting to see here, is the fact that, where in the total parameterisation time, the group that did the \IDb\ version second was done the fastest, its members have spent the most time on average per atom. When taking a closer look at \figref{graph_time_3} and \figref{graph_time_4}, which show the average time per atom required for all molecules separately, this difference appears to be caused completely by the excessive amount of time users spent on parameterising molecule 13913 in the \IDb\ version. This is the first molecule users got to parameterise after they completed the \IDa\ variant. Even more interesting to see is the fact that most users spent more time on this 11-atom molecule than they did on the larger 77-atom molecule 17738.
 
 \begin{figure}
 \centering
@@ -56,9 +56,9 @@ What is interesting to see here, is the fact that, where in the total parameteri
 \figlab{graph_time_34}
 \end{figure}
 
-It is hard to say what exactly is causing this difference. It is possible that, after using the consuming version, it is hard to get used to the producing version, which is way more restrictive as to what a user can do. This difference is not present when switching from the producing to the consuming version, which can either mean that this switch is easier to make, or that there must be a different cause of the large time difference.
+It is hard to say what exactly is causing this difference. It is possible that, after using the \IDa\ version, it is hard to get used to the \IDb\ version, which is way more restrictive as to what a user can do. This difference is not present when switching from the \IDb\ to the \IDa\ version, which can either mean that this switch is easier to make, or that there must be a different cause of the large time difference.
 
-Another possible explanation for the large increase in time required for parameterising molecule 13913 is that there may not be really good matching fragments, enforcing the user to browse through many of them before being able to select what they consider to be the best one. This is better facilitated by the consuming version of the tool, and can potentially have the extreme effects that are observed here.
+Another possible explanation for the large increase in time required for parameterising molecule 13913 is that there may not be really good matching fragments, enforcing the user to browse through many of them before being able to select what they consider to be the best one. This is better facilitated by the \IDa\ version of the tool, and can potentially have the extreme effects that are observed here.
 
 
 \subsection{Parameterisation rating}
@@ -71,11 +71,11 @@ Another possible explanation for the large increase in time required for paramet
 \figlab{graph_rating_1}
 \end{figure}
 
-Not only the time required by the parameterisation tool can be used to assess the two interaction designs, the quality of the result is also of great importance. As discussed in \secref{ev_analysis}, there are two ways of calculating this quality rating. First, the total difference between the charge found by the user and the charge present in the ATB is shown in \figref{graph_rating_1}. As this difference can easily be observed and corrected by the user, it would be expected that it would be relatively close to 0. This, however, turns out not to be the case. Especially in the producing version of \oframp, the charge difference can get quite high, and is greater than the charge difference for the consuming version in any case.
+Not only the time required by the parameterisation tool can be used to assess the two interaction designs, the quality of the result is also of great importance. As discussed in \secref{ev_analysis}, there are two ways of calculating this quality rating. First, the total difference between the charge found by the user and the charge present in the ATB is shown in \figref{graph_rating_1}. As this difference can easily be observed and corrected by the user, it would be expected that it would be relatively close to 0. This, however, turns out not to be the case. Especially in the \IDb\ version of \oframp, the charge difference can get quite high, and is greater than the charge difference for the \IDa\ version in any case.
 
-What is also interesting to note here is the fact that, for both the consuming and the producing version of \oframp, the total charge difference is higher for the second set of molecules. This may indicate that these molecules are harder to parameterise, or that there are no good matching fragments available for those molecules. However, it may also indicate that users were starting to lose their concentration, or were confused due to the switch from one version to another.
+What is also interesting to note here is the fact that, for both the \IDa\ and the \IDb\ version of \oframp, the total charge difference is higher for the second set of molecules. This may indicate that these molecules are harder to parameterise, or that there are no good matching fragments available for those molecules. However, it may also indicate that users were starting to lose their concentration, or were confused due to the switch from one version to another.
 
-Whereas the difference in the total molecule charge can mainly be used to assess user performance, the correctness of the parameterisation can better be measured using the per-atom charge differences. \Figref{graph_rating_2} shows these differences for the first and second set of molecules, both for the consuming and producing version of \oframp. As can be seen in that graph, charge differences are, again, smaller for the consuming version than they are for the producing version.
+Whereas the difference in the total molecule charge can mainly be used to assess user performance, the correctness of the parameterisation can better be measured using the per-atom charge differences. \Figref{graph_rating_2} shows these differences for the first and second set of molecules, both for the \IDa\ and \IDb\ version of \oframp. As can be seen in that graph, charge differences are, again, smaller for the \IDa\ version than they are for the \IDb\ version.
 
 \begin{figure}
 \center
@@ -105,7 +105,7 @@ In contrast to the total charge differences though, the average charge differenc
 \figlab{graph_rating_34}
 \end{figure}
 
-As can be seen in \figref{graph_rating_34}, the consuming version of \oframp{} scores better for all individual molecules. What can also be seen there is the fact that, even on average, the charge differences are bigger for the larger molecules than for the smaller ones. Unfortunately, there is no obvious explanation for this. Probably, larger fragments are used for the larger molecules. When one of those fragments is bad, it quickly adds up to the atom charge difference. On the other hand, it is also possible that users felt more comfortable selecting small fragments, which are generally worse matches than the large ones, due to less atoms matching between the two molecules.
+As can be seen in \figref{graph_rating_34}, the \IDa\ version of \oframp{} scores better for all individual molecules. What can also be seen there is the fact that, even on average, the charge differences are bigger for the larger molecules than for the smaller ones. Unfortunately, there is no obvious explanation for this. Probably, larger fragments are used for the larger molecules. When one of those fragments is bad, it quickly adds up to the atom charge difference. On the other hand, it is also possible that users felt more comfortable selecting small fragments, which are generally worse matches than the large ones, due to less atoms matching between the two molecules.
 
 
 \subsection{Other results}
@@ -118,7 +118,7 @@ As can be seen in \figref{graph_rating_34}, the consuming version of \oframp{} s
 \figlab{graph_undo}
 \end{figure}
 
-Besides the time required to complete the parameterisation and its rating, some other interesting things were observed in the user studies. First of all, there appears to be a great correlation between the version of \oframp{} that is used and the amount of actions a user needs to undo, as we can see in \figref{graph_undo}. Where, in the consuming version, users practically do not undo any action, there are extreme cases where a user undid over a hundred actions in the producing version. This difference can be explained by the fact that users of the producing version have to undo accidentally rejected fragments, or may use a combination of reject and undo actions to compare various fragments.
+Besides the time required to complete the parameterisation and its rating, some other interesting things were observed in the user studies. First of all, there appears to be a great correlation between the version of \oframp{} that is used and the amount of actions a user needs to undo, as we can see in \figref{graph_undo}. Where, in the \IDa\ version, users practically do not undo any action, there are extreme cases where a user undid over a hundred actions in the \IDb\ version. This difference can be explained by the fact that users of the \IDb\ version have to undo accidentally rejected fragments, or may use a combination of reject and undo actions to compare various fragments.
 
 \begin{figure}
 \center
@@ -127,7 +127,7 @@ Besides the time required to complete the parameterisation and its rating, some 
 \figlab{graph_clicks}
 \end{figure}
 
-As can be seen in \figref{graph_clicks}, a few more clicks are required to complete a parameterisation in the producing version of the tool, than there are in the consuming version. Nevertheless, the medians are not too far apart, so it is not really possible to draw any conclusions from this. It is interesting to see, however, that even though the producing version of \oframp{} requires less user interaction, is does not require less, and possibly even more clicks to complete a parameterisation.
+As can be seen in \figref{graph_clicks}, a few more clicks are required to complete a parameterisation in the \IDb\ version of the tool, than there are in the \IDa\ version. Nevertheless, the medians are not too far apart, so it is not really possible to draw any conclusions from this. It is interesting to see, however, that even though the \IDb\ version of \oframp{} requires less user interaction, is does not require less, and possibly even more clicks to complete a parameterisation.
 
 \Figref{graph_help} shows that not many users had to consult the help pages during the parameterisation process. Furthermore, no users checked the help pages in their second version of the system. This can mean that either they did not know there were different versions of the help pages, or they did not need it any more. The fact that most users did not go to the help pages at all suggests that the tool is intuitive to use, and that taking the demo provides enough information to be able to use \oframp.
 
@@ -150,7 +150,7 @@ Besides the log files from the users parameterising a few molecules, some more i
 
 \subsection{\texttt{SUS} / \texttt{UMUX} results}
 \seclab{res_sus}
-The total \verb|SUS| score of the consuming and producing versions of the system is shown in \figref{graph_sus_1}. As can be seen here, the consuming version, with a median rating of $76$, scores better than the producing version, which has a median rating of only $61$. This means that the consuming version scores above the average \verb|SUS| score of 68~\cite{sauro2011measuring}, where the producing version scores below that. In the adjective rating scale, the consuming version is `good', but the producing version still scores `OK'~\cite{bangor2009determining}~(see also \secref{ev_analysis}).
+The total \verb|SUS| score of the \IDa\ and \IDb\ versions of the system is shown in \figref{graph_sus_1}. As can be seen here, the \IDa\ version, with a median rating of $76$, scores better than the \IDb\ version, which has a median rating of only $61$. This means that the \IDa\ version scores above the average \verb|SUS| score of 68~\cite{sauro2011measuring}, where the \IDb\ version scores below that. In the adjective rating scale, the \IDa\ version is `good', but the \IDb\ version still scores `OK'~\cite{bangor2009determining}~(see also \secref{ev_analysis}).
 
 \begin{figure}
 \center
@@ -159,7 +159,7 @@ The total \verb|SUS| score of the consuming and producing versions of the system
 \figlab{graph_sus_1}
 \end{figure}
 
-\Figref{graph_sus_2}, where the ratings are shown separately for the two different orders in which the users used the two versions of \oframp, shows a slightly different situation. First of all, it appears that the group that did the consuming version first was less positive in general. With a median grade of only 62, the consuming version scores below average and is rated as just `OK'. Although it is still rated higher than the producing version, with outliers to very high ratings, the difference in the medians is very small and not really significant.
+\Figref{graph_sus_2}, where the ratings are shown separately for the two different orders in which the users used the two versions of \oframp, shows a slightly different situation. First of all, it appears that the group that did the \IDa\ version first was less positive in general. With a median grade of only 62, the \IDa\ version scores below average and is rated as just `OK'. Although it is still rated higher than the \IDb\ version, with outliers to very high ratings, the difference in the medians is very small and not really significant.
 
 \begin{figure}
 \center
@@ -168,9 +168,9 @@ The total \verb|SUS| score of the consuming and producing versions of the system
 \figlab{graph_sus_2}
 \end{figure}
 
-For the other group of users, the opposite is true. They already awarded the producing version with the average grade of $68$, and later rewarded the consuming version with a rating of $85$, which translates to `excellent' on the adjective scale. This large difference can possibly be explained by the users preferring the consuming version over the producing one and therefore, consciously or unconsciously, giving higher grades to the consuming version. The lower, but still `OK' grading of the producing version in the other group can then be explained by the users still liking the producing version, and therefore willing to grade it sufficiently.
+For the other group of users, the opposite is true. They already awarded the \IDb\ version with the average grade of $68$, and later rewarded the \IDa\ version with a rating of $85$, which translates to `excellent' on the adjective scale. This large difference can possibly be explained by the users preferring the \IDa\ version over the \IDb\ one and therefore, consciously or unconsciously, giving it higher grades. The lower, but still `OK' grading of the \IDb\ version in the other group can then be explained by the users still liking that version, and therefore willing to grade it sufficiently.
 
-The most extremely rated \verb|SUS| questions are shown in \figref{graph_sus_345}. \Figref{graph_sus_3} shows the lowest scoring point for both the consuming and the producing versions of \oframp, being the answer to the first \verb|SUS| statement: ``I think that I would like to use this system frequently''. Whereas, for the consuming version, most people are neutral, with some agreeing or even fully agreeing with the statement, the median answer in the producing version was a disagree. This is an important result, as users not liking to use a system frequently is, of course, a bad sign.
+The most extremely rated \verb|SUS| questions are shown in \figref{graph_sus_345}. \Figref{graph_sus_3} shows the lowest scoring point for both the \IDa\ and the \IDb\ versions of \oframp, being the answer to the first \verb|SUS| statement: ``I think that I would like to use this system frequently''. Whereas, for the \IDa\ version, most people are neutral, with some agreeing or even fully agreeing with the statement, the median answer in the \IDb\ version was a disagree. This is an important result, as users not liking to use a system frequently is, of course, a bad sign.
 
 \begin{figure}
 \centering
@@ -198,24 +198,24 @@ The most extremely rated \verb|SUS| questions are shown in \figref{graph_sus_345
 \figlab{graph_sus_345}
 \end{figure}
 
-The fourth \verb|SUS| question was the highest rated for both the consuming and producing versions of the system~(see \figref{graph_sus_4}), although the tenth question is rated equally high in the producing version. \verb|SUS4| states: ``I found the various functions in the system were well integrated''. As there is no difference in the rating of the two versions, no conclusions can be drawn for this, other than the fact that both interaction designs are well-integrated in general.
+The fourth \verb|SUS| question was the highest rated for both the \IDa\ and \IDb\ versions of the system~(see \figref{graph_sus_4}), although the tenth question is rated equally high in the \IDb\ version. \verb|SUS4| states: ``I found the various functions in the system were well integrated''. As there is no difference in the rating of the two versions, no conclusions can be drawn for this, other than the fact that both interaction designs are well-integrated in general.
 
-Finally, as mentioned before, the tenth \verb|SUS| question is one of the highest rated for the producing version. Furthermore, this is the only statement for which the producing version actually scores higher than the consuming one. As the tenth statement is ``I think the system meets up with its requirements'', it is quite interesting that the producing version scores higher here. Probably, the test participants considered the required time to complete the parameterisation an important requirement. As seen before, the producing version requires the least time, which may explain the difference here.
+Finally, as mentioned before, the tenth \verb|SUS| question is one of the highest rated for the \IDb\ version. Furthermore, this is the only statement for which the \IDb\ version actually scores higher than the \IDa\ one. As the tenth statement is ``I think the system meets up with its requirements'', it is quite interesting that the \IDb\ version scores higher here. Probably, the test participants considered the required time to complete the parameterisation an important requirement. As seen before, the \IDb\ version requires the least time, which may explain the difference here.
 
 
 \subsection{Preference}
 \seclab{res_preference}
-The general questionnaire users were asked to submit after they were completely done started off with the question which version of the system they preferred. All participants actually preferred the consuming version, no matter whether they had to use that first or last. Most users commented that they felt they had more control over the parameterisation process in that version, which they thought they really needed. Furthermore, they preferred seeing a list of possible matches over the accept/reject system.
+The general questionnaire users were asked to submit after they were completely done started off with the question which version of the system they preferred. All participants actually preferred the \IDa\ version, no matter whether they had to use that first or last. Most users commented that they felt they had more control over the parameterisation process in that version, which they thought they really needed. Furthermore, they preferred seeing a list of possible matches over the accept/reject system.
 
-Additionally, some users commented that the consuming version allowed for easier comparison of fragments, compared to having to make a combination of rejects and undos in the producing version. One user even commented this made the parameterisation process a lot quicker, though the timing results discussed before tell a different story. This means that the consuming version \emph{feels} faster, and suggests that the parameterisation process using the producing version may be considered to be tedious.
+Additionally, some users commented that the \IDa\ version allowed for easier comparison of fragments, compared to having to make a combination of rejects and undos in the \IDb\ version. One user even commented this made the parameterisation process a lot quicker, though the timing results discussed before tell a different story. This means that the \IDa\ version \emph{feels} faster, and suggests that the parameterisation process using the \IDb\ version may be considered to be tedious.
 
 
 \subsection{Comments}
 \seclab{res_comments}
 Following the \verb|SUS| and \verb|UMUX| questions, users were asked to answer a few open questions and had room for some comments. In the next sections, we will discuss these comments for both versions of \oframp{} and the suggestions they had for improving the tool. As we have not observe any significant difference between the comments of the people for the different orders in which they used the system, no distinction will be made between those comments.
 
-\subsubsection{Consuming version}
-For the consuming version of the system, users were very positive about the user interaction. They noted that the interface and layout were very clear and nicely designed, and also gave a nice representation of molecules and fragments. The interface was found to be very responsive and easy to use and learn, thanks to the demo mode, the extensive help pages, and the fact that the system was intuitive to use in general. Finally, the right information was noted to come up exactly when needed.
+\subsubsection{\IDA\ version}
+For the \IDa\ version of the system, users were very positive about the user interaction. They noted that the interface and layout were very clear and nicely designed, and also gave a nice representation of molecules and fragments. The interface was found to be very responsive and easy to use and learn, thanks to the demo mode, the extensive help pages, and the fact that the system was intuitive to use in general. Finally, the right information was noted to come up exactly when needed.
 
 Users were also enthusiastic about the chemical concepts behind \oframp. They liked the idea of fragment-based molecule parameterisation in general, and specifically the fact that this allows them to iteratively assign charges to a molecule. Furthermore, they found that there was a good variety of fragments available to complete the parameterisation. However, the ordering of these fragments could use some work, as the highest rated ones are in fact rarely the best available matches. It was also commented that using a shell around the atoms to find matching fragments may not be the best way to find good matches, as this will not detect all atomic properties.
 
@@ -225,12 +225,12 @@ There were also some disagreements between different users. Where some really li
 
 Finally, many users noted that they would like to be able to manually alter or insert charges for certain atoms. As was already suspected from the analysis of the action logs, users did not find the charge edit functionality in the selection details window. A user also commented that he would like to be able to see what fragments have been  used to parameterise an atom. This is available in the same place where the charges can be edited, and further confirms the idea that it has to be positioned in a more prominent spot, or indicated in a better way.
 
-\subsubsection{Producing version}
-In their comments about the producing version of \oframp, users were, again, quite positive about the interface. They noted it to be clear and running smooth, and liked the visualisation of the molecule. Additionally, they found the tool extremely easy to learn, and mentioned it helped them to parameterise a molecule very quickly. It was mentioned again that fragment-based molecule parameterisation is a good concept to speed up molecule parameterisation. Finally, the ability to view the original molecule was found to be truly valuable.
+\subsubsection{\IDB\ version}
+In their comments about the \IDb\ version of \oframp, users were, again, quite positive about the interface. They noted it to be clear and running smooth, and liked the visualisation of the molecule. Additionally, they found the tool extremely easy to learn, and mentioned it helped them to parameterise a molecule very quickly. It was mentioned again that fragment-based molecule parameterisation is a good concept to speed up molecule parameterisation. Finally, the ability to view the original molecule was found to be truly valuable.
 
 Despite all the positive feedback, all users encountered one major problem: they were not able to easily compare different fragments. This either resulted in them having to go through some sort of reject/undo loop, or made them select a fragment before they were confident that it was the best available. Furthermore, they noted that taking the average of the conflicting atom charges is not always a good solution, and they needed to be able to decide how the conflict should be solved. Some users also commented that the automatic atom selection was too arbitrary, and needed to be more intelligent.
 
-Most of the shortcomings of the consuming version were also mentioned here. Again, many noted that they needed to have an easy way to keep track of the total molecule charge. Some found the `finished' popup obstructive, and it was mentioned once more that making matches based on a shell around the target atoms may not be the best approach.
+Most of the shortcomings of the \IDa\ version were also mentioned here. Again, many noted that they needed to have an easy way to keep track of the total molecule charge. Some found the `finished' popup obstructive, and it was mentioned once more that making matches based on a shell around the target atoms may not be the best approach.
 
 \subsubsection{Suggestions for improvement}
 \seclab{res_suggestions}
@@ -241,7 +241,7 @@ Even though the molecule charge can be viewed in the selection details window, t
 \item Ability to manually add/edit charges:\\
 As discussed before, many users wanted to see this feature added, even though it is already present. Additionally though, they commented that they would like to be able to assign a charge to a group of atoms, and have this automatically distributed over the group;
 \item Combine the auto-select system with the fragment list:\\
-Some users noted they did not want to manually select atoms all the time, and liked the automatic selection system from the producing version. As this was lacking the overview of fragments, they wanted to combine it with the list of fragments from the consuming version to make the ultimate parameterisation system;
+Some users noted they did not want to manually select atoms all the time, and liked the automatic selection system from the \IDb\ version. As this was lacking the overview of fragments, they wanted to combine it with the list of fragments from the \IDa\ version to make the ultimate parameterisation system;
 \item Show the confidence score of fragments:\\
 It was noted a few times that this would help in finding the best available fragment;
 \item Indicate identical sections in the atom that is being parameterised:\\

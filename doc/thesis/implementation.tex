@@ -108,8 +108,8 @@ At this point, the molecule can already be interacted with. It can be moved arou
 \seclab{impl_parameterisation}
 As soon as the matching fragments for the molecule have been generated, the `Loading fragments...' message as visible in \figref{impl_visualising} will go away. It is now possible to start the fragment-based parameterisation process. We will discuss the two implemented behaviours in the next sections.
 
-\subsubsection{Consuming version}
-In order to start the parameterisation process in the consuming version of \oframp, a selection needs to be made. This selection can consist of a single atom or multiple \emph{connected} atoms, and should contain the atoms for which the user wants to find matching fragments. In order to make a single-atom selection, the user simply needs to click on that atom~(see \figref{select_1}). There are multiple ways to create multi-atom selections, the easiest of which is holding down the \emph{right} mouse button and dragging the mouse to create a selection rectangle as seen in \figref{select_2}. Alternatively, one could hold down the \verb|Ctrl| key while clicking atoms, or activate the selection modification mode, as seen in the selection details window in \figref{find_1}.
+\subsubsection{\IDA\ version}
+In order to start the parameterisation process in the \IDa\ version of \oframp, a selection needs to be made. This selection can consist of a single atom or multiple \emph{connected} atoms, and should contain the atoms for which the user wants to find matching fragments. In order to make a single-atom selection, the user simply needs to click on that atom~(see \figref{select_1}). There are multiple ways to create multi-atom selections, the easiest of which is holding down the \emph{right} mouse button and dragging the mouse to create a selection rectangle as seen in \figref{select_2}. Alternatively, one could hold down the \verb|Ctrl| key while clicking atoms, or activate the selection modification mode, as seen in the selection details window in \figref{find_1}.
 
 \begin{figure}
 \centering
@@ -148,7 +148,7 @@ When a selection has been made, matching fragments will automatically be retriev
 
 As soon as the user clicks the `Select fragment' button, the charges from that fragment will be copied to the molecule. The selection will be cleared, and, because of that, the list of found fragments will be closed. The user can now select another atom or set of atoms he wants to parameterise, in order to complete the parameterisation. This will be discussed in more detail in \secref{impl_completing}.
 
-\subsubsection{Producing version}
+\subsubsection{\IDB\ version}
 
 \begin{figure}
 \center
@@ -157,7 +157,7 @@ As soon as the user clicks the `Select fragment' button, the charges from that f
 \figlab{find_3}
 \end{figure}
 
-In the producing version of \oframp, the parameterisation process can be started by clicking the `Start parameterising' button shown in \figref{find_3}. The system will now automatically select a random atom at the edge of the molecule, for which fragments will be retrieved. The molecule will be centred on that atom, and the charges of the highest rated fragment will be previewed~(see \figref{find_4}). In that figure, the atoms with the green background and the thicker border are the atoms occurring in the found fragment.
+In the \IDb\ version of \oframp, the parameterisation process can be started by clicking the `Start parameterising' button shown in \figref{find_3}. The system will now automatically select a random atom at the edge of the molecule, for which fragments will be retrieved. The molecule will be centred on that atom, and the charges of the highest rated fragment will be previewed~(see \figref{find_4}). In that figure, the atoms with the green background and the thicker border are the atoms occurring in the found fragment.
 
 \begin{figure}
 \center
@@ -181,7 +181,7 @@ Upon acceptance of a fragment, the charges of that fragment are copied to the mo
 \figlab{conflict}
 \end{figure}
 
-During the course of parameterising a molecule, it is possible to encounter fragments that contain atoms to which a charge has already been assigned. These atoms are given a yellow background, as can be seen in \figref{conflict}. When such fragment is selected by the user, it is dependent on which \oframp{} version is used what will happen. As discussed in \secref{id_smart}, the producing version will automatically assign the average of the two charges. In the consuming version of the tool, a pop-up will be shown, asking the user to pick a solution method for solving the charge conflict.
+During the course of parameterising a molecule, it is possible to encounter fragments that contain atoms to which a charge has already been assigned. These atoms are given a yellow background, as can be seen in \figref{conflict}. When such fragment is selected by the user, it is dependent on which \oframp{} version is used what will happen. As discussed in \secref{id_smart}, the \IDb\ version will automatically assign the average of the two charges. In the \IDa\ version of the tool, a pop-up will be shown, asking the user to pick a solution method for solving the charge conflict.
 
 In some cases, it can happen that no matching fragments are found for an atom. This will be indicated by colouring that atom with a pink/red background, as can be seen for the rightmost $CH_{2}$ group in \figref{conflict}~(and also figures \ref{figure:selecting}, \ref{figure:find_1}, \ref{figure:find_2}, \ref{figure:find_3}, and \ref{figure:find_4}). Upon selecting these atoms, no fragments will be returned. It is possible to parameterise them manually, in the same way one can fine-tune atom charges. This will be discussed later.
 
@@ -227,7 +227,7 @@ The Demo mode will guide the user through the basic steps that are required to c
 \begin{figure}
 \center
 \includegraphics[width=.9\textwidth]{img/demo_2.png}
-\caption{Parameterisation in the Demo mode of the producing version of \oframp{}.}
+\caption{Parameterisation in the Demo mode of the \IDb\ version of \oframp{}.}
 \figlab{demo_2}
 \end{figure}
 
@@ -244,7 +244,7 @@ Despite the fact that using \oframp{} should be intuitive, and the presence of i
 \begin{figure}
 \center
 \includegraphics[width=.9\textwidth]{img/help.png}
-\caption{\oframp{} Help for the consuming version: selection instructions.}
+\caption{\oframp{} Help for the \IDa\ version: selection instructions.}
 \figlab{help}
 \end{figure}
 
