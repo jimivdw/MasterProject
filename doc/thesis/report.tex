@@ -32,6 +32,8 @@
 \usepackage{amsmath}
 \usepackage{datetime}
 \usepackage{color}
+\usepackage{pgf}
+\usepackage{pgffor}
 
 % Beramono for code highlighting? If needed...
 
@@ -45,30 +47,65 @@
 \setcounter{LipsumCounter}{1}
 \newcommand{\nlipsum}{\lipsum[\value{LipsumCounter}] \addtocounter{LipsumCounter}{1}}
 
-% Nicer labels and references for chapters, sections and figures
+\newcounter{ListLength}
+\newcommand{\getlength}[1]{%
+  \setcounter{ListLength}{0}%
+  \def\l{#1}%
+  \foreach \e in \l {\addtocounter{ListLength}{1}}%
+  \def\listlength{\value{ListLength}}%
+}
+
 \newcommand{\archref}[2]{\hyperref[#2]{#1}}
+
+% Singular name, plural name, label, list
+\newcommand{\reflist}[4]{%
+  \getlength{#4}%
+  \ifthenelse{\equal{\listlength}{1}}%
+    {\archref{#1~\ref{#3:#4}}{#3:#4}}%
+    {%
+      \def\l{#4}%
+      \foreach \e [count=\ei] in \l {%
+        \ifthenelse{\equal{\ei}{1}}%
+          {#2~\ref{#3:\e}}%
+          {%
+            \ifthenelse{\equal{\ei}{\listlength}}%
+              {%
+                \ifthenelse{\equal{\listlength}{2}}%
+                  { and \ref{#3:\e}}%
+                  {, and \ref{#3:\e}}%
+              }%
+              {, \ref{#3:\e}}%
+          }%
+      }%
+    }%
+}
+
+
+% Nicer labels and references for chapters, sections, figures, and tables
 \newcommand{\chlab}[1]{\label{chapter:#1}}
-\newcommand{\chref}[1]{\archref{chapter~\ref{chapter:#1}}{chapter:#1}}
-\newcommand{\Chref}[1]{\archref{Chapter~\ref{chapter:#1}}{chapter:#1}}
-\newcommand{\appref}[1]{\archref{appendix~\ref{chapter:#1}}{chapter:#1}}
-\newcommand{\Appref}[1]{\archref{Appendix~\ref{chapter:#1}}{chapter:#1}}
+\newcommand{\chref}[1]{\reflist{chapter}{chapters}{chapter}{#1}}
+\newcommand{\Chref}[1]{\reflist{Chapter}{Chapters}{chapter}{#1}}
+\newcommand{\appref}[1]{\reflist{appendix}{appendices}{chapter}{#1}}
+\newcommand{\Appref}[1]{\reflist{Appendix}{Appendices}{chapter}{#1}}
+\newcommand{\seclab}[1]{\label{section:#1}}
+\newcommand{\secref}[1]{\reflist{section}{sections}{section}{#1}}
+\newcommand{\Secref}[1]{\reflist{Section}{Sections}{section}{#1}}
+\newcommand{\figlab}[1]{\label{figure:#1}}
+\newcommand{\figref}[1]{\reflist{figure}{figures}{figure}{#1}}
+\newcommand{\Figref}[1]{\reflist{Figure}{Figures}{figure}{#1}}
+\newcommand{\tablab}[1]{\label{table:#1}}
+\newcommand{\tabref}[1]{\reflist{table}{tables}{table}{#1}}
+\newcommand{\Tabref}[1]{\reflist{Table}{Tables}{table}{#1}}
+
 \newcommand{\chpageref}[1]{\archref{page~\pageref{chapter:#1}}{chapter:#1}}
 \newcommand{\chPageref}[1]{\archref{Page~\pageref{chapter:#1}}{chapter:#1}}
-\newcommand{\seclab}[1]{\label{section:#1}}
-\newcommand{\secref}[1]{\archref{section~\ref{section:#1}}{section:#1}}
-\newcommand{\Secref}[1]{\archref{Section~\ref{section:#1}}{section:#1}}
 \newcommand{\secpageref}[1]{\archref{page~\pageref{section:#1}}{section:#1}}
 \newcommand{\secPageref}[1]{\archref{Page~\pageref{section:#1}}{section:#1}}
-\newcommand{\figlab}[1]{\label{figure:#1}}
-\newcommand{\figref}[1]{\archref{figure~\ref{figure:#1}}{figure:#1}}
-\newcommand{\Figref}[1]{\archref{Figure~\ref{figure:#1}}{figure:#1}}
 \newcommand{\figpageref}[1]{\archref{page~\pageref{figure:#1}}{figure:#1}}
 \newcommand{\figPageref}[1]{\archref{Page~\pageref{figure:#1}}{figure:#1}}
-\newcommand{\tablab}[1]{\label{table:#1}}
-\newcommand{\tabref}[1]{\archref{table~\ref{table:#1}}{table:#1}}
-\newcommand{\Tabref}[1]{\archref{Table~\ref{table:#1}}{table:#1}}
 \newcommand{\tabpageref}[1]{\archref{page~\pageref{table:#1}}{table:#1}}
 \newcommand{\tabPageref}[1]{\archref{Page~\pageref{table:#1}}{table:#1}}
+
 
 % Chapter and page storage
 \def \CurrChapter {}

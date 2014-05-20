@@ -25,38 +25,46 @@ As discussed in the introduction (\chref{introduction}), biomolecular simulation
 
 In a recent study, El-Kebir, Klau et al. have developed an algorithm that allows for fast and reliable assignment of charge groups~\cite{canzar2012charge}. As this is now optimised, they currently focus on a different step in the parameterisation: that of calculating the atomic partial charges. Currently, these charges are retrieved using complex quantum-mechanical calculations. However, when run on larger molecules, these calculations can take hours or even days to complete. As it is not believed that the algorithms used in these calculations can be improved much further, a different approach is needed for finding atom charges.
 
+\begin{figure}[b!]
+\centering
+\makebox[\linewidth][c]{%
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[width=.8\textwidth]{img/match_target.pdf}
+\caption{Match target.}
+\figlab{match_target}
+\end{subfigure}%
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[width=.8\textwidth]{img/match_none.pdf}
+\caption{Non-matching fragment.}
+\figlab{match_none}
+\end{subfigure}%
+}\\[1em]
+\makebox[\linewidth][c]{%
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[width=.8\textwidth]{img/match_good.pdf}
+\caption{Matching fragment.}
+\figlab{match_good}
+\end{subfigure}%
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[width=.8\textwidth]{img/match_bad.pdf}
+\caption{Matching fragment.}
+\figlab{match_bad}
+\end{subfigure}%
+}
+\caption{Basic fragment matching.}
+\figlab{matching}
+\end{figure}
+
+A possible alternative method of finding atom charges is to exploit the similarity of molecules. The partial charges of an unparameterised molecule can be retrieved from similar fragments of other molecules for which the charges \emph{are} known. In \figref{matching}, the basics of fragment matching are shown. In this case, we are looking for an $N$ atom, with two connected $H$ atoms and a connected $C$ (see \figref{match_target}). As can clearly be seen, \figref{match_none} is not a match, as there are two $C$s connected to the $N$ atom there, and only one $H$. \Figref{match_good, match_bad} show two different fragments that \emph{do} match the target fragment. The $N$ atoms in both molecules are connected to a $C$ and two $H$ atoms. We will discuss fragment matching in more detail in \secref{impl_omfraf}.
+
 \begin{todo}
 \item Replace with fragment matching from presentation;
 \item Update discussion of why it is hard to find charges with reference to matches.
 \end{todo}
-
-A possible alternative method of finding atom charges is to exploit the similarity of molecules and retrieve the partial charges of an unparameterised molecule from similar fragments of other molecules for which the charges \emph{are} known. In \figref{matching}, the basics of fragment matching are shown. In this case, we are looking for a $C$ atom, with three connected $H$ atoms (see \figref{match_1}). \Figref{match_2} shows a matching fragment from a different molecule, that, indeed, consists of a $C$ with three connected $H$s. The fragment shown in \figref{match_3} obviously does not match with the fragment that we are looking for. It does contain two $H$ atoms, but they are connected to an $N$ atom, rather than a $C$. More detailed information on fragment matching can be found in \secref{impl_omfraf}.
-
-\begin{figure}[h!]
-\centering
-\begin{subfigure}[t]{0.29\textwidth}
-\centering
-\includegraphics[width=\textwidth]{img/match_1.png}
-\caption{Molecule fragment, highlighted in green.}
-\figlab{match_1}
-\end{subfigure}%
-\qquad
-\begin{subfigure}[t]{0.29\textwidth}
-\centering
-\includegraphics[width=\textwidth]{img/match_2.png}
-\caption{Matching fragment, highlighted in green.}
-\figlab{match_2}
-\end{subfigure}%
-\qquad
-\begin{subfigure}[t]{0.29\textwidth}
-\centering
-\includegraphics[width=\textwidth]{img/match_3.png}
-\caption{Non-matching fragment, highlighted in red / pink.}
-\figlab{match_3}
-\end{subfigure}
-\caption{Basic fragment matching.}
-\figlab{matching}
-\end{figure}
 
 For an atom, or a set of atoms, usually many matching fragments will be found. Which of those fragments is the best match depends on many factors, including the fragment size and type of molecule they originate from. Due to this, it is currently not possible to fully automate fragment-based parameterisation. Instead, it needs to be done by experienced chemists who have the knowledge about which fragments match well, and which do not. A system is needed that assists them in this process, and allows them to easily compare fragments and molecules.
 
