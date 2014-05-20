@@ -30,15 +30,15 @@ As discussed in \secref{ra_versions}, two different versions of the molecule par
 
 \subsection{Commonalities}
 \seclab{id_common}
-As can be seen in \figref{id_flows}, the two interaction designs share a common start and ending. First of all, the user will need to find a molecule that he wishes to parameterise. The molecule then needs to be inserted into the system, for which the user needs to find a representation of the molecule that the system can work with. It has been decided that this so called molecule data string~(MDS) needs to be in the \verb|SMILES|~\cite{daylight1992daylight}, \verb|InChI|~\cite{heller2013inchi}, or \verb|PDB|~\cite{bernstein1977protein} format, as these are the most commonly used.
+As can be seen in \figref{id_flows}, the two interaction designs share a common start and ending. First of all, the users will need to find a molecule that they wish to parameterise. The molecule then needs to be inserted into the system, for which the users need to find a representation of the molecule that the system can work with. It has been decided that this so called molecule data string~(MDS) needs to be in the \verb|SMILES|~\cite{daylight1992daylight}, \verb|InChI|~\cite{heller2013inchi}, or \verb|PDB|~\cite{bernstein1977protein} format, as these are the most commonly used.
 
 Many users of the system will be familiar with the ATB~\cite{malde2011automated}~(see also \secref{simulations}) and will probably find the molecules they want to parameterise in the ATB repository. Therefore, it should also be possible to use an \verb|ATB molecule ID| as input for the system. From that \verb|ATB ID|, the corresponding \verb|PDB| structure file can be retrieved from the ATB servers, which can then be used in the rest of the process.
 
 After the molecule has been shown to the user, the two versions of the interaction design start to differ. This will be discussed in more detail in the following sections, where \secref{id_naive} discusses the \IDa\ version, and \secref{id_smart} describes the \IDb\ interaction design.
 
-As soon as the molecule has completely been parameterised, the two interaction designs join the same path once more. The user now has the possibility to manually fine-tune the charges, if he feels that this is needed. This can be done by selecting an atom and clicking an ``Edit charge'' button. In order to assist the user in finding a proper charge for the atom, the molecule fragments that have been used to get the current charge can be displayed. As soon as the user feels the assigned charges are correct, he should be able to download a file containing the results of the parameterisation.
+As soon as the molecule has completely been parameterised, the two interaction designs join the same path once more. The users now have the possibility to manually fine-tune the charges, if they feel that this is needed. This can be done by selecting an atom and clicking an ``Edit charge'' button. In order to assist the users in finding a proper charge for the atom, the molecule fragments that have been used to get the current charge can be displayed. As soon as the users feel the assigned charges are correct, they should be able to download a file containing the results of the parameterisation.
 
-In order to reduce the effect of user mistakes on the parameterisation process, every user action can be undone, including the undo action itself. This way, the user does not need to start over completely when he makes a small mistake, such as accidentally selecting the wrong fragment. It also allows for more experimentation, as there are no definitive consequences of any user action~\cite{norman2002design,norman2010gestural}~(see also \secref{design}).
+In order to reduce the effect of user mistakes on the parameterisation process, every user action can be undone, including the undo action itself. This way, the users do not need to start over completely when they make a small mistake, such as accidentally selecting the wrong fragment. It also allows for more experimentation, as there are no definitive consequences of any user action~\cite{norman2002design,norman2010gestural}~(see also \secref{design}).
 
 
 \subsection{\IDA\ version}
@@ -50,7 +50,7 @@ The operation of the \IDa\ version of the tool is shown in \figref{id_flows}. In
 \begin{enumerate}[itemsep=.1em, parsep=.2em, topsep=0em]
 \item The user enters a molecule data string (in \verb|SMILES|, \verb|InChI|, \verb|PDB| format, or using an \verb|ATB molecule ID|). The molecule will be displayed to the user;
 \item The user selects a single atom or a group of \emph{connected} atoms. They need to be connected, since non-connected atoms have different characteristics;
-\item A list of matching fragments will be loaded and shown, ordered by decreasing rating. The user can browse through them, preview the result of selecting that match and, once he has found what he sees as the best available match, select this one;
+\item A list of matching fragments will be loaded and shown, ordered by decreasing rating. The user can browse through them, preview the result of selecting that match and, once they have found what they see as the best available match, select this one;
 \item
   \begin{itemize}[leftmargin=0cm, itemsep=.1em, parsep=.1em]
   \item[] {\bf Fragment only contains unparameterised atoms}:\\
@@ -77,28 +77,28 @@ The operation of the \IDa\ version of the tool is shown in \figref{id_flows}. In
   \begin{itemize}[leftmargin=0cm, itemsep=.1em, parsep=.1em]
   \item[] {\bf User feels charges need to be fine-tuned}:
     \begin{enumerate}
-    \item The user selects the atom whose charge he wants to modify;
+    \item The user selects the atom whose charge they want to modify;
     \item The user clicks the ``Edit charge'' button for that atom;
-    \item The user can now view the fragments that were used to find the charge for this molecule. Using that and potentially other information, he can find a better charge for the atom.
+    \item The user can now view the fragments that were used to find the charge for this molecule. Using that and potentially other information, they can find a better charge for the atom.
     \item The user enters the improved charge in an input field and clicks the ``Apply charge'' button. The charge will be assigned to the atom;
     \item Re-evaluate the conditions of step 6.
     \end{enumerate}
   \item[]{\bf User feels satisfied}:\\Continue to step 7;
   \end{itemize}
-\item The user can now download the result of the parameterisation process. After he has done this, the process has been completed.
+\item The user can now download the result of the parameterisation process. After they have done this, the process has been completed.
 \end{enumerate}
 
 \subsubsection{Motivation}
 As pointed out earlier, it is important to have a non-automatic baseline to see if automation can work at all for a certain tool. This \IDa\ version can serve as that baseline. In this case, however, it might serve as more than just a baseline, as it could also quite possibly be a better fit for the molecule parameterisation task than any automated version. The same was concluded for the naive RPA in~\cite{payne2000varying}, which was largely outperformed by its more automated siblings, but offered great benefits in situations where full control was required.
 
-In the \IDa\ molecule parameterisation tool, the user can manually decide which atoms need to be parameterised and has a clear overview of all matching fragments. Furthermore, he can manually decide what should happen with overlapping fragments and can modify atom charges at any point in the process. This provides the same benefits as the previously discussed naive RPA had.
+In the \IDa\ molecule parameterisation tool, the users can manually decide which atoms need to be parameterised and have a clear overview of all matching fragments. Furthermore, they can manually decide what should happen with overlapping fragments and can modify atom charges at any point in the process. This provides the same benefits as the previously discussed naive RPA had.
 
-Another reason why this \IDa\ version might work better than an automated one, is the fact that this version encourages the exploration of different options. By providing a list of fragments, these can easily be compared, such that the chances of finding the best available matching fragment increase. Furthermore, as the user is free to determine which atoms should be parameterised at which point in time, and is also able to select groups of atoms, he can experiment with the selection size and order, which may lead to better results.
+Another reason why this \IDa\ version might work better than an automated one, is the fact that this version encourages the exploration of different options. By providing a list of fragments, these can easily be compared, such that the chances of finding the best available fragment increase. Furthermore, as the users are free to determine which atoms should be parameterised at which point in time, and are also able to select groups of atoms, they can experiment with the selection size and order, which may lead to better results.
 
 
 \subsection{\IDB\ version}
 \seclab{id_smart}
-Inspired on \verb|LookOut|~\cite{horvitz1999principles}, \verb|SALT|~\cite{marcus1987taking}, and the cooperative RPA from~\cite{payne2000varying}, the \IDb\ version of the tool for molecule parameterisation will continuously make suggestions to the user, about what he should do. After the parameterisation process has been started, the system will continuously propose fragments to the user, which he only needs to accept or reject.
+Inspired on \verb|LookOut|~\cite{horvitz1999principles}, \verb|SALT|~\cite{marcus1987taking}, and the cooperative RPA from~\cite{payne2000varying}, the \IDb\ version of the tool for molecule parameterisation will continuously make suggestions to the users, about what they should do. After the parameterisation process has been started, the system will continuously propose fragments to the users, which they only need to accept or reject.
 
 \subsubsection{Operation}
 The operation of the \IDb\ version of the tool is shown in \figref{id_flows}. In more detail, the complete set of steps required to fully parameterise a molecule is as follows:
@@ -108,7 +108,7 @@ The operation of the \IDb\ version of the tool is shown in \figref{id_flows}. In
 \item The highest rated match is previewed on the molecule. The user can either accept or reject this proposed match;
 \item
   \begin{itemize}[leftmargin=0cm, itemsep=.1em, parsep=.1em]
-  \item[]{\bf Rejected}:\\Remove this match from the list of matching fragments (the user \emph{can} go back to this one if he changes his mind). Back to step 3;
+  \item[]{\bf Rejected}:\\Remove this match from the list of matching fragments (the user \emph{can} go back to this one if they change their mind). Back to step 3;
   \item[] {\bf Accepted}:
     \begin{itemize}[leftmargin=.5cm, itemsep=.1em, parsep=.1em]
     \item[] {\bf Fragment only contains unparameterised atoms}:\\
@@ -126,15 +126,15 @@ The operation of the \IDb\ version of the tool is shown in \figref{id_flows}. In
   \begin{itemize}[leftmargin=0cm, itemsep=.1em, parsep=.1em]
   \item[] {\bf User feels charges need to be fine-tuned}:
     \begin{enumerate}
-    \item The user selects the atom whose charge he wants to modify;
+    \item The user selects the atom whose charge they want to modify;
     \item The user clicks the ``Edit charge'' button for that atom;
-    \item The user can now view the fragments that were used to find the charge for this molecule. Using that and potentially other information, he can find a better charge for the atom.
+    \item The user can now view the fragments that were used to find the charge for this molecule. Using that and potentially other information, they can find a better charge for the atom.
     \item The user enters the improved charge in an input field and clicks the ``Apply charge'' button. The charge will be assigned to the atom;
     \item Re-evaluate the conditions of step 6.
     \end{enumerate}
   \item[]{\bf User feels satisfied}:\\Continue to step 7;
   \end{itemize}
-\item The user can now download the result of the parameterisation process. After he has done this, the process has been completed.
+\item The user can now download the result of the parameterisation process. After they have done this, the process has been completed.
 \end{enumerate}
 
 \subsubsection{Motivation}
@@ -142,7 +142,7 @@ One of the most important reasons for developing a tool for fragment-based molec
 
 By automating certain parts of the parameterisation process, the tool should also be easier to use. One basically only needs to say `yes' or `no' a few times and will therefore find it easy to learn how to use the system. This increases the potential for new people to start using the tool, thereby enhancing its value. Furthermore, it makes sure users do not get lost in a long list of features. Otherwise, users might make the wrong decisions or even stop parameterising completely~\cite{norman2002design}~(see also \secref{design}).
 
-In order to mediate the often occurring problems with automation, the fine-tuning step at the end has been added, based on studies by Norman~\cite{norman1990problem} and Horvitz~\cite{horvitz1999principles}. As there will always be errors in the automatic charge corrections, this provides the user with a way to identify and improve incorrectly assigned atom charges. Providing the user with the means he needs to see how every charge came to be helps him to determine how that charge can be improved.
+In order to mediate the often occurring problems with automation, the fine-tuning step at the end has been added, based on studies by Norman~\cite{norman1990problem} and Horvitz~\cite{horvitz1999principles}. As there will always be errors in the automatic charge corrections, this provides the users with a way to identify and improve incorrectly assigned atom charges. Providing the users with the means they need to see how every charge came to be helps them to determine how that charge can be improved.
 
 
 \subsection{Comparison}
@@ -158,10 +158,10 @@ Brehmer and Munzner have developed a multilevel typology for abstract visualisat
 \end{center}
 \end{figure}
 
-The differences between the two versions are already very apparent in the second step of the parameterisation process, where atom selections are made. In the \IDa\ version, the molecule needs to be presented to the user, after which he can navigate through it and identify an unparameterised atom by selecting it. The \IDb\ version of the system automatically makes atom selections. These only need to be shown to the user, and can be derived from the at that point visible molecule.
+The differences between the two versions are already very apparent in the second step of the parameterisation process, where atom selections are made. In the \IDa\ version, the molecule needs to be presented to the users, after which they can navigate through it and identify an unparameterised atom by selecting it. The \IDb\ version of the system automatically makes atom selections. These only need to be shown to the users, and can be derived from the at that point visible molecule.
 
-In the third step, the parameterisation of the atom, the differences are also clear. In the \IDa\ version, found molecule fragments need to be presented in such way that they can be explored and compared by the user, after which he can select what he considers to be the best available match. The \IDb\ version, on the other hand, only requires the user to accept or reject a fragment. In other words, he needs to discover if a fragment is a good match by browsing through its details and identifying whether it is a good match or not.
+In the third step, the parameterisation of the atom, the differences are also clear. In the \IDa\ version, found molecule fragments need to be presented in such way that they can be explored and compared by the users, after which they can select what they consider to be the best available match. The \IDb\ version, on the other hand, only requires the users to accept or reject a fragment. In other words, they need to discover if a fragment is a good match by browsing through its details and identifying whether it is a good match or not.
 
-Upon acceptance or selection of a fragment, it is possible that a charge conflict occurs (see also \secref{id_naive} and \secref{id_smart}). In the \IDb\ version, these conflicts are resolved automatically, but in the \IDa\ one several solution methods need to be presented, from which the user has to select one. This leads to a great difference in the number of interaction methods that are used in the two versions, as finding the proper solution method can be quite complex.
+Upon acceptance or selection of a fragment, it is possible that a charge conflict occurs (see also \secref{id_naive} and \secref{id_smart}). In the \IDb\ version, these conflicts are resolved automatically, but in the \IDa\ one several solution methods need to be presented, from which the users have to select one. This leads to a great difference in the number of interaction methods that are used in the two versions, as finding the proper solution method can be quite complex.
 
-This contrast in the number of different methods that is required to parameterise a molecule in the two versions is also apparent in the other differing steps. In every of those steps, the \IDb\ version requires less different methods than the \IDa\ one. This means that, in the \IDb\ version, the user has easier access to the information, and can therefore make decisions quicker than in the other version. This does not necessarily mean that this version will take less time to use, as the methods may need to be used more often. What it does mean, however, is that it will be easier to learn how to use the \IDb\ version~\cite{sweller1994cognitive}~(see also \secref{id_learning}).
+This contrast in the number of different methods that is required to parameterise a molecule in the two versions is also apparent in the other differing steps. In every of those steps, the \IDb\ version requires less different methods than the \IDa\ one. This means that, in the \IDb\ version, the users have easier access to the information, and can therefore make decisions quicker than in the other version. This does not necessarily mean that this version will take less time to use, as the methods may need to be used more often. What it does mean, however, is that it will be easier to learn how to use the \IDb\ version~\cite{sweller1994cognitive}~(see also \secref{id_learning}).

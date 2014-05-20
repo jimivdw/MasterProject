@@ -54,7 +54,7 @@ Size-wise, \oapoc{} and \omfraf{} are almost equally large. Both consist of 8 \v
 
 
 \section[\oframp]{The Online tool for Fragment-based Molecule Parameterisation}
-\oframp{} is the central part of the fragment-based molecule parameterisation system. It contains the user interface and connects with \oapoc{} and \omfraf{}. As discussed in \secref{platform}, it has been decided to implement the system as a web application, which the user can simply load in his web browser.
+\oframp{} is the central part of the fragment-based molecule parameterisation system. It contains the user interface and connects with \oapoc{} and \omfraf{}. As discussed in \secref{platform}, it has been decided to implement the system as a web application, which the users can simply load in their web browser.
 
 
 \subsection{Getting started}
@@ -70,7 +70,7 @@ Upon loading \oframp{} for the first time, one should see something similar to w
 
 \Figref{impl_welcome} also shows the basic design of the system. We decided to go for a minimal look with a simple, purely textual logo. Besides the pastel colours of the logo, all text uses a dark shade of grey. Boxes and buttons all have a white background and a light grey, slightly rounded border.
 
-Overly designed shiny elements are known to distract the user from his tasks~\cite{norman1990interfaces}~(see also \secref{design}). In some cases this may be beneficial, but for the purpose of finding a good molecule parameterisation this is undesirable. Therefore, this minimal design tries to make sure the user stays focused on the task that he needs to perform, rather than on using the tool. Furthermore, the tool still looks good and decent, which should prevent the users from distrusting it due to poor design~\cite{norman2002emotion}~(see also \secref{design}).
+Overly designed shiny elements are known to distract users from their tasks~\cite{norman1990interfaces}~(see also \secref{design}). In some cases this may be beneficial, but for the purpose of finding a good molecule parameterisation this is undesirable. Therefore, this minimal design tries to make sure the users stay focused on the task they need to perform, rather than on using the tool. Furthermore, the tool still looks good and decent, which should prevent the users from distrusting it due to poor design~\cite{norman2002emotion}~(see also \secref{design}).
 
 \subsubsection{Submitting a molecule}
 \seclab{impl_inserting}
@@ -137,7 +137,7 @@ In order to start the parameterisation process in the \IDa\ version of \oframp, 
 \figlab{find_1}
 \end{figure}
 
-When a selection has been made, matching fragments will automatically be retrieved from \omfraf~(see \secref{impl_omfraf}). These fragments will be shown in a sidebar on the right-hand side of the screen, and atom selection details will appear on the left-hand side~(see \figref{find_1}). Upon clicking a fragment, its charges will be previewed on the molecule~(see \figref{find_2}). The user can then decide if he wants to apply the charges of this fragment by clicking the `Select fragment' button that appears on the fragment, preview a different fragment by selecting another one, or inspect the fragment in the context of the molecule it originates from by clicking the `Show molecule' button.
+When a selection has been made, matching fragments will automatically be retrieved from \omfraf~(see \secref{impl_omfraf}). These fragments will be shown in a sidebar on the right-hand side of the screen, and atom selection details will appear on the left-hand side~(see \figref{find_1}). Upon clicking a fragment, its charges will be previewed on the molecule~(see \figref{find_2}). The users can then decide if they want to apply the charges of this fragment by clicking the `Select fragment' button that appears on the fragment, preview a different fragment by selecting another one, or inspect the fragment in the context of the molecule it originates from by clicking the `Show molecule' button.
 
 \begin{figure}
 \center
@@ -146,7 +146,7 @@ When a selection has been made, matching fragments will automatically be retriev
 \figlab{find_2}
 \end{figure}
 
-As soon as the user clicks the `Select fragment' button, the charges from that fragment will be copied to the molecule. The selection will be cleared, and, because of that, the list of found fragments will be closed. The user can now select another atom or set of atoms he wants to parameterise, in order to complete the parameterisation. This will be discussed in more detail in \secref{impl_completing}.
+As soon as the users click the `Select fragment' button, the charges from that fragment will be copied to the molecule. The selection will be cleared, and, because of that, the list of found fragments will be closed. The users can now select another atom or set of atoms they want to parameterise, in order to complete the parameterisation. This will be discussed in more detail in \secref{impl_completing}.
 
 \subsubsection{\IDB\ version}
 
@@ -166,7 +166,7 @@ In the \IDb\ version of \oframp, the parameterisation process can be started by 
 \figlab{find_4}
 \end{figure}
 
-The user now needs to decide whether he thinks this proposed fragment is a good match with the molecule. In order to help him to make this decision, he can view the fragment in the context of the molecule it originates from by clicking the `View original' button~(see \figref{find_4}). When he rejects the fragment, the next best rated fragment will be previewed, up until the point where there are no found fragments left. Either the final fragment needs to be accepted then, or the user can undo some of his rejections using the `Undo' button at the top of the page.
+The users now need to decide whether they thinks this proposed fragment is a good match with the molecule. In order to help them make this decision, they can view the fragment in the context of the molecule it originates from by clicking the `View original' button~(see \figref{find_4}). When they reject the fragment, the next best rated fragment will be previewed, up until the point where there are no found fragments left. Either the final fragment needs to be accepted then, or the users can undo some of their rejections using the `Undo' button at the top of the page.
 
 Upon acceptance of a fragment, the charges of that fragment are copied to the molecule. The system will then find another \emph{unparameterised} atom for which fragments will be proposed. This atom is preferably connected to the last accepted fragment, or, when no unparameterised atoms are neighbouring that fragment, positioned on the edge of the molecule. The user can now continue to parameterise the molecule, which will be discussed in more detail in \secref{impl_completing}.
 
@@ -192,11 +192,11 @@ In some cases, it can happen that no matching fragments are found for an atom. T
 \figlab{finished}
 \end{figure}
 
-When a charge has been assigned to all \emph{parameterisable} atoms~(i.e.\ atoms for which fragments can be found), the user will be notified of this with a pop-up similar to the one shown in \figref{finished}. As it says there, he can now fine-tune the atom charges~(see below), download the resulting parameterisation, or enter a new molecule.
+When a charge has been assigned to all \emph{parameterisable} atoms~(i.e.\ atoms for which fragments can be found), the users will be notified of this with a pop-up similar to the one shown in \figref{finished}. As it says there, they can now fine-tune the atom charges~(see below), download the resulting parameterisation, or enter a new molecule.
 
 \subsubsection{Fine-tuning charges}
 \seclab{impl_finetuning}
-Charges of fragments of molecules will often not precisely match the charges of another molecule. Therefore, the user has the ability to manually adjust atom charges when he wishes to do so. In order to do this, he needs to select the atoms he wishes to adjust the charges for. In the selection details panel, the `Show' button in the `Selected atoms' row should be clicked. A table containing detailed information about the atom will be shown, as can be seen in \figref{editing}.
+Charges of fragments of molecules will often not precisely match the charges of another molecule. Therefore, the users have the ability to manually adjust atom charges when they wish to do so. In order to do this, they needs to select the atoms they wish to adjust the charges for. In the selection details panel, the `Show' button in the `Selected atoms' row should be clicked. A table containing detailed information about the atom will be shown, as can be seen in \figref{editing}.
 
 \begin{figure}
 \center
@@ -222,7 +222,7 @@ In order to help new users learn to use the system, we have developed a Demo mod
 \figlab{demo_1}
 \end{figure}
 
-The Demo mode will guide the user through the basic steps that are required to completely parameterise a molecule. He will receive detailed instructions on what buttons to press at which time, and other buttons will be disabled. Upon starting the demo mode, one should see something similar to what is shown in \figref{demo_1}. A simple molecule data string will be automatically be entered into the input field, to ensure that the system can easily be explained with that molecule.
+The Demo mode will guide the users through the basic steps that are required to completely parameterise a molecule. They will receive detailed instructions on what buttons to press at which time, and other buttons will be disabled. Upon starting the demo mode, one should see something similar to what is shown in \figref{demo_1}. A simple molecule data string will automatically be entered into the input field, to ensure that this is a molecule that can be used to easily explain how to use the system.
 
 \begin{figure}
 \center
@@ -235,7 +235,7 @@ The user will be guided through most aspects of \oframp, including interaction w
 
 \subsubsection{Modifying visualisation parameters}
 \seclab{impl_settings}
-Research on both data visualisation in general~\cite{gallopoulos1994computer}~(see also \secref{design}) and molecule visualisation in particular~\cite{aksela2008computer,taylor2013interface}~(see also \secref{ms_requirements}) has shown that being able to modify visualisation parameters at runtime will greatly enhance the user experience and help him to carry out the task he intends to complete. Therefore, most of the molecule visualisation parameters, such as the atom radius or grouping of $H$ atoms, can dynamically be modified. This is not included in the demo, but information about it can be found on the \oframp{} Help pages.
+Research on both data visualisation in general~\cite{gallopoulos1994computer}~(see also \secref{design}) and molecule visualisation in particular~\cite{aksela2008computer,taylor2013interface}~(see also \secref{ms_requirements}) has shown that being able to modify visualisation parameters at runtime will greatly enhance the user experience and help them to carry out the task they intend to complete. Therefore, most of the molecule visualisation parameters, such as the atom radius or grouping of $H$ atoms, can dynamically be modified. This is not included in the demo, but information about it can be found on the \oframp{} Help pages.
 
 \subsubsection{Help}
 \seclab{impl_help}
