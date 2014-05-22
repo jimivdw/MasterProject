@@ -17,27 +17,29 @@ From the logging system that was built into \oframp{} for the user studies, a wi
 
 \subsection{Time required}
 \seclab{res_time}
-First of all, it is interesting to see in which version users spent the most time to fully parameterise the molecules. \Figref{graph_time_1} shows the total time that was required for both the first and second set of molecules, in both the \IDa\ and \IDb\ version of \oframp. What can be seen here is that, for both the first and second set of molecules, users needed more time to complete the parameterisation using the \IDa\ version. Users who started with the \IDa\ version used the most time overall, with a median total time of around 300 seconds. Those same users spent the least time on the \IDb\ version, where the median time value is around 100 seconds. At around 200 and 150 seconds, one can find the median times required by the users who did the \IDa\ version second and the \IDb\ version first respectively.
+First of all, it is interesting to see in which version users spent the most time to fully parameterise the molecules. \Figref{graph_time_1} shows the total time that was required for both the first and second set of molecules, in both the \IDa\ and \IDb\ version of \oframp. Note that here, and in the subsequent graphs, the group that did the \IDa\ version first is the same group of people that did the \IDb\ version second, and vice versa for the other group.
 
-\begin{figure}
+\begin{figure}[h!]
 \center
 \includegraphics[width=.6\textwidth]{img/graphs/1a_02.pdf}
-\caption{Total parameterisation time for the two versions in the two orders.}
+\caption{Total time for the \nth{1} and \nth{2} set of molecules for both versions.}
 \figlab{graph_time_1}
 \end{figure}
 
+What can be seen in \figref{graph_time_1} is that, for both the first and second set of molecules, users needed more time to complete the parameterisation using the \IDa\ version. Users who started with the \IDa\ version used the most time overall, with a median total time of around 300 seconds. Those same users spent the least time on the \IDb\ version, where the median time value is around 100 seconds. At around 150 and 180 seconds, one can find the median times required by the users who did the \IDb\ version first and the \IDa\ version second respectively.
+
 The total time used to parameterise the first and second sets of molecules can be used to determine which version of \oframp{} is the most time-consuming. However, as both sets of molecules have slightly varying molecule sizes, it may be more interesting to look at the average time that was required per atom. This can be seen in \figref{graph_time_2}.
 
-\begin{figure}
+\begin{figure}[h!]
 \center
 \includegraphics[width=.6\textwidth]{img/graphs/1a_03.pdf}
-\caption{Average time per atom for the two versions in the two orders.}
+\caption{Average time per atom for the \nth{1} and \nth{2} set of molecules for both versions.}
 \figlab{graph_time_2}
 \end{figure}
 
-What is interesting to see here, is the fact that, where in the total parameterisation time, the group that did the \IDb\ version second was done the fastest, its members have spent the most time on average per atom. When taking a closer look at \figref{graph_time_3} and \figref{graph_time_4}, which show the average time per atom required for all molecules separately, this difference appears to be caused completely by the excessive amount of time users spent on parameterising molecule 13913 in the \IDb\ version. This is the first molecule users got to parameterise after they completed the \IDa\ variant. Even more interesting to see is the fact that most users spent more time on this 11-atom molecule than they did on the larger 77-atom molecule 17738.
+What is interesting to see here, is the fact that, where in the total parameterisation time, the group that did the \IDb\ version second was done the fastest, its members have spent the most time on average per atom. When taking a closer look at \figref{graph_time_3, graph_time_4}, which show the average time per atom for all molecules separately, this difference appears to be caused completely by the excessive amount of time users spent on parameterising molecule 13913 in the \IDb\ version. This is the first molecule users got to parameterise after they completed the \IDa\ variant.
 
-\begin{figure}
+\begin{figure}[h!]
 \centering
 \begin{subfigure}[t]{0.48\textwidth}
 \centering
@@ -52,41 +54,43 @@ What is interesting to see here, is the fact that, where in the total parameteri
 \caption{Larger molecules.}
 \figlab{graph_time_4}
 \end{subfigure}
-\caption{Average time per atom for all molecules in the two orders.}
+\caption{Average time per atom for all molecules for both versions.}
 \figlab{graph_time_34}
 \end{figure}
 
 It is hard to say what exactly is causing this difference. It is possible that, after using the \IDa\ version, it is hard to get used to the \IDb\ version, which is way more restrictive as to what a user can do. This difference is not present when switching from the \IDb\ to the \IDa\ version, which can either mean that this switch is easier to make, or that there must be a different cause of the large time difference.
 
-Another possible explanation for the large increase in time required for parameterising molecule 13913 is that there may not be really good matching fragments, enforcing the user to browse through many of them before being able to select what they consider to be the best one. This is better facilitated by the \IDa\ version of the tool, and can potentially have the extreme effects that are observed here.
+Another possible explanation for the large increase in time required for parameterising molecule 13913 is that good matching fragments may not occur in the used repository, enforcing the user to browse through many of them before finding an acceptable one. This is better facilitated by the \IDa\ version of the tool, and can potentially have the extreme effects that are observed here.
 
 
 \subsection{Parameterisation rating}
 \seclab{res_rating}
 
-\begin{figure}
+Not only the time required by the parameterisation tool can be used to assess the two interaction designs, the quality of the result is also of great importance. As discussed in \secref{ev_analysis}, there are two ways of calculating this quality rating. First, the total difference between the charge found by the user and the charge present in the ATB is shown in \figref{graph_rating_1}. As this difference can easily be observed and corrected by the user, it would be expected that it would be relatively close to 0. This, however, turns out not to be the case. Especially in the \IDb\ version of \oframp, the charge difference can get quite high, and is greater than the charge difference for the \IDa\ version in any case.
+
+\begin{figure}[h!]
 \center
 \includegraphics[width=.6\textwidth]{img/graphs/1a_00.pdf}
-\caption{Total charge difference for the two versions in the two orders.}
+\caption{Total charge difference for the \nth{1} and \nth{2} set of molecules for both versions.}
 \figlab{graph_rating_1}
 \end{figure}
-
-Not only the time required by the parameterisation tool can be used to assess the two interaction designs, the quality of the result is also of great importance. As discussed in \secref{ev_analysis}, there are two ways of calculating this quality rating. First, the total difference between the charge found by the user and the charge present in the ATB is shown in \figref{graph_rating_1}. As this difference can easily be observed and corrected by the user, it would be expected that it would be relatively close to 0. This, however, turns out not to be the case. Especially in the \IDb\ version of \oframp, the charge difference can get quite high, and is greater than the charge difference for the \IDa\ version in any case.
 
 What is also interesting to note here is the fact that, for both the \IDa\ and the \IDb\ version of \oframp, the total charge difference is higher for the second set of molecules. This may indicate that these molecules are harder to parameterise, or that there are no good matching fragments available for those molecules. However, it may also indicate that users were starting to lose their concentration, or were confused due to the switch from one version to another.
 
 Whereas the difference in the total molecule charge can mainly be used to assess user performance, the correctness of the parameterisation can better be measured using the per-atom charge differences. \Figref{graph_rating_2} shows these differences for the first and second set of molecules, both for the \IDa\ and \IDb\ version of \oframp. As can be seen in that graph, charge differences are, again, smaller for the \IDa\ version than they are for the \IDb\ version.
 
-\begin{figure}
+\begin{figure}[h!]
 \center
 \includegraphics[width=.6\textwidth]{img/graphs/1a_01.pdf}
-\caption{Average charge difference per atom for the two versions in the two orders.}
+\caption{Average charge difference for the \nth{1} and \nth{2} set of molecules for both versions.}
 \figlab{graph_rating_2}
 \end{figure}
 
 In contrast to the total charge differences though, the average charge differences for the second set of molecules are smaller than those for the first set. This suggests the opposite of what was concluded from \figref{graph_rating_1}: the second set of molecules may be easier to parameterise, or there may be better matching fragments available. This suggestion is more probable, as, for the total charge difference, a negative offset between two atom charges can be compensated by a positive offset in two others. This is not the case for the per-atom difference.
 
-\begin{figure}
+As can be seen in \figref{graph_rating_34}, the \IDa\ version of \oframp{} scores better for all individual molecules. What can also be seen there is the fact that, even on average, the charge differences are bigger for the larger molecules than for the smaller ones. Unfortunately, there is no obvious explanation for this. Probably, larger fragments are used for the larger molecules. When one of those fragments is bad, it quickly adds up to the atom charge difference. On the other hand, it is also possible that users felt more comfortable selecting small fragments, which are generally worse matches than the large ones, due to less atoms matching between the two molecules.
+
+\begin{figure}[h!]
 \centering
 \begin{subfigure}[t]{0.48\textwidth}
 \centering
@@ -101,70 +105,68 @@ In contrast to the total charge differences though, the average charge differenc
 \caption{Larger molecules.}
 \figlab{graph_rating_4}
 \end{subfigure}
-\caption{Average charge difference per atom for all molecules in the two orders.}
+\caption{Average charge difference per atom for all molecules for both versions.}
 \figlab{graph_rating_34}
 \end{figure}
-
-As can be seen in \figref{graph_rating_34}, the \IDa\ version of \oframp{} scores better for all individual molecules. What can also be seen there is the fact that, even on average, the charge differences are bigger for the larger molecules than for the smaller ones. Unfortunately, there is no obvious explanation for this. Probably, larger fragments are used for the larger molecules. When one of those fragments is bad, it quickly adds up to the atom charge difference. On the other hand, it is also possible that users felt more comfortable selecting small fragments, which are generally worse matches than the large ones, due to less atoms matching between the two molecules.
 
 
 \subsection{Other results}
 \seclab{res_other}
 
-\begin{figure}
+Besides the time required to complete the parameterisation and its rating, some other interesting things were observed in the user studies. First of all, there appears to be a great correlation between the version of \oframp{} that is used and the amount of actions a user needs to undo, as we can see in \figref{graph_undo}. Where, in the \IDa\ version, users practically do not undo any action, there are extreme cases where a user undid over a hundred actions in the \IDb\ version. This difference can be explained by the fact that users of the \IDb\ version have to undo accidentally rejected fragments, or may use a combination of reject and undo actions to compare various fragments.
+
+\begin{figure}[h!]
 \center
 \includegraphics[width=.6\textwidth]{img/graphs/1a_10.pdf}
-\caption{Number of undo actions for the two versions in the two orders.}
+\caption{Number of undo actions for the \nth{1} and \nth{2} set of molecules for both versions.}
 \figlab{graph_undo}
 \end{figure}
 
-Besides the time required to complete the parameterisation and its rating, some other interesting things were observed in the user studies. First of all, there appears to be a great correlation between the version of \oframp{} that is used and the amount of actions a user needs to undo, as we can see in \figref{graph_undo}. Where, in the \IDa\ version, users practically do not undo any action, there are extreme cases where a user undid over a hundred actions in the \IDb\ version. This difference can be explained by the fact that users of the \IDb\ version have to undo accidentally rejected fragments, or may use a combination of reject and undo actions to compare various fragments.
+As can be seen in \figref{graph_clicks}, a few more clicks are required to complete a parameterisation in the \IDb\ version of the tool, than in the \IDa\ version. Nevertheless, the medians are not too far apart, so it is not really possible to draw any conclusions from this. It is interesting to see, however, that even though the \IDb\ version of \oframp{} requires less user interaction, is does not require less, and possibly even more clicks to complete a parameterisation.
 
-\begin{figure}
+\begin{figure}[h!]
 \center
 \includegraphics[width=.6\textwidth]{img/graphs/1a_04.pdf}
-\caption{Total number of clicks for the two versions in the two orders.}
+\caption{Total number of clicks for the \nth{1} and \nth{2} set of molecules for both versions.}
 \figlab{graph_clicks}
 \end{figure}
 
-As can be seen in \figref{graph_clicks}, a few more clicks are required to complete a parameterisation in the \IDb\ version of the tool, than there are in the \IDa\ version. Nevertheless, the medians are not too far apart, so it is not really possible to draw any conclusions from this. It is interesting to see, however, that even though the \IDb\ version of \oframp{} requires less user interaction, is does not require less, and possibly even more clicks to complete a parameterisation.
+\Figref{graph_help} shows that not many users consulted the help pages during the parameterisation process, even though they were made aware of their existence. Furthermore, no users checked the help pages in their second version of the system. This can mean that either they did not know there were different versions of the help pages, or they did not need it any more. The fact that most users did not go to the help pages at all suggests that the tool is intuitive to use, and that taking the demo provides enough information to be able to use \oframp.
 
-\Figref{graph_help} shows that not many users had to consult the help pages during the parameterisation process. Furthermore, no users checked the help pages in their second version of the system. This can mean that either they did not know there were different versions of the help pages, or they did not need it any more. The fact that most users did not go to the help pages at all suggests that the tool is intuitive to use, and that taking the demo provides enough information to be able to use \oframp.
-
-\begin{figure}
+\begin{figure}[h!]
 \center
 \includegraphics[width=.6\textwidth]{img/graphs/1b_01.pdf}
-\caption{Total number of clicks on the help button for the two versions in the two orders.}
+\caption{Total number of clicks on the help button for the \nth{1} and \nth{2} set of molecules for both versions.}
 \figlab{graph_help}
 \end{figure}
 
 There are also a few things users did not do at all. They were not required or instructed to use every aspect of \oframp, but it was expected that they would at least try some of the more advanced features. First, none of the users used any of the available keyboard shortcuts. Although all actions for which a keyboard shortcut exists can also be completed using a single mouse click, it was expected that some users would find it beneficial to use keyboard shortcuts for some actions.
 
-Furthermore, and more surprisingly, none of the users manually edited a single atom charge. Again, they were not specifically instructed to do so, but they were made aware of the possibility of doing this, and instructed to make the parameterisation as good as possible. Possibly, they just did not feel the need of it, or thought their parameterisation was perfect the way it was. However, some users commented they were unable to locate the position of the charge edit fields, suggesting otherwise~(see also \secref{res_comments}).
+Furthermore, and more surprisingly, none of the users manually edited a single atom charge. Again, they were not specifically instructed to do so, but they were made aware of the possibility of doing this, and instructed to make the parameterisation as good as possible. Possibly, they just did not feel the need of it, or thought their parameterisation was perfect the way it was. However, as we will see later in \secref{res_comments}, some users commented they would like to see the possibility of manually editing atom charges added to the system, suggesting otherwise.
 
 
 
 \section{Questionnaire outcomes}
-Besides the log files from the users parameterising a few molecules, some more information can be gathered from the questionnaire users were asked to fill in. This includes the results of the combined \verb|SUS| / \verb|UMUX| questionnaire, their preference verdict on the two versions, and other comments about the system. We will discuss all of these in the next sections.
+\oframp\ can also be evaluated using the information gathered from the questionnaire users were asked to fill in. This includes the results of the combined \verb|SUS| / \verb|UMUX| questionnaire, their preference verdict on the two versions, and other comments about the system. We will discuss all of these in the next sections.
 
 
 \subsection{\texttt{SUS} / \texttt{UMUX} results}
 \seclab{res_sus}
 The total \verb|SUS| score of the \IDa\ and \IDb\ versions of the system is shown in \figref{graph_sus_1}. As can be seen here, the \IDa\ version, with a median rating of $76$, scores better than the \IDb\ version, which has a median rating of only $61$. This means that the \IDa\ version scores above the average \verb|SUS| score of 68~\cite{sauro2011measuring}, where the \IDb\ version scores below that. In the adjective rating scale, the \IDa\ version is `good', but the \IDb\ version still scores `OK'~\cite{bangor2009determining}~(see also \secref{ev_analysis}).
 
-\begin{figure}
+\begin{figure}[h!]
 \center
 \includegraphics[width=.32\textwidth]{img/graphs/4a_10.pdf}
 \caption{\texttt{SUS} score of the two versions.}
 \figlab{graph_sus_1}
 \end{figure}
 
-\Figref{graph_sus_2}, where the ratings are shown separately for the two different orders in which the users used the two versions of \oframp, shows a slightly different situation. First of all, it appears that the group that did the \IDa\ version first was less positive in general. With a median grade of only 62, the \IDa\ version scores below average and is rated as just `OK'. Although it is still rated higher than the \IDb\ version, with outliers to very high ratings, the difference in the medians is very small and not really significant.
+\Figref{graph_sus_2} shows the ratings separately for the two different orders in which the users used the two versions of \oframp~(\verb|RF| for \IDa-first and \verb|GF| for \IDb-first). Here, the outcomes are slightly different. First of all, it appears that the group that did the \IDa\ version first was less positive in general. With a median grade of only 62, the \IDa\ version scores below average and is rated as just `OK'. Although it is still rated higher than the \IDb\ version, with outliers to very high ratings, the difference in the medians is very small and not really significant.
 
-\begin{figure}
+\begin{figure}[h!]
 \center
 \includegraphics[width=.6\textwidth]{img/graphs/4b_10.pdf}
-\caption{\texttt{SUS} score of the two versions in the two orders.}
+\caption{\texttt{SUS} score of the two groups for both versions.}
 \figlab{graph_sus_2}
 \end{figure}
 
@@ -172,7 +174,7 @@ For the other group of users, the opposite is true. They already awarded the \ID
 
 The most extremely rated \verb|SUS| questions are shown in \figref{graph_sus_345}. \Figref{graph_sus_3} shows the lowest scoring point for both the \IDa\ and the \IDb\ versions of \oframp, being the answer to the first \verb|SUS| statement: ``I think that I would like to use this system frequently''. Whereas, for the \IDa\ version, most people are neutral, with some agreeing or even fully agreeing with the statement, the median answer in the \IDb\ version was a disagree. This is an important result, as users not liking to use a system frequently is, of course, a bad sign.
 
-\begin{figure}
+\begin{figure}[h!]
 \centering
 \begin{subfigure}[t]{0.32\textwidth}
 \centering
