@@ -2,6 +2,7 @@
 \ProvidesClass{uva-bachelor-thesis}[2012/09/14 Version 0.2 Jimi van der Woning, 2005/06/10 Version 0.1 Rein van den Boomgaard]
 \RequirePackage{graphicx}
 
+\def\concept#1{\gdef\@concept{#1}}
 \def\subtitle#1{\gdef\@subtitle{#1}}
 \def\subsubtitle#1{\gdef\@subsubtitle{#1}}
 \def\organization#1{\gdef\@organization{#1}}
@@ -37,6 +38,13 @@
 	\thispagestyle{empty}
 	\hspace*{1em} 	% a fake element on the page (else texpos absolute option
 			% doesn't work)
+	\ifthenelse{\equal{\concept}{1}}{%
+		\begin{textblock*}{15cm}(5cm, 24cm)%
+			\begin{rotate}{55}%
+				\noindent\scshape\ENORMOUS\textcolor{light}{CONCEPT}%
+			\end{rotate}%
+		\end{textblock*}%
+	}{}
 	\begin{textblock*}{12cm}(5cm,3cm)
 		\noindent\large\scshape Master Software Engineering\\[2ex]
 		\includegraphics[height=1cm]{uva_logo.pdf}

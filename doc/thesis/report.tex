@@ -1,11 +1,18 @@
 \documentclass[twoside,openright,a4paper]{uva-bachelor-thesis}
 
 % Define this when starting to use the template:
+\def\concept{1}
 \def\course{Interaction Design for Fragment-Based Molecule Parameterisation}
-\def\courseshort{ID for Molecule Parameterisation}
+\def\courseshort{Interaction Design for Mol.\ Param.}
 \def\assignment{}
 \def\name{}
-\def\auth{Jimi M. van der Woning}
+\def\auth{%
+  \ifthenelse{\equal{\concept}{1}}{%
+    Concept \today~\currenttime%
+  }{%
+    Jimi M.\ van der Woning%
+  }%
+}
 \def\duedate{\today}
 %\def\org{CWI: Life Sciences and SWAT groups}
 \def\supervis{
@@ -243,7 +250,7 @@
 \title{\course}
 \subtitle{\assignment}
 \subsubtitle{\name}
-\author{Jimi M. van der Woning\\
+\author{Jimi M.\ van der Woning\\
         \url{Jimi.vanderWoning@student.uva.nl}\\
         Student ID 6061400
         }
