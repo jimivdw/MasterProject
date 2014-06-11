@@ -6,13 +6,8 @@
 \def\courseshort{Interaction Design for Mol.\ Param.}
 \def\assignment{}
 \def\name{}
-\def\auth{%
-  \ifthenelse{\equal{\concept}{1}}{%
-    Concept \today~\currenttime%
-  }{%
-    Jimi M.\ van der Woning%
-  }%
-}
+\def\auth{Jimi M.\ van der Woning}
+\def\conc{Concept \today~\currenttime}
 \def\duedate{\today}
 %\def\org{CWI: Life Sciences and SWAT groups}
 \def\supervis{
@@ -138,7 +133,7 @@
 
 \fancyhf{}
 \fancyfoot[LE,RO]{\textit{\thepage}}
-\fancyfoot[RE,LO]{\textit{\auth}}
+\fancyfoot[RE,LO]{\textit{\ifthenelse{\equal{\concept}{1}}{\conc}{\auth}}}
 \fancyhead[RE,LO]{\textit{\courseshort}}
 \fancyhead[LE,RO]{ %
   \ifthenelse{ %
@@ -151,7 +146,7 @@
 \fancypagestyle{plain}{ %
 \fancyhf{} %
 \fancyfoot[LE,RO]{\textit{\thepage}} %
-\fancyfoot[RE,LO]{\textit{\auth}} %
+\fancyfoot[RE,LO]{\textit{\ifthenelse{\equal{\concept}{1}}{\conc}{\auth}}} %
 \renewcommand{\headrulewidth}{0pt} % remove lines as well
 }
 
@@ -250,7 +245,7 @@
 \title{\course}
 \subtitle{\assignment}
 \subsubtitle{\name}
-\author{Jimi M.\ van der Woning\\
+\author{\auth\\
         \url{Jimi.vanderWoning@student.uva.nl}\\
         Student ID 6061400
         }
