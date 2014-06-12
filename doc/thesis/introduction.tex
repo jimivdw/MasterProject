@@ -3,27 +3,17 @@
 
 In the world of biomolecular science, molecular simulations are becoming increasingly important. These simulations are used in many different fields, among which are computational chemistry and drug design. For these simulations, many different parameters are needed, including detailed information about the molecules that will be simulated. One important parameter here is the list of atomic partial charges~(i.e.\ the charges of the individual atoms) of the molecule~(see \chref{analysis}).
 
-Using the current approach of calculating the atomic partial charges, it can take a very long time to find them. Furthermore, this approach is only feasible for small molecules. It is believed that the completion time of this calculation process can only be reduced by improvements in computer hardware. Therefore, in order to speed up the process of finding atomic partial charges, a different approach is needed.
+The current methods for molecule parameterisation use complex quantum-mechanical calculations, that can take a very long time to find the atom charges. Furthermore, performing these calculations is only feasible for small molecules. It is believed that the completion time of this calculation process can only be reduced by improvements in computer hardware. Therefore, in order to speed up the process of parameterising a molecule with atomic partial charges, a different approach is needed.
 
-Similar parts of different molecules often have roughly the same atomic charges. Therefore, it should be possible to find the charges of a molecule using known charges of fragments of other molecules. We expect that experienced chemists will be able to find the best available matching molecule fragment out of a set of possible ones. Therefore, we design a system that allows for manual parameterisation of a molecule using a set of fragments of other molecules.
+Similar parts of different molecules often have roughly the same atomic charges. Therefore, it should be possible to find the atom charges of a molecule using known charges of fragments of other molecules. We expect that experienced chemists will be able to find the best available matching molecule fragment out of a set of possible ones. Therefore, we design a system that allows for manual parameterisation of a molecule using a set of fragments of other molecules.
 
-Given the short problem description above, we formulate the main research question for this project as follows:
-\begin{quote}
-How should chemists interact with a tool for fragment-based molecule parameterisation, such that using this tool yields results of comparable quality to using conventional methods, while taking less time to complete?
-\end{quote}
+As there are currently no existing systems for fragment-based molecule parameterisation, we implement two slightly different variations of such system. We compare these two versions by conducting a user study, in which participants are asked to parameterise a few molecules using both versions of the tool. With the outcomes of the user study, we can determine which of the interaction designs is the best fit for the task of fragment-based molecule parameterisation, and if this task makes any chemical sense at all.
 
-This question can be split up into the following sub-questions:
-\begin{enumerate}
-\item How should chemists interact with a system for finding atomic partial charges using similar fragments of other molecules?
-\item Compared to the computed charges, how accurate are the charges obtained using manual charge assignment?
-\item Is it feasible to do manual partial charge assignment in a reasonable amount of time, i.e.\ faster than performing computations?
-\end{enumerate}
-
-In order to answer these questions, we design and implement two slightly different systems for fragment-based molecule parameterisation. We compare these two versions by conducting a user study, in which participants are asked to parameterise a few molecules. Using the outcomes of the user study, we can determine which of the interaction designs is the best fit for the task of fragment-based molecule parameterisation, and if this task makes any chemical sense at all.
-
-First of all, we found that it \emph{is} possible to parameterise a molecule based on fragments of other molecules, and get a result comparable to that obtained using the conventional quantum-mechanical calculations. Second, it turns out that a system that makes suggestions to the user takes up less time, where one that only reacts to user input yields better results.
+First of all, we found that it \emph{is} possible to parameterise a molecule based on fragments of other molecules, and get a result comparable to that obtained using the conventional quantum-mechanical calculations. Second, it turns out that a system that makes suggestions to the user takes up less time, where one that only reacts to user input yields more accurate results.
 
 In addition to using the system, the participants of the user study are asked to fill in a few questionnaires. An analysis of their answers showed that system users have a strong preference for the version that does not make any suggestions, but instead provides them with full control over the parameterisation process. Using the additional comments they made, we can further improve the design for that version of the system, in order to make it a system that can be of great value in biomolecular research.
+
+On a more general level, the findings of this project suggest that, when developing a system for a new, complex task, it is better not to introduce any automation at all. The lack of clear, validated rules on how to carry out that task may result in worse implementations, or automation of the wrong aspects. For these types of projects, it is better to first establish a set of rules for the task at hand, which can be done using a system in which users have to manually do everything.
 
 
 

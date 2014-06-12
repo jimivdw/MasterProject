@@ -7,7 +7,7 @@ In this chapter, we introduce the problems we aim to solve in this project. We s
 
 \section{Chemical concepts}
 \seclab{chemical}
-Every material is built up out of molecules, consisting of a set of atoms. Each of these atoms has a certain type, such as hydrogen~($H$) or carbon~($C$). The atoms of a molecule are connected via bonds, where there can be multiple bonds between the same atoms. Every atom has a certain charge, which can be positive or negative, and is usually fractional. The molecule itself also has a charge, consisting of the sum of all its individual atom charges.
+Every material is built up out of molecules, consisting of a set of atoms. Each of these atoms has a certain type, such as hydrogen~($H$) or carbon~($C$). The atoms of a molecule are connected via bonds, where there can be multiple bonds between the same atoms. Every atom is parameterised with a certain charge, which can be positive or negative, and is usually fractional. The molecule itself also has a charge, consisting of the sum of all its individual atom charges.
 
 \begin{wrapfigure}{r}{.4\textwidth}
 \vspace{-2em}
@@ -63,7 +63,25 @@ A possible alternative method of finding atom charges is to exploit the similari
 
 As can be seen clearly for the $C$ atom in \figref{match_good, match_bad}, charges in similar fragments can still differ. This is due to the fact that atom charges are not only influenced by their direct neighbours, but also by the structure of the rest of the molecule. Due to this, it is not yet possible to fully automate the fragment-based molecule parameterisation process, as there are currently no known rules as to which aspects of the structure influence the charge in which way.
 
-Instead of automating the process, a tool needs to be developed that allows experienced chemists to manually perform the atom charge assignment using fragments of other molecules. This tool should provide them with a list of matching fragments, and leave it to them to find the fragments that properly match with the molecule. In order to do this, users should be able to check all aspects of the found fragments, as these determine whether a fragment is a good match or not. Additionally, they need to be able to easily compare fragments, both with each other and with the target molecule.
+Instead of automating the process, a tool needs to be developed that allows experienced chemists to manually perform the parameterisation using fragments of other molecules. This tool should provide them with a list of matching fragments, and leave it to them to find the fragments that properly match with the molecule. In order to do this, users should be able to check all aspects of the found fragments, as these determine whether a fragment is a good match or not. Additionally, they need to be able to easily compare fragments, both with each other and with the target molecule.
+
+
+
+\section{Research questions}
+\seclab{id_questions}
+From the short problem description provided in the previous section, we formulate the main research question for this project as follows:
+\begin{quote}
+How should chemists interact with a tool for fragment-based molecule parameterisation, such that using this tool yields results of comparable quality to using conventional methods, while taking less time to complete?
+\end{quote}
+
+This question can be split up into the following sub-questions:
+\begin{enumerate}
+\item Is it feasible to do manual partial charge assignment in a reasonable amount of time, i.e.\ faster than performing computations?
+\item Compared to the computed charges, how accurate are the charges obtained using manual charge assignment?
+\item How should chemists interact with a system for finding atomic partial charges using similar fragments of other molecules?
+\end{enumerate}
+
+The first of these sub-questions is potentially the most important one. When it would not be possible to complete a manual parameterisation in less time than performing computations, there would be no point in doing this manually. This would render the developed tool useless. Additionally, the obtained charges should also not deviate too much from the computed ones, as the results need to be accurate. Therefore, the answer to the second question can also make or break the tool. Finally, the answer to the third sub-question will influence the answers to the other ones, and finding it is the ultimate goal of this project.
 
 
 
