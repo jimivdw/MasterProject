@@ -37,7 +37,7 @@ The total time used to parameterise the first and second sets of molecules can b
 \figlab{graph_time_2}
 \end{figure}
 
-What is interesting to see here, is the fact that, where in the total parameterisation time, the group that did the \IDb\ version second was done the fastest, its members have spent the most time on average per atom. When taking a closer look at \figref{graph_time_3, graph_time_4}, which show the average time per atom for all molecules separately, this difference appears to be caused completely by the excessive amount of time users spent on parameterising molecule 13913 in the \IDb\ version. This is the first molecule users got to parameterise after they completed the \IDa\ variant.
+What is interesting to see here, is the fact that, whereas for the total parameterisation time, the group that did the \IDb\ version second was done the fastest, its members have spent the most time on average per atom. When taking a closer look at \figref{graph_time_3, graph_time_4}, which show the average time per atom for all molecules separately, this difference appears to be caused completely by the excessive amount of time users spent on parameterising molecule 13913 in the \IDb\ version. This is the first molecule users got to parameterise after they completed the \IDa\ variant.
 
 \begin{figure}[h!]
 \centering
@@ -113,7 +113,7 @@ As can be seen in \figref{graph_rating_34}, the \IDa\ version of \oframp{} score
 \subsection{Other results}
 \seclab{res_other}
 
-Besides the time required to complete the parameterisation and its rating, some other interesting things were observed in the user studies. First of all, there appears to be a great correlation between the version of \oframp{} that is used and the amount of actions a user needs to undo, as we can see in \figref{graph_undo}. Where, in the \IDa\ version, users practically do not undo any action, there are extreme cases where a user undid over a hundred actions in the \IDb\ version. This difference can be explained by the fact that users of the \IDb\ version have to undo accidentally rejected fragments, or may use a combination of reject and undo actions to compare various fragments.
+Besides the time required to complete the parameterisation and its rating, some other interesting things were observed in the user studies. First of all, there appears to be a great correlation between the version of \oframp{} that is used and the amount of actions a user needs to undo, as we can see in \figref{graph_undo}. Whereas, in the \IDa\ version, users practically do not undo any action, there are extreme cases where a user undid over a hundred actions in the \IDb\ version. This difference can be explained by the fact that users of the \IDb\ version have to undo accidentally rejected fragments, or may use a combination of reject and undo actions to compare various fragments.
 
 \begin{figure}[h!]
 \center
@@ -152,7 +152,7 @@ Furthermore, and more surprisingly, none of the users manually edited a single a
 
 \subsection{\texttt{SUS} / \texttt{UMUX} results}
 \seclab{res_sus}
-The total \verb|SUS| score of the \IDa\ and \IDb\ versions of the system is shown in \figref{graph_sus_1}. As can be seen here, the \IDa\ version, with a median rating of $76$, scores better than the \IDb\ version, which has a median rating of only $61$. This means that the \IDa\ version scores above the average \verb|SUS| score of 68~\cite{sauro2011measuring}, where the \IDb\ version scores below that. In the adjective rating scale, the \IDa\ version is `good', but the \IDb\ version still scores `OK'~\cite{bangor2009determining}~(see also \secref{ev_analysis}).
+The total \verb|SUS| score of the \IDa\ and \IDb\ versions of the system is shown in \figref{graph_sus_1}. As can be seen here, the \IDa\ version, with a median rating of $76$, scores better than the \IDb\ version, which has a median rating of only $61$. This means that the \IDa\ version scores above the average \verb|SUS| score of 68~\cite{sauro2011measuring}, whereas the \IDb\ version scores below that. On the adjective rating scale, the \IDa\ version is `good', but the \IDb\ version still scores `OK'~\cite{bangor2009determining}~(see also \secref{ev_analysis}).
 
 \begin{figure}[h!]
 \center
@@ -222,7 +222,7 @@ Even though the experiment participants found that there was a good variety of f
 
 There were some critical notes about the user interface as well. Some users found the `finished' popup confusing and annoying. A few users commented that it was hard to keep track of the total molecule charge, and that this should be visible at all times. Others had trouble finding out how to scroll various interface elements, presumably due to the alternatively styled scrollbars.
 
-There were also some disagreements between different users. Where some really liked the colour coding of the atoms, and especially the indication of the conflicting fragments, others found the used colours confusing and suggested using different ones. For the \IDa\ version, it was also noted that it made no real sense for users to manually decide which (group of) atoms needed to be selected, while others highly valued this.
+Disagreements between different users also occurred. Whereas some really liked the colour coding of the atoms, and especially the indication of the conflicting fragments, others found the used colours confusing and suggested using different ones. For the \IDa\ version, it was also noted that it made no real sense for users to manually decide which (group of) atoms needed to be selected, while others highly valued this.
 
 Many users noted that they would like to be able to manually alter or insert charges for certain atoms. As was already suspected from the analysis of the action logs, users did not find the charge edit functionality in the selection details window. A user also commented that it should be possible to see what fragments have been used to parameterise an atom. This is available in the same place where the charges can be edited, and further confirms the idea that this has to be positioned in a more prominent spot, or indicated in a better way.
 
