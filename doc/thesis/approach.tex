@@ -1,11 +1,11 @@
 \chapter{Research approach}
 \chlab{approach}
 
-In this project, as discussed before, we design and implement a tool for fragment-based molecule parameterisation, in order to answer the research questions that were discussed in \chref{introduction}. In this chapter, we discuss the taken approach. 
+In this project, as discussed before, we design and implement a tool for fragment-based molecule parameterisation, in order to answer the research questions that were discussed in \secref{id_questions}. In the current chapter, we discuss the taken approach. 
 
-Since the idea of fragment-based molecule parameterisation is a new concept, it comes as no surprise that there are no existing tools for this. Furthermore, no tools exist that allow for easy comparison of molecules, or molecule fragments, either. This means that there is no baseline to which the developed tool can be compared. In order to still be able to say something about the quality of the tool, we will make two different implementations of it~(see \secref{ra_versions}).
+Since the idea of fragment-based molecule parameterisation is a new concept, it comes as no surprise that there are no existing tools for this. Furthermore, no tools exist that allow for easy comparison of molecules, or molecule fragments, either. This means that there is no baseline to which the developed tool can be compared. In order to still be able to say something about the quality of the tool, we make two different implementations of it~(see \secref{ra_versions}).
 
-In order to evaluate the two implementations, both of them are subjected to a user study~(see \secref{ra_studies}). This will help to determine if the system works properly and whether it is fit for its tasks. Furthermore, this will allow us to answer the project's research questions, and test the hypotheses that will be discussed in \secref{ra_hypotheses}.
+In order to evaluate the two implementations, both of them are subjected to a user study~(see \secref{ra_studies}). This will help to determine if the system works properly and whether it is fit for its tasks. Furthermore, this allows us to answer the project's research questions, and test the hypotheses that will be discussed in \secref{ra_hypotheses}.
 
 
 
@@ -17,7 +17,7 @@ Another possible variable in the tool is the way its users will interact with it
 
 As discussed in \secref{id_automation}, usually three levels of automation are implemented, creating a naive, cooperative and autonomous version of the system~\cite{payne2000varying}. As it is considered hard to parameterise a molecule based on fragments of other molecules, and little is known on what is the best way of doing this, an autonomous version of a tool that does this cannot yet be developed. The other two versions, however, seem to be perfectly implementable and both can be considered useful.
 
-We have therefore decided to implement a naive version of the system that has barely any automation at all, and a cooperative version that will continuously make suggestions to the user. We will call them the \IDa\ and \IDb\ version respectively, to reflect on the fact that the \IDa version only reacts to user input, whereas the \IDb\ version proactively guides the user through the process by continuously making suggestions~(see \secref{id_versions}). Note that the names reflect the system, \emph{not} its user (i.e.\ the reactive system is used proactively by the user, and vice versa). The interaction designs for these two versions are discussed in detail in \chref{design}.
+We have therefore decided to implement a naive version of the system that has barely any automation at all, and a cooperative version that will continuously make suggestions to the user. We will call them the \IDa\ and \IDb\ version respectively, to reflect on the fact that the \IDa\ version only reacts to user input, whereas the \IDb\ version proactively guides the user through the process by continuously making suggestions~(see \secref{id_versions}). Note that the names reflect the system, \emph{not} its user (i.e.\ the reactive system is used proactively by the user, and vice versa). The interaction designs for these two versions are discussed in detail in \chref{design}.
 
 
 
@@ -37,7 +37,7 @@ Even though testing more than two molecules per version of the system would be b
 
 As many of the available participants are scattered around the world, and in order to save time, we have decided to conduct the experiment over the internet. The potential application users are contacted via email, and instructed to use their own machines to run the system. Additionally, they submit the answers to the questionnaires using some online form.
 
-In order to be able to obtain usage statistics from the user studies, an extensive logging mechanism needs to be built into the system. Later, this can be used to precisely reproduce the user's actions. This mediates the loss of information due to the fact that the user studies are performed over the internet, with no human observing the participants. If any odd results are found, the logs can potentially help to pinpoint what went wrong, and, more importantly, it can be used to obtain all kinds of statistics about the molecule parameterisation system.
+In order to be able to obtain usage statistics from the user studies, an extensive logging mechanism needs to be built into the system. Later, this can be used to precisely reproduce the user's actions. This mediates the loss of information due to the fact that the user studies are performed over the internet, with no human observing the participants. If any odd results are found, the logs can potentially help to pinpoint what went wrong, and, more importantly, they can be used to obtain all kinds of statistics about the molecule parameterisation system.
 
 
 
@@ -58,7 +58,7 @@ When the participants of the study on automating RPAs~\cite{payne2000varying} we
 For a tool used for fragment-based molecule parameterisation, it is better for users to have full, manual control, than to automate certain parts.
 \end{quote}
 
-On a more general level, both versions of the interaction design rely on the idea that fragment-based molecule parameterisation should be chemically correct. As this has not been proven yet, we aim to determine if it is possible at all. Both versions of the system will be designed in such way that the user should be able to quickly parameterise a molecule. Furthermore, as it has been proven that properly matching parts of molecules have the same atomic charges, the second, for both versions of the system essential hypothesis, is as follows:
+On a more general level, both versions of the interaction design rely on the idea that fragment-based molecule parameterisation should be chemically correct. As this has not been proven yet, we aim to determine if it is possible at all. Both versions of the system are designed in such way that the user should be able to quickly parameterise a molecule. Furthermore, as it has been proven that properly matching parts of molecules have the same atomic charges, the second, for both versions of the system essential hypothesis, is as follows:
 \begin{quote}
 It is possible to parameterise a molecule based on fragments of other molecules; both accurately and in a reasonable amount of time.
 \end{quote}
