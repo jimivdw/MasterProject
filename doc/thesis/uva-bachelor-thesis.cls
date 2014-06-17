@@ -105,14 +105,15 @@
             \begin{textblock*}{17cm}(2cm, 19cm)
                   \noindent\Large
                   \textbf{Date of public defence:}\\
-                  TBD
+                  \displaydate{defence_date}
             \end{textblock*}
 	      \textblockcolor{White}
             \begin{textblock*}{17cm}(2cm, 21cm)
                   \noindent\Large
                   \textbf{Members of the Thesis Committee:}\\
-                  \textit{TBD}\\
-                  \textit{TBD}
+                  \textit{dr.~Inge Bethke}\\
+                  \textit{prof.~dr.~Paul Klint}\\
+                  \textit{dr.~Tijs van der Storm}
             \end{textblock*}
 	      \textblockcolor{White}
             \begin{textblock*}{16cm}(2.5cm, 25cm)
