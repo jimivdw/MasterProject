@@ -18,6 +18,7 @@
 }
 
 \newdate{swat_pres_date}{16}{05}{2014}
+\newdate{defence_date}{19}{06}{2014}
 
 \definecolor{cwi-red}{cmyk}{0,.9058,.7068,.251}
 \definecolor{cwi-blue}{cmyk}{.7,.4,.4,0}
@@ -29,6 +30,7 @@
 \useinnertheme{rectangles}
 \usecolortheme[named=cwi-blue]{structure}
 \setbeamertemplate{blocks}[default]
+\setbeamercolor{alerted text}{fg=cwi-red}
 \beamertemplatenavigationsymbolsempty
 
 \setbeamertemplate{caption}{%
@@ -45,9 +47,33 @@
 \def\sitem{\item[.2em]}
 
 \title[Interaction Design for Molecule Param.]{Interaction Design for Fragment-Based Molecule Parameterisation}
-\author[Jimi van der Woning]{Jimi M. van der Woning\\\url{Jimi.vanderWoning@student.uva.nl}}
-\institute[UvA, CWI]{\parbox{4.1cm}{\center\scshape\includegraphics[height=1.5cm]{uva_logo}\\[.1cm]University of Amsterdam} \parbox{.5cm}{\center\vspace{1.5cm}\ \\[.1cm]and} \parbox{5.2cm}{\center\scshape\includegraphics[height=1.5cm]{cwi_logo}\\[.1cm]Centrum Wiskunde \& Informatica}\\[1cm]{\bf Supervisors:} Mohammed El-Kebir, Gunnar W. Klau, and Tijs van der Storm}
-\date{\displaydate{swat_pres_date}}
+\author[Jimi van der Woning]{%
+ Jimi M. van der Woning\\%
+ \url{Jimi.vanderWoning@student.uva.nl}%
+}
+\institute[UvA, CWI]{%
+ \parbox{4.1cm}{%
+  \center%
+  \scshape%
+  \includegraphics[height=1.5cm]{uva_logo}\\[.1cm]%
+  University of Amsterdam%
+ }%
+ \parbox{.5cm}{%
+  \center%
+  \vspace{1.5cm}%
+  \ \\[.1cm]%
+  and%
+ }%
+ \parbox{5.2cm}{%
+  \center%
+  \scshape%
+  \includegraphics[height=1.5cm]{cwi_logo}\\[.1cm]%
+  Centrum Wiskunde \& Informatica%
+ }%
+ \\[1cm]%
+ {\bf Supervisors:} Mohammed El-Kebir, Gunnar W. Klau, and Tijs van der Storm%
+}
+\date{\displaydate{defence_date}}
 \ddmmyyyydate
 
 
@@ -60,7 +86,7 @@
 
 
 \begin{frame}
-\titlepage
+ \titlepage
 \end{frame}
 
 
@@ -101,19 +127,21 @@
     \begin{itemize}
      \item<1-> Molecule simulations gain in importance;
      \item<2-> Current methods are too slow;
-     \item<3-> Possible to parameterise a molecule based on fragments of other molecules;
-     \item<4-> No existing software for this.
+     \item<3-> Possible to parameterise a molecule based on fragments of other molecules.
     \end{itemize}
 
    \column{0.6\textwidth}<3->
     \begin{figure}
      \vspace{-1em}
-     \frame{\includegraphics[width=.42\textwidth]{img/match_target.pdf}}%
-     \\[.3cm]
-     \frame{\includegraphics[width=.42\textwidth]{img/match_good.pdf}}%
+     \frame{\image[width=.42\textwidth]{../thesis/img/match_target.pdf}}%
      \qquad
-     \frame{\includegraphics[width=.42\textwidth]{img/match_none.pdf}}
-     \vspace{-.2cm}
+     \frame{\image[width=.42\textwidth]{../thesis/img/match_none.pdf}}%
+     \\[.3cm]
+     \frame{\image[width=.42\textwidth]{../thesis/img/match_good.pdf}}%
+     \qquad
+     \frame{\image[width=.42\textwidth]{../thesis/img/match_bad.pdf}}%
+     \\[.3cm]
+     \vspace{-.5cm}
      \caption{Fragment matching.}
     \end{figure}
   \end{columns}
@@ -121,21 +149,31 @@
 
 
 
+\section{Research questions}
+\begin{frame}{x}{}
+ \begin{center}
+  \textit{How should chemists interact with a tool for fragment-based molecule parameterisation, such that using this tool yields results of comparable quality to using conventional methods, while taking less time to complete?}
+ \end{center}
+ \begin{enumerate}
+  \item<2-> Is it feasible to do manual partial charge assignment in a reasonable amount of time, i.e.\ faster than performing computations?
+  \item<3-> Compared to the computed charges, how accurate are the charges obtained using manual charge assignment?
+  \item<4-> How should chemists interact with a system for finding atomic partial charges using fragments of other molecules?
+ \end{enumerate}
+\end{frame}
+
+
+
 \section{Approach}
 \begin{frame}{x}{}
-\begin{itemize}
-\item<1-> Design and implement two versions:
-      \begin{itemize}
-      \sitem Consuming: non-automated;
-      \sitem Producing: semi-automatic.
-      \end{itemize}
-\item<2-> Use external tools for:
-      \begin{itemize}
-      \sitem Molecule visualisation: \texttt{OpenBabel}~\cite{oboyle2011open};
-      \sitem Fragment finding: \texttt{mop/fragments}~\cite{elkebir2014molecule}.
-      \end{itemize}
-\item<3-> Compare in a user study.
-\end{itemize}
+ \begin{itemize}
+  \item<1-> No existing systems;
+  \item<2-> Design, implement, and compare two versions;
+  \item<3-> Use external tools for:
+   \begin{itemize}
+    \sitem Molecule visualisation: \texttt{OpenBabel}~\cite{oboyle2011open};
+    \sitem Fragment finding: \texttt{mop/fragments}~\cite{elkebir2014molecule}.
+   \end{itemize}
+ \end{itemize}
 \end{frame}
 
 
@@ -144,24 +182,24 @@
 \begin{frame}{x}{}
  \begin{columns}
   \column{.45\textwidth}
-   \begin{block}{Consuming version}
+   \begin{block}{Reactive version}
     \begin{enumerate}
      \item<2-> Insert a molecule;
-     \item<3-> Select atom(s);
-     \item<4-> Compare fragments;
-     \item<5-> Pick a fragment;
+     \item<3-|alert@11> Select atom(s);
+     \item<4-|alert@11> Compare fragments;
+     \item<5-|alert@11> Pick a fragment;
      \item<9-> Fine-tune charges;
      \item<10-> Download result.
     \end{enumerate}
    \end{block}
 
   \column{.45\textwidth}
-   \begin{block}{Producing version}
+   \begin{block}{Proactive version}
     \begin{enumerate}
      \item<2-> Insert a molecule;
-     \item<6-> Click ``Start'' button;
-     \item<7-> Inspect suggested fragment;
-     \item<8-> Accept/Reject fragment;
+     \item<6-|alert@11> Click ``Start'' button;
+     \item<7-|alert@11> Inspect suggested fragment;
+     \item<8-|alert@11> Accept/Reject fragment;
      \item<9-> Fine-tune charges;
      \item<10-> Download result.
     \end{enumerate}
@@ -174,36 +212,40 @@
 
 \section{Implementation}
 \begin{frame}{x}{}
-\vspace{-1.2em}
-\mbox{The Online tool for Fragment-based Molecule Parameterisation (\textsc{OFraMP})}
-\begin{center}
-Demonstration: parameterisation of propanamide~(\texttt{NC(=O)CC}).
-\end{center}
-\vspace{-.8em}
-\begin{figure}
-\image[width=.8\textwidth]{img/demo.png}
-\end{figure}
+ \vspace{-1.2em}
+ \mbox{The Online tool for Fragment-based Molecule Parameterisation (\textsc{OFraMP})}
+ \begin{center}
+  Demonstration: parameterisation of propanamide~(\texttt{NC(=O)CC}).
+ \end{center}
+ \vspace{-.8em}
+ \begin{figure}
+  \image[width=.8\textwidth]{img/demo.png}
+ \end{figure}
 \end{frame}
 
 
 
 \section{Evaluation}
 \begin{frame}{x}{}
-\begin{itemize}
-\item<1-> User study:
-\begin{itemize}
-\sitem Two groups;
-\sitem One group consuming first, other producing;
-\sitem Two molecules per version;
-\sitem SUS questionnaire for each version;
-\sitem General questionnaire.
-\end{itemize}
-\item<2-> 16 computational chemists invited, 10 participated:
-\begin{itemize}
-\sitem 6 consuming-first;
-\sitem 4 producing-first.
-\end{itemize}
-\end{itemize}
+ \begin{itemize}
+  \item<1-> On-line user study;
+   \begin{itemize}
+    \sitem 16 computational chemists invited, 10 participated.
+   \end{itemize}
+  \item<2-> Two groups:
+   \begin{itemize}
+    \sitem Reactive-first: 6;
+    \sitem Proactive-first: 4.
+   \end{itemize}
+  \item<3-> For each version:
+   \begin{enumerate}
+    \sitem Take the guided demo;
+    \sitem Parameterise a small molecule;
+    \sitem Parameterise a large molecule;
+    \sitem Rate using SUS questionnaire.
+   \end{enumerate}
+  \item<4-> General questionnaire at the end.
+ \end{itemize}
 \end{frame}
 
 \section{Results}
@@ -228,12 +270,12 @@ Demonstration: parameterisation of propanamide~(\texttt{NC(=O)CC}).
  \begin{columns}
   \column{.45\textwidth}
    \begin{itemize}
-    \item Consuming version: 76
+    \item Reactive version: 76
      \begin{itemize}
       \sitem \emph{Above} average~\cite{sauro2011measuring};
       \sitem `Good'~\cite{bangor2009determining}.
      \end{itemize}
-    \item Producing version: 61
+    \item Proactive version: 61
      \begin{itemize}
       \sitem \emph{Below} average~\cite{sauro2011measuring};
       \sitem `OK'~\cite{bangor2009determining}.
@@ -256,7 +298,7 @@ Demonstration: parameterisation of propanamide~(\texttt{NC(=O)CC}).
  \begin{columns}
   \column{.45\textwidth}
    \begin{itemize}
-    \item<1-> \emph{All} users preferred consuming version;
+    \item<1-> \emph{All} users preferred reactive version;
     \item<2-> Interface very clear and responsive;
     \item<3-> Easy to learn;
    \end{itemize}
@@ -274,8 +316,8 @@ Demonstration: parameterisation of propanamide~(\texttt{NC(=O)CC}).
   \column{.45\textwidth}
    \begin{itemize}
     \item<7-> `Finished' popup confusing;
-    \item<8-> Fragment matching not perfect;
-    \item<9-> Charge edit missing.
+    \item<8-> Charge edit missing;
+    \item<9-> Fragment matching not perfect.
    \end{itemize}
 
   \column{.45\textwidth}
@@ -289,12 +331,12 @@ Demonstration: parameterisation of propanamide~(\texttt{NC(=O)CC}).
 \section{Conclusion}
 \begin{frame}{x}{}
 \begin{itemize}
-\item<1-> Designed and implemented two variations of a system for fragment-based molecule parameterisation;
-\item<2-> Fragment-based molecule parameterisation \emph{is} possible;
-\item<3-> Producing version is quicker;
-\item<4-> Consuming version yields more accurate results;
-\item<5-> Consuming version was preferred by the users;
-\item<6-> With a few improvements, \textsc{OFraMP} will be of great value.
+\item<1-> Fragment-based molecule parameterisation \emph{is} possible;
+\item<2-> Proactive version is quicker;
+\item<3-> Reactive version yields more accurate results;
+\item<4-> Reactive version was preferred by the users;
+\item<5-> With a few improvements, \textsc{OFraMP} will be of great value;
+\item<6-> In general, non-automated systems might work better for complex, unexplored tasks.
 \end{itemize}
 \end{frame}
 
