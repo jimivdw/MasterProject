@@ -127,7 +127,8 @@
     \begin{itemize}
      \item<1-> Molecule simulations gain in importance;
      \item<2-> Current methods are too slow;
-     \item<3-> Possible to parameterise a molecule based on fragments of other molecules.
+     \item<3-> Possible to parameterise a molecule based on fragments of other molecules;
+     \item<4-> Only doable by chemists.
     \end{itemize}
 
    \column{0.6\textwidth}<3->
@@ -151,13 +152,10 @@
 
 \section{Research questions}
 \begin{frame}{x}{}
- \begin{center}
-  \textit{How should chemists interact with a tool for fragment-based molecule parameterisation, such that using this tool yields results of comparable quality to using conventional methods, while taking less time to complete?}
- \end{center}
  \begin{enumerate}
-  \item<2-> Is it feasible to do manual partial charge assignment in a reasonable amount of time, i.e.\ faster than performing computations?
-  \item<3-> Compared to the computed charges, how accurate are the charges obtained using manual charge assignment?
-  \item<4-> How should chemists interact with a system for finding atomic partial charges using fragments of other molecules?
+  \item<1-> Is it feasible to do manual partial charge assignment in a reasonable amount of time, i.e.\ faster than performing computations?
+  \item<2-> Compared to the computed charges, how accurate are the charges obtained using manual charge assignment?
+  \item<3-> How should chemists interact with a system for finding atomic partial charges using fragments of other molecules?
  \end{enumerate}
 \end{frame}
 
@@ -197,7 +195,7 @@
    \begin{block}{Proactive version}
     \begin{enumerate}
      \item<2-> Insert a molecule;
-     \item<6-|alert@11> Click ``Start'' button;
+     \item<6-> Click ``Start'' button;
      \item<7-|alert@11> Inspect suggested fragment;
      \item<8-|alert@11> Accept/Reject fragment;
      \item<9-> Fine-tune charges;
@@ -230,7 +228,8 @@
  \begin{itemize}
   \item<1-> On-line user study;
    \begin{itemize}
-    \sitem 16 computational chemists invited, 10 participated.
+    \sitem 16 computational chemists invited, 10 participated;
+    \sitem Test both versions.
    \end{itemize}
   \item<2-> Two groups:
    \begin{itemize}
@@ -335,7 +334,7 @@
 \item<2-> Proactive version is quicker;
 \item<3-> Reactive version yields more accurate results;
 \item<4-> Reactive version was preferred by the users;
-\item<5-> With a few improvements, \textsc{OFraMP} will be of great value;
+\item<5-> With a few improvements, \textsc{OFraMP} reactive will be of great value;
 \item<6-> In general, non-automated systems might work better for complex, unexplored tasks.
 \end{itemize}
 \end{frame}
