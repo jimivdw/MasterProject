@@ -1,0 +1,297 @@
+\documentclass{beamer}
+
+\usepackage[english,UKenglish]{babel}
+\usepackage{tikz}
+\usepackage{datetime}
+
+\newcommand{\image}[2][]{%
+  \IfFileExists{#2}%
+    {\includegraphics[#1]{#2}}%
+    {%
+      \begingroup\fboxsep=-\fboxrule
+      \fbox{%
+        \rule{150pt}{0pt}%
+        \rule{0pt}{100pt}%
+      }%
+      \endgroup%
+    }%
+}
+
+\newdate{swat_pres_date}{16}{05}{2014}
+\newdate{defence_date}{19}{06}{2014}
+\newdate{vu_pres_date}{25}{06}{2014}
+
+\definecolor{cwi-red}{cmyk}{0,.9058,.7068,.251}
+\definecolor{cwi-blue}{cmyk}{.7,.4,.4,0}
+\definecolor{cwi-green}{cmyk}{.41,.18,.43,.1}
+\definecolor{cwi-orange}{cmyk}{.14,.35,.65,.15}
+\definecolor{cwi-yellow}{cmyk}{.14,.20,.65,.16}
+
+\usetheme{Madrid}
+\useinnertheme{rectangles}
+\usecolortheme[named=cwi-blue]{structure}
+\setbeamertemplate{blocks}[default]
+\setbeamercolor{alerted text}{fg=cwi-red}
+\beamertemplatenavigationsymbolsempty
+
+\setbeamertemplate{caption}{%
+  \scriptsize%
+    {\usebeamercolor[fg]{section in toc}\insertcaptionname\ \insertcaptionnumber:}%
+    \ \insertcaption%
+}
+
+\newlength{\wideitemsep}
+\setlength{\wideitemsep}{\itemsep}
+\addtolength{\wideitemsep}{.6em}
+\let\olditem\item
+\renewcommand{\item}[1][\wideitemsep]{\setlength{\itemsep}{#1}\olditem}
+\def\sitem{\item[.2em]}
+
+\title[Interaction Design for Molecule Param.]{Interaction Design for Fragment-Based Molecule Parameterisation}
+\author[Jimi van der Woning]{%
+ Jimi M. van der Woning\\%
+ \url{Jimi.vanderWoning@student.uva.nl}%
+}
+\institute[UvA, CWI]{%
+ \parbox{4.1cm}{%
+  \center%
+  \scshape%
+  \includegraphics[height=1.5cm]{uva_logo}\\[.1cm]%
+  University of Amsterdam%
+ }%
+ \parbox{.5cm}{%
+  \center%
+  \vspace{1.5cm}%
+  \ \\[.1cm]%
+  and%
+ }%
+ \parbox{5.2cm}{%
+  \center%
+  \scshape%
+  \includegraphics[height=1.5cm]{cwi_logo}\\[.1cm]%
+  Centrum Wiskunde \& Informatica%
+ }%
+ \\[1cm]%
+ {\bf Supervisors:} Mohammed El-Kebir, Gunnar W. Klau, and Tijs van der Storm%
+}
+\date{\displaydate{vu_pres_date}}
+\ddmmyyyydate
+
+
+
+
+\begin{document}
+
+\setlength{\itemsep}{20pt}
+
+
+
+\begin{frame}
+ \titlepage
+\end{frame}
+
+
+
+\addtobeamertemplate{frametitle}{\def\insertframetitle{\insertsectionhead\ \insertcontinuationcountroman}\let\insertframesubtitle\insertsubsectionhead}{%
+\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north east,yshift=2pt] at (current page.north east) {\includegraphics[height=0.8cm]{cwi_logo}};
+\node[anchor=north east,yshift=2pt,xshift=-2cm] at (current page.north east) {\includegraphics[height=0.8cm]{uva_logo}};
+\end{tikzpicture}}
+
+
+
+\section{Introduction}
+\begin{frame}{x}{}
+  \begin{columns}
+   \column{0.4\textwidth}
+    \begin{itemize}
+     \item<1-> Molecule simulations gain in importance;
+     \item<2-> Current methods are too slow;
+     \item<3-> Possible to parameterise a molecule based on fragments of other molecules;
+     \item<4-> Only doable by chemists.
+    \end{itemize}
+
+   \column{0.6\textwidth}<3->
+    \begin{figure}
+     \vspace{-1em}
+     \frame{\image[width=.42\textwidth]{../thesis/img/match_target.pdf}}%
+     \qquad
+     \frame{\image[width=.42\textwidth]{../thesis/img/match_none.pdf}}%
+     \\[.3cm]
+     \frame{\image[width=.42\textwidth]{../thesis/img/match_good.pdf}}%
+     \qquad
+     \frame{\image[width=.42\textwidth]{../thesis/img/match_bad.pdf}}%
+     \\[.3cm]
+     \vspace{-.5cm}
+     \caption{Fragment matching.}
+    \end{figure}
+  \end{columns}
+\end{frame}
+
+
+
+\section{Interaction Design}
+\begin{frame}{x}{}
+ \begin{columns}
+  \column{.45\textwidth}
+   \begin{block}{Reactive version}
+    \begin{enumerate}
+     \item<2-> Insert a molecule;
+     \item<3-|alert@11> Select atom(s);
+     \item<4-|alert@11> Compare fragments;
+     \item<5-|alert@11> Pick a fragment;
+     \item<9-> Fine-tune charges;
+     \item<10-> Download result.
+    \end{enumerate}
+   \end{block}
+
+  \column{.45\textwidth}
+   \begin{block}{Proactive version}
+    \begin{enumerate}
+     \item<2-> Insert a molecule;
+     \item<6-|alert@11> Click ``Start'' button;
+     \item<7-|alert@11> Inspect suggested fragment;
+     \item<8-|alert@11> Accept/Reject fragment;
+     \item<9-> Fine-tune charges;
+     \item<10-> Download result.
+    \end{enumerate}
+   \end{block}
+
+ \end{columns}
+\end{frame}
+
+
+
+\section{Implementation}
+\begin{frame}{x}{}
+ \vspace{-1.2em}
+ \mbox{The Online tool for Fragment-based Molecule Parameterisation (\textsc{OFraMP})}
+ \begin{center}
+  Demonstration: parameterisation of propanamide~(\texttt{NC(=O)CC}).
+ \end{center}
+ \vspace{-.8em}
+ \begin{figure}
+  \image[width=.8\textwidth]{img/demo.png}
+ \end{figure}
+\end{frame}
+
+
+
+\section{Evaluation}
+\begin{frame}{x}{}
+ \begin{itemize}
+  \item<1-> On-line user study;
+   \begin{itemize}
+    \sitem 16 computational chemists invited, 10 participated;
+    \sitem Test both versions.
+   \end{itemize}
+  \item<2-> Two groups:
+   \begin{itemize}
+    \sitem Reactive-first: 6;
+    \sitem Proactive-first: 4.
+   \end{itemize}
+  \item<3-> For each version:
+   \begin{enumerate}
+    \sitem Take the guided demo;
+    \sitem Parameterise a small molecule;
+    \sitem Parameterise a large molecule;
+    \sitem Rate using SUS questionnaire.
+   \end{enumerate}
+  \item<4-> General questionnaire at the end.
+ \end{itemize}
+\end{frame}
+
+\section{Results}
+\subsection{Time consumption}
+\begin{frame}{x}{}
+\begin{figure}
+\image[width=\textwidth]{../thesis/img/graphs/1a_02.pdf}
+\end{figure}
+\end{frame}
+
+
+\subsection{Result accuracy}
+\begin{frame}{x}{}
+\begin{figure}
+\image[width=\textwidth]{../thesis/img/graphs/1a_01.pdf}
+\end{figure}
+\end{frame}
+
+
+\subsection{Usability rating}
+\begin{frame}{x}{}
+ \begin{columns}
+  \column{.45\textwidth}
+   \begin{itemize}
+    \item Reactive version: 76
+     \begin{itemize}
+      \sitem \emph{Above} average~\cite{sauro2011measuring};
+      \sitem `Good'~\cite{bangor2009determining}.
+     \end{itemize}
+    \item Proactive version: 61
+     \begin{itemize}
+      \sitem \emph{Below} average~\cite{sauro2011measuring};
+      \sitem `OK'~\cite{bangor2009determining}.
+     \end{itemize}
+   \end{itemize}
+
+  \column{.45\textwidth}
+   \begin{figure}
+    \image[width=\textwidth]{../thesis/img/graphs/4a_10.pdf}
+    \vspace{-2em}
+    \caption{SUS scores.}
+   \end{figure}
+
+ \end{columns}
+\end{frame}
+
+
+\subsection{Comments}
+\begin{frame}{x}{}
+ \begin{columns}
+  \column{.45\textwidth}
+   \begin{itemize}
+    \item<1-> \emph{All} users preferred reactive version;
+    \item<2-> Interface very clear and responsive;
+    \item<3-> Easy to learn;
+   \end{itemize}
+
+  \column{.45\textwidth}
+   \begin{itemize}
+    \item<4-> ``Excellent job, quality and functionality!''
+    \item<5-> ``Nice work!''
+    \item<6-> ``I think that the system has great potential!''
+   \end{itemize}
+
+ \end{columns}
+ \vspace{1em}
+ \begin{columns}
+  \column{.45\textwidth}
+   \begin{itemize}
+    \item<7-> `Finished' popup confusing;
+    \item<8-> Charge edit missing;
+    \item<9-> Fragment matching not perfect.
+   \end{itemize}
+
+  \column{.45\textwidth}
+   \ 
+
+ \end{columns}
+\end{frame}
+
+
+
+\section{Conclusion}
+\begin{frame}{x}{}
+\begin{itemize}
+\item<1-> Fragment-based molecule parameterisation \emph{is} possible;
+\item<2-> Proactive version is quicker;
+\item<3-> Reactive version yields more accurate results;
+\item<4-> Reactive version was preferred by the users;
+\item<5-> With a few improvements, \textsc{OFraMP} reactive will be of great value.
+\end{itemize}
+\end{frame}
+
+
+
+\end{document}
