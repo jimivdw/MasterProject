@@ -107,8 +107,7 @@
     \begin{itemize}
      \item<1-> Molecule simulations gain in importance;
      \item<2-> Current methods are too slow;
-     \item<3-> Possible to parameterise a molecule based on fragments of other molecules;
-     \item<4-> Only doable by chemists.
+     \item<3-> Possible to parameterise a molecule based on fragments of other molecules.
     \end{itemize}
 
    \column{0.6\textwidth}<3->
@@ -132,32 +131,19 @@
 
 \section{Interaction Design}
 \begin{frame}{x}{}
- \begin{columns}
-  \column{.45\textwidth}
-   \begin{block}{Reactive version}
-    \begin{enumerate}
-     \item<2-> Insert a molecule;
-     \item<3-|alert@11> Select atom(s);
-     \item<4-|alert@11> Compare fragments;
-     \item<5-|alert@11> Pick a fragment;
-     \item<9-> Fine-tune charges;
-     \item<10-> Download result.
-    \end{enumerate}
-   \end{block}
-
-  \column{.45\textwidth}
-   \begin{block}{Proactive version}
-    \begin{enumerate}
-     \item<2-> Insert a molecule;
-     \item<6-|alert@11> Click ``Start'' button;
-     \item<7-|alert@11> Inspect suggested fragment;
-     \item<8-|alert@11> Accept/Reject fragment;
-     \item<9-> Fine-tune charges;
-     \item<10-> Download result.
-    \end{enumerate}
-   \end{block}
-
- \end{columns}
+ \begin{itemize}
+  \item<1-> No existing systems;
+  \item<2-> Online web tool;
+  \item<3-> Input in \texttt{SMILES}, \texttt{InChI}, or \texttt{PDB} format;
+   \begin{itemize}
+    \sitem Support for \texttt{ATB} IDs.
+   \end{itemize}
+  \item<4-> Two versions:
+   \begin{itemize}
+    \sitem Reactive version;
+    \sitem Proactive version.
+   \end{itemize}
+ \end{itemize}
 \end{frame}
 
 
@@ -225,13 +211,13 @@
    \begin{itemize}
     \item Reactive version: 76
      \begin{itemize}
-      \sitem \emph{Above} average~\cite{sauro2011measuring};
-      \sitem `Good'~\cite{bangor2009determining}.
+      \sitem \emph{Above} average;
+      \sitem `Good'.
      \end{itemize}
     \item Proactive version: 61
      \begin{itemize}
-      \sitem \emph{Below} average~\cite{sauro2011measuring};
-      \sitem `OK'~\cite{bangor2009determining}.
+      \sitem \emph{Below} average;
+      \sitem `OK'.
      \end{itemize}
    \end{itemize}
 
